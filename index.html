@@ -359,7 +359,7 @@ border-right:1.5px solid #777; */
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
-  z-index:5000;
+  z-index:500;
   /* z-index: 100; */
   /* background: white; */
   background: rgba(255,255,255,0.9);
@@ -381,6 +381,18 @@ border-right:1.5px solid #777; */
 
 .right{
   right: 15px;
+}
+
+.menu-overlay{
+  z-index: 999;
+}
+
+.side-menu{
+  z-index: 1000;
+}
+
+.side-menu.active ~ .arrow{
+  display:none;
 }
 
 @media (max-width: 890px) {
