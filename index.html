@@ -81,8 +81,8 @@ body {
   position: relative;
   padding: 20px 80px 20px;
   display: flex;
-  justify-content:space-around;
-  align-items: flex-end;
+  justify-content:flex-start;
+  align-items: center;
   height: calc(100vh - 120px);
   overflow: hidden;
   gap:40px;
@@ -201,8 +201,8 @@ border-right:1.5px solid #777; */
   transform: translateX(-50%);
   top: -500px;
   
-  bottom:auto;
-  height: 790px;
+  bottom:-370px;
+  /* height: 790px; */
   width: 1px;
   background: repeating-linear-gradient(
     to bottom,
@@ -253,6 +253,18 @@ border-right:1.5px solid #777; */
   border:none;
   font-size:30px;
   cursor:pointer;
+  transition:all 0.3s ease;
+}
+
+.arrow:hover{
+  transform: translateY(-50%) scale(1.15);
+  background: grey;
+  box-shadow : 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.left:hover{
+  transform: translateY(-50%) translateX(-4px);
+  scale(1.15);
 }
 
 .hamburger {
@@ -477,8 +489,8 @@ overflow-x:hidden;
 
   .project-item{
     /* width: 100%; */
-    width:100vw;
-    min-width: 100vw;
+    width: calc(100vw-40px);
+    min-width: calc(100vw-40px);
     text-align: center;
     /* min-width:100%; */
     flex-shrink: 0;
@@ -741,19 +753,20 @@ const projects = document.querySelector(".projects");
 const leftArrow = document.querySelector(".left");
 const rightArrow = document.querySelector(".right");
 
-const gap = 40;
+// const gap = 40;
+function getGap() {
+  return 
+  parseInt(window.getComputedStyle(projects).gap)
+  ||0;
+}
 
 let auto;
 
 /* RIGHT MOVE */
 
 function moveRight() {
-
-  const firstCard =
-    projects.querySelector(".project-item");
-
-  const cardWidth =
-    firstCard.offsetWidth + gap;
+  const firstCard = projects.querySelector(".project-item");
+  const cardWidth = firstCard.offsetWidth + getGap();
 
   projects.scrollBy({
     left: cardWidth,
@@ -761,31 +774,26 @@ function moveRight() {
   });
 
   setTimeout(() => {
-
     projects.appendChild(firstCard);
 
+    /* reset position without visual jump */
     projects.scrollLeft -= cardWidth;
-
-  }, 700);
+  }, 500);
 }
 
-/* LEFT MOVE */
-
 function moveLeft() {
+  const cards = projects.querySelectorAll(".project-item");
+  const lastCard = cards[cards.length - 1];
 
-  const cards =
-    projects.querySelectorAll(".project-item");
+  const cardWidth = lastCard.offsetWidth + getGap();
 
-  const lastCard =
-    cards[cards.length - 1];
+  /* put last card in front */
+  projects.insertBefore(lastCard, cards[0]);
 
-  const cardWidth =
-    lastCard.offsetWidth + gap;
-
-  projects.prepend(lastCard);
-
+  /* immediately shift container */
   projects.scrollLeft += cardWidth;
 
+  /* animate back to start */
   projects.scrollBy({
     left: -cardWidth,
     behavior: "smooth"
