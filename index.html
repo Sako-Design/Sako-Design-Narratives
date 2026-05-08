@@ -98,7 +98,7 @@ body {
 }
 
 /* horizontal connection */
-.project-item::after{
+/* .project-item::after{
   content: "";
   position: absolute;
 
@@ -114,7 +114,7 @@ body {
   z-index: 1; 
 border-top:1.5px solid #777; 
 border-right:1.5px solid #777; */
-}
+/* } */ 
   /* background: #999; */
 
 
@@ -516,17 +516,22 @@ overflow-x:hidden;
     /* scroll-snap-align: start; */
   }
 
+  .project-item::after{
+    display: none;
+  }
+
   /* FIX TITLE POSITION */
   .project-title{
     position: static;   /* removes absolute/relative shifting */
     transform: none;
     left: auto;
     bottom: auto;
-    margin-top: 20px;
+    margin-top: 0px;
     font-size: 14px;
     font-weight: 600;
     text-align: center;
-    z-index:3;
+    line-height: 1.4;
+    /* z-index:3; */
   }
 
   /* Hide horizontal connection line on mobile */
@@ -563,6 +568,10 @@ overflow-x:hidden;
     align-items: center;
     /* overflow: visible; */
     margin-top: 0;
+  }
+
+  .img-box::before{
+    display: none;
   }
 
   .img-box img{
