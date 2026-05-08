@@ -346,19 +346,28 @@ border-right:1.5px solid #777; */
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 100;
-  background: white;
+  z-index:999;
+  /* z-index: 100; */
+  /* background: white; */
+  background: rgba(255,255,255,0.9);
   border: none;
-  font-size: 30px;
+  /* font-size: 30px; */
+  font-size: 26px;
   cursor: pointer;
+  width:42px;
+  height:42px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .left{
-  left: 20px;
+  left: 10px;
 }
 
 .right{
-  right: 20px;
+  right: 10px;
 }
 
 @media (max-width: 890px) {
@@ -423,10 +432,6 @@ border-right:1.5px solid #777; */
     overflow-y: auto;
   }
 
-  /* .navbar {
-    padding: 15px 20px;
-  } */
-
   .logo-img {
     width: 50px;
     height: 50px;
@@ -446,32 +451,20 @@ border-right:1.5px solid #777; */
     display: none; /* hide desktop menu */
   }
 
-  /* .projects{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    height: auto;
-    padding: 40px 80px;
-    justify-content:space-around;
-    height:calc(100vh-120px);
-    overflow-y: hidden;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    white-space:nowrap; */
-    /* scroll-snap-type: mandatory; */
-  /* } */
-
   .projects {
   position: relative;
-  padding: 20px 80px;
+  padding: 10px 20px 40px;
+  /* padding: 20px 80px; */
   display: flex;
-  align-items: flex-end;
+  /* align-items: flex-end; */
+  align-items: center;
   gap: 40px;
-
-  height: calc(100vh - 120px);
-
-  overflow: hidden;
+  height: auto;
+  min-height:100svh;
+  /* height: calc(100vh - 120px); */
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
 
   will-change: transform;
 }
@@ -481,27 +474,6 @@ border-right:1.5px solid #777; */
     text-align: center;
     /* scroll-snap-align: start; */
   }
-
-  /* .img-box{
-    width: 100%;
-    height: 400px;
-    position: relative;
-    display: flex;
-    justify-content: center;align-items: center;
-    overflow: visible;
-  }
-
-  .img-box img{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width:320px;
-    max-width: none;
-    height: auto;
-    max-height: none;
-    object-fit: contain;
-  } */
 
   /* FIX TITLE POSITION */
   .project-title{
@@ -541,12 +513,13 @@ border-right:1.5px solid #777; */
   /* Make image normal block */
   .img-box{
     width:100%;
-    height: 320px;
+    height: 260px;
     position:relative;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    margin-top: 0;
   }
 
   .img-box img{
@@ -554,10 +527,12 @@ border-right:1.5px solid #777; */
     top:50%;
     left:50%;
     transform: translate(-50%, -50%);
-    width:auto;
-    max-width: 320px;
+    width: 100%;
+    /* width:auto; */
+    max-width: 260px;
     height: auto;
-    max-height: 320px;
+    /* max-height: 320px; */
+    object-fit: contain;
   }
 
   /* Title directly under image */
@@ -627,7 +602,7 @@ border-right:1.5px solid #777; */
     </div>
     <div class="project-title">Sako Office, Hyderabad</div>
   </a>
-</div>
+
 
     <a href="sako-office.html" class="project-item">
   <div class="img-box">
@@ -669,7 +644,6 @@ border-right:1.5px solid #777; */
     </div>
     <div class="project-title">Sako Office, Hyderabad</div>
   </a>
-</div>
 
     <a href="sako-office.html" class="project-item">
   <div class="img-box">
