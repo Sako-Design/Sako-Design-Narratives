@@ -376,11 +376,11 @@ border-right:1.5px solid #777; */
 }
 
 .left{
-  left: 15px;
+  left: 7px;
 }
 
 .right{
-  right: 15px;
+  right: 7px;
 }
 
 .menu-overlay{
@@ -482,7 +482,7 @@ overflow-x:hidden;
 
   .projects {
   position: relative;
-  padding:0px 60px;
+  padding:0px 50px;
   width: 100%;
   box-sizing: border-box;
   /* padding: 10px 20px 40px; */
@@ -491,15 +491,15 @@ overflow-x:hidden;
   /* align-items: flex-end; */
   align-items: center;
   gap: 0px;
-  height: auto;
+  /* height: auto; */
   /* min-height:100svh; */
-  min-height:auto;
+  /* min-height:auto; */
   /* height: calc(100vh - 120px); */
-  overflow: hidden;
-  /* overflow: hidden; */
+  overflow-x: auto;
+  overflow-y: hidden;
   justify-content: flex-start;
   scroll-behavior: smooth;
-  will-change: transform;
+  /* will-change: transform; */
 }
 
   .project-item{
@@ -510,7 +510,7 @@ overflow-x:hidden;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    /* text-align: center; */
     /* min-width:100%; */
     flex-shrink: 0;
     /* scroll-snap-align: start; */
@@ -523,8 +523,10 @@ overflow-x:hidden;
     left: auto;
     bottom: auto;
     margin-top: 20px;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 600;
+    text-align: center;
+    z-index:3;
   }
 
   /* Hide horizontal connection line on mobile */
@@ -570,7 +572,7 @@ overflow-x:hidden;
     transform:none;
     /* transform: translate(-50%, -50%); */
     /* width: 100%; */
-    width:85%;
+    width:80%;
     max-width:300px;
     height: auto;
     /* max-height: 220px; */
@@ -772,10 +774,10 @@ const projects = document.querySelector(".projects");
 window.addEventListener("load", () => {
   if (window.innerWidth <= 890) {
     const firstCard = projects.querySelector(".project-item");
-    const offset =
-      (projects.offsetWidth - firstCard.offsetWidth) / 2;
+    // const offset =
+    //   (projects.offsetWidth - firstCard.offsetWidth) / 2;
 
-    projects.scrollLeft = firstCard.offsetLeft - offset;
+    // projects.scrollLeft = firstCard.offsetLeft - offset;
   }
 });
 
