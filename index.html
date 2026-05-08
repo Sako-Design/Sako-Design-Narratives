@@ -76,7 +76,7 @@ body {
 .menu a:hover::after {
   width: 100%;
 }
-
+/* PROJECTS */
 .projects {
   position: relative;
   padding: 20px 80px 20px;
@@ -88,23 +88,52 @@ body {
   gap:40px;
 }
 
-.img-box::before {
+.projects::-webkit-scrollbar{
+  display:none;
+}
+
+.project-item{
+  position: relative;
+  z-index: 2;
+}
+
+/* horizontal connection */
+.project-item::after{
   content: "";
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: -500px;
-  bottom:auto;
-  height: 790px;
-  width: 1px;
-  background: repeating-linear-gradient(
-    to bottom,
-    #555 0px,
-    #555 6px,
-    transparent 6px,
-    transparent 12px
-  );
+
+  top: 44%;  
+  right:60%;;
+  bottom:118px;
+
+  left:-40px;
+  width: 40px;   
+
+  height: 18px;
+
+  z-index: 1; 
+border-top:1.5px solid #777; 
+border-right:1.5px solid #777; */
 }
+  /* background: #999; */
+
+
+/* remove line after last item */
+.project-item:last-child::after{
+  display: none;
+}
+
+
+.project-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:260px;
+  flex-shrink: 0;
+  text-decoration: none;
+  color: inherit;
+}
+
 
 /* Image styling (important) */
 .project-item img {
@@ -133,15 +162,7 @@ body {
   margin-top: 120px;
 }
 
-.project-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width:260px;
-  flex-shrink: 0;
-  text-decoration: none;
-  color: inherit;
-}
+
 
 /* WRAPPER */
 .project-item .img-box {
@@ -173,6 +194,26 @@ body {
   object-fit: contain;
 }
 
+.img-box::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -500px;
+  
+  bottom:auto;
+  height: 790px;
+  width: 1px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #555 0px,
+    #555 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  z-index: 0;
+}
+
 /* Sketch always visible by default */
 .sketch-img {
   opacity: 1;
@@ -200,8 +241,19 @@ body {
   margin-top: 185px;
   position: relative;
   z-index: 3;
+  font-weight: 600;
 }
 
+.arrow{
+  position:fixed;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:100;
+  background:white;
+  border:none;
+  font-size:30px;
+  cursor:pointer;
+}
 
 .hamburger {
   display: none;
@@ -290,13 +342,33 @@ body {
 }
 }
 
-@media (max-width: 870px) {
+.arrow{
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  background: white;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.left{
+  left: 20px;
+}
+
+.right{
+  right: 20px;
+}
+
+@media (max-width: 890px) {
   @media (max-width: 800px) {
   .navbar {
     padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position:relative;
   }
 
   .hamburger {
@@ -310,6 +382,10 @@ body {
 
   .logo {
     max-width: 80%;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    max-width:70%;
   }
 }
 
@@ -347,16 +423,19 @@ body {
     overflow-y: auto;
   }
 
-  .navbar {
+  /* .navbar {
     padding: 15px 20px;
-  }
+  } */
 
   .logo-img {
-    width: 45px;
+    width: 50px;
+    height: 50px;
   }
 
   .logo-text h2 {
-    font-size: 12px;
+    font-size: 14px;
+    line-height: 1.2;
+    margin:0;
   }
 
   .logo-text p {
@@ -367,18 +446,40 @@ body {
     display: none; /* hide desktop menu */
   }
 
-  .projects{
+  /* .projects{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 70px;
+    gap: 40px;
     height: auto;
-    padding: 30px 20px;
-  }
+    padding: 40px 80px;
+    justify-content:space-around;
+    height:calc(100vh-120px);
+    overflow-y: hidden;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    white-space:nowrap; */
+    /* scroll-snap-type: mandatory; */
+  /* } */
+
+  .projects {
+  position: relative;
+  padding: 20px 80px;
+  display: flex;
+  align-items: flex-end;
+  gap: 40px;
+
+  height: calc(100vh - 120px);
+
+  overflow: hidden;
+
+  will-change: transform;
+}
 
   .project-item{
     width: 100%;
     text-align: center;
+    /* scroll-snap-align: start; */
   }
 
   /* .img-box{
@@ -512,6 +613,9 @@ body {
 </nav>
   </header>
 
+  <button class="arrow left">&#10094;</button>
+  <button class="arrow right">&#10095</button>
+
   <!-- ================= MAIN SECTION ================= -->
   <section class="projects">
 
@@ -523,9 +627,48 @@ body {
     </div>
     <div class="project-title">Sako Office, Hyderabad</div>
   </a>
+</div>
 
+    <a href="sako-office.html" class="project-item">
+  <div class="img-box">
+    <img src="./images/image 2.jpeg" class="sketch-img">
+        <img src="./images/image 2.1.jpeg" class="color-img">
+      </div>   
 
+<div class="project-title">Farmhouse Panjarla, India</div>
+</a>
+    <a href="sako-office.html" class="project-item">
+  <div class="img-box">
+    <img src="./images/image 3.jpeg" class="sketch-img">
+        <img src="./images/image 3.1.jpeg" class="color-img">
+      </div>
 
+<div class="project-title">Villa Maheshwaram, India</div>
+</a>
+
+    <a href="sako-office.html" class="project-item">
+  <div class="img-box">
+     <img src="./images/image 4.jpeg" class="sketch-img">
+        <img src="./images/image 4.1.jpeg" class="color-img">
+      </div>
+<div class="project-title">Lakeview Farmhouse, India</div>
+</a>
+
+    <a href="sako-office.html" class="project-item">
+  <div class="img-box">
+    <img src="./images/image 2.jpeg" class="sketch-img">
+        <img src="./images/image 2.1.jpeg" class="color-img">
+      </div>
+<div class="project-title">Farmhouse Panjarla, India</div>
+</a>
+
+<a href="sako-office.html" class="project-item">
+    <div class="img-box">
+      <img src="./images/image1.jpeg" class="sketch-img">
+      <img src="./images/image 1.1.jpeg" class="color-img">
+    </div>
+    <div class="project-title">Sako Office, Hyderabad</div>
+  </a>
 </div>
 
     <a href="sako-office.html" class="project-item">
@@ -601,6 +744,99 @@ projectItems.forEach(item => {
   });
 });
 
+/* ================= SLIDER ================= */
+
+const projects = document.querySelector(".projects");
+
+const leftArrow = document.querySelector(".left");
+const rightArrow = document.querySelector(".right");
+
+const gap = 40;
+
+let auto;
+
+/* RIGHT MOVE */
+
+function moveRight() {
+
+  const firstCard =
+    projects.querySelector(".project-item");
+
+  const cardWidth =
+    firstCard.offsetWidth + gap;
+
+  projects.scrollBy({
+    left: cardWidth,
+    behavior: "smooth"
+  });
+
+  setTimeout(() => {
+
+    projects.appendChild(firstCard);
+
+    projects.scrollLeft -= cardWidth;
+
+  }, 700);
+}
+
+/* LEFT MOVE */
+
+function moveLeft() {
+
+  const cards =
+    projects.querySelectorAll(".project-item");
+
+  const lastCard =
+    cards[cards.length - 1];
+
+  const cardWidth =
+    lastCard.offsetWidth + gap;
+
+  projects.prepend(lastCard);
+
+  projects.scrollLeft += cardWidth;
+
+  projects.scrollBy({
+    left: -cardWidth,
+    behavior: "smooth"
+  });
+}
+
+// /* AUTO PLAY */
+
+function startAutoSlide() {
+
+  auto = setInterval(() => {
+    moveRight();
+  }, 2500);
+
+}
+
+startAutoSlide();
+
+// /* RIGHT ARROW */
+
+rightArrow.addEventListener("click", () => {
+
+  clearInterval(auto);
+
+  moveRight();
+
+  startAutoSlide();
+
+});
+
+/* LEFT ARROW */
+
+leftArrow.addEventListener("click", () => {
+
+  clearInterval(auto);
+
+  moveLeft();
+
+  startAutoSlide();
+
+});
 </script>
 </body>
 </html>
