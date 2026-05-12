@@ -437,8 +437,154 @@ body {
   display:none;
 }
 
+/* ================= MOBILE PROJECT DETAILS ================= */
+
+.mobile-project-details{
+  display:none;
+  width:100%;
+  margin-top:20px;
+  animation:fadeUp 0.4s ease;
+  padding-bottom:40px;
+
+  max-height:75vh;
+  overflow-y:auto;
+  overflow-x:hidden;
+
+  -webkit-overflow-scrolling:touch;
+}
+
+.project-item.active .mobile-project-details{
+  display:block;
+}
+
+.project-item.active .sketch-img{
+  opacity:0;
+}
+
+.project-item.active .color-img{
+  opacity:1;
+}
+
+.project-info{
+  width:88%;
+  margin:auto;
+  font-size:12px;   /* smaller font */
+  line-height:1.5;
+  color:#222;
+}
+
+.project-info p{
+  margin:0 0 8px;
+}
+
+.full-details-btn{
+  display:block;
+  width:max-content;
+  text-align:center;
+  margin:20px auto;
+  font-size:14px;
+  color:black;
+  text-decoration:none;
+  font-weight:600;
+  padding:10px 18px;
+  border:1px solid #000;
+  border-radius:30px;
+  background:white;
+  position:relative;
+  z-index:20; /* clickable */
+}
+
+.full-details-btn:hover{
+  background:black;
+  color:white;
+}
+
+/* ================= MOBILE SLIDER ================= */
+
+.mobile-slider{
+  position:relative;
+  width:100%;
+  /* max-width:100%; */
+  margin:30px auto 0;
+  padding:0 12px;
+  box-sizing: border-box;
+  /* display:flex; */
+  /* justify-content:center;
+  align-items:center; */
+  overflow:hidden;
+  /* border-radius: 14px; */
+}
+
+.slider-image{
+  width:100%;
+  height:260px;
+  display:none;
+  border-radius:14px;
+  object-fit:contain;
+  background: #f5f5f5;
+  object-position: center;
+  /* box-shadow:0 6px 20px rgba(0,0,0,0.12); */
+}
+
+.slider-image.active{
+  display:block;
+}
+
+
+/* ARROWS */
+
+.slide-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:38px;
+  height:38px;
+  border:none;
+  border-radius:50%;
+  background:white;
+  color:#000;
+  font-size:24px;
+  cursor:pointer;
+  z-index:30;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* LEFT ARROW */
+
+.prev-btn{
+  left:25px;
+}
+
+/* RIGHT ARROW */
+
+.next-btn{
+  right:25px;
+}
+
+.slide-btn:active{
+  transform:translateY(-50%) scale(0.95);
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
 @media (max-width: 890px) {
-  /* @media (max-width: 800px) { */
+
+.projects{
+  gap:0;
+}
+
   .navbar {
     padding: 15px 20px;
     display: flex;
@@ -520,22 +666,58 @@ overflow-x:hidden;
     display: none; /* hide desktop menu */
   }
 
-  .projects {
+ .projects {
+  /* padding:0 0 80px;
+  width:100%;
+  display:flex;
+  align-items:flex-start;
+  overflow-x:auto;
+  overflow-y:hidden;
+  justify-content:flex-start;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth; */
+
+  width:100vw;
+  overflow-x:auto;
   padding:0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  overflow:hidden;
-  justify-content: flex-start;
 }
 
-  .project-item{
-    width: 100%;
-    flex: 0 0 100%;
-    box-sizing: border-box;
-    padding: 0;
-    min-width:100%;
-  }
+ .project-item{
+  /* width:100%;
+  flex:0 0 100%;
+  box-sizing:border-box;
+  padding:0 0 60px;
+  min-width:100%;
+  scroll-snap-align: start; */
+
+   flex:0 0 100vw;
+  width:100vw;
+  min-width:100vw;
+  padding:0;
+  box-sizing:border-box;
+}
+
+/* .mobile-project-details{
+  width:100vw;
+  padding:0;
+} */
+
+.mobile-project-details{
+  display:none;
+  width:100%;
+  margin-top:20px;
+  animation:fadeUp 0.4s ease;
+  padding-bottom:40px;
+
+  max-height:75vh;
+  overflow-y:auto;
+  overflow-x:hidden;
+
+  -webkit-overflow-scrolling:touch;
+}
+
+
+
 
   /* FIX TITLE POSITION */
   .project-title{
@@ -567,27 +749,33 @@ overflow-x:hidden;
   z-index: 1;
 }
 
-.color-img {
-  display:none;
+.color-img{
+  opacity:0;
+  position:absolute;
 }
 
-  /* Make image normal block */
   .img-box{
-    width:100%;
-    min-height:250px;
-    position:relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0;
-  }
+  width:100%;
+  min-height:380px;
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-top:20px;
+  overflow: visible;
+}
 
-  .img-box img{
-    width:80%;
-    max-width:260px;
-    height: auto;
-    object-fit: contain;
-  }
+.img-box img{
+  width:100%;
+  max-width:360px;
+  height:auto;
+  max-height: 360px;
+  object-fit:contain;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transition:translate(-50%, -50%);
+}
 
   /* Title directly under image */
   .project-title{
@@ -596,6 +784,79 @@ overflow-x:hidden;
     text-align: center;
     transform:none;
   }
+
+ /* ================= MOBILE SLIDER ================= */
+
+.mobile-slider{
+  position:relative;
+  width:100%;
+  /* left:50%; */
+  /* transform:translateX(-50%); */
+  margin:30px auto 0;
+  overflow:hidden; 
+  /* border-radius:16px; */
+  padding:0;
+}
+
+.slider-image{
+  /* width:100vw;
+  height:320px;
+  /* display:none; */
+  /* object-fit:cover;   FULL COVER */
+  /* object-position:center;
+  border-radius:16px; */
+  width:100%;
+  height:320px;
+  object-fit:contain;
+  object-position: center;
+  border-radius:0;
+  display: none;
+  background: #f5f5f5;
+}
+
+.slider-image.active{
+  display:block;
+}
+
+/* ARROWS */
+
+.slide-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:50%;
+  background:rgba(255,255,255,0.95);
+  color:#000;
+  font-size:26px;
+  cursor:pointer;
+  z-index:100;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  box-shadow:0 4px 12px rgba(0,0,0,0.18);
+}
+
+/* LEFT */
+.prev-btn{
+  left:14px;
+}
+
+/* RIGHT */
+.next-btn{
+  right:14px;
+}
+
+.slide-btn:active{
+  transform:translateY(-50%) scale(0.95);
+}
+
+.project-item.active{
+  height:auto;
+}
+
 }
 
   </style>
@@ -650,89 +911,688 @@ overflow-x:hidden;
   <section class="projects">
 
   
-  <a href="sako-office.html" class="project-item  line-up-1">
+  <div class="project-item line-up-1">
     <div class="img-box">
       <img src="./images/image1.jpeg" class="sketch-img">
       <img src="./images/image 1.1.jpeg" class="color-img">
     </div>
     <div class="project-title">Sako Office, Hyderabad</div>
-  </a>
+
+   <!-- MOBILE DETAILS -->
+
+  <div class="mobile-project-details">
+
+    <div class="project-info">
+
+      <p><b>Project Name –</b> SaKo studio</p>
+
+      <p><b>Studio Name –</b> Sako design narratives</p>
+
+      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+      <p><b>Project Size –</b> 250 sq ft</p>
+
+      <p><b>Principal Architects –</b> Sangeetha Polisetti,
+      Kondal Siddhuri</p>
+
+      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+      <br>
+
+      <p>
+        Nestled within a dense urban neighborhood in
+        the heart of Hyderabad, sako Studio is a compact
+        250 sq ft workspace designed for efficiency
+        and style.
+      </p>
+
+    </div>
+
+    <a href="sako-office.html" class="full-details-btn">
+      Click Here For Full Details
+    </a>
+
+    <!-- SLIDER -->
+
+    <div class="mobile-slider">
+
+      <button class="slide-btn prev-btn">&#10094;</button>
+
+      <img src="./images/o1.jpeg"
+           class="slider-image active">
+
+      <img src="./images/o2.jpeg"
+           class="slider-image">
+
+      <img src="./images/o3.jpeg"
+           class="slider-image">
+
+      <img src="./images/o4.jpeg"
+           class="slider-image">
 
 
-    <a href="sako-office.html" class="project-item  line-down-1">
+      <button class="slide-btn next-btn">&#10095;</button>
+
+    </div>
+
+  </div>
+
+  </div>
+
+    <div class="project-item  line-down-1">
   <div class="img-box">
     <img src="./images/image 2.jpeg" class="sketch-img">
         <img src="./images/image 2.1.jpeg" class="color-img">
       </div>   
 
 <div class="project-title">Farmhouse Panjarla, India</div>
-</a>
-    <a href="sako-office.html" class="project-item line-up-2">
+
+ <!-- MOBILE DETAILS -->
+
+  <div class="mobile-project-details">
+
+    <div class="project-info">
+
+      <p><b>Project Name –</b> SaKo studio</p>
+
+      <p><b>Studio Name –</b> Sako design narratives</p>
+
+      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+      <p><b>Project Size –</b> 250 sq ft</p>
+
+      <p><b>Principal Architects –</b> Sangeetha Polisetti,
+      Kondal Siddhuri</p>
+
+      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+      <br>
+
+      <p>
+        Nestled within a dense urban neighborhood in
+        the heart of Hyderabad, sako Studio is a compact
+        250 sq ft workspace designed for efficiency
+        and style.
+      </p>
+
+    </div>
+
+    <a href="sako-office.html" class="full-details-btn">
+      Click Here For Full Details
+    </a>
+
+    <!-- SLIDER -->
+
+    <div class="mobile-slider">
+
+      <button class="slide-btn prev-btn">&#10094;</button>
+
+      <img src="./images/o1.jpeg"
+           class="slider-image active">
+
+      <img src="./images/o2.jpeg"
+           class="slider-image">
+
+      <img src="./images/o3.jpeg"
+           class="slider-image">
+
+      <img src="./images/o4.jpeg"
+           class="slider-image">
+
+
+      <button class="slide-btn next-btn">&#10095;</button>
+
+    </div>
+
+  </div>
+</div>
+    <div class="project-item line-up-2">
   <div class="img-box">
     <img src="./images/image 3.jpeg" class="sketch-img">
         <img src="./images/image 3.1.jpeg" class="color-img">
       </div>
 
 <div class="project-title">Villa Maheshwaram, India</div>
-</a>
 
-    <a href="sako-office.html" class="project-item  line-down-2">
+ <!-- MOBILE DETAILS -->
+
+  <div class="mobile-project-details">
+
+    <div class="project-info">
+
+      <p><b>Project Name –</b> SaKo studio</p>
+
+      <p><b>Studio Name –</b> Sako design narratives</p>
+
+      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+      <p><b>Project Size –</b> 250 sq ft</p>
+
+      <p><b>Principal Architects –</b> Sangeetha Polisetti,
+      Kondal Siddhuri</p>
+
+      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+      <br>
+
+      <p>
+        Nestled within a dense urban neighborhood in
+        the heart of Hyderabad, sako Studio is a compact
+        250 sq ft workspace designed for efficiency
+        and style.
+      </p>
+
+    </div>
+
+    <a href="sako-office.html" class="full-details-btn">
+      Click Here For Full Details
+    </a>
+
+    <!-- SLIDER -->
+
+    <div class="mobile-slider">
+
+      <button class="slide-btn prev-btn">&#10094;</button>
+
+      <img src="./images/o1.jpeg"
+           class="slider-image active">
+
+      <img src="./images/o2.jpeg"
+           class="slider-image">
+
+      <img src="./images/o3.jpeg"
+           class="slider-image">
+
+      <img src="./images/o4.jpeg"
+           class="slider-image">
+
+
+      <button class="slide-btn next-btn">&#10095;</button>
+
+    </div>
+
+  </div>
+
+</div>
+
+    <div class="project-item  line-down-2">
   <div class="img-box">
      <img src="./images/image 4.jpeg" class="sketch-img">
         <img src="./images/image 4.1.jpeg" class="color-img">
       </div>
 <div class="project-title">Lakeview Farmhouse, India</div>
-</a>
 
-    <a href="sako-office.html" class="project-item line-up-3">
+ <!-- MOBILE DETAILS -->
+
+  <div class="mobile-project-details">
+
+    <div class="project-info">
+
+      <p><b>Project Name –</b> SaKo studio</p>
+
+      <p><b>Studio Name –</b> Sako design narratives</p>
+
+      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+      <p><b>Project Size –</b> 250 sq ft</p>
+
+      <p><b>Principal Architects –</b> Sangeetha Polisetti,
+      Kondal Siddhuri</p>
+
+      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+      <br>
+
+      <p>
+        Nestled within a dense urban neighborhood in
+        the heart of Hyderabad, sako Studio is a compact
+        250 sq ft workspace designed for efficiency
+        and style.
+      </p>
+
+    </div>
+
+    <a href="sako-office.html" class="full-details-btn">
+      Click Here For Full Details
+    </a>
+
+    <!-- SLIDER -->
+
+    <div class="mobile-slider">
+
+      <button class="slide-btn prev-btn">&#10094;</button>
+
+      <img src="./images/o1.jpeg"
+           class="slider-image active">
+
+      <img src="./images/o2.jpeg"
+           class="slider-image">
+
+      <img src="./images/o3.jpeg"
+           class="slider-image">
+
+      <img src="./images/o4.jpeg"
+           class="slider-image">
+
+
+      <button class="slide-btn next-btn">&#10095;</button>
+
+    </div>
+
+  </div>
+
+</div>
+
+    <div class="project-item line-up-3">
   <div class="img-box">
     <img src="./images/image 2.jpeg" class="sketch-img">
         <img src="./images/image 2.1.jpeg" class="color-img">
       </div>
 <div class="project-title">Farmhouse Panjarla, India</div>
-</a>
 
-<a href="sako-office.html" class="project-item line-up-4">
+ <!-- MOBILE DETAILS -->
+
+  <div class="mobile-project-details">
+
+    <div class="project-info">
+
+      <p><b>Project Name –</b> SaKo studio</p>
+
+      <p><b>Studio Name –</b> Sako design narratives</p>
+
+      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+      <p><b>Project Size –</b> 250 sq ft</p>
+
+      <p><b>Principal Architects –</b> Sangeetha Polisetti,
+      Kondal Siddhuri</p>
+
+      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+      <br>
+
+      <p>
+        Nestled within a dense urban neighborhood in
+        the heart of Hyderabad, sako Studio is a compact
+        250 sq ft workspace designed for efficiency
+        and style.
+      </p>
+
+    </div>
+
+    <a href="sako-office.html" class="full-details-btn">
+      Click Here For Full Details
+    </a>
+
+    <!-- SLIDER -->
+
+    <div class="mobile-slider">
+
+      <button class="slide-btn prev-btn">&#10094;</button>
+
+      <img src="./images/o1.jpeg"
+           class="slider-image active">
+
+      <img src="./images/o2.jpeg"
+           class="slider-image">
+
+      <img src="./images/o3.jpeg"
+           class="slider-image">
+
+      <img src="./images/o4.jpeg"
+           class="slider-image">
+
+
+      <button class="slide-btn next-btn">&#10095;</button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<div  class="project-item line-up-4">
     <div class="img-box">
       <img src="./images/image1.jpeg" class="sketch-img">
       <img src="./images/image 1.1.jpeg" class="color-img">
     </div>
     <div class="project-title">Sako Office, Hyderabad</div>
-  </a>
+
+ <!-- MOBILE DETAILS -->
+
+  <div class="mobile-project-details">
+
+    <div class="project-info">
+
+      <p><b>Project Name –</b> SaKo studio</p>
+
+      <p><b>Studio Name –</b> Sako design narratives</p>
+
+      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+      <p><b>Project Size –</b> 250 sq ft</p>
+
+      <p><b>Principal Architects –</b> Sangeetha Polisetti,
+      Kondal Siddhuri</p>
+
+      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+      <br>
+
+      <p>
+        Nestled within a dense urban neighborhood in
+        the heart of Hyderabad, sako Studio is a compact
+        250 sq ft workspace designed for efficiency
+        and style.
+      </p>
+
+    </div>
+
+    <a href="sako-office.html" class="full-details-btn">
+      Click Here For Full Details
+    </a>
+
+    <!-- SLIDER -->
+
+    <div class="mobile-slider">
+
+      <button class="slide-btn prev-btn">&#10094;</button>
+
+      <img src="./images/o1.jpeg"
+           class="slider-image active">
+
+      <img src="./images/o2.jpeg"
+           class="slider-image">
+
+      <img src="./images/o3.jpeg"
+           class="slider-image">
+
+      <img src="./images/o4.jpeg"
+           class="slider-image">
 
 
-    <a href="sako-office.html" class="project-item line-down-1">
+      <button class="slide-btn next-btn">&#10095;</button>
+
+    </div>
+
+  </div>
+
+  </div>
+
+
+    <div class="project-item line-down-1">
   <div class="img-box">
     <img src="./images/image 2.jpeg" class="sketch-img">
         <img src="./images/image 2.1.jpeg" class="color-img">
       </div>   
 
 <div class="project-title">Farmhouse Panjarla, India</div>
-</a>
-    <a href="sako-office.html" class="project-item line-up-2">
+
+ <!-- MOBILE DETAILS -->
+
+  <div class="mobile-project-details">
+
+    <div class="project-info">
+
+      <p><b>Project Name –</b> SaKo studio</p>
+
+      <p><b>Studio Name –</b> Sako design narratives</p>
+
+      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+      <p><b>Project Size –</b> 250 sq ft</p>
+
+      <p><b>Principal Architects –</b> Sangeetha Polisetti,
+      Kondal Siddhuri</p>
+
+      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+      <br>
+
+      <p>
+        Nestled within a dense urban neighborhood in
+        the heart of Hyderabad, sako Studio is a compact
+        250 sq ft workspace designed for efficiency
+        and style.
+      </p>
+
+    </div>
+
+    <a href="sako-office.html" class="full-details-btn">
+      Click Here For Full Details
+    </a>
+
+    <!-- SLIDER -->
+
+    <div class="mobile-slider">
+
+      <button class="slide-btn prev-btn">&#10094;</button>
+
+      <img src="./images/o1.jpeg"
+           class="slider-image active">
+
+      <img src="./images/o2.jpeg"
+           class="slider-image">
+
+      <img src="./images/o3.jpeg"
+           class="slider-image">
+
+      <img src="./images/o4.jpeg"
+           class="slider-image">
+
+
+      <button class="slide-btn next-btn">&#10095;</button>
+
+    </div>
+
+  </div>
+
+</div>
+    <div  class="project-item line-up-2">
   <div class="img-box">
     <img src="./images/image 3.jpeg" class="sketch-img">
         <img src="./images/image 3.1.jpeg" class="color-img">
       </div>
 
 <div class="project-title">Villa Maheshwaram, India</div>
-</a>
 
-    <a href="sako-office.html" class="project-item line-down-2">
+ <!-- MOBILE DETAILS -->
+
+  <div class="mobile-project-details">
+
+    <div class="project-info">
+
+      <p><b>Project Name –</b> SaKo studio</p>
+
+      <p><b>Studio Name –</b> Sako design narratives</p>
+
+      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+      <p><b>Project Size –</b> 250 sq ft</p>
+
+      <p><b>Principal Architects –</b> Sangeetha Polisetti,
+      Kondal Siddhuri</p>
+
+      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+      <br>
+
+      <p>
+        Nestled within a dense urban neighborhood in
+        the heart of Hyderabad, sako Studio is a compact
+        250 sq ft workspace designed for efficiency
+        and style.
+      </p>
+
+    </div>
+
+    <a href="sako-office.html" class="full-details-btn">
+      Click Here For Full Details
+    </a>
+
+    <!-- SLIDER -->
+
+    <div class="mobile-slider">
+
+      <button class="slide-btn prev-btn">&#10094;</button>
+
+      <img src="./images/o1.jpeg"
+           class="slider-image active">
+
+      <img src="./images/o2.jpeg"
+           class="slider-image">
+
+      <img src="./images/o3.jpeg"
+           class="slider-image">
+
+      <img src="./images/o4.jpeg"
+           class="slider-image">
+
+
+      <button class="slide-btn next-btn">&#10095;</button>
+
+    </div>
+
+  </div>
+
+</div>
+
+    <div  class="project-item line-down-2">
   <div class="img-box">
      <img src="./images/image 4.jpeg" class="sketch-img">
         <img src="./images/image 4.1.jpeg" class="color-img">
       </div>
 <div class="project-title">Lakeview Farmhouse, India</div>
-</a>
 
-    <a href="sako-office.html" class="project-item line-up-3">
+ <!-- MOBILE DETAILS -->
+
+  <div class="mobile-project-details">
+
+    <div class="project-info">
+
+      <p><b>Project Name –</b> SaKo studio</p>
+
+      <p><b>Studio Name –</b> Sako design narratives</p>
+
+      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+      <p><b>Project Size –</b> 250 sq ft</p>
+
+      <p><b>Principal Architects –</b> Sangeetha Polisetti,
+      Kondal Siddhuri</p>
+
+      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+      <br>
+
+      <p>
+        Nestled within a dense urban neighborhood in
+        the heart of Hyderabad, sako Studio is a compact
+        250 sq ft workspace designed for efficiency
+        and style.
+      </p>
+
+    </div>
+
+    <a href="sako-office.html" class="full-details-btn">
+      Click Here For Full Details
+    </a>
+
+    <!-- SLIDER -->
+
+    <div class="mobile-slider">
+
+      <button class="slide-btn prev-btn">&#10094;</button>
+
+      <img src="./images/o1.jpeg"
+           class="slider-image active">
+
+      <img src="./images/o2.jpeg"
+           class="slider-image">
+
+      <img src="./images/o3.jpeg"
+           class="slider-image">
+
+      <img src="./images/o4.jpeg"
+           class="slider-image">
+
+
+      <button class="slide-btn next-btn">&#10095;</button>
+
+    </div>
+
+  </div>
+
+</div>
+
+    <div class="project-item line-up-3">
   <div class="img-box">
     <img src="./images/image 2.jpeg" class="sketch-img">
         <img src="./images/image 2.1.jpeg" class="color-img">
       </div>
 <div class="project-title">Farmhouse Panjarla, India</div>
-</a>
+
+ <!-- MOBILE DETAILS -->
+
+  <div class="mobile-project-details">
+
+    <div class="project-info">
+
+      <p><b>Project Name –</b> SaKo studio</p>
+
+      <p><b>Studio Name –</b> Sako design narratives</p>
+
+      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+      <p><b>Project Size –</b> 250 sq ft</p>
+
+      <p><b>Principal Architects –</b> Sangeetha Polisetti,
+      Kondal Siddhuri</p>
+
+      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+      <br>
+
+      <p>
+        Nestled within a dense urban neighborhood in
+        the heart of Hyderabad, sako Studio is a compact
+        250 sq ft workspace designed for efficiency
+        and style.
+      </p>
+
+    </div>
+
+    <a href="sako-office.html" class="full-details-btn">
+      Click Here For Full Details
+    </a>
+
+    <!-- SLIDER -->
+
+    <div class="mobile-slider">
+
+      <button class="slide-btn prev-btn">&#10094;</button>
+
+      <img src="./images/o1.jpeg"
+           class="slider-image active">
+
+      <img src="./images/o2.jpeg"
+           class="slider-image">
+
+      <img src="./images/o3.jpeg"
+           class="slider-image">
+
+      <img src="./images/o4.jpeg"
+           class="slider-image">
+
+
+      <button class="slide-btn next-btn">&#10095;</button>
+
+    </div>
+
+  </div>
+
+</div>
 </section>
 
 <script>
@@ -855,6 +1715,122 @@ leftArrow.addEventListener("click", () => {
   startAutoSlide();
 
 });
+
+
+/* ================= MOBILE CLICK ================= */
+
+const allProjects = document.querySelectorAll(".project-item");
+
+allProjects.forEach(project => {
+
+  project.addEventListener("click", (e) => {
+
+    if(window.innerWidth > 890) return;
+
+    /* prevent links opening immediately */
+    e.preventDefault();
+
+    const isActive = project.classList.contains("active");
+
+    /* CLOSE ALL */
+    allProjects.forEach(item => {
+      item.classList.remove("active");
+    });
+
+    /* IF CLOSED -> OPEN CURRENT */
+    if(!isActive){
+
+      project.classList.add("active");
+
+      /* STOP HOMEPAGE AUTO SLIDE */
+      clearInterval(auto);
+
+      /* HIDE HOMEPAGE ARROWS */
+      leftArrow.style.display = "none";
+      rightArrow.style.display = "none";
+
+    } else {
+
+      /* RESTART HOMEPAGE LOOP */
+      startAutoSlide();
+
+      /* SHOW HOMEPAGE ARROWS */
+      leftArrow.style.display = "flex";
+      rightArrow.style.display = "flex";
+
+    }
+
+  });
+
+});
+
+/* ================= SLIDER ================= */
+
+const sliders = document.querySelectorAll(".mobile-slider");
+
+sliders.forEach(slider => {
+
+  const images = slider.querySelectorAll(".slider-image");
+
+  const nextBtn = slider.querySelector(".next-btn");
+
+  const prevBtn = slider.querySelector(".prev-btn");
+
+  let current = 0;
+
+  function showImage(index){
+
+    images.forEach(img => {
+      img.classList.remove("active");
+    });
+
+    images[index].classList.add("active");
+
+  }
+
+  nextBtn.addEventListener("click", (e) => {
+
+    e.stopPropagation();
+
+    current++;
+
+    if(current >= images.length){
+      current = 0;
+    }
+
+    showImage(current);
+
+  });
+
+  prevBtn.addEventListener("click", (e) => {
+
+    e.stopPropagation();
+
+    current--;
+
+    if(current < 0){
+      current = images.length - 1;
+    }
+
+    showImage(current);
+
+  });
+
+});
+
+document.querySelectorAll(".full-details-btn").forEach(btn => {
+
+  btn.addEventListener("click", (e) => {
+
+    e.stopPropagation();
+
+    /* allow page open */
+    window.location.href = btn.getAttribute("href");
+
+  });
+
+});
+
 </script>
 </body>
 </html>
