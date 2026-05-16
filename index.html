@@ -6,13 +6,19 @@
   <title>Sako Design Narratives</title>
 
   <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Helvetica, Roboto, sans-serif;
   background: #ffffff;
-  /* overflow: hidden; */
-  min-height:100vh; 
-  overflow-x:hidden;
+
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+  height: 100vh;
 }
 
     /* ================= NAVBAR ================= */
@@ -24,6 +30,9 @@ body {
   align-items: center;
   padding: 20px 40px;
   box-sizing: border-box;
+   position:relative;
+  z-index:2000;
+  background: #ffffff;
 }
 
 .logo {
@@ -84,16 +93,27 @@ body {
   justify-content:flex-start;
   align-items: center;
   min-height: calc(100vh - 120px);
-  overflow-x: auto;
+  overflow-x: visible;
   overflow-y: visible;
-  gap:40px;
+  gap:20px;
+  background: #ffffff;
 }
+
 
 .projects::-webkit-scrollbar{
   display:none;
 }
 
-.project-item{
+
+.project-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:250px;
+  flex-shrink: 0;
+  text-decoration: none;
+  color: inherit;
+  overflow:visible;
   position: relative;
   z-index: 2;
 }
@@ -102,70 +122,63 @@ body {
 .project-item::after{
   content: "";
   position: absolute;
-  z-index: 0; 
+  z-index: 10;
+  box-sizing: border-box;
 }
 
-/* Step line */
-.line-step::after{
-  top:40%;
-  width:40px;
-  height:20px;
-  border-bottom:1.5px solid #777;
-  border-left:1.5px solid #777;
-}
 
 .line-up-1::after{
-  top:40.9%;        /* move closer to center */
-  width:3px;     /* shorter horizontal line */
+  top:38.3%;        /* move closer to center */
+  width:20px;     /* shorter horizontal line */
   height:12px;    /* reduced vertical drop */
-  left:-31px;
+  left:-17px;
   border-bottom:1.5px solid #999;
   border-left:1.5px solid #999;
 }
 .line-up-2::after{
-  top:40.5%;        /* move closer to center */
-  width:4px;     /* shorter horizontal line */
+  top:38.2%;        /* move closer to center */
+  width:7px;     /* shorter horizontal line */
   height:5px;    /* reduced vertical drop */
-  left:-30px;
+  left:-17px;
   border-bottom:1.5px solid #999;
   border-left:1.5px solid #999;
 }
 
 .line-up-3::after{
-  top:35.5%;        /* move closer to center */
-  width:24px;     /* shorter horizontal line */
+  top:33.7%;        /* move closer to center */
+  width:30px;     /* shorter horizontal line */
   height:15px;    /* reduced vertical drop */
-  left:-40px;
+  left:-31px;
   border-bottom:1.5px solid #999;
   border-left:1.5px solid #999;
 }
 
 .line-up-4::after{
-  top:40.5%;        /* move closer to center */
-  width:0px;     /* shorter horizontal line */
+  top:38.6%;        /* move closer to center */
+  width:5px;     /* shorter horizontal line */
   height:11px;    /* reduced vertical drop */
-  left:-30px;
+  left:-17px;
   border-bottom:1.5px solid #999;
   border-left:1.5px solid #999;
 }
 
 /* Down connection - shorter */
 .line-down-1::after{
-  top:39.5%;
-  left:-30px;
+  top:37.5%;
+  left:-18px;
   /* bottom:20px; */
-  width:15px;
-  height:16px;    /* reduced vertical rise */
+  width:25px;
+  height:15px;    /* reduced vertical rise */
   border-top:1.5px solid #999;
   border-left:1.5px solid #999;
 }
 
 .line-down-2::after{
-  top:34.5%;
-  left:-27px;
+  top:33.1%;
+  left:-20px;
   /* bottom:20px; */
-  width:24px;
-  height:27px;    /* reduced vertical rise */
+  width:29px;
+  height:24px;    /* reduced vertical rise */
   border-top:1.5px solid #999;
   border-left:1.5px solid #999;
 }
@@ -173,16 +186,6 @@ body {
 /* remove line after last item */
 .project-item:last-child::after{
   display: none;
-}
-
-.project-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width:260px;
-  flex-shrink: 0;
-  text-decoration: none;
-  color: inherit;
 }
 
 /* Image styling (important) */
@@ -222,6 +225,7 @@ body {
   justify-content: center;
   align-items: center;
   overflow: visible;
+  z-index: auto;
 }
 
 .img-box img{
@@ -229,7 +233,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width:360px;
+  width:280px;
   max-width: none;
   height: auto;
   max-height: none;
@@ -241,8 +245,8 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: -500px;
-  bottom:-370px;
+  top: -600px;
+  bottom:-600px;
   width: 1px;
   background: repeating-linear-gradient(
     to bottom,
@@ -251,7 +255,7 @@ body {
     transparent 6px,
     transparent 12px
   );
-  z-index: 0;
+  z-index: 5;
 }
 
 /* Sketch always visible by default */
@@ -367,6 +371,377 @@ body {
 .menu-overlay.active {
   opacity: 1;
   visibility: visible;
+}
+
+
+/* ================= DESKTOP ACTIVE LAYOUT ================= */
+
+.project-item.desktop-active{
+
+  position: fixed;
+
+  top: 95px;
+  left: 0;
+
+  width: 100vw;
+  height: calc(100vh - 95px);
+
+  background: #ffffff;
+
+  z-index: 999;
+
+  /* overflow-y: auto;
+  overflow-x: hidden; */
+  overflow: hidden;
+
+  display: block;
+   animation: smoothOpen 0.8s cubic-bezier(.77,0,.18,1);
+
+  /* padding-bottom: 120px; */
+}
+
+
+@keyframes smoothOpen{
+
+  0%{
+    opacity:0;
+    transform:scale(0.96);
+  }
+
+  100%{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+
+
+/* HIDE OTHER PROJECTS */
+
+.project-item.desktop-active ~ .project-item{
+  display:none;
+}
+
+/* LEFT IMAGE */
+
+.project-item.desktop-active .img-box{
+
+  position:relative;
+
+  top:20px;
+  left:25px;
+
+  width:240px;
+  height:240px;
+
+   z-index:5;
+   overflow: visible;
+}
+
+/* DASH LINE */
+
+/* HORIZONTAL CONNECTING LINE */
+
+.project-item.desktop-active::before{
+  content: "";
+  position: absolute;
+
+  top: 220px;      /* adjust vertical position */
+  left: 130px;     /* starts near circle image */
+
+  width: 700px;    /* line length */
+
+  border-top: 1px solid #999;
+
+  z-index: 1;
+}
+
+.project-item.desktop-active .img-box{
+  overflow: visible;
+}
+
+.project-item.desktop-active .img-box::before{
+
+  top:-1000px !important;
+
+  bottom:-1500px !important;
+
+  z-index:20;
+}
+
+
+
+/* SHOW COLOR IMAGE */
+
+.project-item.desktop-active .sketch-img{
+  opacity:0;
+}
+
+.project-item.desktop-active .color-img{
+  opacity:1;
+  z-index: 3;
+}
+
+/* TITLE */
+
+
+.project-item.desktop-active .project-title{
+
+  position:absolute;
+
+  top: 235px;
+
+  left: 160px;
+
+  width:260px;
+
+  margin:0;
+
+font-size:18px;
+
+  font-weight:600;
+
+  line-height:5.5;
+
+  text-align:left;
+
+  z-index:99999;
+  white-space: normal;
+  /* overflow: visible; */
+
+  color:#000;
+   animation: fadeContent 1s ease;
+}
+
+
+.project-item.desktop-active .mobile-project-details{
+
+  display:block !important;
+
+  position:absolute;
+
+  top:300px;
+
+  left: 30px;
+
+  width:360px;
+
+  z-index:9999;
+
+  overflow:hidden;
+   animation: fadeContent 1s ease;
+}
+
+@keyframes fadeContent{
+
+  0%{
+    opacity:0;
+    transform:translateY(40px);
+  }
+
+  100%{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* INFO */
+
+.project-item.desktop-active .project-info{
+
+  width:360px;
+
+  margin:0;
+
+  font-size:15px;
+
+  line-height:1.9;
+
+  text-align:left;
+
+  color:#222;
+}
+
+.project-info p{
+  margin-bottom:16px;
+}
+
+/* BUTTON */
+
+.project-item.desktop-active .full-details-btn{
+
+  margin-top:30px;
+
+  padding:14px 24px;
+
+  font-size:15px;
+}
+
+
+.project-item.desktop-active .mobile-slider{
+
+  display:block;
+
+  position:absolute;
+
+  top:189px;
+
+  right:40px;
+
+  width:55%;
+
+  height:650px;   /* same as image area */
+
+  z-index:500;
+
+  overflow:hidden;
+
+  animation: slideReveal 1s ease;
+}
+
+@keyframes slideReveal{
+
+  0%{
+    opacity:0;
+    transform:translateX(120px);
+  }
+
+  100%{
+    opacity:1;
+    transform:translateX(0);
+  }
+}
+
+/* SLIDER IMAGE */
+
+.project-item.desktop-active .slider-image{
+
+  width:100%;
+
+  height:auto;
+
+  max-height:650px;
+
+  object-fit:contain;
+
+  object-position:center;
+
+  display:none;
+
+  border-radius:0;
+}
+
+
+.project-item.desktop-active .slider-image.active{
+  display:block;
+}
+
+.project-item.desktop-active .slide-btn{
+
+  position:absolute;
+
+  top:50%;
+
+  transform:translateY(-50%);
+
+  z-index:500;
+}
+
+.project-item.desktop-active .prev-btn{
+  left:40px;
+}
+
+.project-item.desktop-active .next-btn{
+  right:40px;
+}
+
+/* INSIDE PAGE EXTRA DASH LINES */
+
+body.project-open::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:999;
+
+    background-image:
+      repeating-linear-gradient(
+        to bottom,
+        #999 0px,
+        #999 8px,
+        transparent 8px,
+        transparent 16px
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        #999 0px,
+        #999 8px,
+        transparent 8px,
+        transparent 16px
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        #999 0px,
+        #999 8px,
+        transparent 8px,
+        transparent 16px
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        #999 0px,
+        #999 8px,
+        transparent 8px,
+        transparent 16px
+      ),
+       repeating-linear-gradient(
+        to bottom,
+         #999 0px,
+        #999 8px,
+        transparent 8px,
+        transparent 16px
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        #999 0px,
+        #999 8px,
+        transparent 8px,
+        transparent 16px
+      );
+
+    background-repeat:no-repeat;
+
+    background-size:
+      1px 100%,
+      1px 100%,
+      1px 100%,
+      1px 100%;
+
+    background-position:
+      28% 0,
+      45% 0,
+      62% 0,
+      82% 0;
+}
+
+
+/* HORIZONTAL LINE */
+.project-item.desktop-active::after{
+
+  content:"";
+
+  position:absolute;
+
+    top:220px;
+
+  left:120px;
+
+  width:calc(100% - 120px);
+
+  height:1px;
+
+  background:#999;
+
+  z-index:1;
 }
 
 /* Desktop only hover */
@@ -497,17 +872,18 @@ body {
 /* ================= MOBILE SLIDER ================= */
 
 .mobile-slider{
+
+  display:none;
+
   position:relative;
+
   width:100%;
-  /* max-width:100%; */
+
   margin:30px auto 0;
-  padding:0 ;
-  /* box-sizing: border-box; */
-  /* display:flex; */
-  /* justify-content:center;
-  align-items:center; */
-  overflow:visible;
-  /* border-radius: 14px; */
+
+  padding:0;
+
+  overflow:hidden;
 }
 
 .slider-image{
@@ -562,6 +938,10 @@ body {
 
 .slide-btn:active{
   transform:translateY(-50%) scale(0.95);
+}
+
+.project-item.desktop-active .img-box::before{
+  display:block;
 }
 
 @keyframes fadeUp{
@@ -862,19 +1242,56 @@ overflow-y: auto;
 
 .project-item.active{
   height:auto;
+  animation: mobileOpen 0.7s ease;
+}
+
+@keyframes mobileOpen{
+
+  0%{
+    opacity:0;
+    transform:translateY(40px);
+  }
+
+  100%{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
 .project-item.active .mobile-project-details{
     display:block;
   }
 
+  .project-item.active .mobile-slider{
+  display:block;
 }
 
+/* PASTE HERE */
+body.project-open{
+  overflow: hidden !important;
+  height: 100vh;
+}
+
+.project-item.desktop-active{
+  overflow: hidden !important;
+  height: calc(100vh - 95px);
+}
+
+.project-item.desktop-active .mobile-slider{
+  height: calc(100vh - 160px);
+  overflow: hidden !important;
+}
+
+.project-item.desktop-active .slider-image{
+  max-height: calc(100vh - 180px);
+}
+
+}
 
   </style>
 </head>
 
-<body>
+<body class="inside-page">
 
   <!-- ================= NAVBAR ================= -->
   <header class="navbar">
@@ -959,10 +1376,13 @@ overflow-y: auto;
       </p>
 
     </div>
+    
 
     <a href="sako-office.html" class="full-details-btn">
       Click Here For Full Details
     </a>
+
+    </div>
 
     <!-- SLIDER -->
 
@@ -987,10 +1407,7 @@ overflow-y: auto;
 
     </div>
 
-  </div>
-
-  </div>
-
+</div>
     <div class="project-item  line-down-1">
   <div class="img-box">
     <img src="./images/image 2.jpeg" class="sketch-img">
@@ -1639,10 +2056,10 @@ const projectItems = document.querySelectorAll(".project-item");
 const projects = document.querySelector(".projects");
 
 window.addEventListener("load", () => {
-  if (window.innerWidth <= 890) {
+ const isDesktop = window.innerWidth > 890;
     const firstCard = projects.querySelector(".project-item");
   }
-});
+);
 
 const leftArrow = document.querySelector(".left");
 const rightArrow = document.querySelector(".right");
@@ -1737,46 +2154,61 @@ allProjects.forEach(project => {
 
   project.addEventListener("click", (e) => {
 
-    if(window.innerWidth > 890) return;
-
-    /* prevent links opening immediately */
     e.preventDefault();
 
-    const isActive = project.classList.contains("active");
+    const isActive =
+      project.classList.contains("active") ||
+      project.classList.contains("desktop-active");
 
     /* CLOSE ALL */
     allProjects.forEach(item => {
+
       item.classList.remove("active");
+      item.classList.remove("desktop-active");
+
     });
 
-    /* IF CLOSED -> OPEN CURRENT */
     if(!isActive){
 
-      project.classList.add("active");
-
-      /* STOP HOMEPAGE AUTO SLIDE */
       clearInterval(auto);
 
-      /* HIDE HOMEPAGE ARROWS */
-      leftArrow.style.display = "none";
-      rightArrow.style.display = "none";
+      if(window.innerWidth > 890){
 
-    } else {
+  /* DESKTOP */
+  project.classList.add("desktop-active");
 
-      /* RESTART HOMEPAGE LOOP */
-      startAutoSlide();
+  document.body.classList.add("project-open");
 
-      /* SHOW HOMEPAGE ARROWS */
-      leftArrow.style.display = "flex";
-      rightArrow.style.display = "flex";
+  leftArrow.style.display = "none";
+  rightArrow.style.display = "none";
 
-    }
+} else {
+
+        /* MOBILE */
+        project.classList.add("active");
+
+        leftArrow.style.display = "none";
+        rightArrow.style.display = "none";
+      }
+
+   } else {
+
+  startAutoSlide();
+
+  document.body.classList.remove("project-open");
+
+  leftArrow.style.display = "flex";
+  rightArrow.style.display = "flex";
+}
 
   });
 
 });
+ 
 
 /* ================= MOBILE IMAGE SLIDER ================= */
+
+// if(window.innerWidth <= 920){
 
 const sliders = document.querySelectorAll(".mobile-slider");
 
@@ -1792,8 +2224,6 @@ sliders.forEach(slider => {
 
   let sliderAuto;
 
-  /* SHOW IMAGE */
-
   function showImage(index){
 
     images.forEach(img => {
@@ -1801,58 +2231,41 @@ sliders.forEach(slider => {
     });
 
     images[index].classList.add("active");
-
   }
-
-  /* NEXT IMAGE */
 
   function nextSlide(){
 
     current++;
-
-    /* LOOP FORWARD */
 
     if(current >= images.length){
       current = 0;
     }
 
     showImage(current);
-
   }
-
-  /* PREVIOUS IMAGE */
 
   function prevSlide(){
 
     current--;
-
-    /* LOOP BACKWARD */
 
     if(current < 0){
       current = images.length - 1;
     }
 
     showImage(current);
-
   }
-
-  /* AUTO SLIDE */
 
   function startSliderAuto(){
 
     clearInterval(sliderAuto);
 
     sliderAuto = setInterval(() => {
-
       nextSlide();
-
     }, 2500);
 
   }
 
   startSliderAuto();
-
-  /* RIGHT ARROW */
 
   nextBtn.addEventListener("click", (e) => {
 
@@ -1863,8 +2276,6 @@ sliders.forEach(slider => {
     startSliderAuto();
 
   });
-
-  /* LEFT ARROW */
 
   prevBtn.addEventListener("click", (e) => {
 
@@ -1877,7 +2288,6 @@ sliders.forEach(slider => {
   });
 
 });
-
 document.querySelectorAll(".full-details-btn").forEach(btn => {
 
   btn.addEventListener("click", (e) => {
@@ -1891,6 +2301,8 @@ document.querySelectorAll(".full-details-btn").forEach(btn => {
 
 });
 
+
 </script>
+
 </body>
 </html>
