@@ -12,7 +12,7 @@
 
 body {
   margin: 0;
-  font-family: Helvetica, Roboto, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: #ffffff;
 
   overflow-x: hidden;
@@ -42,7 +42,11 @@ body {
   flex-shrink: 0;
   color: inherit;
 }
-
+.logo-text-img{
+  height:66px;
+  width:auto;
+  display:block;
+}
 .menu {
   display: flex;
   align-items: center;
@@ -88,14 +92,14 @@ body {
 /* PROJECTS */
 .projects{
   position: relative;
-  padding: 20px 80px 20px;
+  padding: 20px 120px 20px;
+  gap:40px;
   display: flex;
   justify-content:flex-start;
   align-items: center;
   min-height: calc(100vh - 120px);
   overflow-x: visible;
   overflow-y: visible;
-  gap:20px;
   background: #ffffff;
 }
 
@@ -109,7 +113,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width:250px;
+  width:340px;
   flex-shrink: 0;
   text-decoration: none;
   color: inherit;
@@ -128,57 +132,57 @@ body {
 
 
 .line-up-1::after{
-  top:38.3%;        /* move closer to center */
-  width:20px;     /* shorter horizontal line */
-  height:12px;    /* reduced vertical drop */
-  left:-17px;
+  top:43%;        /* move closer to center */
+  width:34px;     /* shorter horizontal line */
+  height:14px;    /* reduced vertical drop */
+  left:-44px;
   border-bottom:1.5px solid #999;
   border-left:1.5px solid #999;
 }
 .line-up-2::after{
-  top:38.2%;        /* move closer to center */
-  width:7px;     /* shorter horizontal line */
-  height:5px;    /* reduced vertical drop */
-  left:-17px;
+  top:42.5%;        /* move closer to center */
+  width:41px;     /* shorter horizontal line */
+  height:8px;    /* reduced vertical drop */
+  left:-44px;
   border-bottom:1.5px solid #999;
   border-left:1.5px solid #999;
 }
 
 .line-up-3::after{
-  top:33.7%;        /* move closer to center */
-  width:30px;     /* shorter horizontal line */
-  height:15px;    /* reduced vertical drop */
-  left:-31px;
+  top:36.5%;        /* move closer to center */
+  width:70px;     /* shorter horizontal line */
+  height:20px;    /* reduced vertical drop */
+  left:-64px;
   border-bottom:1.5px solid #999;
   border-left:1.5px solid #999;
 }
 
 .line-up-4::after{
-  top:38.6%;        /* move closer to center */
-  width:5px;     /* shorter horizontal line */
-  height:11px;    /* reduced vertical drop */
-  left:-17px;
+  top:43%;        /* move closer to center */
+  width:35px;     /* shorter horizontal line */
+  height:14px;    /* reduced vertical drop */
+  left:-45px;
   border-bottom:1.5px solid #999;
   border-left:1.5px solid #999;
 }
 
 /* Down connection - shorter */
 .line-down-1::after{
-  top:37.5%;
-  left:-18px;
+  top:41.7%;
+  left:-30px;
   /* bottom:20px; */
-  width:25px;
-  height:15px;    /* reduced vertical rise */
+  width:38px;
+  height:20px;    /* reduced vertical rise */
   border-top:1.5px solid #999;
   border-left:1.5px solid #999;
 }
 
 .line-down-2::after{
-  top:33.1%;
-  left:-20px;
+  top:36%;
+  left:-47px;
   /* bottom:20px; */
-  width:29px;
-  height:24px;    /* reduced vertical rise */
+  width:70px;
+  height:32px;    /* reduced vertical rise */
   border-top:1.5px solid #999;
   border-left:1.5px solid #999;
 }
@@ -197,16 +201,23 @@ body {
 }
 
 /* Title */
+/* Title */
 .project-title {
-  font-size: 14px;
+ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size:16px;
+  font-weight:600;
+
   position: relative;
-  bottom: 165px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  text-align: center;
-  z-index: 3;
-  margin-top: 120px;
+  bottom:165px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:100%;
+  text-align:center;
+
+  z-index:3;
+  margin-top:120px;
 }
 
 /* WRAPPER */
@@ -233,7 +244,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width:280px;
+  width:360px;
   max-width: none;
   height: auto;
   max-height: none;
@@ -395,7 +406,8 @@ body {
   overflow: hidden;
 
   display: block;
-   animation: smoothOpen 1.3s cubic-bezier(.77,0,.18,1);
+  animation: smoothOpen 1.1s cubic-bezier(0.22,1,0.36,1);
+    backdrop-filter: blur(2px);
 
   /* padding-bottom: 120px; */
 }
@@ -405,12 +417,12 @@ body {
 
   0%{
     opacity:0;
-    transform:scale(0.96);
+    transform:translateY(30px);
   }
 
   100%{
     opacity:1;
-    transform:scale(1);
+    transform:translateY(0);
   }
 }
 
@@ -431,11 +443,25 @@ body {
   top:20px;
   left:25px;
 
-  width:240px;
-  height:240px;
+  width:300px;
+  height:300px;
 
    z-index:5;
    overflow: visible;
+   animation: imageFloat 3s ease forwards;
+}
+
+@keyframes imageFloat{
+
+  0%{
+    opacity:0;
+    transform:translateX(-120px) scale(0.92);
+  }
+
+  100%{
+    opacity:1;
+    transform:translateX(0) scale(1);
+  }
 }
 
 /* DASH LINE */
@@ -467,6 +493,7 @@ body {
   bottom:-1500px !important;
 
   z-index:20;
+  
 }
 
 
@@ -480,7 +507,7 @@ body {
 .project-item.desktop-active .color-img{
   opacity:1;
   z-index: 3;
-   animation:imageReveal 0.9s cubic-bezier(0.22,1,0.36,1);
+  animation:imageReveal 1.2s cubic-bezier(0.22,1,0.36,1);
 }
 @keyframes imageReveal{
 
@@ -504,7 +531,7 @@ body {
 
   position:absolute;
 
-  top: 235px;
+  top: 300px;
 
   left: 160px;
 
@@ -525,7 +552,7 @@ font-size:18px;
   /* overflow: visible; */
 
   color:#000;
-   animation-delay:0.45s;
+   animation-delay:10s;
 animation-fill-mode:both;
 }
 
@@ -536,7 +563,7 @@ animation-fill-mode:both;
 
   position:absolute;
 
-  top:300px;
+  top:350px;
 
   left: 30px;
 
@@ -545,7 +572,8 @@ animation-fill-mode:both;
   z-index:9999;
 
   overflow:hidden;
-   animation-delay:0.65s;
+  animation: fadeContent 0.9s ease forwards;
+   animation-delay:5s;
 animation-fill-mode:both;
 }
 
@@ -553,8 +581,8 @@ animation-fill-mode:both;
 
   0%{
     opacity:0;
-    transform:translateY(60px);
-    filter:blur(8px);
+    transform:translateY(18px);
+filter:blur(2px);
   }
 
   100%{
@@ -602,21 +630,22 @@ animation-fill-mode:both;
 
   position:absolute;
 
-  top:189px;
+  top:190px;
 
-  right:40px;
+  right:20px;
 
-  width:55%;
+  width:69%;
 
-  height:650px;   /* same as image area */
+  height:68vh;
 
   z-index:500;
 
   overflow:hidden;
+  will-change: transform, opacity;
 
   animation: slideReveal 1.2s cubic-bezier(0.22,1,0.36,1);
-animation-delay:0.9s;
-animation-fill-mode:both;
+  animation-delay:0.45s;
+  animation-fill-mode:both;
 }
 
 @keyframes slideReveal{
@@ -640,11 +669,9 @@ animation-fill-mode:both;
 
   width:100%;
 
-  height:auto;
+  height:68vh;
 
-  max-height:650px;
-
-  object-fit:contain;
+  object-fit:cover;
 
   object-position:center;
 
@@ -652,7 +679,6 @@ animation-fill-mode:both;
 
   border-radius:0;
 }
-
 
 .project-item.desktop-active .slider-image.active{
   display:block;
@@ -689,7 +715,7 @@ body.project-open::after{
     background-image:
       repeating-linear-gradient(
         to bottom,
-        #999 0px,
+        rgba(0,0,0,0.18) 0px,
         #999 8px,
         transparent 8px,
         transparent 16px
@@ -711,13 +737,6 @@ body.project-open::after{
       repeating-linear-gradient(
         to bottom,
         #999 0px,
-        #999 8px,
-        transparent 8px,
-        transparent 16px
-      ),
-       repeating-linear-gradient(
-        to bottom,
-         #999 0px,
         #999 8px,
         transparent 8px,
         transparent 16px
@@ -739,10 +758,11 @@ body.project-open::after{
       1px 100%;
 
     background-position:
-      28% 0,
-      45% 0,
-      62% 0,
-      82% 0;
+      10% 0,
+      30% 0,
+      50% 0,
+      70% 0,
+      90% 0;
 }
 
 
@@ -860,8 +880,10 @@ body.project-open::after{
 .project-info{
   width:88%;
   margin:auto;
-  font-size:12px;   /* smaller font */
-  line-height:1.5;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size:15px;
+  line-height:1.8;
+  font-weight:400;
   color:#222;
 }
 
@@ -963,7 +985,7 @@ body.project-open::after{
 }
 
 .project-item.desktop-active .img-box::before{
-  display:block;
+  display:none;
 }
 
 @keyframes fadeUp{
@@ -1319,12 +1341,9 @@ body.project-open{
   <header class="navbar">
 
     <a href="index.html" class="logo">
-    <img src="./images/logo.jpeg" alt="Sako Logo" class="logo-img">
+    <img src="./images/logo.png" alt="Sako Logo" class="logo-img">
 
-    <div class="logo-text">
-        <h2>Sako design narratives</h2>
-        <p>art | architecture | interior</p>
-    </div>
+    <img src="./images/logo-text.png" alt="Sako Logo" class="logo-text-img">
 </a>
 
     <!-- Desktop Menu -->
