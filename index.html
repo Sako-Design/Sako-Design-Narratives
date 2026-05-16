@@ -395,7 +395,7 @@ body {
   overflow: hidden;
 
   display: block;
-   animation: smoothOpen 0.8s cubic-bezier(.77,0,.18,1);
+   animation: smoothOpen 1.3s cubic-bezier(.77,0,.18,1);
 
   /* padding-bottom: 120px; */
 }
@@ -480,6 +480,21 @@ body {
 .project-item.desktop-active .color-img{
   opacity:1;
   z-index: 3;
+   animation:imageReveal 0.9s cubic-bezier(0.22,1,0.36,1);
+}
+@keyframes imageReveal{
+
+  0%{
+    opacity:0;
+    transform:translate(-50%, -50%) scale(0.85);
+    filter:blur(10px);
+  }
+
+  100%{
+    opacity:1;
+    transform:translate(-50%, -50%) scale(1);
+    filter:blur(0);
+  }
 }
 
 /* TITLE */
@@ -510,7 +525,8 @@ font-size:18px;
   /* overflow: visible; */
 
   color:#000;
-   animation: fadeContent 1s ease;
+   animation-delay:0.45s;
+animation-fill-mode:both;
 }
 
 
@@ -529,22 +545,24 @@ font-size:18px;
   z-index:9999;
 
   overflow:hidden;
-   animation: fadeContent 1s ease;
+   animation-delay:0.65s;
+animation-fill-mode:both;
 }
 
 @keyframes fadeContent{
 
   0%{
     opacity:0;
-    transform:translateY(40px);
+    transform:translateY(60px);
+    filter:blur(8px);
   }
 
   100%{
     opacity:1;
     transform:translateY(0);
+    filter:blur(0);
   }
 }
-
 /* INFO */
 
 .project-item.desktop-active .project-info{
@@ -596,19 +614,23 @@ font-size:18px;
 
   overflow:hidden;
 
-  animation: slideReveal 1s ease;
+  animation: slideReveal 1.2s cubic-bezier(0.22,1,0.36,1);
+animation-delay:0.9s;
+animation-fill-mode:both;
 }
 
 @keyframes slideReveal{
 
   0%{
     opacity:0;
-    transform:translateX(120px);
+    transform:translateX(180px) scale(1.03);
+    filter:blur(10px);
   }
 
   100%{
     opacity:1;
-    transform:translateX(0);
+    transform:translateX(0) scale(1);
+    filter:blur(0);
   }
 }
 
