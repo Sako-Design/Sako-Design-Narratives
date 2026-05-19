@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Research | Sako Design Narratives</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  background:#ffffff;
+  color:#111;
+  overflow:hidden;
+}
+
+/* NAVBAR */
+
+.navbar{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 45px;
+  background:#fff;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  text-decoration:none;
+}
+
+.logo-img{
+  width:60px;
+}
+
+.logo-text-img{
+  width:260px;
+}
+
+.menu{
+  display:flex;
+  gap:42px;
+}
+
+.menu a{
+  text-decoration:none;
+  color:#111;
+  font-size:15px;
+  letter-spacing:1px;
+}
+
+.menu a:hover{
+  opacity:.6;
+}
+
+/* HAMBURGER */
+
+.hamburger{
+  display:none;
+  font-size:34px;
+  cursor:pointer;
+}
+
+.menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.25);
+  opacity:0;
+  visibility:hidden;
+  transition:.3s;
+  z-index:999;
+}
+
+.menu-overlay.active{
+  opacity:1;
+  visibility:visible;
+}
+
+.side-menu{
+  position:fixed;
+  top:0;
+  right:-300px;
+  width:280px;
+  height:100vh;
+  background:#fff;
+  display:flex;
+  flex-direction:column;
+  padding:100px 45px;
+  gap:30px;
+  transition:.4s ease;
+  z-index:2000;
+}
+
+.side-menu.active{
+  right:0;
+}
+
+.side-menu a{
+  text-decoration:none;
+  color:#111;
+  font-size:22px;
+}
+
+.close-btn{
+  position:absolute;
+  top:28px;
+  right:35px;
+  font-size:34px;
+  cursor:pointer;
+}
+
+/* HERO */
+
+.research-hero{
+  width:100%;
+  height:320px;
+  display:flex;
+}
+
+.research-left{
+
+  width:50%;
+
+  background:#b6b3b3;
+
+  display:flex;
+
+  justify-content:flex-start;
+
+  align-items:center;
+
+  overflow:hidden;
+}
+
+.research-left img{
+
+  width:58%;
+
+  margin-left:-10px;
+
+  margin-top:20px;
+
+  object-fit:contain;
+
+  mix-blend-mode:multiply;
+}
+
+.research-right{
+
+  width:50%;
+
+  background:#bebaba;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+
+  align-items:flex-start;
+
+  padding-left:40px;
+
+  position:relative;
+}
+
+.research-right h1{
+
+  font-size:42px;
+
+  font-weight:300;
+
+  color:#fff;
+
+  margin-bottom:18px;
+
+  transition:.3s;
+}
+
+.research-right h1:hover{
+  color:#00d1b2;
+}
+
+.research-right p{
+
+  font-size:22px;
+
+  color:#8d8d8d;
+}
+
+.research-socials{
+
+  display:flex;
+
+  gap:18px;
+
+  margin-top:28px;
+}
+
+.research-socials a{
+
+  color:#fff;
+
+  font-size:20px;
+
+  transition:.3s;
+}
+
+.research-socials a:hover{
+  color:#00d1b2;
+}
+
+/* WORDPRESS SECTION */
+
+.wordpress-section{
+
+  width:100%;
+
+  height:100vh;
+
+  overflow:hidden;
+
+  background:#fff;
+}
+
+.wordpress-section iframe{
+
+  width:100%;
+
+  height:100vh;
+
+  border:none;
+
+  overflow-y:auto;
+
+  display:block;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.menu{
+  display:none;
+}
+
+.hamburger{
+  display:block;
+}
+
+.navbar{
+  padding:18px 24px;
+}
+
+.logo-img{
+  width:46px;
+}
+
+.logo-text-img{
+  width:210px;
+}
+
+.research-hero{
+  flex-direction:column;
+  height:auto;
+}
+
+.research-left,
+.research-right{
+  width:100%;
+}
+
+.research-right{
+  padding:60px 25px;
+}
+
+.research-right h1{
+  font-size:34px;
+}
+
+.research-right p{
+  font-size:18px;
+}
+
+.wordpress-section{
+  height:100vh;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+<a href="index.html" class="logo">
+
+<img src="./images/logo.png"
+class="logo-img">
+
+<img src="./images/logo-text.png"
+class="logo-text-img">
+
+</a>
+
+<nav class="menu">
+
+<a href="index.html">Home</a>
+<a href="architecture.html">Architecture</a>
+<a href="interior.html">Interior</a>
+
+<a href="https://lightscameraarchitecture.wordpress.com/"
+target="_blank">
+
+Research
+
+</a>
+
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+
+</nav>
+
+<div class="hamburger" id="hamburger">☰</div>
+
+<div class="menu-overlay" id="overlay"></div>
+
+<nav class="side-menu" id="sideMenu">
+
+<div class="close-btn" id="closeMenu">✕</div>
+
+<a href="index.html">Home</a>
+<a href="architecture.html">Architecture</a>
+<a href="interior.html">Interior</a>
+
+<a href="https://lightscameraarchitecture.wordpress.com/"
+target="_blank">
+
+Research
+
+</a>
+
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+
+</nav>
+
+</header>
+
+
+
+<!-- WORDPRESS PAGE -->
+
+<section class="wordpress-section">
+
+<iframe
+src="https://lightscameraarchitecture.wordpress.com/">
+</iframe>
+
+</section>
+
+<script>
+
+const hamburger =
+document.getElementById('hamburger');
+
+const sideMenu =
+document.getElementById('sideMenu');
+
+const closeMenu =
+document.getElementById('closeMenu');
+
+const overlay =
+document.getElementById('overlay');
+
+hamburger.addEventListener('click', ()=>{
+
+sideMenu.classList.add('active');
+overlay.classList.add('active');
+
+});
+
+closeMenu.addEventListener('click', ()=>{
+
+sideMenu.classList.remove('active');
+overlay.classList.remove('active');
+
+});
+
+overlay.addEventListener('click', ()=>{
+
+sideMenu.classList.remove('active');
+overlay.classList.remove('active');
+
+});
+
+</script>
+
+</body>
+</html>

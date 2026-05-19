@@ -690,7 +690,6 @@ filter:blur(2px);
 
   overflow:hidden;
   will-change: transform, opacity;
-
   animation: slideReveal 5.5s cubic-bezier(0.16,1,0.3,1);
   animation-delay:4.9s;
   animation-fill-mode:both;
@@ -1838,7 +1837,7 @@ body.project-open{
 
       <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
 
-      <br>
+  
 
       <p>
         Nestled within a dense urban neighborhood in
@@ -1907,7 +1906,7 @@ body.project-open{
 
       <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
 
-      <br>
+  
 
       <p>
         Nestled within a dense urban neighborhood in
@@ -1975,7 +1974,7 @@ body.project-open{
 
       <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
 
-      <br>
+    
 
       <p>
         Nestled within a dense urban neighborhood in
@@ -2042,7 +2041,7 @@ body.project-open{
 
       <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
 
-      <br>
+    
 
       <p>
         Nestled within a dense urban neighborhood in
@@ -2109,7 +2108,7 @@ body.project-open{
 
       <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
 
-      <br>
+    
 
       <p>
         Nestled within a dense urban neighborhood in
@@ -2176,7 +2175,7 @@ body.project-open{
 
       <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
 
-      <br>
+
 
       <p>
         Nestled within a dense urban neighborhood in
@@ -2243,7 +2242,7 @@ body.project-open{
 
       <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
 
-      <br>
+
 
       <p>
         Nestled within a dense urban neighborhood in
@@ -2311,7 +2310,6 @@ body.project-open{
 
       <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
 
-      <br>
 
       <p>
         Nestled within a dense urban neighborhood in
@@ -2378,7 +2376,7 @@ body.project-open{
 
       <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
 
-      <br>
+
 
       <p>
         Nestled within a dense urban neighborhood in
@@ -2445,7 +2443,7 @@ body.project-open{
 
       <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
 
-      <br>
+      
 
       <p>
         Nestled within a dense urban neighborhood in
@@ -2686,7 +2684,7 @@ sliders.forEach(slider => {
 
   let current = 0;
 
-  let sliderAuto;
+  let autoSlide;
 
   function showImage(index){
 
@@ -2719,17 +2717,17 @@ sliders.forEach(slider => {
     showImage(current);
   }
 
-  function startSliderAuto(){
+  function startAutoSlide(){
 
-    clearInterval(sliderAuto);
+    clearInterval(autoSlide);
 
-    sliderAuto = setInterval(() => {
+    autoSlide = setInterval(() => {
       nextSlide();
-    }, 2500);
+    }, 3000);
 
   }
 
-  startSliderAuto();
+  startAutoSlide();
 
   nextBtn.addEventListener("click", (e) => {
 
@@ -2737,7 +2735,7 @@ sliders.forEach(slider => {
 
     nextSlide();
 
-    startSliderAuto();
+    startAutoSlide();
 
   });
 
@@ -2747,7 +2745,7 @@ sliders.forEach(slider => {
 
     prevSlide();
 
-    startSliderAuto();
+    startAutoSlide();
 
   });
 
