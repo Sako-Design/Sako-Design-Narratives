@@ -264,16 +264,19 @@ transform-style:preserve-3d;
   left: 50%;
   transform: translateX(-50%);
   top: -600px;
-  bottom:-600px;
+  bottom: -600px;
   width: 1px;
+
   background: repeating-linear-gradient(
     to bottom,
-    #555 0px,
-    #555 6px,
-    transparent 6px,
-    transparent 12px
+    #777 0px,
+    #777 8px,
+    transparent 8px,
+    transparent 16px
   );
-  z-index: 5;
+
+  z-index: 50;
+  pointer-events: none;
 }
 
 /* Sketch always visible by default */
@@ -510,11 +513,13 @@ translate:0 0;
 
 .project-item.desktop-active .img-box::before{
 
-  top:-1000px !important;
+  /* top:-1000px !important;
 
   bottom:-1500px !important;
 
-  z-index:20;
+  z-index:20; */
+
+  display: none;
   
 }
 
@@ -1095,7 +1100,7 @@ body.project-open::after{
 }
 
 .project-item.desktop-active .img-box::before{
-  display:none;
+  display:block;
 }
 
 @keyframes fadeUp{
@@ -1141,7 +1146,7 @@ body.project-open::after{
   }
 
   /* Hide dashed lines in mobile */
-  .img-box::before,
+ 
   .project-item::after {
     display: none;
   }
@@ -1600,12 +1605,13 @@ body.project-open{
 
     <!-- Desktop Menu -->
   <nav class="menu">
-  <a href="index.html">Home</a>
-  <a href="architecture.html">Architecture</a>
-  <a href="interior.html">Interior</a>
-  <a href="research.html">Research</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
+  <a href="index.html">HOME</a>
+  <a href="architecture.html">ARCHITECTURE</a>
+  <a href="interior.html">INTERIOR</a>
+  <a href="research.html">RESEARCH</a>
+  <a href="about.html">ABOUT</a>
+  <a href="publication.html">PUBLICATION</a>
+  <a href="contact.html">CONTACT</a>
 </nav>
 
     <div class="hamburger" id="hamburger">
@@ -1617,12 +1623,13 @@ body.project-open{
 <nav class="side-menu" id="sideMenu">
   <div class="close-btn" id="closeMenu">✕</div>
 
-  <a href="index.html">Home</a>
-  <a href="architecture.html">Architecture</a>
-  <a href="interior.html">Interior</a>
-  <a href="research.html">Research</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
+  <a href="index.html">HOME</a>
+  <a href="architecture.html">ARCHITECTURE</a>
+  <a href="interior.html">INTERIOR</a>
+  <a href="research.html">RESEARCH</a>
+  <a href="about.html">ABOUT</a>
+  <a href="publication.html">PUBLICATION</a>
+  <a href="contact.html">CONTACT</a>
 </nav>
   </header>
 
@@ -1701,17 +1708,17 @@ body.project-open{
     </div>
 
 </div>
-    <div class="project-item  line-down-1">
+    <!-- <div class="project-item  line-down-1">
   <div class="img-box">
     <img src="./images/image 2.jpeg" class="sketch-img">
         <img src="./images/image 2.1.jpeg" class="color-img">
       </div>   
 
-<div class="project-title">Farmhouse Panjarla, India</div>
+<div class="project-title">Farmhouse Panjarla, India</div> -->
 
  <!-- MOBILE DETAILS -->
 
-  <div class="mobile-project-details">
+  <!-- <div class="mobile-project-details">
 
     <div class="project-info">
 
@@ -1737,16 +1744,16 @@ body.project-open{
         and style.
       </p>
 
-    </div>
+    </div> -->
 
     <!-- <a href="sako-office.html" class="full-details-btn">
       Click Here For Full Details -->
     <!-- </a> -->
-     </div>
+     <!-- </div> -->
 
     <!-- SLIDER -->
 
-    <div class="mobile-slider">
+    <!-- <div class="mobile-slider">
 
       <button class="slide-btn prev-btn">&#10094;</button>
 
@@ -1767,19 +1774,19 @@ body.project-open{
 
     </div>
 
-  </div>
+  </div> -->
 
-    <div class="project-item line-up-2">
+    <!-- <div class="project-item line-up-2">
   <div class="img-box">
     <img src="./images/image 3.jpeg" class="sketch-img">
         <img src="./images/image 3.1.jpeg" class="color-img">
       </div>
 
-<div class="project-title">Villa Maheshwaram, India</div>
+<div class="project-title">Villa Maheshwaram, India</div> -->
 
  <!-- MOBILE DETAILS -->
 
-  <div class="mobile-project-details">
+  <!-- <div class="mobile-project-details">
 
     <div class="project-info">
 
@@ -1805,16 +1812,16 @@ body.project-open{
         and style.
       </p>
 
-    </div>
+    </div> -->
 
     <!-- <a href="sako-office.html" class="full-details-btn">
       Click Here For Full Details
     </a> -->
-    </div>
+    <!-- </div> -->
 
     <!-- SLIDER -->
 
-    <div class="mobile-slider">
+    <!-- <div class="mobile-slider">
 
       <button class="slide-btn prev-btn">&#10094;</button>
 
@@ -1835,7 +1842,7 @@ body.project-open{
 
     </div>
 
-  </div>
+  </div> -->
 
     <div class="project-item  line-down-2">
   <div class="img-box">
@@ -1904,16 +1911,16 @@ body.project-open{
 
   </div>
 
-    <div class="project-item line-up-3">
+    <!-- <div class="project-item line-up-3">
   <div class="img-box">
     <img src="./images/image 2.jpeg" class="sketch-img">
         <img src="./images/image 2.1.jpeg" class="color-img">
       </div>
-<div class="project-title">Farmhouse Panjarla, India</div>
+<div class="project-title">Farmhouse Panjarla, India</div> -->
 
  <!-- MOBILE DETAILS -->
 
-  <div class="mobile-project-details">
+  <!-- <div class="mobile-project-details">
 
     <div class="project-info">
 
@@ -1939,16 +1946,16 @@ body.project-open{
         and style.
       </p>
 
-    </div>
+    </div> -->
 
     <!-- <a href="sako-office.html" class="full-details-btn">
       Click Here For Full Details
     </a> -->
-    </div>
+    <!-- </div> -->
 
     <!-- SLIDER -->
 
-    <div class="mobile-slider">
+    <!-- <div class="mobile-slider">
 
       <button class="slide-btn prev-btn">&#10094;</button>
 
@@ -1969,7 +1976,7 @@ body.project-open{
 
     </div>
 
-  </div>
+  </div> -->
 
 <div  class="project-item line-up-4">
     <div class="img-box">
@@ -1996,8 +2003,6 @@ body.project-open{
       Kondal Siddhuri</p>
 
       <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
-
-      <br>
 
       <p>
         Nestled within a dense urban neighborhood in
@@ -2037,17 +2042,17 @@ body.project-open{
 
   </div>
 
-    <div class="project-item line-down-1">
+    <!-- <div class="project-item line-down-1">
   <div class="img-box">
     <img src="./images/image 2.jpeg" class="sketch-img">
         <img src="./images/image 2.1.jpeg" class="color-img">
-      </div>   
+      </div>    -->
 
-<div class="project-title">Farmhouse Panjarla, India</div>
+<!-- <div class="project-title">Farmhouse Panjarla, India</div> -->
 
  <!-- MOBILE DETAILS -->
 
-  <div class="mobile-project-details">
+  <!-- <div class="mobile-project-details">
 
     <div class="project-info">
 
@@ -2073,16 +2078,16 @@ body.project-open{
         and style.
       </p>
 
-    </div>
+    </div> -->
 
     <!-- <a href="sako-office.html" class="full-details-btn">
       Click Here For Full Details
     </a> -->
-    </div>
+    <!-- </div> -->
 
     <!-- SLIDER -->
 
-    <div class="mobile-slider">
+    <!-- <div class="mobile-slider">
 
       <button class="slide-btn prev-btn">&#10094;</button>
 
@@ -2111,11 +2116,11 @@ body.project-open{
         <img src="./images/image 3.1.jpeg" class="color-img">
       </div>
 
-<div class="project-title">Villa Maheshwaram, India</div>
+<div class="project-title">Villa Maheshwaram, India</div> -->
 
  <!-- MOBILE DETAILS -->
 
-  <div class="mobile-project-details">
+  <!-- <div class="mobile-project-details">
 
     <div class="project-info">
 
@@ -2141,16 +2146,16 @@ body.project-open{
         and style.
       </p>
 
-    </div>
+    </div> -->
 
     <!-- <a href="sako-office.html" class="full-details-btn">
       Click Here For Full Details
     </a> -->
-    </div>
+    <!-- </div> -->
 
     <!-- SLIDER -->
 
-    <div class="mobile-slider">
+    <!-- <div class="mobile-slider">
 
       <button class="slide-btn prev-btn">&#10094;</button>
 
@@ -2178,11 +2183,11 @@ body.project-open{
      <img src="./images/image 4.jpeg" class="sketch-img">
         <img src="./images/image 4.1.jpeg" class="color-img">
       </div>
-<div class="project-title">Lakeview Farmhouse, India</div>
+<div class="project-title">Lakeview Farmhouse, India</div> -->
 
  <!-- MOBILE DETAILS -->
 
-  <div class="mobile-project-details">
+  <!-- <div class="mobile-project-details">
 
     <div class="project-info">
 
@@ -2208,16 +2213,16 @@ body.project-open{
         and style.
       </p>
 
-    </div>
+    </div> -->
 
     <!-- <a href="sako-office.html" class="full-details-btn">
       Click Here For Full Details
     </a> -->
-    </div>
+    <!-- </div> -->
 
     <!-- SLIDER -->
 
-    <div class="mobile-slider">
+    <!-- <div class="mobile-slider">
 
       <button class="slide-btn prev-btn">&#10094;</button>
 
@@ -2245,11 +2250,11 @@ body.project-open{
     <img src="./images/image 2.jpeg" class="sketch-img">
         <img src="./images/image 2.1.jpeg" class="color-img">
       </div>
-<div class="project-title">Farmhouse Panjarla, India</div>
+<div class="project-title">Farmhouse Panjarla, India</div> -->
 
  <!-- MOBILE DETAILS -->
 
-  <div class="mobile-project-details">
+  <!-- <div class="mobile-project-details">
 
     <div class="project-info">
 
@@ -2275,16 +2280,16 @@ body.project-open{
         and style.
       </p>
 
-    </div>
+    </div> -->
 
     <!-- <a href="sako-office.html" class="full-details-btn">
       Click Here For Full Details
     </a> -->
-    </div>
+    <!-- </div> -->
 
     <!-- SLIDER -->
 
-    <div class="mobile-slider">
+    <!-- <div class="mobile-slider">
 
       <button class="slide-btn prev-btn">&#10094;</button>
 
@@ -2303,9 +2308,9 @@ body.project-open{
 
       <button class="slide-btn next-btn">&#10095;</button>
 
-    </div>
+    </div> -->
 
-  </div>
+  <!-- </div> -->
 
 </section>
 

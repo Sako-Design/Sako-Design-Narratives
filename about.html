@@ -3,11 +3,14 @@
 
 <head>
 
+
   <meta charset="UTF-8">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>About | Sako Design Narratives</title>
+  <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
 
@@ -177,6 +180,143 @@
   cursor:pointer;
 }
 
+/* ================= FOOTER ================= */
+
+/* ================= BLACK FOOTER ================= */
+
+.social-footer{
+  width:100%;
+  background:#000;
+
+  padding:18px 0;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:38px;
+
+  margin-top:80px;
+}
+
+.social-footer a{
+  width:42px;
+  height:42px;
+
+  border:1.5px solid #a56243;
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:#a56243;
+  font-size:18px;
+
+  text-decoration:none;
+
+  transition:0.35s ease;
+}
+
+.social-footer a:hover{
+  background:#a56243;
+  color:#fff;
+
+  transform:translateY(-4px);
+}
+
+/* .footer{
+  width:100%;
+  padding:40px 60px;
+  box-sizing:border-box;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  border-top:1px solid #dcdcdc;
+
+  background:#fff;
+
+  margin-top:80px;
+}
+
+.footer-left{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.footer-logo{
+  width:55px;
+  height:auto;
+}
+
+.footer-text h3{
+  margin:0;
+  font-size:18px;
+  font-weight:500;
+}
+
+.footer-text p{
+  margin-top:4px;
+  font-size:12px;
+  color:#666;
+}
+
+.footer-center{
+  width:35%;
+  text-align:center;
+}
+
+.footer-center p{
+  font-size:14px;
+  line-height:1.7;
+  color:#444;
+}
+
+.footer-right{
+  display:flex;
+  gap:25px;
+}
+
+.footer-right a{
+  text-decoration:none;
+  color:#000;
+  font-size:14px;
+  transition:0.3s;
+}
+
+.footer-right a:hover{
+  opacity:0.6;
+} */
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+  .footer{
+    flex-direction:column;
+    gap:30px;
+    text-align:center;
+    padding:40px 25px;
+  }
+
+  .footer-left{
+    flex-direction:column;
+  }
+
+  .footer-center{
+    width:100%;
+  }
+
+  .footer-right{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:18px;
+  }
+
+}
+
 @media (max-width:890px){
 
   .menu{
@@ -227,6 +367,17 @@
         line-height:1.9;
       }
 
+      .social-footer{
+  gap:24px;
+  padding:14px 0;
+}
+
+.social-footer a{
+  width:38px;
+  height:38px;
+  font-size:16px;
+}
+
 
     }
 
@@ -254,17 +405,18 @@
 
     <nav class="menu">
 
-      <a href="index.html">Home</a>
+      <a href="index.html">HOME</a>
 
-      <a href="architecture.html">Architecture</a>
+      <a href="architecture.html">ARCHITECTURE</a>
 
-      <a href="interior.html">Interior</a>
+      <a href="interior.html">INTERIOR</a>
 
-      <a href="research.html">Research</a>
+      <a href="research.html">RESEARCH</a>
 
-      <a href="about.html">About</a>
+      <a href="about.html">ABOUT</a>
+       <a href="publication.html">PUBLICATION</a>
 
-      <a href="contact.html">Contact</a>
+      <a href="contact.html">CONTACT</a>
 
     </nav>
 
@@ -278,12 +430,13 @@
 <nav class="side-menu" id="sideMenu">
   <div class="close-btn" id="closeMenu">✕</div>
 
-  <a href="index.html">Home</a>
-  <a href="architecture.html">Architecture</a>
-  <a href="interior.html">Interior</a>
-  <a href="research.html">Research</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
+  <a href="index.html">HOME</a>
+  <a href="architecture.html">ARCHITECTURE</a>
+  <a href="interior.html">INTERIOR</a>
+  <a href="research.html">RESEARCH</a>
+  <a href="about.html">ABOUT</a>
+   <a href="publication.html">PUBLICATION</a>
+  <a href="contact.html">CONTACT</a>
 </nav>
 
   </header>
@@ -344,6 +497,62 @@ overlay.onclick = () => {
 };
 
 </script>
+
+<!-- ================= FOOTER ================= -->
+
+<!-- <footer class="footer">
+
+  <div class="footer-left">
+
+    <img src="./images/logo.png" class="footer-logo">
+
+    <div class="footer-text">
+      <h3>Sako design narratives</h3>
+      <p>art | architecture | interior</p>
+    </div>
+
+  </div>
+
+  <div class="footer-center">
+
+    <p>
+      Creating thoughtful spaces through
+      architecture, interiors, and research.
+    </p>
+
+  </div>
+
+  <div class="footer-right">
+
+    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+
+    <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+
+    <a href="contact.html">Contact</a>
+
+  </div>
+
+</footer> -->
+
+<div class="social-footer">
+
+    <a href="#">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+
+    <a href="#">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+    <a href="#">
+        <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="#">
+        <i class="fas fa-briefcase"></i>
+    </a>
+
+</div>
 
 </body>
 </html>

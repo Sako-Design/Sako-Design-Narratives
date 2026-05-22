@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Publications | Sako Design Narratives</title>
+
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+
+  font-family:
+  "Helvetica Neue",
+  Helvetica,
+  Arial,
+  sans-serif;
+
+  background:
+  radial-gradient(circle at top left,#f3f3f3,#ffffff 45%);
+
+  overflow-x:hidden;
+
+  color:#111;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+
+  width:100%;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  padding:22px 40px;
+
+  background:#fff;
+
+  position:relative;
+
+  z-index:2000;
+}
+
+.logo{
+
+  display:flex;
+
+  align-items:center;
+
+  text-decoration:none;
+}
+
+.logo-img{
+
+  width:60px;
+
+  margin-right:12px;
+}
+
+.logo-text-img{
+
+  height:66px;
+
+  width:auto;
+}
+
+/* MENU */
+
+.menu{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:35px;
+}
+
+.menu a{
+
+  text-decoration:none;
+
+  color:#000;
+
+  font-size:14px;
+
+  letter-spacing:1px;
+
+  transition:0.35s ease;
+}
+
+.menu a:hover{
+
+  opacity:0.6;
+}
+
+/* HAMBURGER */
+
+.hamburger{
+
+  display:none;
+
+  font-size:30px;
+
+  cursor:pointer;
+}
+
+/* ================= MOBILE MENU ================= */
+
+.menu-overlay{
+
+  position:fixed;
+
+  top:0;
+  left:0;
+
+  width:100%;
+  height:100%;
+
+  background:rgba(0,0,0,0.45);
+
+  opacity:0;
+
+  visibility:hidden;
+
+  transition:0.3s;
+
+  z-index:999;
+}
+
+.side-menu{
+
+  position:fixed;
+
+  top:0;
+  right:-100%;
+
+  width:80%;
+  height:100%;
+
+  background:white;
+
+  padding:90px 40px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:45px;
+
+  transition:0.45s ease;
+
+  z-index:1000;
+}
+
+.side-menu a{
+
+  text-decoration:none;
+
+  color:#111;
+
+  font-size:22px;
+}
+
+.close-btn{
+
+  position:absolute;
+
+  top:25px;
+  right:25px;
+
+  font-size:30px;
+
+  cursor:pointer;
+}
+
+.side-menu.active{
+
+  right:0;
+}
+
+.menu-overlay.active{
+
+  opacity:1;
+
+  visibility:visible;
+}
+
+/* ================= PUBLICATION SECTION ================= */
+
+.publications-section{
+
+  width:100%;
+
+  max-width:1280px;
+
+  margin:100px auto;
+
+  padding:0 40px 120px;
+}
+
+/* HEADING */
+
+.publication-heading{
+
+  text-align:center;
+
+  font-size:64px;
+
+  letter-spacing:12px;
+
+  font-weight:200;
+
+  margin-bottom:90px;
+
+  color:#111;
+}
+
+/* CARD */
+
+/* ================= PUBLICATION CARD ================= */
+
+.publication-card{
+
+  position:relative;
+
+  display:grid;
+
+  grid-template-columns:1.1fr 1fr;
+
+  gap:60px;
+
+  align-items:center;
+
+  margin-bottom:90px;
+
+  padding:35px;
+
+  border-radius:34px;
+
+  background:
+  rgba(255,255,255,0.65);
+
+  backdrop-filter:blur(14px);
+
+  border:1px solid rgba(255,255,255,0.5);
+
+  box-shadow:
+  0 10px 40px rgba(0,0,0,0.08);
+
+  overflow:hidden;
+
+  transition:
+  transform 0.6s cubic-bezier(0.16,1,0.3,1),
+  box-shadow 0.6s ease;
+}
+
+/* HOVER */
+
+.publication-card:hover{
+
+  transform:translateY(-10px);
+
+  box-shadow:
+  0 18px 60px rgba(0,0,0,0.14);
+}
+
+/* ALTERNATE LAYOUT */
+
+.publication-card:nth-child(even)
+.publication-image{
+
+  order:2;
+}
+
+.publication-card:nth-child(even)
+.publication-content{
+
+  order:1;
+}
+
+/* IMAGE */
+
+.publication-image{
+
+  width:100%;
+
+  height:520px;
+
+  object-fit:cover;
+
+  border-radius:28px;
+
+  transition:
+  transform 1.2s cubic-bezier(0.16,1,0.3,1);
+}
+
+.publication-card:hover
+.publication-image{
+
+  transform:scale(1.04);
+}
+
+/* CONTENT */
+
+.publication-content{
+
+  padding:10px 20px;
+}
+
+/* TAG */
+
+.publication-tag{
+
+  display:inline-block;
+
+  margin-bottom:24px;
+
+  padding:10px 18px;
+
+  border-radius:40px;
+
+  background:#111;
+
+  color:#fff;
+
+  font-size:11px;
+
+  letter-spacing:3px;
+
+  font-weight:600;
+}
+
+/* TITLE */
+
+.publication-content h2{
+
+  margin:0 0 24px;
+
+  font-size:64px;
+
+  line-height:1;
+
+  font-weight:300;
+
+  letter-spacing:-3px;
+
+  color:#111;
+}
+
+/* TEXT */
+
+.publication-content p{
+
+  font-size:17px;
+
+  line-height:2;
+
+  color:#666;
+
+  margin-bottom:36px;
+
+  max-width:520px;
+}
+
+/* BUTTON */
+
+.publication-content a{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  text-decoration:none;
+
+  color:#111;
+
+  font-size:14px;
+
+  font-weight:700;
+
+  letter-spacing:3px;
+
+  text-transform:uppercase;
+
+  transition:0.35s ease;
+}
+
+.publication-content a::after{
+
+  content:"→";
+
+  transition:0.35s ease;
+}
+
+.publication-content a:hover{
+
+  letter-spacing:5px;
+}
+
+.publication-content a:hover::after{
+
+  transform:translateX(8px);
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:980px){
+
+  .navbar{
+
+    padding:18px 20px;
+  }
+
+  .menu{
+
+    display:none;
+  }
+
+  .hamburger{
+
+    display:block;
+  }
+
+  .logo-img{
+
+    width:48px;
+  }
+
+  .logo-text-img{
+
+    height:46px;
+  }
+
+  .publications-section{
+
+    padding:0 20px 100px;
+  }
+
+  .publication-heading{
+
+    font-size:34px;
+
+    letter-spacing:6px;
+
+    margin-bottom:50px;
+  }
+
+  .publication-card{
+
+    grid-template-columns:1fr;
+
+    gap:30px;
+
+    padding:20px;
+  }
+
+  .publication-card:nth-child(even)
+  .publication-image{
+
+    order:1;
+  }
+
+  .publication-card:nth-child(even)
+  .publication-content{
+
+    order:2;
+  }
+
+  .publication-image{
+
+    height:280px;
+  }
+
+  .publication-content h2{
+
+    font-size:36px;
+
+    line-height:1.1;
+  }
+
+  .publication-content p{
+
+    font-size:15px;
+
+    line-height:1.8;
+  }
+
+}
+
+  </style>
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+  <a href="index.html" class="logo">
+
+    <img
+      src="./images/logo.png"
+      alt="Sako Logo"
+      class="logo-img"
+    >
+
+    <img
+      src="./images/logo-text.png"
+      alt="Sako Logo Text"
+      class="logo-text-img"
+    >
+
+  </a>
+
+  <!-- DESKTOP MENU -->
+
+  <nav class="menu">
+
+    <a href="index.html">HOME</a>
+
+    <a href="architecture.html">ARCHITECTURE</a>
+
+    <a href="interior.html">INTERIOR</a>
+
+    <a href="research.html">RESEARCH</a>
+
+    <a href="about.html">ABOUT</a>
+
+    <a href="publication.html">PUBLICATION</a>
+
+    <a href="contact.html">CONTACT</a>
+
+  </nav>
+
+  <!-- HAMBURGER -->
+
+  <div class="hamburger" id="hamburger">
+    ☰
+  </div>
+
+  <!-- OVERLAY -->
+
+  <div class="menu-overlay" id="overlay"></div>
+
+  <!-- MOBILE MENU -->
+
+  <nav class="side-menu" id="sideMenu">
+
+    <div class="close-btn" id="closeMenu">
+      ✕
+    </div>
+
+    <a href="index.html">HOME</a>
+
+    <a href="architecture.html">ARCHITECTURE</a>
+
+    <a href="interior.html">INTERIOR</a>
+
+    <a href="research.html">RESEARCH</a>
+
+    <a href="about.html">ABOUT</a>
+
+    <a href="publication.html">PUBLICATION</a>
+
+    <a href="contact.html">CONTACT</a>
+
+  </nav>
+
+</header>
+
+<!-- PUBLICATION 1 -->
+
+<div class="publication-card">
+
+  <img
+    src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=1400&auto=format&fit=crop"
+    alt="Lights Camera Architecture"
+    class="publication-image"
+  >
+
+  <div class="publication-content">
+
+    <span class="publication-tag">
+      ARCHITECTURELIVE
+    </span>
+
+    <h2>
+      Lights, Camera, Architecture
+    </h2>
+
+    <p>
+      Exploring cinematic spaces through architecture,
+      visual narratives, emotional atmospheres,
+      and storytelling in film environments.
+    </p>
+
+    <a
+      href="https://architecture.live/lights-camera-architecture-exploring-cinematic-spaces-sangeetha-polisetti/"
+      target="_blank"
+    >
+      Read Publication
+    </a>
+
+  </div>
+
+</div>
+
+
+<!-- PUBLICATION 2 -->
+
+<div class="publication-card">
+
+  <img
+    src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1400&auto=format&fit=crop"
+    alt="SAKO Studio"
+    class="publication-image"
+  >
+
+  <div class="publication-content">
+
+    <span class="publication-tag">
+      RTF
+    </span>
+
+    <h2>
+      SAKO Studio by SAKO Design Narratives
+    </h2>
+
+    <p>
+      A feature showcasing spatial narratives,
+      minimal interventions, and the studio’s
+      design philosophy in contemporary architecture.
+    </p>
+
+    <a
+      href="https://www.re-thinkingthefuture.com/corporate-interior-design/10509-sako-studio-by-sako-design-narratives/"
+      target="_blank"
+    >
+      Read Publication
+    </a>
+
+  </div>
+
+</div>
+
+
+<!-- PUBLICATION 3 -->
+
+<div class="publication-card">
+
+  <img
+    src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1400&auto=format&fit=crop"
+    alt="ArchitectureLive"
+    class="publication-image"
+  >
+
+  <div class="publication-content">
+
+    <span class="publication-tag">
+      ARCHITECTURE WRITINGS
+    </span>
+
+    <h2>
+      ArchitectureLive Author Profile
+    </h2>
+
+    <p>
+      A curated collection of architectural writings,
+      research explorations, and published features
+      by SAKO Design Narratives.
+    </p>
+
+    <a
+      href="https://architecture.live/author/sako-design-narratives/"
+      target="_blank"
+    >
+      View Publications
+    </a>
+
+  </div>
+
+</div>
+
+
+<!-- PUBLICATION 4 -->
+
+<div class="publication-card">
+
+  <img
+    src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1400&auto=format&fit=crop"
+    alt="Architect and Interiors India"
+    class="publication-image"
+  >
+
+  <div class="publication-content">
+
+    <span class="publication-tag">
+      ARCHITECT & INTERIORS INDIA
+    </span>
+
+    <h2>
+      Love for Nature Takes Over This Architect’s Office
+    </h2>
+
+    <p>
+      A publication highlighting a nature-inspired
+      compact architectural workspace in Hyderabad,
+      designed with spatial sensitivity and warmth.
+    </p>
+
+    <a
+      href="https://www.architectandinteriorsindia.com/projects/watch-as-the-love-for-nature-takes-over-this-250-sq-ft-architects-office-in-hyderabad"
+      target="_blank"
+    >
+      Read Publication
+    </a>
+
+  </div>
+
+</div>
+
+
+<!-- PUBLICATION 5 -->
+
+<div class="publication-card">
+
+  <img
+    src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?q=80&w=1400&auto=format&fit=crop"
+    alt="Competition BG"
+    class="publication-image"
+  >
+
+  <div class="publication-content">
+
+    <span class="publication-tag">
+      INTERNATIONAL COMPETITION
+    </span>
+
+    <h2>
+      Pazardzhik Market Competition
+    </h2>
+
+    <p>
+      International competition proposal exploring
+      adaptive urban interventions, marketplace
+      activation, and contemporary civic identity.
+    </p>
+
+    <a
+      href="https://competition.bg/pazardzhikmarket/en/projects/sako-design-narratives/"
+      target="_blank"
+    >
+      View Project
+    </a>
+
+  </div>
+
+</div>
+
+</section>
+
+<!-- ================= SCRIPT ================= -->
+
+<script>
+
+const hamburger =
+document.getElementById("hamburger");
+
+const sideMenu =
+document.getElementById("sideMenu");
+
+const overlay =
+document.getElementById("overlay");
+
+const closeMenu =
+document.getElementById("closeMenu");
+
+/* OPEN */
+
+hamburger.addEventListener("click", () => {
+
+  sideMenu.classList.add("active");
+
+  overlay.classList.add("active");
+
+});
+
+/* CLOSE */
+
+closeMenu.addEventListener("click", () => {
+
+  sideMenu.classList.remove("active");
+
+  overlay.classList.remove("active");
+
+});
+
+/* OVERLAY CLOSE */
+
+overlay.addEventListener("click", () => {
+
+  sideMenu.classList.remove("active");
+
+  overlay.classList.remove("active");
+
+});
+
+</script>
+
+</body>
+</html>
