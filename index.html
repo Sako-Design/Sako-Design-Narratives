@@ -4,6 +4,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <title>Sako Design Narratives</title>
+  <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
   <style>
 
@@ -1762,6 +1764,72 @@ body.project-open{
 
 }
 
+.project-socials{
+
+  position:fixed;
+
+  bottom:-55px;
+
+  left:0;
+
+  width:100%;
+
+  padding:6px 0;
+
+  background:#000;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  gap:20px;
+
+  z-index:99999;
+
+  transition:0.6s ease;
+}
+
+/* SHOW ONLY WHEN PROJECT OPENS */
+
+body.project-open .project-socials{
+
+  bottom:0;
+}
+
+.project-socials a{
+
+  width:34px;
+  height:34px;
+
+  font-size:14px;
+
+  border:1px solid #a56243;
+
+  border-radius:50%;
+
+  display:flex;
+
+  justify-content:center;
+  align-items:center;
+
+  color:#a56243;
+
+  text-decoration:none;
+
+  transition:0.35s ease;
+}
+
+.project-socials a:hover{
+
+  background:#a56243;
+
+  color:#fff;
+
+  transform:translateY(-4px);
+}
+
   </style>
 </head>
 
@@ -2485,6 +2553,13 @@ body.project-open{
 
   </div>
 
+  <div class="project-socials">
+  <a href="#"><i class="fab fa-facebook-f"></i></a>
+  <a href="#"><i class="fas fa-envelope"></i></a>
+  <a href="#"><i class="fab fa-instagram"></i></a>
+  <a href="#"><i class="fas fa-briefcase"></i></a>
+</div>
+
 </section>
 
 <script>
@@ -2783,5 +2858,26 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 </script>
+
+<footer class="social-footer">
+
+  <a href="#" target="_blank">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+
+  <a href="mailto:hello@example.com">
+    <i class="fas fa-envelope"></i>
+  </a>
+
+  <a href="#" target="_blank">
+    <i class="fab fa-instagram"></i>
+  </a>
+
+  <a href="#">
+    <i class="fas fa-briefcase"></i>
+  </a>
+
+</footer>
+
 </body>
 </html>
