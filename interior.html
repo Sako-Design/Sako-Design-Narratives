@@ -4,6 +4,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <title>Sako Design Narratives</title>
+  <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
   <style>
 
@@ -19,6 +21,54 @@ body {
   overflow-y: hidden;
 
   height: 100vh;
+}
+
+body.inside-page::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+
+  background-image:
+    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px);
+
+  background-repeat:no-repeat;
+
+  background-size:
+    1px 100%,
+    1px 100%,
+    1px 100%,
+    1px 100%,
+    1px 100%,
+     1px 100%,
+    1px 100%,
+    1px 100%,
+    1px 100%,
+    1px 100%;
+    
+
+  background-position:
+    /* 15% 0,
+    35% 0, */
+    54% 0,
+    74% 0,
+    94% 0,
+    114% 0,
+    134% 0,
+    154% 0,
+    174% 0,
+    194% 0; 
+    
 }
 
     /* ================= NAVBAR ================= */
@@ -100,7 +150,8 @@ body {
   min-height: calc(100vh - 120px);
   overflow-x: visible;
   overflow-y: visible;
-  background: #ffffff;
+  background:transparent;
+   min-width:3400px;
 }
 
 
@@ -128,6 +179,46 @@ body {
   position: absolute;
   z-index: 10;
   box-sizing: border-box;
+}
+
+.project-footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+
+    background: #000;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+
+    z-index: 9999;
+}
+
+.project-footer a{
+    width: 32px;
+    height: 32px;
+
+    border: 1px solid #d17a38;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #d17a38;
+    text-decoration: none;
+
+    transition: .3s;
+}
+
+.project-footer a:hover{
+    background: #d17a38;
+    color: #fff;
 }
 
 
@@ -273,13 +364,14 @@ transform-style:preserve-3d;
     transparent 6px,
     transparent 12px
   );
-  z-index: 5;
+  z-index: 999;
+   /* display:block!important; */
 }
 
 /* Sketch always visible by default */
 .sketch-img {
   opacity: 1;
-  z-index: 1;
+  z-index: 0;
   display:block;
   filter:
     blur(0px)
@@ -817,6 +909,7 @@ body.project-open::after{
       50% 0,
       70% 0,
       90% 0;
+    
 }
 
 /* HORIZONTAL LINE */
@@ -1771,543 +1864,11 @@ body.project-open{
 
   </div>
 
-    <div class="project-item line-up-2">
-  <div class="img-box">
-    <img src="./images/image 3.jpeg" class="sketch-img">
-        <img src="./images/image 3.1.jpeg" class="color-img">
-      </div>
+    
 
-<div class="project-title">Villa Maheshwaram, India</div>
 
- <!-- MOBILE DETAILS -->
+    
 
-  <div class="mobile-project-details">
-
-    <div class="project-info">
-
-      <p><b>Project Name –</b> SaKo studio</p>
-
-      <p><b>Studio Name –</b> Sako design narratives</p>
-
-      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
-
-      <p><b>Project Size –</b> 250 sq ft</p>
-
-      <p><b>Principal Architects –</b> Sangeetha Polisetti,
-      Kondal Siddhuri</p>
-
-      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
-
-      <br>
-
-      <p>
-        Nestled within a dense urban neighborhood in
-        the heart of Hyderabad, sako Studio is a compact
-        250 sq ft workspace designed for efficiency
-        and style.
-      </p>
-
-    </div>
-
-    <!-- <a href="sako-office.html" class="full-details-btn">
-      Click Here For Full Details
-    </a> -->
-    </div>
-
-    <!-- SLIDER -->
-
-    <div class="mobile-slider">
-
-      <button class="slide-btn prev-btn">&#10094;</button>
-
-      <img src="./images/o1.jpg"
-           class="slider-image active">
-
-      <img src="./images/o2.jpeg"
-           class="slider-image">
-
-      <img src="./images/o3.jpeg"
-           class="slider-image">
-
-      <img src="./images/o4.jpeg"
-           class="slider-image">
-
-
-      <button class="slide-btn next-btn">&#10095;</button>
-
-    </div>
-
-  </div>
-
-    <div class="project-item  line-down-2">
-  <div class="img-box">
-     <img src="./images/image 4.jpeg" class="sketch-img">
-        <img src="./images/image 4.1.jpeg" class="color-img">
-      </div>
-<div class="project-title">Lakeview Farmhouse, India</div>
-
- <!-- MOBILE DETAILS -->
-
-  <div class="mobile-project-details">
-
-    <div class="project-info">
-
-      <p><b>Project Name –</b> SaKo studio</p>
-
-      <p><b>Studio Name –</b> Sako design narratives</p>
-
-      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
-
-      <p><b>Project Size –</b> 250 sq ft</p>
-
-      <p><b>Principal Architects –</b> Sangeetha Polisetti,
-      Kondal Siddhuri</p>
-
-      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
-
-      <br>
-
-      <p>
-        Nestled within a dense urban neighborhood in
-        the heart of Hyderabad, sako Studio is a compact
-        250 sq ft workspace designed for efficiency
-        and style.
-      </p>
-
-    </div>
-
-    <!-- <a href="sako-office.html" class="full-details-btn">
-      Click Here For Full Details
-    </a> -->
-    </div>
-
-    <!-- SLIDER -->
-
-    <div class="mobile-slider">
-
-      <button class="slide-btn prev-btn">&#10094;</button>
-
-      <img src="./images/o1.jpg"
-           class="slider-image active">
-
-      <img src="./images/o2.jpeg"
-           class="slider-image">
-
-      <img src="./images/o3.jpeg"
-           class="slider-image">
-
-      <img src="./images/o4.jpeg"
-           class="slider-image">
-
-
-      <button class="slide-btn next-btn">&#10095;</button>
-
-    </div>
-
-  </div>
-
-    <div class="project-item line-up-3">
-  <div class="img-box">
-    <img src="./images/image 2.jpeg" class="sketch-img">
-        <img src="./images/image 2.1.jpeg" class="color-img">
-      </div>
-<div class="project-title">Farmhouse Panjarla, India</div>
-
- <!-- MOBILE DETAILS -->
-
-  <div class="mobile-project-details">
-
-    <div class="project-info">
-
-      <p><b>Project Name –</b> SaKo studio</p>
-
-      <p><b>Studio Name –</b> Sako design narratives</p>
-
-      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
-
-      <p><b>Project Size –</b> 250 sq ft</p>
-
-      <p><b>Principal Architects –</b> Sangeetha Polisetti,
-      Kondal Siddhuri</p>
-
-      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
-
-      <br>
-
-      <p>
-        Nestled within a dense urban neighborhood in
-        the heart of Hyderabad, sako Studio is a compact
-        250 sq ft workspace designed for efficiency
-        and style.
-      </p>
-
-    </div>
-
-    <!-- <a href="sako-office.html" class="full-details-btn">
-      Click Here For Full Details
-    </a> -->
-    </div>
-
-    <!-- SLIDER -->
-
-    <div class="mobile-slider">
-
-      <button class="slide-btn prev-btn">&#10094;</button>
-
-      <img src="./images/o1.jpg"
-           class="slider-image active">
-
-      <img src="./images/o2.jpeg"
-           class="slider-image">
-
-      <img src="./images/o3.jpeg"
-           class="slider-image">
-
-      <img src="./images/o4.jpeg"
-           class="slider-image">
-
-
-      <button class="slide-btn next-btn">&#10095;</button>
-
-    </div>
-
-  </div>
-
-<div  class="project-item line-up-4">
-    <div class="img-box">
-      <img src="./images/image1.jpeg" class="sketch-img">
-      <img src="./images/image 1.1.jpeg" class="color-img">
-    </div>
-    <div class="project-title">Sako Office, Hyderabad</div>
-
- <!-- MOBILE DETAILS -->
-
-  <div class="mobile-project-details">
-
-    <div class="project-info">
-
-      <p><b>Project Name –</b> SaKo studio</p>
-
-      <p><b>Studio Name –</b> Sako design narratives</p>
-
-      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
-
-      <p><b>Project Size –</b> 250 sq ft</p>
-
-      <p><b>Principal Architects –</b> Sangeetha Polisetti,
-      Kondal Siddhuri</p>
-
-      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
-
-      <br>
-
-      <p>
-        Nestled within a dense urban neighborhood in
-        the heart of Hyderabad, sako Studio is a compact
-        250 sq ft workspace designed for efficiency
-        and style.
-      </p>
-
-    </div>
-
-    <!-- <a href="sako-office.html" class="full-details-btn">
-      Click Here For Full Details
-    </a> -->
-</div>
-    <!-- SLIDER -->
-
-    <div class="mobile-slider">
-
-      <button class="slide-btn prev-btn">&#10094;</button>
-
-      <img src="./images/o1.jpeg"
-           class="slider-image active">
-
-      <img src="./images/o2.jpeg"
-           class="slider-image">
-
-      <img src="./images/o3.jpeg"
-           class="slider-image">
-
-      <img src="./images/o4.jpeg"
-           class="slider-image">
-
-
-      <button class="slide-btn next-btn">&#10095;</button>
-
-    </div>
-
-  </div>
-
-    <div class="project-item line-down-1">
-  <div class="img-box">
-    <img src="./images/image 2.jpeg" class="sketch-img">
-        <img src="./images/image 2.1.jpeg" class="color-img">
-      </div>   
-
-<div class="project-title">Farmhouse Panjarla, India</div>
-
- <!-- MOBILE DETAILS -->
-
-  <div class="mobile-project-details">
-
-    <div class="project-info">
-
-      <p><b>Project Name –</b> SaKo studio</p>
-
-      <p><b>Studio Name –</b> Sako design narratives</p>
-
-      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
-
-      <p><b>Project Size –</b> 250 sq ft</p>
-
-      <p><b>Principal Architects –</b> Sangeetha Polisetti,
-      Kondal Siddhuri</p>
-
-      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
-
-      <br>
-
-      <p>
-        Nestled within a dense urban neighborhood in
-        the heart of Hyderabad, sako Studio is a compact
-        250 sq ft workspace designed for efficiency
-        and style.
-      </p>
-
-    </div>
-
-    <!-- <a href="sako-office.html" class="full-details-btn">
-      Click Here For Full Details
-    </a> -->
-    </div>
-
-    <!-- SLIDER -->
-
-    <div class="mobile-slider">
-
-      <button class="slide-btn prev-btn">&#10094;</button>
-
-      <img src="./images/o1.jpeg"
-           class="slider-image active">
-
-      <img src="./images/o2.jpeg"
-           class="slider-image">
-
-      <img src="./images/o3.jpeg"
-           class="slider-image">
-
-      <img src="./images/o4.jpeg"
-           class="slider-image">
-
-
-      <button class="slide-btn next-btn">&#10095;</button>
-
-    </div>
-
-  </div>
-
-    <div  class="project-item line-up-2">
-  <div class="img-box">
-    <img src="./images/image 3.jpeg" class="sketch-img">
-        <img src="./images/image 3.1.jpeg" class="color-img">
-      </div>
-
-<div class="project-title">Villa Maheshwaram, India</div>
-
- <!-- MOBILE DETAILS -->
-
-  <div class="mobile-project-details">
-
-    <div class="project-info">
-
-      <p><b>Project Name –</b> SaKo studio</p>
-
-      <p><b>Studio Name –</b> Sako design narratives</p>
-
-      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
-
-      <p><b>Project Size –</b> 250 sq ft</p>
-
-      <p><b>Principal Architects –</b> Sangeetha Polisetti,
-      Kondal Siddhuri</p>
-
-      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
-
-      <br>
-
-      <p>
-        Nestled within a dense urban neighborhood in
-        the heart of Hyderabad, sako Studio is a compact
-        250 sq ft workspace designed for efficiency
-        and style.
-      </p>
-
-    </div>
-
-    <!-- <a href="sako-office.html" class="full-details-btn">
-      Click Here For Full Details
-    </a> -->
-    </div>
-
-    <!-- SLIDER -->
-
-    <div class="mobile-slider">
-
-      <button class="slide-btn prev-btn">&#10094;</button>
-
-      <img src="./images/o1.jpeg"
-           class="slider-image active">
-
-      <img src="./images/o2.jpeg"
-           class="slider-image">
-
-      <img src="./images/o3.jpeg"
-           class="slider-image">
-
-      <img src="./images/o4.jpeg"
-           class="slider-image">
-
-
-      <button class="slide-btn next-btn">&#10095;</button>
-
-    </div>
-
-  </div>
-
-    <div  class="project-item line-down-2">
-  <div class="img-box">
-     <img src="./images/image 4.jpeg" class="sketch-img">
-        <img src="./images/image 4.1.jpeg" class="color-img">
-      </div>
-<div class="project-title">Lakeview Farmhouse, India</div>
-
- <!-- MOBILE DETAILS -->
-
-  <div class="mobile-project-details">
-
-    <div class="project-info">
-
-      <p><b>Project Name –</b> SaKo studio</p>
-
-      <p><b>Studio Name –</b> Sako design narratives</p>
-
-      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
-
-      <p><b>Project Size –</b> 250 sq ft</p>
-
-      <p><b>Principal Architects –</b> Sangeetha Polisetti,
-      Kondal Siddhuri</p>
-
-      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
-
-      <br>
-
-      <p>
-        Nestled within a dense urban neighborhood in
-        the heart of Hyderabad, sako Studio is a compact
-        250 sq ft workspace designed for efficiency
-        and style.
-      </p>
-
-    </div>
-
-    <!-- <a href="sako-office.html" class="full-details-btn">
-      Click Here For Full Details
-    </a> -->
-    </div>
-
-    <!-- SLIDER -->
-
-    <div class="mobile-slider">
-
-      <button class="slide-btn prev-btn">&#10094;</button>
-
-      <img src="./images/o1.jpeg"
-           class="slider-image active">
-
-      <img src="./images/o2.jpeg"
-           class="slider-image">
-
-      <img src="./images/o3.jpeg"
-           class="slider-image">
-
-      <img src="./images/o4.jpeg"
-           class="slider-image">
-
-
-      <button class="slide-btn next-btn">&#10095;</button>
-
-    </div>
-
-  </div>
-
-    <div class="project-item line-up-3">
-  <div class="img-box">
-    <img src="./images/image 2.jpeg" class="sketch-img">
-        <img src="./images/image 2.1.jpeg" class="color-img">
-      </div>
-<div class="project-title">Farmhouse Panjarla, India</div>
-
- <!-- MOBILE DETAILS -->
-
-  <div class="mobile-project-details">
-
-    <div class="project-info">
-
-      <p><b>Project Name –</b> SaKo studio</p>
-
-      <p><b>Studio Name –</b> Sako design narratives</p>
-
-      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
-
-      <p><b>Project Size –</b> 250 sq ft</p>
-
-      <p><b>Principal Architects –</b> Sangeetha Polisetti,
-      Kondal Siddhuri</p>
-
-      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
-
-      <br>
-
-      <p>
-        Nestled within a dense urban neighborhood in
-        the heart of Hyderabad, sako Studio is a compact
-        250 sq ft workspace designed for efficiency
-        and style.
-      </p>
-
-    </div>
-
-    <!-- <a href="sako-office.html" class="full-details-btn">
-      Click Here For Full Details
-    </a> -->
-    </div>
-
-    <!-- SLIDER -->
-
-    <div class="mobile-slider">
-
-      <button class="slide-btn prev-btn">&#10094;</button>
-
-      <img src="./images/o1.jpeg"
-           class="slider-image active">
-
-      <img src="./images/o2.jpeg"
-           class="slider-image">
-
-      <img src="./images/o3.jpeg"
-           class="slider-image">
-
-      <img src="./images/o4.jpeg"
-           class="slider-image">
-
-
-      <button class="slide-btn next-btn">&#10095;</button>
-
-    </div>
-
-  </div>
 
 </section>
 
@@ -2465,7 +2026,7 @@ allProjects.forEach(project => {
   project.classList.add("desktop-active");
 
   document.body.classList.add("project-open");
-
+  document.querySelector(".project-footer").style.display = "flex";
   leftArrow.style.display = "none";
   rightArrow.style.display = "none";
 
@@ -2480,10 +2041,10 @@ allProjects.forEach(project => {
 
    } else {
 
-  startAutoSlide();
-
+  
+project.classList.remove("desktop-active");
   document.body.classList.remove("project-open");
-
+  document.querySelector(".project-footer").style.display = "none";
   leftArrow.style.display = "flex";
   rightArrow.style.display = "flex";
 }
@@ -2607,5 +2168,14 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 </script>
+
+<footer class="project-footer">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="far fa-envelope"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fas fa-briefcase"></i></a>
+</footer>
+
+
 </body>
 </html>

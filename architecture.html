@@ -4,6 +4,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <title>Sako Design Narratives</title>
+  <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
   <style>
 
@@ -17,8 +19,42 @@ body {
 
   overflow-x: hidden;
   overflow-y: hidden;
-
+  padding-bottom: 42px;
   height: 100vh;
+}
+
+body.inside-page::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+
+  background-image:
+    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px),
+    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px);
+
+  background-repeat:no-repeat;
+
+  background-size:
+    1px 100%,1px 100%,1px 100%,1px 100%,
+    1px 100%,1px 100%,1px 100%,1px 100%;
+
+  background-position:
+    54% 0,
+    74% 0,
+    94% 0,
+    114% 0,
+    134% 0,
+    154% 0,
+    174% 0,
+    194% 0;
 }
 
     /* ================= NAVBAR ================= */
@@ -92,17 +128,54 @@ body {
 /* PROJECTS */
 .projects{
   position: relative;
-  padding: 20px 120px 20px;
+  padding:20px 120px 20px;
   gap:40px;
-  display: flex;
+  display:flex;
   justify-content:flex-start;
-  align-items: center;
-  min-height: calc(100vh - 120px);
-  overflow-x: visible;
-  overflow-y: visible;
-  background: #ffffff;
+  align-items:center;
+  min-height:calc(100vh - 120px);
+  overflow-x:visible;
+  overflow-y:visible;
+  background:transparent;
+  min-width:3400px;
 }
 
+/* .projects::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+
+  background-image:
+    repeating-linear-gradient(to bottom,#999 0,#999 8px,transparent 8px,transparent 16px),
+    repeating-linear-gradient(to bottom,#999 0,#999 8px,transparent 8px,transparent 16px),
+    repeating-linear-gradient(to bottom,#999 0,#999 8px,transparent 8px,transparent 16px),
+    repeating-linear-gradient(to bottom,#999 0,#999 8px,transparent 8px,transparent 16px),
+    repeating-linear-gradient(to bottom,#999 0,#999 8px,transparent 8px,transparent 16px),
+    repeating-linear-gradient(to bottom,#999 0,#999 8px,transparent 8px,transparent 16px),
+    repeating-linear-gradient(to bottom,#999 0,#999 8px,transparent 8px,transparent 16px),
+    repeating-linear-gradient(to bottom,#999 0,#999 8px,transparent 8px,transparent 16px),
+    repeating-linear-gradient(to bottom,#999 0,#999 8px,transparent 8px,transparent 16px),
+    repeating-linear-gradient(to bottom,#999 0,#999 8px,transparent 8px,transparent 16px);
+
+  background-repeat:no-repeat;
+
+  background-size:
+    1px 100%,1px 100%,1px 100%,1px 100%,1px 100%,
+    1px 100%,1px 100%,1px 100%,1px 100%,1px 100%;
+
+  background-position:
+    5% 0,
+    15% 0,
+    25% 0,
+    35% 0,
+    45% 0,
+    55% 0,
+    65% 0,
+    75% 0,
+    85% 0,
+    95% 0;
+} */
 
 .projects::-webkit-scrollbar{
   display:none;
@@ -130,6 +203,46 @@ body {
   box-sizing: border-box;
 }
 
+.project-footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 42px;
+
+    background: #000;
+
+    display: none;   /* change this */
+
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+
+    z-index: 9999;
+}
+
+.project-footer a{
+    width: 34px;
+    height: 34px;
+
+    border: 1px solid #d17a38;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #d17a38;
+    text-decoration: none;
+
+    transition: .3s;
+}
+
+.project-footer a:hover{
+    background: #d17a38;
+    color: #fff;
+}
+
 
 .line-up-1::after{
   top:43%;        /* move closer to center */
@@ -139,43 +252,43 @@ body {
   border-bottom:1.5px solid #999;
   border-left:1.5px solid #999;
 }
-.line-up-2::after{
-  top:42.5%;        /* move closer to center */
-  width:41px;     /* shorter horizontal line */
-  height:8px;    /* reduced vertical drop */
+/* .line-up-2::after{
+  top:42.5%;        
+  width:41px;     
+  height:8px;    
   left:-44px;
   border-bottom:1.5px solid #999;
   border-left:1.5px solid #999;
-}
+} */
 
-.line-up-3::after{
-  top:36.5%;        /* move closer to center */
-  width:70px;     /* shorter horizontal line */
-  height:20px;    /* reduced vertical drop */
+/* .line-up-3::after{
+  top:36.5%;       
+  width:70px;     
+  height:20px;    
   left:-64px;
   border-bottom:1.5px solid #999;
   border-left:1.5px solid #999;
-}
+} */
 
-.line-up-4::after{
-  top:43%;        /* move closer to center */
-  width:35px;     /* shorter horizontal line */
-  height:14px;    /* reduced vertical drop */
+/* .line-up-4::after{
+  top:43%;        
+  width:35px;     
+  height:14px;    
   left:-45px;
   border-bottom:1.5px solid #999;
   border-left:1.5px solid #999;
-}
+} */
 
 /* Down connection - shorter */
-.line-down-1::after{
+/* .line-down-1::after{
   top:41.7%;
   left:-30px;
-  /* bottom:20px; */
+  bottom:20px;
   width:38px;
-  height:20px;    /* reduced vertical rise */
+  height:20px;    
   border-top:1.5px solid #999;
   border-left:1.5px solid #999;
-}
+} */
 
 .line-down-2::after{
   top:36%;
@@ -412,6 +525,13 @@ translate:0 0;
   visibility: visible;
 }
 
+/* .placeholder{
+  width:340px;
+  flex-shrink:0;
+  opacity:0;
+  pointer-events:none;
+} */
+
 
 /* ================= DESKTOP ACTIVE LAYOUT ================= */
 
@@ -518,9 +638,7 @@ translate:0 0;
   bottom:-1500px !important;
 
   z-index:20; */
-
-  display: none;
-  
+   display: none;
 }
 
 /* SHOW COLOR IMAGE */
@@ -765,58 +883,29 @@ filter:blur(2px);
 /* INSIDE PAGE EXTRA DASH LINES */
 
 body.project-open::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:999;
+   content:"";
+   position:fixed;
+   inset:0;
+   pointer-events:none;
+   z-index:999;
 
-    background-image:
-      repeating-linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.18) 0px,
-        #999 8px,
-        transparent 8px,
-        transparent 16px
-      ),
-      repeating-linear-gradient(
-        to bottom,
-        #999 0px,
-        #999 8px,
-        transparent 8px,
-        transparent 16px
-      ),
-      repeating-linear-gradient(
-        to bottom,
-        #999 0px,
-        #999 8px,
-        transparent 8px,
-        transparent 16px
-      ),
-      repeating-linear-gradient(
-        to bottom,
-        #999 0px,
-        #999 8px,
-        transparent 8px,
-        transparent 16px
-      ),
-      repeating-linear-gradient(
-        to bottom,
-        #999 0px,
-        #999 8px,
-        transparent 8px,
-        transparent 16px
-      );
+   background-image:
+      repeating-linear-gradient(to bottom,#999 0,#999 8px,transparent 8px,transparent 16px),
+      repeating-linear-gradient(to bottom,#999 0,#999 8px,transparent 8px,transparent 16px),
+      repeating-linear-gradient(to bottom,#999 0,#999 8px,transparent 8px,transparent 16px),
+      repeating-linear-gradient(to bottom,#999 0,#999 8px,transparent 8px,transparent 16px),
+      repeating-linear-gradient(to bottom,#999 0,#999 8px,transparent 8px,transparent 16px);
 
-    background-repeat:no-repeat;
+   background-repeat:no-repeat;
 
-    background-size:
+   background-size:
+      1px 100%,
       1px 100%,
       1px 100%,
       1px 100%,
       1px 100%;
 
-    background-position:
+   background-position:
       10% 0,
       30% 0,
       50% 0,
@@ -1100,7 +1189,7 @@ body.project-open::after{
 }
 
 .project-item.desktop-active .img-box::before{
-  display:block;
+  display:none !important;
 }
 
 @keyframes fadeUp{
@@ -1576,6 +1665,7 @@ body.project-open{
 .project-item.desktop-active{
   overflow: hidden !important;
   height: calc(100vh - 95px);
+   padding-bottom: 60px;
 }
 
 .project-item.desktop-active .mobile-slider{
@@ -1911,6 +2001,15 @@ body.project-open{
 
   </div>
 
+  <!-- <div class="project-item placeholder"></div>
+<div class="project-item placeholder"></div>
+<div class="project-item placeholder"></div>
+<div class="project-item placeholder"></div>
+<div class="project-item placeholder"></div>
+<div class="project-item placeholder"></div>
+<div class="project-item placeholder"></div>
+<div class="project-item placeholder"></div> -->
+
     <!-- <div class="project-item line-up-3">
   <div class="img-box">
     <img src="./images/image 2.jpeg" class="sketch-img">
@@ -1978,16 +2077,16 @@ body.project-open{
 
   </div> -->
 
-<div  class="project-item line-up-4">
+<!-- <div  class="project-item line-up-4">
     <div class="img-box">
       <img src="./images/image1.jpeg" class="sketch-img">
       <img src="./images/image 1.1.jpeg" class="color-img">
     </div>
-    <div class="project-title">Sako Office, Hyderabad</div>
+    <div class="project-title">Sako Office, Hyderabad</div> -->
 
  <!-- MOBILE DETAILS -->
 
-  <div class="mobile-project-details">
+  <!-- <div class="mobile-project-details">
 
     <div class="project-info">
 
@@ -2011,15 +2110,15 @@ body.project-open{
         and style.
       </p>
 
-    </div>
+    </div> -->
 
     <!-- <a href="sako-office.html" class="full-details-btn">
       Click Here For Full Details
     </a> -->
-</div>
+<!-- </div> -->
     <!-- SLIDER -->
 
-    <div class="mobile-slider">
+    <!-- <div class="mobile-slider">
 
       <button class="slide-btn prev-btn">&#10094;</button>
 
@@ -2040,7 +2139,7 @@ body.project-open{
 
     </div>
 
-  </div>
+  </div> -->
 
     <!-- <div class="project-item line-down-1">
   <div class="img-box">
@@ -2361,43 +2460,40 @@ function getGap() {
 
 let auto;
 
-/* RIGHT MOVE */
+const cards = document.querySelectorAll(".project-item");
 
-function moveRight() {
-  const firstCard = projects.querySelector(".project-item");
-  const cardWidth = firstCard.offsetWidth + getGap();
+let currentIndex = 0;
 
-  projects.scrollBy({
-    left: cardWidth,
-    behavior: "smooth"
-  });
+function moveRight(){
 
-  setTimeout(() => {
-    projects.appendChild(firstCard);
+  if(currentIndex < cards.length - 1){
 
-    /* reset position without visual jump */
-    projects.scrollLeft -= cardWidth;
-  }, 500);
+    currentIndex++;
+
+    cards[currentIndex].scrollIntoView({
+      behavior:"smooth",
+      inline:"center"
+    });
+
+  }
+
 }
 
-function moveLeft() {
-  const cards = projects.querySelectorAll(".project-item");
-  const lastCard = cards[cards.length - 1];
+function moveLeft(){
 
-  const cardWidth = lastCard.offsetWidth + getGap();
+  if(currentIndex > 0){
 
-  /* put last card in front */
-  projects.insertBefore(lastCard, cards[0]);
+    currentIndex--;
 
-  /* immediately shift container */
-  projects.scrollLeft += cardWidth;
+    cards[currentIndex].scrollIntoView({
+      behavior:"smooth",
+      inline:"center"
+    });
 
-  /* animate back to start */
-  projects.scrollBy({
-    left: -cardWidth,
-    behavior: "smooth"
-  });
+  }
+
 }
+
 
 // /* AUTO PLAY */
 
@@ -2413,26 +2509,14 @@ function moveLeft() {
 
 // /* RIGHT ARROW */
 
-rightArrow.addEventListener("click", () => {
-
-//   clearInterval(auto);
-
+rightArrow.addEventListener("click", (e) => {
+  e.stopPropagation();
   moveRight();
-
-//   startAutoSlide();
-
 });
 
-/* LEFT ARROW */
-
-leftArrow.addEventListener("click", () => {
-
-//   clearInterval(auto);
-
+leftArrow.addEventListener("click", (e) => {
+  e.stopPropagation();
   moveLeft();
-
-//   startAutoSlide();
-
 });
 
 
@@ -2468,7 +2552,7 @@ allProjects.forEach(project => {
   project.classList.add("desktop-active");
 
   document.body.classList.add("project-open");
-
+  document.querySelector(".project-footer").style.display = "flex";
   leftArrow.style.display = "none";
   rightArrow.style.display = "none";
 
@@ -2483,10 +2567,10 @@ allProjects.forEach(project => {
 
    } else {
 
-  startAutoSlide();
-
+  // startAutoSlide();
+project.classList.remove("desktop-active");
   document.body.classList.remove("project-open");
-
+  document.querySelector(".project-footer").style.display = "none";
   leftArrow.style.display = "flex";
   rightArrow.style.display = "flex";
 }
@@ -2610,5 +2694,13 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 </script>
+
+<footer class="project-footer">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="far fa-envelope"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fas fa-briefcase"></i></a>
+</footer>
+
 </body>
 </html>
