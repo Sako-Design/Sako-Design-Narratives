@@ -1350,6 +1350,13 @@ overflow-y: auto;
       display:none !important;
   }
 
+   body.inside-page::before,
+  body.project-open::after,
+  .img-box::before,
+  .project-item::after{
+      display:none !important;
+  }
+
 /* Default */
 .sketch-img {
   opacity: 1;
@@ -1677,6 +1684,18 @@ body.project-open{
 
 .project-item.desktop-active .slider-image{
   max-height: calc(100vh - 180px);
+}
+
+.project-footer{
+    display:none;
+    height:80px;
+    gap:22px;
+}
+
+.project-footer a{
+    width:54px;
+    height:54px;
+    font-size:22px;
 }
 
 }
@@ -2036,21 +2055,29 @@ allProjects.forEach(project => {
 
 } else {
 
-        /* MOBILE */
-        project.classList.add("active");
+    /* MOBILE */
+    project.classList.add("active");
 
-        leftArrow.style.display = "none";
-        rightArrow.style.display = "none";
-      }
+    const footer = document.querySelector(".project-footer");
+    if (footer) footer.style.display = "flex";
+
+    leftArrow.style.display = "none";
+    rightArrow.style.display = "none";
+}
 
    } else {
 
   
 project.classList.remove("desktop-active");
-  document.body.classList.remove("project-open");
-  document.querySelector(".project-footer").style.display = "none";
-  leftArrow.style.display = "flex";
-  rightArrow.style.display = "flex";
+project.classList.remove("active");
+
+document.body.classList.remove("project-open");
+
+const footer = document.querySelector(".project-footer");
+if (footer) footer.style.display = "none";
+
+leftArrow.style.display = "flex";
+rightArrow.style.display = "flex";
 }
 
   });

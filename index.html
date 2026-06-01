@@ -1281,8 +1281,7 @@ overflow-y: auto;
     display:none;
     width:100%;
     margin-top:20px;
-    padding-bottom:120px;
-
+     padding-bottom:30px;
     max-height:none;      /* REMOVE LIMIT */
     overflow:visible;     /* IMPORTANT */
   }
@@ -1320,7 +1319,6 @@ overflow-y: auto;
   .project-footer a{
       margin: 0 !important;
   }
-
 
 /* Default */
 .sketch-img {
@@ -1503,6 +1501,7 @@ overflow-y: auto;
 .project-item.active{
   height:auto;
   animation: mobileOpen 0.7s ease;
+  min-height:100vh;
 }
 
 @keyframes mobileOpen{
@@ -1517,116 +1516,6 @@ overflow-y: auto;
     transform:translateY(0);
   }
 }
-/* 
-.project-item.active .mobile-project-details{
-    display:block;
-  }
-
-.project-item.active .mobile-slider{
-
-  display:block;
-
-  animation: mobileSliderReveal 1.8s cubic-bezier(0.16,1,0.3,1);
-}
-
-@keyframes mobileSliderReveal{
-
-  0%{
-    opacity:0;
-
-    transform:
-      translateX(-50%)
-      translateY(80px)
-      scale(1.04);
-
-    filter:
-      blur(18px);
-  }
-
-  100%{
-    opacity:1;
-
-    transform:
-      translateX(-50%)
-      translateY(0)
-      scale(1);
-
-    filter:
-      blur(0);
-  }
-} */
-
-/* ================= COLOR IMAGE REVEAL ================= */
-
-/* .project-item.active .color-img{
-
-  animation: colorImageReveal 1.8s cubic-bezier(0.16,1,0.3,1);
-
-  animation-fill-mode:both;
-}
-
-@keyframes colorImageReveal{
-
-  0%{
-    opacity:0;
-
-    transform:
-      translate(-50%, -50%)
-      scale(1.12);
-
-    filter:
-      blur(14px)
-      brightness(1.2);
-  }
-
-  100%{
-    opacity:1;
-
-    transform:
-      translate(-50%, -50%)
-      scale(1);
-
-    filter:
-      blur(0)
-      brightness(1);
-  }
-} */
-
-
-/* ================= PROJECT DETAILS REVEAL ================= */
-
-/* .project-item.active .mobile-project-details{
-
-  animation:
-    detailsReveal 1.5s cubic-bezier(0.16,1,0.3,1);
-
-  animation-delay:0.25s;
-
-  animation-fill-mode:both;
-}
-
-@keyframes detailsReveal{
-
-  0%{
-    opacity:0;
-
-    transform:
-      translateY(45px);
-
-    filter:
-      blur(10px);
-  }
-
-  100%{
-    opacity:1;
-
-    transform:
-      translateY(0);
-
-    filter:
-      blur(0);
-  }
-} */
 
 /* ================= MOBILE CINEMATIC SEQUENCE ================= */
 
@@ -1776,38 +1665,28 @@ body.project-open{
 }
 
 .project-socials{
+    position:relative !important;
+    bottom:auto !important;
+    left:auto !important;
 
-  position:fixed;
+    width:100%;
+    margin-top:40px;
 
-  bottom:-55px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
 
-  left:0;
+    background:#000;
+    padding:20px 0;
 
-  width:100%;
-
-  padding:6px 0;
-
-  background:#000;
-
-  display:flex;
-
-  justify-content:center;
-
-  align-items:center;
-
-  gap:20px;
-
-  z-index:99999;
-
-  transition:0.6s ease;
+    z-index:1;
 }
-
-/* SHOW ONLY WHEN PROJECT OPENS */
 
 body.project-open .project-socials{
-
-  bottom:0;
+    bottom:auto !important;
 }
+
 
 .project-socials a{
 

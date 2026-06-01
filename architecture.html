@@ -1685,6 +1685,17 @@ body.project-open{
   max-height: calc(100vh - 180px);
 }
 
+.project-footer{
+    height: 80px;
+    gap: 22px;
+}
+
+.project-footer a{
+    width: 54px;
+    height: 54px;
+    font-size: 22px;
+}
+
 }
 
   </style>
@@ -2566,21 +2577,29 @@ allProjects.forEach(project => {
 
 } else {
 
-        /* MOBILE */
-        project.classList.add("active");
+    /* MOBILE */
+    project.classList.add("active");
 
-        leftArrow.style.display = "none";
-        rightArrow.style.display = "none";
-      }
+    const footer = document.querySelector(".project-footer");
+    if (footer) footer.style.display = "flex";
+
+    leftArrow.style.display = "none";
+    rightArrow.style.display = "none";
+}
 
    } else {
 
   // startAutoSlide();
 project.classList.remove("desktop-active");
-  document.body.classList.remove("project-open");
-  document.querySelector(".project-footer").style.display = "none";
-  leftArrow.style.display = "flex";
-  rightArrow.style.display = "flex";
+project.classList.remove("active");
+
+document.body.classList.remove("project-open");
+
+const footer = document.querySelector(".project-footer");
+if (footer) footer.style.display = "none";
+
+leftArrow.style.display = "flex";
+rightArrow.style.display = "flex";
 }
 
   });
