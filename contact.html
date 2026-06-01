@@ -207,6 +207,20 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
   display:block;
   object-fit:cover;
 }
+
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:6px;
+  cursor:pointer;
+}
+
+.hamburger span{
+  width:34px;
+  height:3px;
+  background:#111;
+  border-radius:2px;
+}
     /* ================= ANIMATION ================= */
 
     @keyframes fadePage{
@@ -232,6 +246,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
   .menu{
     display:none;
+  }
+
+  .hamburger{
+    display:flex;
   }
 
   .logo-img{
@@ -372,6 +390,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       <a href="contact.html">CONTACT</a>
 
     </nav>
+
+    <div class="hamburger">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
 
   </header>
 
