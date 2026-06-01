@@ -209,16 +209,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 }
 
 .hamburger{
-    display:none;
-    font-size:42px;
-    font-weight:400;
-    line-height:1;
-    cursor:pointer;
-    color:#000;
-    z-index:2001;
-    background:none;
-    border:none;
-    padding:0;
+  display:none;
+  flex-direction:column;
+  gap:6px;
+  cursor:pointer;
 }
 
 .hamburger span{
@@ -275,16 +269,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
   }
 
 
-   .hamburger{
-        display:block;
-        position:absolute;
-        right:20px;
-        top:50%;
-        transform:translateY(-50%);
-        font-size:42px;
-        font-weight:400;
-    }
-
+  .hamburger{
+    display:flex;
+  }
 
   .logo-img{
     width:48px;
@@ -580,7 +567,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 </div>
 
   </section>
-
+  
 <script>
 const hamburger = document.querySelector(".hamburger");
 const menu = document.querySelector(".menu");
@@ -589,6 +576,5 @@ hamburger.addEventListener("click", () => {
   menu.classList.toggle("active");
 });
 </script>
-
 </body>
 </html>
