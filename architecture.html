@@ -9,12 +9,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
   <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
 body {
   margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+ font-family: 'Outfit', sans-serif;
   background: #ffffff;
 
   overflow-x: hidden;
@@ -140,42 +139,7 @@ body.inside-page::before{
   min-width:3400px;
 }
 
-/* .projects::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
 
-  background-image:
-    repeating-linear-gradient(to bottom,#999 0,#999 8px,transparent 8px,transparent 16px),
-    repeating-linear-gradient(to bottom,#999 0,#999 8px,transparent 8px,transparent 16px),
-    repeating-linear-gradient(to bottom,#999 0,#999 8px,transparent 8px,transparent 16px),
-    repeating-linear-gradient(to bottom,#999 0,#999 8px,transparent 8px,transparent 16px),
-    repeating-linear-gradient(to bottom,#999 0,#999 8px,transparent 8px,transparent 16px),
-    repeating-linear-gradient(to bottom,#999 0,#999 8px,transparent 8px,transparent 16px),
-    repeating-linear-gradient(to bottom,#999 0,#999 8px,transparent 8px,transparent 16px),
-    repeating-linear-gradient(to bottom,#999 0,#999 8px,transparent 8px,transparent 16px),
-    repeating-linear-gradient(to bottom,#999 0,#999 8px,transparent 8px,transparent 16px),
-    repeating-linear-gradient(to bottom,#999 0,#999 8px,transparent 8px,transparent 16px);
-
-  background-repeat:no-repeat;
-
-  background-size:
-    1px 100%,1px 100%,1px 100%,1px 100%,1px 100%,
-    1px 100%,1px 100%,1px 100%,1px 100%,1px 100%;
-
-  background-position:
-    5% 0,
-    15% 0,
-    25% 0,
-    35% 0,
-    45% 0,
-    55% 0,
-    65% 0,
-    75% 0,
-    85% 0,
-    95% 0;
-} */
 
 .projects::-webkit-scrollbar{
   display:none;
@@ -252,43 +216,7 @@ body.inside-page::before{
   border-bottom:1.5px solid #999;
   border-left:1.5px solid #999;
 }
-/* .line-up-2::after{
-  top:42.5%;        
-  width:41px;     
-  height:8px;    
-  left:-44px;
-  border-bottom:1.5px solid #999;
-  border-left:1.5px solid #999;
-} */
 
-/* .line-up-3::after{
-  top:36.5%;       
-  width:70px;     
-  height:20px;    
-  left:-64px;
-  border-bottom:1.5px solid #999;
-  border-left:1.5px solid #999;
-} */
-
-/* .line-up-4::after{
-  top:43%;        
-  width:35px;     
-  height:14px;    
-  left:-45px;
-  border-bottom:1.5px solid #999;
-  border-left:1.5px solid #999;
-} */
-
-/* Down connection - shorter */
-/* .line-down-1::after{
-  top:41.7%;
-  left:-30px;
-  bottom:20px;
-  width:38px;
-  height:20px;    
-  border-top:1.5px solid #999;
-  border-left:1.5px solid #999;
-} */
 
 .line-down-2::after{
   top:36%;
@@ -438,6 +366,7 @@ translate:0 0;
   position: relative;
   z-index: 3;
   font-weight: 600;
+  font-family: 'Outfit', sans-serif;
 }
 
 .arrow{
@@ -840,26 +769,7 @@ filter:blur(2px);
   will-change:transform, opacity, filter;
 }
 
-/* SLIDER IMAGE */
 
-/* .project-item.desktop-active .slider-image{
-
-  width:100%;
-
-  height:68vh;
-
-  object-fit:cover;
-
-  object-position:center;
-
-  display:none;
-
-  border-radius:0;
-}
-
-.project-item.desktop-active .slider-image.active{
-  display:block;
-} */
 
 .project-item.desktop-active .slide-btn{
 
@@ -1027,7 +937,7 @@ body.project-open::after{
 .project-info{
   width:88%;
   margin:auto;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size:15px;
   line-height:1.8;
   font-weight:400;
@@ -1731,9 +1641,8 @@ body.project-open{
 </nav>
   </header>
 
-  <button class="arrow left">&#10094;</button>
-  <button class="arrow right">&#10095</button>
-
+  <button type="button" class="arrow left">&#10094;</button>
+<button type="button" class="arrow right">&#10095;</button>
   <!-- ================= MAIN SECTION ================= -->
   <section class="projects">
 
@@ -2479,9 +2388,10 @@ function moveRight(){
     currentIndex++;
 
     cards[currentIndex].scrollIntoView({
-      behavior:"smooth",
-      inline:"center"
-    });
+  behavior:"smooth",
+  inline:"center",
+  block:"nearest"
+});
 
   }
 
@@ -2495,13 +2405,13 @@ function moveLeft(){
 
     cards[currentIndex].scrollIntoView({
       behavior:"smooth",
-      inline:"center"
+      inline:"center",
+      block:"nearest"
     });
 
   }
 
 }
-
 
 // /* AUTO PLAY */
 
