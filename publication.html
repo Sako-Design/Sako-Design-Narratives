@@ -30,6 +30,7 @@ body{
   overflow-x:hidden;
 
   color:#111;
+   position:relative;
 }
 
 /* ================= NAVBAR ================= */
@@ -84,25 +85,40 @@ body{
 
   align-items:center;
 
-  gap:35px;
+  gap: 40px;
 }
 
 .menu a{
+    position:relative;
+    text-decoration:none;
+    color:#111;
+    font-size:15px;
+    font-weight:500;
+    letter-spacing:.5px;
+    padding:6px 0;
+    transition:.3s ease;
+}
 
-  text-decoration:none;
-
-  color:#000;
-
-  font-size:14px;
-
-  letter-spacing:1px;
-
-  transition:0.35s ease;
+.menu a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:100%;
+    height:2px;
+    background:#111;
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform .35s ease;
 }
 
 .menu a:hover{
-
+color:#000;
   opacity:0.6;
+}
+
+.menu a:hover::after{
+    transform:scaleX(1);
 }
 
 /* HAMBURGER */
@@ -234,7 +250,6 @@ body{
 
 /* CARD */
 
-/* ================= PUBLICATION CARD ================= */
 
 .publication-card{
 
@@ -299,22 +314,39 @@ body{
 
 .publication-image{
 
-  width:100%;
+  width: 520px;
+    height: 520px;
+    object-fit: cover;
+    display: block;
+    margin: auto;
+     border-radius:50%;
+border:0px solid #e8e8e8;
 
-  height:520px;
+    /* Organic Circle Shape */
+    /* border-radius: 58% 42% 63% 37% / 42% 58% 42% 58%; */
+ /* border:8px solid #fff;   White border */
+    /* box-shadow:
+        0 20px 60px rgba(0,0,0,.15),
+        0 0 0 2px #f1f1f1;    Light outline */
+    /* overflow: hidden; */
 
-  object-fit:cover;
+    /* box-shadow: 0 25px 60px rgba(0,0,0,.12); */
 
-  border-radius:28px;
+    /* transition: all .6s ease; */
+     /* background: transparent; */
+     /* object-fit:contain; */
+    /* object-position:center; */
+}
 
-  transition:
-  transform 1.2s cubic-bezier(0.16,1,0.3,1);
+.aii-logo{
+  object-fit:contain !important;
+  padding:15px;
 }
 
 .publication-card:hover
 .publication-image{
 
-  transform:scale(1.04);
+  transform: scale(1.05) ;
 }
 
 /* CONTENT */
@@ -419,6 +451,189 @@ body{
 .publication-content a:hover::after{
 
   transform:translateX(8px);
+}
+
+.publication-gallery{
+    width:100%;
+    height:85vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.gallery-track{
+    position:relative;
+    width:100%;
+    height:100%;
+}
+
+.gallery-img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    transition:.35s;
+    opacity:.4;
+}
+
+.gallery-item.active .gallery-img{
+    width:320px;
+    height:320px;
+    opacity:1;
+}
+
+/* .gallery-img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    opacity:.35;
+    transform:scale(.8);
+    transition:.5s ease;
+}
+
+.gallery-img.active{
+    width:320px;
+    height:320px;
+    opacity:1;
+    transform:scale(1);
+} */
+
+/* .gallery-img{
+    display:none;
+    width:320px;
+    height:320px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.gallery-img.active{
+    display:block;
+}
+
+.gallery-img:hover{
+
+transform:scale(1.08);
+
+} */
+
+
+.arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:55px;
+    height:55px;
+    border:none;
+    background:none;
+    font-size:45px;
+    cursor:pointer;
+    z-index:100;
+}
+
+.prev{
+    left:20px;
+}
+
+.next{
+    right:20px;
+}
+
+.arrow:hover{
+
+transform:scale(1.2);
+
+}
+
+.grid-lines{
+    position:absolute;
+    inset:0;
+    display:flex;
+    justify-content:space-evenly;
+    pointer-events:none;
+    z-index:0;
+}
+
+.grid-lines span{
+    width:0;
+    height:100%;
+    border-left:2px dashed rgba(0,0,0,.25);
+}
+
+.gallery-item{
+    position:absolute;
+    top:50%;
+    transform:translate(-50%,-50%);
+}
+
+/* .sketch{
+  width:100%;
+  display:block;
+  transition:.5s;
+} */
+
+.sketch{
+    width:320px;
+    height:320px;
+    border-radius:50%;
+    object-fit:cover;
+    display:block;
+    transition:.5s;
+}
+
+.publication-circle{
+   position:absolute;
+    left:50%;
+    top:50%;
+    width:320px;
+    height:320px;
+    border-radius:50%;
+    object-fit:cover;
+    transform:translate(-50%,-50%) scale(.8);
+    opacity:0;
+    transition:.5s;
+}
+
+.gallery-item:hover .sketch{
+    opacity:.2;
+}
+
+.gallery-item:hover .publication-circle{
+    opacity:1;
+    transform:translate(-50%,-50%) scale(1);
+}
+
+.item1{
+    left:16.66%;
+}
+
+.item2{
+    left:33.33%;
+}
+
+.item3{
+    left:50%;
+}
+
+.item4{
+    left:66.66%;
+}
+/* Active image */
+.gallery-item.active .gallery-img{
+    width:320px;
+    height:320px;
+    opacity:1;
+    transform:scale(1);
+}
+
+/* Inactive images */
+.gallery-item .gallery-img{
+    width:320px;
+    height:320px;
+    opacity:1;
+    transform:scale(1);
 }
 
 /* ================= MOBILE ================= */
@@ -542,19 +757,19 @@ body{
 
   <nav class="menu">
 
-    <a href="index.html">HOME</a>
+    <a href="index.html">Home</a>
 
-    <a href="architecture.html">ARCHITECTURE</a>
+    <a href="architecture.html">Architecture</a>
 
-    <a href="interior.html">INTERIOR</a>
+    <a href="interior.html">Interior</a>
 
-    <a href="research.html">RESEARCH</a>
+    <a href="research.html">Research</a>
 
-    <a href="about.html">ABOUT</a>
+    <a href="about.html">About</a>
 
-    <a href="publication.html">PUBLICATION</a>
+    <a href="publication.html">Publication</a>
 
-    <a href="contact.html">CONTACT</a>
+    <a href="contact.html">Contact</a>
 
   </nav>
 
@@ -576,19 +791,19 @@ body{
       ✕
     </div>
 
-    <a href="index.html">HOME</a>
+    <a href="index.html">Home</a>
 
-    <a href="architecture.html">ARCHITECTURE</a>
+    <a href="architecture.html">Architecture</a>
 
-    <a href="interior.html">INTERIOR</a>
+    <a href="interior.html">Interior</a>
 
-    <a href="research.html">RESEARCH</a>
+    <a href="research.html">Research</a>
 
-    <a href="about.html">ABOUT</a>
+    <a href="about.html">About</a>
 
-    <a href="publication.html">PUBLICATION</a>
+    <a href="publication.html">Publication</a>
 
-    <a href="contact.html">CONTACT</a>
+    <a href="contact.html">Contact</a>
 
   </nav>
 
@@ -596,22 +811,22 @@ body{
 
 <!-- PUBLICATION 1 -->
 
-<div class="publication-card">
+<!-- <div class="publication-card">
 
   <img
-    src="./images/WhatsApp Image 2026-06-09 at 17.42.43.jpeg  "
-    alt="Lights Camera Architecture"
+    src="./images/pp1.png "
+    alt="Architecture Live"
     class="publication-image"
   >
 
   <div class="publication-content">
 
     <span class="publication-tag">
-      ARCHITECTURELIVE
+       Lights, Camera, Architecture
     </span>
 
     <h2>
-      Lights, Camera, Architecture
+      Architecture Live
     </h2>
 
     <p>
@@ -629,15 +844,15 @@ body{
 
   </div>
 
-</div>
+</div> -->
 
 
 <!-- PUBLICATION 2 -->
 
-<div class="publication-card">
+<!-- <div class="publication-card">
 
   <img
-    src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1400&auto=format&fit=crop"
+    src="./images/pp2.png"
     alt="SAKO Studio"
     class="publication-image"
   >
@@ -649,7 +864,7 @@ body{
     </span>
 
     <h2>
-      SAKO Studio by SAKO Design Narratives
+      Rethinking The Future
     </h2>
 
     <p>
@@ -667,12 +882,12 @@ body{
 
   </div>
 
-</div>
+</div> -->
 
 
 <!-- PUBLICATION 3 -->
 
-<div class="publication-card">
+<!-- <div class="publication-card">
 
   <img
     src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1400&auto=format&fit=crop"
@@ -705,27 +920,27 @@ body{
 
   </div>
 
-</div>
+</div> -->
 
 
-<!-- PUBLICATION 4 -->
+<!-- PUBLICATION 3-->
 
-<div class="publication-card">
+<!-- <div class="publication-card">
 
   <img
-    src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1400&auto=format&fit=crop"
-    alt="Architect and Interiors India"
-    class="publication-image"
-  >
+  src="./images/pp3.png"
+  alt="Architect and Interiors India"
+  class="publication-image aii-logo"
+>
 
   <div class="publication-content">
 
     <span class="publication-tag">
-      ARCHITECT & INTERIORS INDIA
+     Love for Nature Takes Over This Architect’s Office
     </span>
 
     <h2>
-      Love for Nature Takes Over This Architect’s Office
+      Architect and Interiors India
     </h2>
 
     <p>
@@ -743,15 +958,15 @@ body{
 
   </div>
 
-</div>
+</div> -->
 
 
-<!-- PUBLICATION 5 -->
+<!-- PUBLICATION 4 -->
 
-<div class="publication-card">
+<!-- <div class="publication-card">
 
   <img
-    src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?q=80&w=1400&auto=format&fit=crop"
+    src="./images/pp4.png"
     alt="Competition BG"
     class="publication-image"
   >
@@ -763,7 +978,7 @@ body{
     </span>
 
     <h2>
-      Pazardzhik Market Competition
+      Pazardzhik Central Market 
     </h2>
 
     <p>
@@ -776,14 +991,60 @@ body{
       href="https://competition.bg/pazardzhikmarket/en/projects/sako-design-narratives/"
       target="_blank"
     >
-      View Project
+      Read Publication 
     </a>
 
   </div>
 
+</div> -->
+
+<section class="publication-gallery">
+  <div class="grid-lines">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
 </div>
 
+<button class="arrow prev">&#10094;</button>
+
+<!-- <div class="gallery-track">
+    <img src="images/pp1.png" class="gallery-img active">
+    <img src="images/pp2.png" class="gallery-img">
+    <img src="images/pp3.png" class="gallery-img">
+    <img src="images/pp4.png" class="gallery-img">
+</div> -->
+
+<div class="gallery-track">
+
+   <a href="https://architecture.live/..." class="gallery-item item1">
+
+    <img src="./images/pp1.sketch.png" class="sketch">
+
+    <img src="./images/pp1.png" class="publication-circle">
+
+</a>
+
+    <a href="https://www.re-thinkingthefuture.com/..." class="gallery-item item2">
+      <img src="./images/sketch1.png" class="sketch">
+        <img src="./images/pp2.png" class="gallery-img">
+    </a>
+
+    <a href="https://www.architectandinteriorsindia.com/..." class="gallery-item item3">
+        <img src="./images/pp3.png" class="gallery-img">
+    </a>
+
+    <a href="https://competition.bg/..." class="gallery-item item4">
+        <img src="./images/pp4.png" class="gallery-img">
+    </a>
+
+</div>
+
+<button class="arrow next">&#10095;</button>
+
 </section>
+
 
 <!-- ================= SCRIPT ================= -->
 
@@ -830,6 +1091,112 @@ overlay.addEventListener("click", () => {
   overlay.classList.remove("active");
 
 });
+
+// const imgs=document.querySelectorAll(".gallery-img");
+
+// let current=0;
+
+// function updateGallery(){
+
+//     document.querySelectorAll(".gallery-item").forEach(item=>{
+//         item.classList.remove("active");
+//     });
+
+//     document.querySelectorAll(".gallery-item")[current]
+//         .classList.add("active");
+
+// }
+
+// updateGallery();
+
+// document.querySelector(".next").onclick=()=>{
+
+// current++;
+
+// if(current>=imgs.length) current=0;
+
+// updateGallery();
+
+// };
+
+// document.querySelector(".prev").onclick=()=>{
+
+// current--;
+
+// if(current<0) current=imgs.length-1;
+
+// updateGallery();
+
+// };
+
+// const images = document.querySelectorAll(".gallery-img");
+// let current = 0;
+
+// function showImage(index){
+
+//     images.forEach(img=>{
+//         img.classList.remove("active");
+//     });
+
+//     images[index].classList.add("active");
+// }
+
+// document.querySelector(".next").onclick = ()=>{
+
+//     current++;
+
+//     if(current>=images.length)
+//         current=0;
+
+//     showImage(current);
+// }
+
+// document.querySelector(".prev").onclick = ()=>{
+
+//     current--;
+
+//     if(current<0)
+//         current=images.length-1;
+
+//     showImage(current);
+// }
+
+// showImage(current);
+
+
+const items = document.querySelectorAll(".gallery-item");
+let current = 0;
+
+function update(){
+
+    items.forEach(item=>{
+        item.classList.remove("active");
+    });
+
+    items[current].classList.add("active");
+}
+
+document.querySelector(".next").onclick = ()=>{
+
+    current++;
+
+    if(current >= items.length)
+        current = 0;
+
+    update();
+}
+
+document.querySelector(".prev").onclick = ()=>{
+
+    current--;
+
+    if(current < 0)
+        current = items.length - 1;
+
+    update();
+}
+
+update();
 
 </script>
 

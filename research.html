@@ -23,7 +23,7 @@ body{
     font-family: 'Outfit', sans-serif;
   background:#ffffff;
   color:#111;
-  overflow:hidden;
+  overflow-x:hidden;
 }
 
 /* NAVBAR */
@@ -256,6 +256,216 @@ body{
   display:block;
 }
 
+
+
+.research-page{
+    padding:90px 8%;
+}
+
+.hero{
+    display:flex;
+    align-items:center;
+    min-height:450px;
+}
+
+.hero-content{
+    max-width:620px;
+}
+
+.tag{
+    letter-spacing:3px;
+    font-size:13px;
+    color:#8b7355;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:72px;
+    font-family:Georgia,serif;
+    margin-bottom:20px;
+}
+
+.desc{
+    font-size:20px;
+    line-height:1.8;
+    color:#666;
+    margin-bottom:35px;
+}
+
+.explore-btn{
+    text-decoration:none;
+    color:#111;
+    font-weight:600;
+}
+
+.categories{
+    padding:60px 8%;
+}
+
+.category-grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:25px;
+}
+
+.category-card{
+    background:#fff;
+    border:1px solid #ececec;
+    padding:35px 20px;
+    text-align:center;
+    border-radius:16px;
+    transition:.35s;
+}
+
+.category-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 35px rgba(0,0,0,.08);
+}
+
+.research-card{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    background:#fff;
+    padding:12px;
+    border-radius:20px;
+    transition:.35s;
+}
+
+.research-card:hover{
+    transform:translateY(-5px);
+}
+
+.research-card{
+    /* background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.06); */
+
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    overflow:hidden;
+    position:relative;
+    cursor:pointer;
+    box-shadow:0 12px 30px rgba(0,0,0,.12);
+    transition:.4s ease;
+}
+
+.research-card img{
+  width:160px;
+    height:160px;
+    border-radius:50%;
+    object-fit:cover;
+    flex-shrink:0;
+}
+
+/* .research-card:hover{
+    transform:translateY(-8px) scale(1.05);
+    box-shadow:0 20px 45px rgba(0,0,0,.18);
+} */
+
+.research-card:hover img{
+    transform:scale(1.08);
+}
+
+.research-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top,
+        rgba(0,0,0,.78),
+        rgba(0,0,0,.15),
+        transparent);
+}
+
+/* .card-content{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:25px;
+    z-index:2;
+    text-align:center;
+    color:#fff;
+    padding:0 18px;
+}
+
+.card-content h3{
+    font-family:Georgia,serif;
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.card-content p{
+    display:none;
+}
+
+.card-content a{
+    color:#d6b36a;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:1px;
+} */
+
+.card-content{
+    padding:0;
+    position:static;
+    color:#111;
+}
+
+.card-content span{
+    display:block;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:#8b7355;
+    margin-bottom:8px;
+}
+
+.card-content h3{
+    font-size:34px;
+    font-family:Georgia,serif;
+    margin-bottom:12px;
+    line-height:1.15;
+}
+
+.card-content p{
+    display:block;
+    color:#555;
+    font-size:15px;
+    line-height:1.6;
+    margin-bottom:18px;
+}
+
+.card-content a{
+    color:#111;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+}
+
+.card-content a:hover{
+    color:#fff;
+}
+
+/* .card-content{
+    padding:28px;
+} */
+
+/* RESEARCH BANNER */
+
+.research-banner{
+    width:100%;
+    overflow:hidden;
+}
+
+.research-banner img{
+    width:100%;
+    display:block;
+    object-fit:cover;
+}
+
 /* MOBILE */
 
 @media(max-width:900px){
@@ -306,6 +516,29 @@ body{
   height:100vh;
 }
 
+.research-grid{
+     grid-template-columns:1fr;
+}
+
+.research-card{
+    flex-direction:column;
+    text-align:center;
+}
+
+.research-card img{
+    width:170px;
+    height:170px;
+}
+
+.card-content h3{
+    font-size:22px;
+}
+
+.card-content span,
+.card-content a{
+    font-size:11px;
+}
+
 }
 
 </style>
@@ -334,7 +567,7 @@ class="logo-text-img">
 <a href="architecture.html">ARCHITECTURE</a>
 <a href="interior.html">INTERIOR</a>
 
-<a href="https://lightscameraarchitecture.wordpress.com/"
+ <a href="https://lightscameraarchitecture.wordpress.com/"
 target="_blank">
 
 RESEARCH
@@ -377,13 +610,152 @@ Research
 
 <!-- WORDPRESS PAGE -->
 
-<section class="wordpress-section">
+<!-- RESEARCH HERO -->
+
+<!-- <section class="research-page">
+
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <p class="tag">SAKO DESIGN NARRATIVES</p>
+
+            <h1>Research</h1>
+
+            <p class="desc">
+                Exploring architecture through films, culture, materials,
+                urban spaces and design thinking.
+            </p>
+
+            <a href="#research-grid" class="explore-btn">
+                Explore Research →
+            </a>
+
+        </div>
+
+    </div>
+
+</section> -->
+
+<section class="research-banner">
+
+    <img src="./images/research logo (2).jpeg" alt="Research Banner">
+
+</section>
+
+
+<!-- <section class="categories">
+
+    <h2>Browse by Topic</h2>
+
+    <div class="category-grid">
+
+        <div class="category-card">
+            <i class="fas fa-film"></i>
+            <span>Architecture in Films</span>
+        </div>
+
+        <div class="category-card">
+            <i class="fas fa-landmark"></i>
+            <span>Heritage</span>
+        </div>
+
+        <div class="category-card">
+            <i class="fas fa-tree"></i>
+            <span>Landscape</span>
+        </div>
+
+        <div class="category-card">
+            <i class="fas fa-city"></i>
+            <span>Urban Design</span>
+        </div>
+
+        <div class="category-card">
+            <i class="fas fa-couch"></i>
+            <span>Interior Design</span>
+        </div>
+
+        <div class="category-card">
+            <i class="fas fa-layer-group"></i>
+            <span>Materials</span>
+        </div>
+
+    </div>
+
+</section> -->
+
+
+<section id="research-grid" class="research-grid">
+
+    <div class="research-card">
+
+        <img src="./images/card 1.jpeg">
+
+        <div class="card-content">
+
+            <span>Architecture in Films</span>
+
+            <h3>Facades of Kahaani</h3>
+
+            <p>
+                Discover how Kolkata's streets become a character in the film.
+            </p>
+
+            <a href="#">Read More →</a>
+
+        </div>
+
+    </div>
+
+    <div class="research-card">
+
+        <img src="./images/ramleela.jpg">
+
+        <div class="card-content">
+
+            <span>Architecture in Films</span>
+
+            <h3>Ram-Leela</h3>
+
+            <p>
+                Understanding space, colour and emotion through architecture.
+            </p>
+
+            <a href="#">Read More →</a>
+
+        </div>
+
+    </div>
+
+    <div class="research-card">
+
+        <img src="./images/geetanjali.jpg">
+
+        <div class="card-content">
+
+            <span>Landscape</span>
+
+            <h3>Geetanjali</h3>
+
+            <p>
+                Landscape as an emotional storytelling element.
+            </p>
+
+            <a href="#">Read More →</a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- <section class="wordpress-section">
 
 <iframe
 src="https://lightscameraarchitecture.wordpress.com/">
 </iframe>
 
-</section>
+</section> -->
 
 <script>
 
