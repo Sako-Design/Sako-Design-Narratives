@@ -293,13 +293,12 @@ body {
 
   width:100%;
   text-align:center;
-
   z-index:3;
   margin-top:120px;
 }
 
 .project-item .project-title{
-   font-weight:300;
+   font-weight:400;
 }
 
 /* WRAPPER */
@@ -2699,7 +2698,7 @@ function getGap() {
   return parseInt(window.getComputedStyle(projects).gap) || 0;
 }
 
-let auto;
+// let auto;
 
 // let scrollSpeed = 1.5;
 
@@ -2725,8 +2724,45 @@ let auto;
 
 /* RIGHT MOVE */
 
+// function moveRight() {
+//   const firstCard = projects.querySelector(".project-item");
+//   const cardWidth = firstCard.offsetWidth + getGap();
+
+//   projects.scrollBy({
+//     left: cardWidth,
+//     behavior: "smooth"
+//   });
+
+//   setTimeout(() => {
+//     projects.appendChild(firstCard);
+
+//     /* reset position without visual jump */
+//     projects.scrollLeft -= cardWidth;
+//   }, 500);
+// }
+
+let auto;
+let moveRightTimeout = null;
+
+function stopAutoSlide() {
+  clearInterval(auto);
+  auto = null;
+
+  if (moveRightTimeout) {
+    clearTimeout(moveRightTimeout);
+    moveRightTimeout = null;
+  }
+}
+
 function moveRight() {
+  // Never move projects while a project detail is open
+  if (document.body.classList.contains("project-open")) {
+    return;
+  }
+
   const firstCard = projects.querySelector(".project-item");
+  if (!firstCard) return;
+
   const cardWidth = firstCard.offsetWidth + getGap();
 
   projects.scrollBy({
@@ -2734,28 +2770,44 @@ function moveRight() {
     behavior: "smooth"
   });
 
-  setTimeout(() => {
-    projects.appendChild(firstCard);
+  moveRightTimeout = setTimeout(() => {
 
-    /* reset position without visual jump */
+    // IMPORTANT: do nothing if project was opened meanwhile
+    if (document.body.classList.contains("project-open")) {
+      moveRightTimeout = null;
+      return;
+    }
+
+    projects.appendChild(firstCard);
     projects.scrollLeft -= cardWidth;
+
+    moveRightTimeout = null;
+
   }, 500);
 }
 
-function moveLeft() {
+function startAutoSlide() {
+  stopAutoSlide();
 
-  scrollSpeed = 0;
-
-  projects.scrollBy({
-    left: -380,
-    behavior: "smooth"
-  });
-
-  setTimeout(() => {
-    scrollSpeed = 1.5;
-  }, 600);
-
+  auto = setInterval(() => {
+    moveRight();
+  }, 2500);
 }
+
+// function moveLeft() {
+
+//   scrollSpeed = 0;
+
+//   projects.scrollBy({
+//     left: -380,
+//     behavior: "smooth"
+//   });
+
+//   setTimeout(() => {
+//     scrollSpeed = 1.5;
+//   }, 600);
+
+// }
 
 // /* AUTO PLAY */
 
@@ -2800,11 +2852,73 @@ rightArrow.addEventListener("click", (e) => {
   moveRight();
 });
 
+// leftArrow.addEventListener("click", (e) => {
+//   e.preventDefault();
+//    e.stopPropagation();
+
+//   projects.scrollLeft -= 400;
+// });
+
+// leftArrow.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   e.stopPropagation();
+
+//   clearInterval(auto);
+
+//   const firstCard = projects.querySelector(".project-item");
+//   if (!firstCard) return;
+
+//   const cardWidth = firstCard.offsetWidth + getGap();
+
+//   projects.scrollBy({
+//     left: -cardWidth,
+//     behavior: "smooth"
+//   });
+
+//   setTimeout(() => {
+//     startAutoSlide();
+//   }, 700);
+// });
+
+let leftMoveTimeout = null;
+
 leftArrow.addEventListener("click", (e) => {
   e.preventDefault();
-   e.stopPropagation();
+  e.stopPropagation();
 
-  projects.scrollLeft -= 400;
+  // Stop autoplay while manually moving
+  clearInterval(auto);
+
+  const cards = projects.querySelectorAll(".project-item");
+  if (!cards.length) return;
+
+  const cardWidth = cards[0].offsetWidth + getGap();
+
+  // If already at the beginning,
+  // move the LAST card to the front first.
+  if (projects.scrollLeft <= 5) {
+
+    const lastCard = projects.lastElementChild;
+
+    projects.insertBefore(lastCard, projects.firstElementChild);
+
+    // Compensate for the inserted card
+    projects.scrollLeft += cardWidth;
+
+  }
+
+  // Now move one card to the LEFT
+  projects.scrollBy({
+    left: -cardWidth,
+    behavior: "smooth"
+  });
+
+  // Restart autoplay after manual movement
+  clearTimeout(leftMoveTimeout);
+
+  leftMoveTimeout = setTimeout(() => {
+    startAutoSlide();
+  }, 800);
 });
 
 // /* left arrow */
