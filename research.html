@@ -322,48 +322,43 @@ body{
     box-shadow:0 18px 35px rgba(0,0,0,.08);
 }
 
-.research-card{
+/* ================= RESEARCH GRID / CIRCLE CARDS ================= */
+
+.research-grid{
     display:flex;
-    align-items:center;
-    gap:22px;
-    background:#fff;
-    padding:12px;
-    border-radius:20px;
-    transition:.35s;
-}
-
-.research-card:hover{
-    transform:translateY(-5px);
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:60px 46px;
+    padding:70px 8% 110px;
 }
 
 .research-card{
-    /* background:#fff;
-    border-radius:18px;
-    overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,.06); */
-
+    display:block;
     width:260px;
     height:260px;
     border-radius:50%;
     overflow:hidden;
     position:relative;
     cursor:pointer;
-    box-shadow:0 12px 30px rgba(0,0,0,.12);
-    transition:.4s ease;
+    box-shadow:0 12px 30px rgba(0,0,0,.14);
+    text-decoration:none;
+    color:#fff;
+    transition:transform .4s ease, box-shadow .4s ease;
+}
+
+.research-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(0,0,0,.22);
 }
 
 .research-card img{
-  width:160px;
-    height:160px;
-    border-radius:50%;
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
     object-fit:cover;
-    flex-shrink:0;
+    transition:transform .5s ease;
 }
-
-/* .research-card:hover{
-    transform:translateY(-8px) scale(1.05);
-    box-shadow:0 20px 45px rgba(0,0,0,.18);
-} */
 
 .research-card:hover img{
     transform:scale(1.08);
@@ -374,84 +369,62 @@ body{
     position:absolute;
     inset:0;
     background:linear-gradient(to top,
-        rgba(0,0,0,.78),
-        rgba(0,0,0,.15),
-        transparent);
+        rgba(0,0,0,.82),
+        rgba(0,0,0,.25) 55%,
+        transparent 85%);
+    z-index:1;
 }
 
-/* .card-content{
+.card-content{
     position:absolute;
     left:0;
     right:0;
-    bottom:25px;
+    bottom:0;
     z-index:2;
     text-align:center;
-    color:#fff;
-    padding:0 18px;
-}
-
-.card-content h3{
-    font-family:Georgia,serif;
-    font-size:30px;
-    margin-bottom:10px;
-}
-
-.card-content p{
-    display:none;
-}
-
-.card-content a{
-    color:#d6b36a;
-    text-decoration:none;
-    font-size:13px;
-    font-weight:600;
-    letter-spacing:1px;
-} */
-
-.card-content{
-    padding:0;
-    position:static;
-    color:#111;
+    padding:0 26px 26px;
 }
 
 .card-content span{
     display:block;
-    font-size:11px;
+    font-size:10px;
     text-transform:uppercase;
     letter-spacing:2px;
-    color:#8b7355;
-    margin-bottom:8px;
+    color:#e3c48f;
+    margin-bottom:6px;
 }
 
 .card-content h3{
-    font-size:34px;
+    font-size:17px;
     font-family:Georgia,serif;
-    margin-bottom:12px;
-    line-height:1.15;
+    font-weight:600;
+    margin-bottom:6px;
+    line-height:1.2;
 }
 
 .card-content p{
-    display:block;
-    color:#555;
-    font-size:15px;
-    line-height:1.6;
-    margin-bottom:18px;
+    color:rgba(255,255,255,.85);
+    font-size:11.5px;
+    line-height:1.45;
+    margin-bottom:8px;
+
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
 }
 
-.card-content a{
-    color:#111;
-    text-decoration:none;
-    font-size:14px;
-    font-weight:600;
-}
-
-.card-content a:hover{
+.card-content .read-more{
+    display:inline-block;
     color:#fff;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.3px;
 }
 
-/* .card-content{
-    padding:28px;
-} */
+.research-card:hover .card-content .read-more{
+    text-decoration:underline;
+}
 
 /* RESEARCH BANNER */
 
@@ -517,26 +490,22 @@ body{
 }
 
 .research-grid{
-     grid-template-columns:1fr;
+    gap:40px 28px;
+    padding:50px 6% 80px;
 }
 
 .research-card{
-    flex-direction:column;
-    text-align:center;
-}
-
-.research-card img{
-    width:170px;
-    height:170px;
+    width:210px;
+    height:210px;
 }
 
 .card-content h3{
-    font-size:22px;
+    font-size:15px;
 }
 
 .card-content span,
-.card-content a{
-    font-size:11px;
+.card-content .read-more{
+    font-size:10px;
 }
 
 }
@@ -561,16 +530,20 @@ class="logo-text-img">
 
 </a>
 
-<nav class="menu">
-
-<a href="index.html">HOME</a>
-<a href="architecture.html">ARCHITECTURE</a>
-<a href="interior.html">INTERIOR</a>
+ <!-- Desktop Menu -->
+  <nav class="menu">
+  <a href="index.html">Home</a>
+  <a href="architecture.html">Architecture</a>
+  <a href="interior.html">Interior</a>
+  <a href="research.html">Research</a>
+  <a href="about.html">About</a>
+   <a href="publication.html">Publication</a>
+  <a href="contact.html">Contact</a>
 
  <a href="https://lightscameraarchitecture.wordpress.com/"
 target="_blank">
-
-RESEARCH
+</nav>
+<!-- RESEARCH
 
 </a>
 
@@ -578,7 +551,7 @@ RESEARCH
 <a href="publication.html">PUBLICATION</a>
 <a href="contact.html">CONTACT</a>
 
-</nav>
+</nav> -->
 
 <div class="hamburger" id="hamburger">☰</div>
 
@@ -589,18 +562,17 @@ RESEARCH
 <div class="close-btn" id="closeMenu">✕</div>
 
 <a href="index.html">Home</a>
-<a href="architecture.html">Architecture</a>
-<a href="interior.html">Interior</a>
+  <a href="architecture.html">Architecture</a>
+  <a href="interior.html">Interior</a>
+  <a href="research.html">Research</a>
+  <a href="about.html">About</a>
+   <a href="publication.html">Publication</a>
+  <a href="contact.html">Contact</a>
 
 <a href="https://lightscameraarchitecture.wordpress.com/"
 target="_blank">
 
-Research
-
 </a>
-
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
 
 </nav>
 
@@ -687,65 +659,185 @@ Research
 
 <section id="research-grid" class="research-grid">
 
-    <div class="research-card">
+    <a class="research-card"
+       href="https://lightscameraarchitecture.wordpress.com/2017/07/10/facades-of-kahaani/"
+       target="_blank" rel="noopener">
 
-        <img src="./images/card 1.jpeg">
+        <img src="./images/card 1.jpeg" alt="Facades of Kahaani">
 
         <div class="card-content">
-
             <span>Architecture in Films</span>
-
             <h3>Facades of Kahaani</h3>
-
-            <p>
-                Discover how Kolkata's streets become a character in the film.
-            </p>
-
-            <a href="#">Read More →</a>
-
+            <p>Discover how Kolkata's streets become a character in the film.</p>
+            <span class="read-more">Read More →</span>
         </div>
 
-    </div>
+    </a>
 
-    <div class="research-card">
+    <a class="research-card"
+       href="https://lightscameraarchitecture.wordpress.com/2017/06/24/ramleela/"
+       target="_blank" rel="noopener">
 
-        <img src="./images/ramleela.jpg">
+        <img src="./images/ramleela.jpg" alt="Ram-Leela">
 
         <div class="card-content">
-
             <span>Architecture in Films</span>
-
             <h3>Ram-Leela</h3>
-
-            <p>
-                Understanding space, colour and emotion through architecture.
-            </p>
-
-            <a href="#">Read More →</a>
-
+            <p>Understanding space, colour and emotion through architecture.</p>
+            <span class="read-more">Read More →</span>
         </div>
 
-    </div>
+    </a>
 
-    <div class="research-card">
+    <a class="research-card"
+       href="https://lightscameraarchitecture.wordpress.com/2017/06/07/143/"
+       target="_blank" rel="noopener">
 
-        <img src="./images/geetanjali.jpg">
+        <img src="./images/geetanjali.jpg" alt="Geetanjali">
 
         <div class="card-content">
-
             <span>Landscape</span>
-
             <h3>Geetanjali</h3>
-
-            <p>
-                Landscape as an emotional storytelling element.
-            </p>
-
-            <a href="#">Read More →</a>
-
+            <p>Landscape as an emotional storytelling element.</p>
+            <span class="read-more">Read More →</span>
         </div>
 
-    </div>
+    </a>
+
+    <a class="research-card"
+       href="https://lightscameraarchitecture.wordpress.com/2017/04/18/sakhi/"
+       target="_blank" rel="noopener">
+
+        <img src="https://lightscameraarchitecture.wordpress.com/wp-content/uploads/2017/04/sakhi_poster.jpg?w=1400" alt="Sakhi">
+
+        <div class="card-content">
+            <span>Architecture in Films</span>
+            <h3>Sakhi</h3>
+            <p>Railway stations as a moving stage for a quietly unfolding romance.</p>
+            <span class="read-more">Read More →</span>
+        </div>
+
+    </a>
+
+    <a class="research-card"
+       href="https://lightscameraarchitecture.wordpress.com/2017/05/28/guzarish/"
+       target="_blank" rel="noopener">
+
+        <img src="https://lightscameraarchitecture.wordpress.com/wp-content/uploads/2017/05/cp2.jpg?w=1400" alt="Guzarish">
+
+        <div class="card-content">
+            <span>Architecture in Films</span>
+            <h3>Guzarish</h3>
+            <p>A single bedroom tells an entire story of confinement and memory.</p>
+            <span class="read-more">Read More →</span>
+        </div>
+
+    </a>
+
+    <a class="research-card"
+       href="https://lightscameraarchitecture.wordpress.com/2017/05/06/mayabazaar/"
+       target="_blank" rel="noopener">
+
+        <img src="https://lightscameraarchitecture.wordpress.com/wp-content/uploads/2017/05/mayabazaar.jpg" alt="MayaBazaar">
+
+        <div class="card-content">
+            <span>Architecture in Films</span>
+            <h3>MayaBazaar</h3>
+            <p>Palace backdrops and garden scenes that carry a classic's emotion.</p>
+            <span class="read-more">Read More →</span>
+        </div>
+
+    </a>
+
+    <a class="research-card"
+       href="https://lightscameraarchitecture.wordpress.com/2017/05/06/baahubali/"
+       target="_blank" rel="noopener">
+
+        <img src="https://lightscameraarchitecture.wordpress.com/wp-content/uploads/2017/05/baahubali-final.gif" alt="Baahubali">
+
+        <div class="card-content">
+            <span>Architecture in Films</span>
+            <h3>Baahubali</h3>
+            <p>Staging and scale that shift a kingdom's balance of power.</p>
+            <span class="read-more">Read More →</span>
+        </div>
+
+    </a>
+
+    <a class="research-card"
+       href="https://lightscameraarchitecture.wordpress.com/2017/04/15/bajirao-mastani/"
+       target="_blank" rel="noopener">
+
+        <img src="https://i0.wp.com/lightscameraarchitecture.wordpress.com/wp-content/uploads/2017/04/mastani-2.jpg?fit=1200%2C664&ssl=1" alt="Bajirao Mastani">
+
+        <div class="card-content">
+            <span>Architecture in Films</span>
+            <h3>Bajirao Mastani</h3>
+            <p>An octagonal mahal and its arches built for grandeur on screen.</p>
+            <span class="read-more">Read More →</span>
+        </div>
+
+    </a>
+
+    <a class="research-card"
+       href="https://lightscameraarchitecture.wordpress.com/2017/04/15/drushyam/"
+       target="_blank" rel="noopener">
+
+        <img src="https://lightscameraarchitecture.wordpress.com/wp-content/uploads/2017/04/drushyam.jpg?w=1400" alt="Drushyam">
+
+        <div class="card-content">
+            <span>Architecture in Films</span>
+            <h3>Drushyam</h3>
+            <p>A zig-zag corridor that turns ordinary space into pure tension.</p>
+            <span class="read-more">Read More →</span>
+        </div>
+
+    </a>
+
+    <a class="research-card"
+       href="https://lightscameraarchitecture.wordpress.com/2017/04/15/magadheera/"
+       target="_blank" rel="noopener">
+
+        <img src="https://i0.wp.com/lightscameraarchitecture.wordpress.com/wp-content/uploads/2017/03/magadheera.gif?fit=1200%2C664&ssl=1" alt="Magadheera">
+
+        <div class="card-content">
+            <span>Architecture in Films</span>
+            <h3>Magadheera</h3>
+            <p>A narrow passage opening into vastness, framing a 400-year flashback.</p>
+            <span class="read-more">Read More →</span>
+        </div>
+
+    </a>
+
+    <a class="research-card"
+       href="https://lightscameraarchitecture.wordpress.com/2017/04/07/arundathi/"
+       target="_blank" rel="noopener">
+
+        <img src="https://lightscameraarchitecture.wordpress.com/wp-content/uploads/2017/04/arundathi.gif" alt="Arundathi">
+
+        <div class="card-content">
+            <span>Architecture in Films</span>
+            <h3>Arundathi</h3>
+            <p>Circular drums and sheer light drama into a pivotal death scene.</p>
+            <span class="read-more">Read More →</span>
+        </div>
+
+    </a>
+
+    <a class="research-card"
+       href="https://lightscameraarchitecture.wordpress.com/2017/03/18/introduction/"
+       target="_blank" rel="noopener">
+
+        <img src="https://lightscameraarchitecture.wordpress.com/wp-content/uploads/2017/03/logo-no-text.jpg?w=1400" alt="Inceptive Studies">
+
+        <div class="card-content">
+            <span>Architecture in Films</span>
+            <h3>Inceptive Studies</h3>
+            <p>Where the Facades of Films project began — first drawings, first exercises.</p>
+            <span class="read-more">Read More →</span>
+        </div>
+
+    </a>
 
 </section>
 

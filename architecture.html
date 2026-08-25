@@ -22,6 +22,10 @@ body {
   height: 100vh;
 }
 
+.project-info .architects {
+  white-space: nowrap;
+}
+
 body.inside-page::before{
   content:"";
   position:absolute;
@@ -133,10 +137,13 @@ body.inside-page::before{
   justify-content:flex-start;
   align-items:center;
   min-height:calc(100vh - 120px);
-  overflow-x:visible;
+  overflow-x:auto;
   overflow-y:visible;
   background:transparent;
   min-width:3400px;
+
+  scroll-behavior: smooth;
+  scrollbar-width: none;
 }
 
 
@@ -242,10 +249,10 @@ body.inside-page::before{
 }
 
 /* Title */
-.project-title {
+/* .project-title {
  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size:16px;
-  font-weight:600;
+  font-size:14px;
+  font-weight:400;
 
   position: relative;
   bottom:165px;
@@ -258,7 +265,29 @@ body.inside-page::before{
 
   z-index:3;
   margin-top:120px;
+} */
+
+.project-title {
+ font-family: 'Outfit', sans-serif;
+  font-size:16px;
+  font-weight:300;
+
+  position: relative;
+  bottom:165px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:100%;
+  text-align:center;
+  z-index:3;
+  margin-top:120px;
 }
+
+.project-item .project-title{
+   font-weight:400;
+}
+
 
 /* WRAPPER */
 .project-item .img-box {
@@ -365,11 +394,11 @@ translate:0 0;
   margin-top: 185px;
   position: relative;
   z-index: 3;
-  font-weight: 600;
+  font-weight: 300;
   font-family: 'Outfit', sans-serif;
 }
 
-.arrow{
+/* .arrow{
   position:fixed;
   top:50%;
   transform:translateY(-50%);
@@ -379,6 +408,23 @@ translate:0 0;
   font-size:30px;
   cursor:pointer;
   transition:all 0.3s ease;
+} */
+
+.arrow{
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index:10000;
+  background: rgba(255,255,255,0.95);
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
 .arrow:hover{
@@ -622,9 +668,9 @@ translate:0 0;
 
   margin:0;
 
-font-size:18px;
+font-size:16px;
 
-  font-weight:600;
+  font-weight:300;
 
   line-height:1.4;
 
@@ -639,9 +685,9 @@ font-size:18px;
 animation-fill-mode:both;
 }
 
-.project-item.desktop-active .mobile-project-details{
+/* .project-item.desktop-active .mobile-project-details{ */
 
-  display:block !important;
+  /* display:block !important;
 
   position:absolute;
 
@@ -653,7 +699,28 @@ animation-fill-mode:both;
 
   z-index:9999;
 
-  overflow:hidden;
+  overflow:hidden; */
+  .project-item.desktop-active .mobile-project-details{
+
+  display:block !important;
+
+  position:absolute;
+
+  top:350px;
+    /* left:auto; */
+    right:1525px;
+    width:360px;
+
+  z-index:9999;
+
+  overflow:visible;
+  opacity:1;
+  transform:translateY(0);
+
+  /* animation:none; */
+
+  /* transition:none !important; */
+
   animation: fadeContent 1.4s ease forwards;
    animation-delay:3s;
 animation-fill-mode:both;
@@ -681,7 +748,7 @@ filter:blur(2px);
 
 .project-item.desktop-active .project-info{
 
-  width:360px;
+  width:540px;
 
   margin:0;
 
@@ -689,7 +756,7 @@ filter:blur(2px);
 
   line-height:1.9;
 
-  text-align:left;
+  text-align:right;
 
   color:#222;
 }
@@ -1668,8 +1735,7 @@ body.project-open{
 
       <p><b>Project Size –</b> 250 sq ft</p>
 
-      <p><b>Principal Architects –</b> Sangeetha Polisetti,
-      Kondal Siddhuri</p>
+      <p class="architects"><b>Principal Architects –</b> Sangeetha Polisetti, Kondal Siddhuri</p>
 
       <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
 
@@ -2370,7 +2436,6 @@ window.addEventListener("load", () => {
 const leftArrow = document.querySelector(".left");
 const rightArrow = document.querySelector(".right");
 
-// const gap = 40;
 function getGap() {
   return parseInt(window.getComputedStyle(projects).gap) || 0;
 }
@@ -2379,119 +2444,270 @@ let auto;
 
 const cards = document.querySelectorAll(".project-item");
 
-let currentIndex = 0;
+// let currentIndex = 0;
 
-function moveRight(){
+// function moveRight(){
 
-  if(currentIndex < cards.length - 1){
+//   if(currentIndex < cards.length - 1){
 
-    currentIndex++;
+//     currentIndex++;
 
-    cards[currentIndex].scrollIntoView({
-  behavior:"smooth",
-  inline:"center",
-  block:"nearest"
-});
+//     cards[currentIndex].scrollIntoView({
+//   behavior:"smooth",
+//   inline:"center",
+//   block:"nearest"
+// });
 
-  }
-
-}
-
-function moveLeft(){
-
-  if(currentIndex > 0){
-
-    currentIndex--;
-
-    cards[currentIndex].scrollIntoView({
-      behavior:"smooth",
-      inline:"center",
-      block:"nearest"
-    });
-
-  }
-
-}
-
-// /* AUTO PLAY */
-
-// function startAutoSlide() {
-
-//   auto = setInterval(() => {
-//     moveRight();
-//   }, 2500);
+//   }
 
 // }
 
-// startAutoSlide();
+// function moveLeft(){
 
-// /* RIGHT ARROW */
+//   if(currentIndex > 0){
 
-rightArrow.addEventListener("click", (e) => {
-  e.stopPropagation();
-  moveRight();
-});
+//     currentIndex--;
 
-leftArrow.addEventListener("click", (e) => {
-  e.stopPropagation();
-  moveLeft();
-});
+//     cards[currentIndex].scrollIntoView({
+//       behavior:"smooth",
+//       inline:"center",
+//       block:"nearest"
+//     });
+
+//   }
+
+// }
+
+// let currentIndex = 0;
+
+// function moveRight(){
+
+//   if(currentIndex < cards.length - 1){
+
+//     currentIndex++;
+
+//     const card = cards[currentIndex];
+
+//     projects.scrollTo({
+//       left: card.offsetLeft - 120,
+//       behavior: "smooth"
+//     });
+
+//   }
+
+// }
+
+// function moveLeft(){
+
+//   if(currentIndex > 0){
+
+//     currentIndex--;
+
+//     const card = cards[currentIndex];
+
+//     projects.scrollTo({
+//       left: card.offsetLeft - 120,
+//       behavior: "smooth"
+//     });
+
+//   }
+
+// }
+
+
+
+// let currentIndex = 0;
+
+// function openProject(index){ 
+ 
+//   if(index < 0 || index >= cards.length) return; 
+ 
+//   cards.forEach(card => { 
+//     card.classList.remove("active"); 
+//     card.classList.remove("desktop-active"); 
+//   }); 
+ 
+//   const card = cards[index]; 
+ 
+//   currentIndex = index; 
+ 
+//   if(window.innerWidth > 890){ 
+ 
+//     card.classList.add("desktop-active"); 
+ 
+//     document.body.classList.add("project-open"); 
+ 
+//     document.querySelector(".project-footer").style.display = "flex"; 
+ 
+//     leftArrow.style.display = "flex"; 
+//     rightArrow.style.display = "flex"; 
+ 
+//   } else { 
+ 
+//     card.classList.add("active"); 
+ 
+//     leftArrow.style.display = "none"; 
+//     rightArrow.style.display = "none"; 
+ 
+//   } 
+// } 
+
+let currentIndex = -1;
+
+function openProject(index) {
+
+  if (index < 0 || index >= cards.length) return;
+
+  const card = cards[index];
+
+  // Remove active state from all projects
+  cards.forEach(item => {
+    item.classList.remove("active");
+    item.classList.remove("desktop-active");
+  });
+
+  currentIndex = index;
+
+  if (window.innerWidth > 890) {
+
+    // Open selected project
+    card.classList.add("desktop-active");
+
+    document.body.classList.add("project-open");
+
+    const footer = document.querySelector(".project-footer");
+
+    if (footer) {
+      footer.style.display = "flex";
+    }
+
+    // IMPORTANT:
+    // Hide arrows after project opens
+    leftArrow.style.display = "none";
+    rightArrow.style.display = "none";
+
+  } else {
+
+    // Mobile
+    card.classList.add("active");
+
+    leftArrow.style.display = "none";
+    rightArrow.style.display = "none";
+  }
+}
+ 
+// function moveRight(){ 
+ 
+//   if(currentIndex < cards.length - 1){ 
+ 
+//     openProject(currentIndex + 1); 
+ 
+//   } 
+ 
+// } 
+ 
+// function moveLeft(){ 
+ 
+//   if(currentIndex > 0){ 
+ 
+//     openProject(currentIndex - 1); 
+ 
+//   } 
+ 
+// }
+
+// rightArrow.addEventListener("click", (e) => {
+//   e.stopPropagation();
+//   moveRight();
+// });
+
+// leftArrow.addEventListener("click", (e) => {
+//   e.stopPropagation();
+//   moveLeft();
+// });
 
 
 /* ================= MOBILE CLICK ================= */
 
-const allProjects = document.querySelectorAll(".project-item");
+// const allProjects = document.querySelectorAll(".project-item");
 
-allProjects.forEach(project => {
+// allProjects.forEach(project => {
+
+//   project.addEventListener("click", (e) => {
+
+//     e.preventDefault();
+
+//     const isActive =
+//       project.classList.contains("active") ||
+//       project.classList.contains("desktop-active");
+
+//     /* CLOSE ALL */
+//     allProjects.forEach(item => {
+
+//       item.classList.remove("active");
+//       item.classList.remove("desktop-active");
+
+//     });
+
+//     if(!isActive){
+
+//       clearInterval(auto);
+
+//       if(window.innerWidth > 890){
+
+//   /* DESKTOP */
+//   project.classList.add("desktop-active");
+
+//   document.body.classList.add("project-open");
+//   document.querySelector(".project-footer").style.display = "flex";
+//   // leftArrow.style.display = "none";
+//   // rightArrow.style.display = "none";
+//    leftArrow.style.display = "flex";
+//   rightArrow.style.display = "flex";
+
+// } else {
+
+//         /* MOBILE */
+//         project.classList.add("active");
+
+//         leftArrow.style.display = "none";
+//         rightArrow.style.display = "none";
+//       }
+
+//    } else {
+
+//   // startAutoSlide();
+// project.classList.remove("desktop-active");
+//   document.body.classList.remove("project-open");
+//   document.querySelector(".project-footer").style.display = "none";
+//   leftArrow.style.display = "flex";
+//   rightArrow.style.display = "flex";
+// }
+
+//   });
+
+// });
+
+/* ================= PROJECT CLICK ================= */
+
+cards.forEach((project, index) => {
 
   project.addEventListener("click", (e) => {
 
-    e.preventDefault();
+    // Ignore slider buttons
+    if (e.target.closest(".slide-btn")) {
+      return;
+    }
 
-    const isActive =
-      project.classList.contains("active") ||
-      project.classList.contains("desktop-active");
+    // Ignore full details button
+    if (e.target.closest(".full-details-btn")) {
+      return;
+    }
 
-    /* CLOSE ALL */
-    allProjects.forEach(item => {
+    e.stopPropagation();
 
-      item.classList.remove("active");
-      item.classList.remove("desktop-active");
-
-    });
-
-    if(!isActive){
-
-      clearInterval(auto);
-
-      if(window.innerWidth > 890){
-
-  /* DESKTOP */
-  project.classList.add("desktop-active");
-
-  document.body.classList.add("project-open");
-  document.querySelector(".project-footer").style.display = "flex";
-  leftArrow.style.display = "none";
-  rightArrow.style.display = "none";
-
-} else {
-
-        /* MOBILE */
-        project.classList.add("active");
-
-        leftArrow.style.display = "none";
-        rightArrow.style.display = "none";
-      }
-
-   } else {
-
-  // startAutoSlide();
-project.classList.remove("desktop-active");
-  document.body.classList.remove("project-open");
-  document.querySelector(".project-footer").style.display = "none";
-  leftArrow.style.display = "flex";
-  rightArrow.style.display = "flex";
-}
+    // Open the project that was clicked
+    openProject(index);
 
   });
 

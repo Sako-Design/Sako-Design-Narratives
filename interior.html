@@ -23,6 +23,10 @@ body {
   height: 100vh;
 }
 
+.project-info .architects {
+  white-space: nowrap;
+}
+
 body.inside-page::before{
   content:"";
   position:absolute;
@@ -292,7 +296,7 @@ body.inside-page::before{
 }
 
 /* Title */
-.project-title {
+/* .project-title {
    font-family: 'Outfit', sans-serif;
   font-size:16px;
   font-weight:600;
@@ -308,7 +312,29 @@ body.inside-page::before{
 
   z-index:3;
   margin-top:120px;
+} */
+
+.project-title {
+ font-family: 'Outfit', sans-serif;
+  font-size:16px;
+  font-weight:300;
+
+  position: relative;
+  bottom:165px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:100%;
+  text-align:center;
+  z-index:3;
+  margin-top:120px;
 }
+
+.project-item .project-title{
+   font-weight:400;
+}
+
 
 /* WRAPPER */
 .project-item .img-box {
@@ -662,9 +688,9 @@ translate:0 0;
 
   margin:0;
 
-font-size:18px;
+font-size:16px;
 
-  font-weight:600;
+  font-weight:300;
 
   line-height:1.4;
 
@@ -681,7 +707,7 @@ animation-fill-mode:both;
 
 .project-item.desktop-active .mobile-project-details{
 
-  display:block !important;
+  /* display:block !important;
 
   position:absolute;
 
@@ -693,7 +719,22 @@ animation-fill-mode:both;
 
   z-index:9999;
 
-  overflow:hidden;
+  overflow:hidden; */
+
+display:block !important;
+
+  position:absolute;
+
+  top:350px;
+    /* left:auto; */
+    right:1525px;
+    width:360px;
+
+  z-index:9999;
+
+  overflow:visible;
+  opacity:1;
+  transform:translateY(0);
   animation: fadeContent 1.4s ease forwards;
    animation-delay:3s;
 animation-fill-mode:both;
@@ -721,7 +762,7 @@ filter:blur(2px);
 
 .project-item.desktop-active .project-info{
 
-  width:360px;
+  width:540px;
 
   margin:0;
 
@@ -729,7 +770,7 @@ filter:blur(2px);
 
   line-height:1.9;
 
-  text-align:left;
+  text-align:right;
 
   color:#222;
 }
@@ -1772,8 +1813,7 @@ body.project-open{
 
       <p><b>Project Size –</b> 250 sq ft</p>
 
-      <p><b>Principal Architects –</b> Sangeetha Polisetti,
-      Kondal Siddhuri</p>
+      <p class="architects"><b>Principal Architects –</b> Sangeetha Polisetti, Kondal Siddhuri</p>
 
       <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
 

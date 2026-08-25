@@ -24,6 +24,10 @@ body {
   height: 100vh;
 }
 
+.project-info .architects {
+  white-space: nowrap;
+}
+
     /* ================= NAVBAR ================= */
 
     .navbar {
@@ -194,7 +198,8 @@ body {
     z-index:9999;
 }
 
-.project-socials a{
+
+/* .project-socials a{
 
     width:48px;
     height:48px;
@@ -208,6 +213,55 @@ body {
 
     color:#a56243;
     text-decoration:none;
+} */
+
+.project-socials {
+    position: fixed !important;
+    left: 0 !important;
+    bottom: 0 !important;
+
+    width: 100vw !important;
+    height: 38px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    gap: 20px;
+
+    background: #000 !important;
+    z-index: 999999;
+
+    transform: none !important;
+}
+
+.project-socials a {
+    width: 30px;
+    height: 30px;
+
+    border: 1px solid #a56243;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #a56243;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.project-socials a:hover {
+    background: #a56243;
+    color: #fff;
+    transform: translateY(-4px);
+}
+
+body.project-open .project-socials {
+    bottom: 0 !important;
 }
 
 .line-up-1::after{
@@ -685,9 +739,9 @@ translate:0 0;
 
   margin:0;
 
-font-size:18px;
+font-size:14px;
 
-  font-weight:600;
+  font-weight:400;
 
   line-height:1.4;
 
@@ -709,7 +763,8 @@ animation-fill-mode:both;
   position:absolute;
 
   top:350px;
-    left:160px;
+    /* left:auto; */
+    right:1525px;
     width:360px;
 
   z-index:9999;
@@ -745,7 +800,7 @@ animation-fill-mode:both;
 
 .project-item.desktop-active .project-info{
 
-  width:360px;
+  width:550px;
 
   margin:0;
 
@@ -753,7 +808,7 @@ animation-fill-mode:both;
 
   line-height:1.9;
 
-  text-align:left;
+  text-align:right;
 
   color:#222;
 }
@@ -2597,8 +2652,8 @@ body.project-open .project-socials{
 
       <p><b>Project Size –</b> 250 sq ft</p>
 
-      <p><b>Principal Architects –</b> Sangeetha Polisetti,
-      Kondal Siddhuri</p>
+      <!-- <p>Principal Architects – Sangeetha Polisetti, Kondal Siddhuri</p> -->
+       <p class="architects"><b>Principal Architects –</b> Sangeetha Polisetti, Kondal Siddhuri</p>
 
       <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
 
