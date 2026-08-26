@@ -12,6 +12,8 @@
   <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+
   <style>
 
     body{
@@ -32,12 +34,16 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       padding:20px 40px;
       box-sizing:border-box;
       background:#ffffff;
+      z-index: 2000;
+      position:relative;
     }
 
     .logo{
       display:flex;
       align-items:center;
       text-decoration:none;
+       flex-shrink: 0;
+  color: inherit;
     }
 
     .logo-img{
@@ -53,7 +59,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       display:block;
     }
 
-    .menu{
+    /* .menu{
       display:flex;
       align-items:center;
       gap:35px;
@@ -64,10 +70,33 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       color:#000;
       font-size:14px;
       transition:0.3s ease;
-    }
+      white-space: nowrap;
+    } */
+
+    .menu{
+  display:flex;
+  align-items:center;
+  gap:35px;
+}
+
+.menu a{
+  text-decoration:none;
+  color:#000;
+  font-family:'Outfit', sans-serif;
+  font-size:14px;
+  font-weight:400;
+  line-height:1;
+  /* transition:0.3s ease; */
+  white-space:nowrap;
+}
 
     .menu a:hover{
-      opacity:0.6;
+      color:black;
+      text-decoration: underline;
+      /* opacity:0.6; */
+    }
+    .menu a:hover::after{
+      width:100%;
     }
 
     /* ================= ABOUT PAGE ================= */
@@ -406,16 +435,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     <nav class="menu">
 
       <a href="index.html">Home</a>
-
       <a href="architecture.html">Architecture</a>
-
       <a href="interior.html">Interior</a>
-
       <a href="research.html">Research</a>
-
       <a href="about.html">About</a>
-       <a href="publication.html">Publication</a>
-
+      <a href="publication.html">Publication</a>
       <a href="contact.html">Contact</a>
 
     </nav>
