@@ -13,8 +13,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 body {
   margin: 0;
-  /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
-
     font-family: 'Outfit', sans-serif;
   background: #ffffff;
 
@@ -27,8 +25,6 @@ body {
 .project-info .architects {
   white-space: nowrap;
 }
-
-    /* ================= NAVBAR ================= */
 
     .navbar {
   width: 100%;
@@ -60,14 +56,6 @@ body {
   gap: 35px;
   
 }
-
-/* .menu a {
-  font-family: 'Outfit', sans-serif !important;
-  font-size: 15px;
-  font-weight: 300;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-} */
 
 .menu a {
   text-decoration: none;
@@ -103,11 +91,9 @@ body {
 .menu a:hover {
   text-decoration: underline;
 }
-    /* on hover */
 .menu a:hover::after {
   width: 100%;
 }
-/* PROJECTS */
 .projects{
   position: relative;
   padding: 20px 120px 20px;
@@ -121,41 +107,6 @@ body {
   overflow-y: visible;
   background: #ffffff;
 }
-
-/* .projects::before{
-  content:"";
-  position:fixed;
-  top:95px;     
-  left:0;
-  width:100%;
-  height:calc(100vh - 95px);
-
-  pointer-events:none;
-  z-index:999;
-
-  background-image:
-    repeating-linear-gradient(to bottom,#555 0 6px,transparent 6px 12px),
-    repeating-linear-gradient(to bottom,#555 0 6px,transparent 6px 12px),
-    repeating-linear-gradient(to bottom,#555 0 6px,transparent 6px 12px),
-    repeating-linear-gradient(to bottom,#555 0 6px,transparent 6px 12px),
-    repeating-linear-gradient(to bottom,#555 0 6px,transparent 6px 12px);
-
-  background-repeat:no-repeat;
-
-  background-size:
-    1px 100%,
-    1px 100%,
-    1px 100%,
-    1px 100%,
-    1px 100%;
-
-  background-position:
-    10% 0,
-    30% 0,
-    50% 0,
-    70% 0,
-    90% 0;
-} */
 
 .projects::-webkit-scrollbar{
   display:none;
@@ -175,8 +126,6 @@ body {
   z-index: 2;
 }
 
-/* horizontal panel */
-
 .project-item::after{
   content: "";
   position: absolute;
@@ -187,7 +136,7 @@ body {
 .project-item.desktop-active .project-socials{
     position: absolute;
     left: 150px;
-    top: calc(350px + 360px); /* details start + details height */
+    top: calc(350px + 360px);
 
     width: 320px;
     background:#000;
@@ -197,23 +146,6 @@ body {
     gap:20px;
     z-index:9999;
 }
-
-
-/* .project-socials a{
-
-    width:48px;
-    height:48px;
-
-    border:1px solid #a56243;
-    border-radius:50%;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    color:#a56243;
-    text-decoration:none;
-} */
 
 .project-socials {
     position: fixed !important;
@@ -265,47 +197,45 @@ body.project-open .project-socials {
 }
 
 .line-up-1::after{
-  top:43%;        /* move closer to center */
-  width:34px;     /* shorter horizontal line */
-  height:14px;    /* reduced vertical drop */
+  top:43%;
+  width:34px;
+  height:14px;
   left:-44px;
   border-bottom:1.5px solid #999;
   border-left:1.5px solid #999;
 }
 .line-up-2::after{
-  top:42.5%;        /* move closer to center */
-  width:41px;     /* shorter horizontal line */
-  height:8px;    /* reduced vertical drop */
+  top:42.5%;
+  width:41px;
+  height:8px;
   left:-44px;
   border-bottom:1.5px solid #999;
   border-left:1.5px solid #999;
 }
 
 .line-up-3::after{
-  top:36.5%;        /* move closer to center */
-  width:70px;     /* shorter horizontal line */
-  height:20px;    /* reduced vertical drop */
+  top:36.5%;
+  width:70px;
+  height:20px;
   left:-64px;
   border-bottom:1.5px solid #999;
   border-left:1.5px solid #999;
 }
 
 .line-up-4::after{
-  top:43%;        /* move closer to center */
-  width:35px;     /* shorter horizontal line */
-  height:14px;    /* reduced vertical drop */
+  top:43%;
+  width:35px;
+  height:14px;
   left:-45px;
   border-bottom:1.5px solid #999;
   border-left:1.5px solid #999;
 }
 
-/* Down connection - shorter */
 .line-down-1::after{
   top:41.7%;
   left:-30px;
-  /* bottom:20px; */
   width:38px;
-  height:20px;    /* reduced vertical rise */
+  height:20px;
   border-top:1.5px solid #999;
   border-left:1.5px solid #999;
 }
@@ -313,27 +243,20 @@ body.project-open .project-socials {
 .line-down-2::after{
   top:36%;
   left:-47px;
-  /* bottom:20px; */
   width:70px;
-  height:32px;    /* reduced vertical rise */
+  height:32px;
   border-top:1.5px solid #999;
   border-left:1.5px solid #999;
 }
 
-/* remove line after last item */
 .project-item:last-child::after{
   display: none;
 }
 
-/* Image styling (important) */
 .project-item > .img-box img {
-  /* width: 100%;
-  max-width: 220px;
-  max-height: 180px; */
   object-fit: contain;
 }
 
-/* Title */
 .project-title {
  font-family: 'Outfit', sans-serif;
   font-size:16px;
@@ -355,7 +278,6 @@ body.project-open .project-socials {
    font-weight:400;
 }
 
-/* WRAPPER */
 .project-item .img-box {
   position: relative;
   display: block;
@@ -437,26 +359,6 @@ z-index: 1;
 translate:0 0;
 }
 
-/* On hover — sketch disappears, color render appears */
-/* .project-item:hover .sketch-img {
-  opacity: 0;
-   transform:translate(-50%, -50%) scale(0.94);
-
-  filter:
-    blur(10px)
-    brightness(1.3);
-}
-
-.project-item:hover .color-img {
-  opacity: 1;
-   transform:translate(-50%, -50%) scale(1);
-
-  filter:
-    blur(0px)
-    brightness(1)
-    grayscale(0%);
-} */
-
 .project-item:not(.desktop-active):hover .sketch-img {
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.94);
@@ -513,7 +415,6 @@ translate:0 0;
     padding:0;
 }
 
-/* Overlay background */
 .menu-overlay {
   position: fixed;
   top: 0;
@@ -527,7 +428,6 @@ translate:0 0;
   z-index: 999;
 }
 
-/* Side drawer */
 .side-menu {
   position: fixed;
   top: 0;
@@ -558,7 +458,6 @@ translate:0 0;
   cursor: pointer;
 }
 
-/* Active states */
 .side-menu.active {
   right: 0;
 }
@@ -567,7 +466,6 @@ translate:0 0;
   opacity: 1;
   visibility: visible;
 }
-
 
 /* ================= DESKTOP ACTIVE LAYOUT ================= */
 
@@ -587,13 +485,10 @@ translate:0 0;
 
   overflow-y: auto;
   overflow-x: hidden;
-  /* overflow: hidden; */
 
   display: block;
   animation: smoothOpen 0.8s ease;
     backdrop-filter: blur(2px);
-
-  /* padding-bottom: 120px; */
 }
 
 @keyframes smoothOpen {
@@ -611,27 +506,9 @@ translate:0 0;
   }
 }
 
-/* @keyframes smoothOpen {
-  0%{
-    opacity:0;
-    transform:translateY(80px) scale(0.96);
-    filter:blur(18px);
-  }
-
-  100%{
-    opacity:1;
-    transform:translateY(0) scale(1);
-    filter:blur(0);
-  }
-} */
-
-/* HIDE OTHER PROJECTS */
-
 .project-item.desktop-active ~ .project-item{
   display:none;
 }
-
-/* LEFT IMAGE */
 
 .project-item.desktop-active .img-box{
 
@@ -661,16 +538,14 @@ translate:0 0;
   }
 }
 
-/* HORIZONTAL CONNECTING LINE */
-
 .project-item.desktop-active::before{
   content: "";
   position: absolute;
 
-  top: 220px;      /* adjust vertical position */
-  left: 130px;     /* starts near circle image */
+  top: 220px;
+  left: 130px;
 
-  width: 700px;    /* line length */
+  width: 700px;
 
   border-top: 1px solid #999;
 
@@ -691,8 +566,6 @@ translate:0 0;
   
 }
 
-/* SHOW COLOR IMAGE */
-
 .project-item.desktop-active .sketch-img{
   opacity:0;
 }
@@ -700,7 +573,6 @@ translate:0 0;
 .project-item.desktop-active .color-img{
   opacity:1;
   z-index: 3;
-  /* animation:imageReveal 1.4s cubic-bezier(0.16,1,0.3,1); */
 }
 
 @keyframes imageReveal{
@@ -729,8 +601,6 @@ translate:0 0;
       brightness(1);
   }
 }
-
-/* TITLE */
 
 .project-item.desktop-active .project-title{
 
@@ -767,7 +637,6 @@ animation-fill-mode:both;
   position:absolute;
 
   top:350px;
-    /* left:auto; */
     right:1525px;
     width:360px;
 
@@ -800,7 +669,6 @@ animation-fill-mode:both;
     filter:blur(0);
   }
 }
-/* INFO */
 
 .project-item.desktop-active .project-info{
 
@@ -821,8 +689,6 @@ animation-fill-mode:both;
   margin-bottom:16px;
 }
 
-/* BUTTON */
-
 .project-item.desktop-active .full-details-btn{
 
   margin-top:30px;
@@ -831,7 +697,6 @@ animation-fill-mode:both;
 
   font-size:15px;
 }
-
 
 .project-item.desktop-active .mobile-slider{
 
@@ -851,8 +716,6 @@ animation-fill-mode:both;
 
   overflow:hidden;
   will-change: transform, opacity;
-  /* animation: slideReveal 1.2s cubic-bezier(0.22,1,0.36,1) forwards;
-animation-delay:0.25s; */
   animation-fill-mode:both;
 }
 
@@ -862,11 +725,6 @@ animation-delay:0.25s; */
   opacity:0;
   transform:translateX(40px);
   filter:blur(6px);
-
-
-    /* filter:
-      blur(24px)
-      brightness(1.2); */
   }
 
   100%{
@@ -886,31 +744,6 @@ animation-delay:0.25s; */
   isolation:isolate;
 }
 
-/* .slider-image{
-  will-change:transform, opacity, filter;
-} */
-
-/* SLIDER IMAGE */
-
-/* .project-item.desktop-active .slider-image{
-
-  width:100%;
-
-  height:68vh;
-
-  object-fit:cover;
-
-  object-position:center;
-
-  display:none;
-
-  border-radius:0;
-}
-
-.project-item.desktop-active .slider-image.active{
-  display:block;
-} */
-
 .project-item.desktop-active .slide-btn{
 
   position:absolute;
@@ -929,8 +762,6 @@ animation-delay:0.25s; */
 .project-item.desktop-active .next-btn{
   right:40px;
 }
-
-/* INSIDE PAGE EXTRA DASH LINES */
 
 body.project-open::after{
     content:"";
@@ -992,7 +823,6 @@ body.project-open::after{
       90% 0;
 }
 
-/* HORIZONTAL LINE */
 .project-item.desktop-active::after{
 
   content:"";
@@ -1012,7 +842,6 @@ body.project-open::after{
   z-index:1;
 }
 
-/* Desktop only hover */
 @media (hover: hover) and (pointer: fine) {
   .project-item:hover .sketch-img {
     opacity: 0;
@@ -1020,14 +849,10 @@ body.project-open::after{
 
   .project-item:hover .color-img {
     opacity: 1;
-    /* visibility: visible;
-    display: block; */
   }
 }
 
-/* Touch devices only */
 @media (hover: none) and (pointer: coarse) {
-  /* Mobile tap effect */
 .project-item.active .sketch-img {
   opacity: 0;
 }
@@ -1074,8 +899,6 @@ body.project-open::after{
 .side-menu.active ~ .arrow{
   display:none;
 }
-
-
 
 /* ================= MOBILE PROJECT DETAILS ================= */
 
@@ -1133,15 +956,13 @@ body.project-open::after{
   border-radius:30px;
   background:white;
   position:relative;
-  z-index:20; /* clickable */
+  z-index:20;
 }
 
 .full-details-btn:hover{
   background:black;
   color:white;
 }
-
-/* ================= MOBILE SLIDER ================= */
 
 /* ================= MOBILE SLIDER ================= */
 
@@ -1159,8 +980,6 @@ body.project-open::after{
 
   overflow:hidden;
 }
-
-/* CINEMATIC SLIDER IMAGES */
 
 .slider-image{
 
@@ -1205,77 +1024,6 @@ body.project-open::after{
   z-index:5;
 }
 
-/* .slider-image{
-
-  position:absolute;
-  inset:0;
-
-  width:100%;
-  height:100%;
-
-  object-fit:cover;
-  object-position:center;
-
-  opacity:0;
-
-  transform:scale(1.03);
-
-  transition:
-    opacity 1.4s ease,
-    transform 2s cubic-bezier(0.16,1,0.3,1);
-
-  pointer-events:none;
-
-  will-change:transform, opacity;
-
-  backface-visibility:hidden;
-
-  border-radius:0;
-}
-
-.slider-image.active{
-
-  opacity:1;
-
-  transform:scale(1);
-
-  pointer-events:auto;
-
-  z-index:2;
-} */
-
-/* .mobile-slider{
-
-  display:none;
-
-  position:relative;
-
-  width:100%;
-
-  margin:30px auto 0;
-
-  padding:0;
-
-  overflow:hidden;
-} */
-
-/* .slider-image{
-  width:100%;
-  height:380px;
-  display:none;
-  border-radius:20px;
-  object-fit:cover;
-
-  object-position: center;
- 
-}
-
-.slider-image.active{
-  display:block;
-} */
-
-/* ARROWS */
-
 .slide-btn{
   position:absolute;
   top:50%;
@@ -1295,13 +1043,9 @@ body.project-open::after{
   box-shadow:0 4px 10px rgba(0,0,0,0.15);
 }
 
-/* LEFT ARROW */
-
 .prev-btn{
   left:25px;
 }
-
-/* RIGHT ARROW */
 
 .next-btn{
   right:25px;
@@ -1327,15 +1071,21 @@ body.project-open::after{
   }
 }
 
-
-   /* LAPTOP VIEW  (891px – 1600px) */
-
+/* =========================================================
+   LAPTOP VIEW  (891px – 1600px)
+   Matches the desktop 5-card carousel look (same dashed
+   guide-lines, same layout logic) but scaled to fit laptop
+   screens (1366x768, 1440x900, 1536x864, etc). Completely
+   separate from the mobile block below — does not touch
+   phones/tablets (<=890px) or large desktop monitors
+   (>1600px), which keep the original 340px-card layout.
+   ========================================================= */
 @media (min-width: 891px) and (max-width: 1600px) {
 
   .projects{
     padding: 20px 30px 20px;
     gap: 16px;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .project-item{
@@ -1372,6 +1122,11 @@ body.project-open::after{
   }
 }
 
+/* =========================================================
+   MOBILE VIEW (<= 890px)
+   One full-screen card at a time, swipeable, with the
+   cinematic reveal animations for image / details / slider.
+   ========================================================= */
 @media (max-width: 890px) {
 
 .projects{
@@ -1403,7 +1158,6 @@ body.project-open::after{
     max-width:70%;
   }
 
-  /* Hide dashed lines in mobile */
   .img-box::before,
   .project-item::after {
     display: none;
@@ -1460,16 +1214,13 @@ overflow-y: auto;
   }
 
   .menu {
-    display: none; /* hide desktop menu */
+    display: none;
   }
 
  .projects{
   width:100vw;
   overflow-x:auto;
   overflow-y:visible;
-  /* height:auto; */
-  /* min-height:auto;
-  padding-bottom:80px; */
   padding:0;
   align-items:flex-start;
 }
@@ -1489,13 +1240,12 @@ overflow-y: auto;
     width:100%;
     margin-top:20px;
      padding-bottom:30px;
-    max-height:none;      /* REMOVE LIMIT */
-    overflow:visible;     /* IMPORTANT */
+    max-height:none;
+    overflow:visible;
   }
 
-  /* FIX TITLE POSITION */
   .project-title{
-    position: static;   /* removes absolute/relative shifting */
+    position: static;
     transform: none;
     left: auto;
     bottom: auto;
@@ -1506,12 +1256,10 @@ overflow-y: auto;
     z-index:3;
   }
 
-  /* Hide horizontal connection line on mobile */
   .projects::before {
     display: none;
   }
 
-  /* Shorter vertical dash lines for mobile */
   .img-box::before {
     top: -120px;
     height: 420px;
@@ -1528,52 +1276,34 @@ overflow-y: auto;
       margin: 0 !important;
   }
 
-/* Default */
 .sketch-img {
   opacity: 1;
   z-index: 1;
-  width:auto;
+  width: auto !important;
 }
 
 .color-img{
   opacity:0;
   position:absolute;
-  width:auto;
+  width: auto !important;
 }
 
   .img-box{
-  /* width:100%; */
   min-height:420px;
-  /* position:relative;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin-top:20px; */
   overflow: visible;
 }
 
 .img-box img{
-  /* width:100%;
-  max-width:360px;
-  height:auto; */
   max-height: 430px;
   object-fit:contain;
-  /* position: absolute;
-  top:50%;
-  left:50%;
-  transition:translate(-50%, -50%); */
 }
 
-  /* Title directly under image */
   .project-title{
     position: static;
     margin-top: 20px;
     text-align: center;
     transform:none;
   }
-
- /* ================= MOBILE SLIDER ================= */
- /* ================= MOBILE SLIDER ================= */
 
 .mobile-slider{
   display:none;
@@ -1592,8 +1322,6 @@ overflow-y: auto;
 
   isolation:isolate;
 }
-
-/* SLIDER IMAGES */
 
 .slider-image{
 
@@ -1629,8 +1357,6 @@ overflow-y: auto;
   z-index:1;
 }
 
-/* ACTIVE IMAGE */
-
 .slider-image.active{
 
   opacity:1;
@@ -1646,38 +1372,6 @@ overflow-y: auto;
   z-index:2;
 }
 
- /* .mobile-slider{
-    width:100vw;
-  position:relative;
-
-  left:50%;
-  transform:translateX(-50%);
-
-  margin-top:30px;
-  margin-bottom:60px;
-
-  overflow:hidden;
-  height:340px;
-  }
-
-.slider-image{
-    width:100vw;
-  height:340px;
-
-  display:none;
-
-  object-fit:cover;
-  object-position:center;
-
-  border-radius:0;
-}
-
-.slider-image.active{
-  display:block;
-} */
-
-
-
 .slide-btn{
   position:absolute;
   top:50%;
@@ -1691,15 +1385,12 @@ overflow-y: auto;
   display:flex;
   justify-content:center;
   align-items:center;
-  /* box-shadow:0 4px 12px rgba(0,0,0,0.18); */
 }
 
-/* LEFT */
 .prev-btn{
   left:16px;
 }
 
-/* RIGHT */
 .next-btn{
   right:16px;
 }
@@ -1726,16 +1417,6 @@ overflow-y: auto;
     transform:translateY(0);
   }
 }
-
-/* .project-socials{
-    width:100%;
-    margin-top:25px;
-} */
-
-
-/* ================= MOBILE CINEMATIC SEQUENCE ================= */
-
-/* COLOR IMAGE */
 
 .project-item.active .color-img{
 
@@ -1776,9 +1457,6 @@ overflow-y: auto;
   }
 }
 
-
-/* PROJECT DETAILS */
-
 .project-item.active .mobile-project-details{
 
   display:block;
@@ -1813,9 +1491,6 @@ overflow-y: auto;
       blur(0);
   }
 }
-
-
-/* SLIDER REVEAL */
 
 .project-item.active .mobile-slider{
 
@@ -1857,7 +1532,6 @@ overflow-y: auto;
       brightness(1);
   }
 }
-
 
 body.project-open{
   overflow: hidden !important;
@@ -1930,30 +1604,6 @@ body.project-open{
 body.project-open .project-socials{
     bottom:auto !important;
 }
-
-
-/* .project-socials a{
-
-  width:34px;
-  height:34px;
-
-  font-size:14px;
-
-  border:1px solid #a56243;
-
-  border-radius:50%;
-
-  display:flex;
-
-  justify-content:center;
-  align-items:center;
-
-  color:#a56243;
-
-  text-decoration:none;
-
-  transition:0.35s ease;
-} */
 
 .project-socials a:hover{
 
@@ -2058,9 +1708,6 @@ body.project-open .project-socials{
       <a href="#"><i class="fab fa-instagram"></i></a>
       <a href="#"><i class="fas fa-briefcase"></i></a>
     </div>
-    <!-- <a href="sako-office.html" class="full-details-btn">
-      Click Here For Full Details
-    </a> -->
 
     </div>
 
@@ -2133,9 +1780,6 @@ body.project-open .project-socials{
     <a href="#"><i class="fas fa-briefcase"></i></a>
 </div>
 
-    <!-- <a href="sako-office.html" class="full-details-btn">
-      Click Here For Full Details -->
-    <!-- </a> -->
      </div>
 
     <!-- SLIDER -->
@@ -2208,9 +1852,6 @@ body.project-open .project-socials{
     <a href="#"><i class="fas fa-briefcase"></i></a>
 </div>
 
-    <!-- <a href="sako-office.html" class="full-details-btn">
-      Click Here For Full Details
-    </a> -->
     </div>
 
     <!-- SLIDER -->
@@ -2282,9 +1923,6 @@ body.project-open .project-socials{
     <a href="#"><i class="fas fa-briefcase"></i></a>
 </div>
 
-    <!-- <a href="sako-office.html" class="full-details-btn">
-      Click Here For Full Details
-    </a> -->
     </div>
 
     <!-- SLIDER -->
@@ -2338,6 +1976,7 @@ body.project-open .project-socials{
 
       <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
 
+    
 
       <p>
         Nestled within a dense urban neighborhood in
@@ -2355,9 +1994,6 @@ body.project-open .project-socials{
     <a href="#"><i class="fas fa-briefcase"></i></a>
 </div>
 
-    <!-- <a href="sako-office.html" class="full-details-btn">
-      Click Here For Full Details
-    </a> -->
     </div>
 
     <!-- SLIDER -->
@@ -2429,9 +2065,6 @@ body.project-open .project-socials{
     <a href="#"><i class="fas fa-briefcase"></i></a>
 </div>
 
-    <!-- <a href="sako-office.html" class="full-details-btn">
-      Click Here For Full Details
-    </a> -->
 </div>
     <!-- SLIDER -->
 
@@ -2503,9 +2136,6 @@ body.project-open .project-socials{
     <a href="#"><i class="fas fa-briefcase"></i></a>
 </div>
 
-    <!-- <a href="sako-office.html" class="full-details-btn">
-      Click Here For Full Details
-    </a> -->
     </div>
 
     <!-- SLIDER -->
@@ -2577,9 +2207,6 @@ body.project-open .project-socials{
     <a href="#"><i class="fas fa-briefcase"></i></a>
 </div>
 
-    <!-- <a href="sako-office.html" class="full-details-btn">
-      Click Here For Full Details
-    </a> -->
     </div>
 
     <!-- SLIDER -->
@@ -2651,9 +2278,6 @@ body.project-open .project-socials{
     <a href="#"><i class="fas fa-briefcase"></i></a>
 </div>
 
-    <!-- <a href="sako-office.html" class="full-details-btn">
-      Click Here For Full Details
-    </a> -->
     </div>
 
     <!-- SLIDER -->
@@ -2702,7 +2326,6 @@ body.project-open .project-socials{
 
       <p><b>Project Size –</b> 250 sq ft</p>
 
-      <!-- <p>Principal Architects – Sangeetha Polisetti, Kondal Siddhuri</p> -->
        <p class="architects"><b>Principal Architects –</b> Sangeetha Polisetti, Kondal Siddhuri</p>
 
       <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
@@ -2725,9 +2348,6 @@ body.project-open .project-socials{
     <a href="#"><i class="fas fa-briefcase"></i></a>
 </div>
 
-    <!-- <a href="sako-office.html" class="full-details-btn">
-      Click Here For Full Details
-    </a> -->
     </div>
 
     <!-- SLIDER -->
@@ -2782,10 +2402,7 @@ overlay.addEventListener("click", () => {
   hamburger.style.display = "block";
 });
 
-// Mobile tap image switch
 const projectItems = document.querySelectorAll(".project-item");
-
-/* ================= SLIDER ================= */
 
 const projects = document.querySelector(".projects");
 
@@ -2798,53 +2415,9 @@ window.addEventListener("load", () => {
 const leftArrow = document.querySelector(".left");
 const rightArrow = document.querySelector(".right");
 
-// const gap = 40;
 function getGap() {
   return parseInt(window.getComputedStyle(projects).gap) || 0;
 }
-
-// let auto;
-
-// let scrollSpeed = 1.5;
-
-// function continuousScroll() {
-
-//   if (!document.body.classList.contains("project-open")) {
-
-//     projects.scrollLeft += scrollSpeed;
-
-//     if (
-//       projects.scrollLeft >=
-//       projects.scrollWidth - projects.clientWidth
-//     ) {
-//       projects.scrollLeft = 0;
-//     }
-
-//   }
-
-//   requestAnimationFrame(continuousScroll);
-// }
-
-// continuousScroll();
-
-/* RIGHT MOVE */
-
-// function moveRight() {
-//   const firstCard = projects.querySelector(".project-item");
-//   const cardWidth = firstCard.offsetWidth + getGap();
-
-//   projects.scrollBy({
-//     left: cardWidth,
-//     behavior: "smooth"
-//   });
-
-//   setTimeout(() => {
-//     projects.appendChild(firstCard);
-
-//     /* reset position without visual jump */
-//     projects.scrollLeft -= cardWidth;
-//   }, 500);
-// }
 
 let auto;
 let moveRightTimeout = null;
@@ -2860,7 +2433,6 @@ function stopAutoSlide() {
 }
 
 function moveRight() {
-  // Never move projects while a project detail is open
   if (document.body.classList.contains("project-open")) {
     return;
   }
@@ -2877,7 +2449,6 @@ function moveRight() {
 
   moveRightTimeout = setTimeout(() => {
 
-    // IMPORTANT: do nothing if project was opened meanwhile
     if (document.body.classList.contains("project-open")) {
       moveRightTimeout = null;
       return;
@@ -2891,59 +2462,27 @@ function moveRight() {
   }, 500);
 }
 
+// Laptop range (891px-1600px) shows exactly 5 fixed cards —
+// the auto-sliding carousel is paused here so no card is ever
+// caught mid-transition / partially cut off at the edges.
 function isLaptopView() {
   return window.innerWidth > 890 && window.innerWidth <= 1600;
 }
 
 function startAutoSlide() {
   stopAutoSlide();
+
   if (isLaptopView()) return;
-  auto = setInterval(() => { moveRight(); }, 2500);
+
+  auto = setInterval(() => {
+    moveRight();
+  }, 2500);
 }
 
 function startAutoSlide() {
   clearInterval(auto);
+
   if (isLaptopView()) return;
-  auto = setInterval(() => { moveRight(); }, 2500);
-}
-
-startAutoSlide();
-
-window.addEventListener("resize", () => {
-  if (isLaptopView()) {
-    clearInterval(auto);
-  } else if (!auto && !document.body.classList.contains("project-open")) {
-    startAutoSlide();
-  }
-});
-
-// function startAutoSlide() {
-//   stopAutoSlide();
-
-//   auto = setInterval(() => {
-//     moveRight();
-//   }, 2500);
-// }
-
-// function moveLeft() {
-
-//   scrollSpeed = 0;
-
-//   projects.scrollBy({
-//     left: -380,
-//     behavior: "smooth"
-//   });
-
-//   setTimeout(() => {
-//     scrollSpeed = 1.5;
-//   }, 600);
-
-// }
-
-// /* AUTO PLAY */
-
-function startAutoSlide() {
-  clearInterval(auto);
 
   auto = setInterval(() => {
     moveRight();
@@ -2953,17 +2492,18 @@ function startAutoSlide() {
 
 startAutoSlide();
 
-// document.querySelectorAll(".img-box").forEach(box => {
+if (isLaptopView()) {
+  projects.scrollLeft = 0;
+}
 
-//   box.addEventListener("mouseenter", () => {
-//     clearInterval(auto);
-//   });
-
-//   box.addEventListener("mouseleave", () => {
-//     startAutoSlide();
-//   });
-
-// });
+window.addEventListener("resize", () => {
+  if (isLaptopView()) {
+    clearInterval(auto);
+    projects.scrollLeft = 0;
+  } else if (!auto && !document.body.classList.contains("project-open")) {
+    startAutoSlide();
+  }
+});
 
 document.querySelectorAll(".img-box").forEach(box => {
 
@@ -2976,40 +2516,11 @@ document.querySelectorAll(".img-box").forEach(box => {
   });
 
 });
-// /* RIGHT ARROW */
 
 rightArrow.addEventListener("click", (e) => {
   e.preventDefault();
   moveRight();
 });
-
-// leftArrow.addEventListener("click", (e) => {
-//   e.preventDefault();
-//    e.stopPropagation();
-
-//   projects.scrollLeft -= 400;
-// });
-
-// leftArrow.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   e.stopPropagation();
-
-//   clearInterval(auto);
-
-//   const firstCard = projects.querySelector(".project-item");
-//   if (!firstCard) return;
-
-//   const cardWidth = firstCard.offsetWidth + getGap();
-
-//   projects.scrollBy({
-//     left: -cardWidth,
-//     behavior: "smooth"
-//   });
-
-//   setTimeout(() => {
-//     startAutoSlide();
-//   }, 700);
-// });
 
 let leftMoveTimeout = null;
 
@@ -3017,7 +2528,6 @@ leftArrow.addEventListener("click", (e) => {
   e.preventDefault();
   e.stopPropagation();
 
-  // Stop autoplay while manually moving
   clearInterval(auto);
 
   const cards = projects.querySelectorAll(".project-item");
@@ -3025,50 +2535,27 @@ leftArrow.addEventListener("click", (e) => {
 
   const cardWidth = cards[0].offsetWidth + getGap();
 
-  // If already at the beginning,
-  // move the LAST card to the front first.
   if (projects.scrollLeft <= 5) {
 
     const lastCard = projects.lastElementChild;
 
     projects.insertBefore(lastCard, projects.firstElementChild);
 
-    // Compensate for the inserted card
     projects.scrollLeft += cardWidth;
 
   }
 
-  // Now move one card to the LEFT
   projects.scrollBy({
     left: -cardWidth,
     behavior: "smooth"
   });
 
-  // Restart autoplay after manual movement
   clearTimeout(leftMoveTimeout);
 
   leftMoveTimeout = setTimeout(() => {
     startAutoSlide();
   }, 800);
 });
-
-// /* left arrow */
-
-// leftArrow.addEventListener("click", (e) => {
-
-//   e.preventDefault();
-
-//   const oldSpeed = scrollSpeed;
-//   scrollSpeed = 0;
-
-//   moveLeft();
-
-//   setTimeout(() => {
-//     scrollSpeed = oldSpeed;
-//   }, 700);
-
-// });
-
 
 const allProjects = document.querySelectorAll(".project-item");
 
@@ -3134,12 +2621,9 @@ document.body.classList.add("project-open");
   });
 
 });
-
-
+ 
 
 /* ================= MOBILE IMAGE SLIDER ================= */
-
-// if(window.innerWidth <= 920){
 
 const sliders = document.querySelectorAll(".mobile-slider");
 
@@ -3225,13 +2709,11 @@ document.querySelectorAll(".full-details-btn").forEach(btn => {
 
     e.stopPropagation();
 
-    /* allow page open */
     window.location.href = btn.getAttribute("href");
 
   });
 
 });
-
 
 
 </script>
@@ -3252,26 +2734,6 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 </script>
-
-<!-- <footer class="social-footer">
-
-  <a href="#" target="_blank">
-    <i class="fab fa-facebook-f"></i>
-  </a>
-
-  <a href="mailto:hello@example.com">
-    <i class="fas fa-envelope"></i>
-  </a>
-
-  <a href="#" target="_blank">
-    <i class="fab fa-instagram"></i>
-  </a>
-
-  <a href="#">
-    <i class="fas fa-briefcase"></i>
-  </a>
-
-</footer> -->
 
 </body>
 </html>
