@@ -1331,41 +1331,41 @@ body.project-open::after{
    /* LAPTOP VIEW  (891px – 1600px) */
 
 @media (min-width: 891px) and (max-width: 1600px) {
- 
+
   .projects{
     padding: 20px 30px 20px;
     gap: 16px;
     justify-content: center;
   }
- 
+
   .project-item{
     width: calc((100vw - 60px - (16px * 4)) / 5);
     min-width: 190px;
     max-width: 300px;
   }
- 
+
   .img-box{
     height: 300px;
   }
- 
+
   .img-box img{
     width: 85%;
   }
- 
+
   .sketch-img{
     width: 85% !important;
   }
- 
+
   .color-img{
     width: 70% !important;
   }
- 
+
   .project-title{
     font-size: 13px;
     margin-top: 150px;
   }
 }
- 
+
 @media (min-width: 891px) and (max-width: 1280px) {
   .project-title{
     font-size: 12px;
@@ -2338,7 +2338,6 @@ body.project-open .project-socials{
 
       <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
 
-    
 
       <p>
         Nestled within a dense urban neighborhood in
@@ -2892,13 +2891,39 @@ function moveRight() {
   }, 500);
 }
 
+function isLaptopView() {
+  return window.innerWidth > 890 && window.innerWidth <= 1600;
+}
+
 function startAutoSlide() {
   stopAutoSlide();
-
-  auto = setInterval(() => {
-    moveRight();
-  }, 2500);
+  if (isLaptopView()) return;
+  auto = setInterval(() => { moveRight(); }, 2500);
 }
+
+function startAutoSlide() {
+  clearInterval(auto);
+  if (isLaptopView()) return;
+  auto = setInterval(() => { moveRight(); }, 2500);
+}
+
+startAutoSlide();
+
+window.addEventListener("resize", () => {
+  if (isLaptopView()) {
+    clearInterval(auto);
+  } else if (!auto && !document.body.classList.contains("project-open")) {
+    startAutoSlide();
+  }
+});
+
+// function startAutoSlide() {
+//   stopAutoSlide();
+
+//   auto = setInterval(() => {
+//     moveRight();
+//   }, 2500);
+// }
 
 // function moveLeft() {
 
@@ -3109,7 +3134,8 @@ document.body.classList.add("project-open");
   });
 
 });
- 
+
+
 
 /* ================= MOBILE IMAGE SLIDER ================= */
 
@@ -3205,6 +3231,7 @@ document.querySelectorAll(".full-details-btn").forEach(btn => {
   });
 
 });
+
 
 
 </script>
