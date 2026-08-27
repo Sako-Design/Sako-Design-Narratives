@@ -197,54 +197,69 @@ body.project-open .project-socials {
 }
 
 .line-up-1::after{
-  top:43%;
-  width:34px;
-  height:14px;
-  left:-44px;
+   top:45.6%;
+  left:-30px;
+  width:20px;
+  /* top:43%; */
+  /* width:30px;
+  height:10px; */
+  /* left:-44px; */
   border-bottom:1.5px solid #999;
   border-left:1.5px solid #999;
 }
 .line-up-2::after{
-  top:42.5%;
-  width:41px;
-  height:8px;
-  left:-44px;
+   top:49.5%;
+  left:-30px;
+  width:25px;
+  /* top:42.5%; */
+  /* width:30px;
+  height:8px; */
+  /* left:-44px; */
   border-bottom:1.5px solid #999;
   border-left:1.5px solid #999;
 }
 
 .line-up-3::after{
-  top:36.5%;
+  /* top:36.5%;
   width:70px;
   height:20px;
-  left:-64px;
+  left:-64px; */
+   top:49.4%;
+  left:-31px;
+  width:25px;
   border-bottom:1.5px solid #999;
   border-left:1.5px solid #999;
 }
 
 .line-up-4::after{
-  top:43%;
+  /* top:43%;
   width:35px;
   height:14px;
-  left:-45px;
+  left:-45px; */
+   top:49.5%;
+  left:-30px;
+  width:20px;
   border-bottom:1.5px solid #999;
   border-left:1.5px solid #999;
 }
 
 .line-down-1::after{
-  top:41.7%;
+  top:45.6%;
   left:-30px;
-  width:38px;
-  height:20px;
+  width:20px;
+  /* height:20px; */
   border-top:1.5px solid #999;
   border-left:1.5px solid #999;
 }
 
 .line-down-2::after{
-  top:36%;
+  /* top:36%;
   left:-47px;
   width:70px;
-  height:32px;
+  height:32px; */
+  top:49.5%;
+  left:-30px;
+  width:20px;
   border-top:1.5px solid #999;
   border-left:1.5px solid #999;
 }
@@ -341,7 +356,7 @@ z-index: 1;
   z-index: 1;
   display:block;
    width: 350px;
-  height: auto;
+  height: 350px;
   filter:
     blur(0px)
     brightness(1)
@@ -352,8 +367,8 @@ z-index: 1;
 .color-img {
   opacity: 0;
   z-index: 2;
-  width: 320px !important;
-  height: auto;
+  width: 350px !important;
+  height: 350px;
    transform:translate(-50%, -50%) scale(1);
    transform-origin:center center;
 translate:0 0;
@@ -1101,11 +1116,11 @@ body.project-open::after{
   }
 
   .sketch-img{
-    width: 85% !important;
+    width: 80% !important;
   }
 
   .color-img{
-    width: 85% !important;
+    width: 80% !important;
   }
 
   .project-title{
@@ -1125,7 +1140,7 @@ body.project-open::after{
    One full-screen card at a time, swipeable, with the
    cinematic reveal animations for image / details / slider.
    ========================================================= */
-@media (max-width: 890px) {
+/* @media (max-width: 890px) {
 
 .projects{
   gap:0;
@@ -1550,6 +1565,253 @@ body.project-open{
   max-height: calc(100vh - 180px);
 }
 
+} */
+/* =========================================================
+   MOBILE VIEW (<= 890px)
+   One full-screen card at a time, swipeable, with the
+   cinematic reveal animations for image / details / slider.
+   ========================================================= */
+@media (max-width: 890px) {
+
+  .projects{
+    gap:0;
+  }
+
+  .navbar {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position:relative;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 28px;
+    cursor: pointer;
+    color: black;
+    z-index: 1100;
+    margin-left: auto;
+  }
+
+  .logo {
+    max-width: 70%;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+
+  .img-box::before,
+  .project-item::after {
+    display: none;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    flex-direction: column;
+    gap: 15px;
+    z-index:1000;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu a {
+    margin: 0;
+    display: block;
+    font-weight: 400;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  body, html {
+    overflow-x:hidden;
+    overflow-y: auto;
+    height:auto;
+  }
+
+  .logo-img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .logo-text h2 {
+    font-size: 14px;
+    line-height: 1.2;
+    margin:0;
+  }
+
+  .logo-text p {
+    font-size: 9px;
+  }
+
+  .projects{
+    width:100vw;
+    overflow-x:auto;
+    overflow-y:visible;
+    padding:0;
+    align-items:flex-start;
+  }
+
+  .project-item{
+    flex:0 0 100vw;
+    width:100vw;
+    min-width:100vw;
+    padding-bottom:120px;
+    box-sizing:border-box;
+    height: auto;
+  }
+
+  .mobile-project-details{
+    display:none;
+    width:100%;
+    margin-top:20px;
+    padding-bottom:30px;
+    max-height:none;
+    overflow:visible;
+  }
+
+  .project-title{
+    position: static;
+    transform: none;
+    left: auto;
+    bottom: auto;
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    z-index:3;
+  }
+
+  .projects::before {
+    display: none;
+  }
+
+  .img-box::before {
+    display: none;
+  }
+
+  .sketch-img {
+    opacity: 1;
+    z-index: 1;
+    width: 300px !important;
+  }
+
+  .color-img{
+    opacity:0;
+    position:absolute;
+    width: 300px !important;
+  }
+
+  .img-box{
+    min-height:420px;
+    overflow: visible;
+  }
+
+  .img-box img{
+    max-height: 430px;
+    object-fit:contain;
+  }
+
+  .mobile-slider{
+    display:none;
+    position:relative;
+    width:100vw;
+    height:340px;
+    left:50%;
+    transform:translateX(-50%);
+    margin-top:30px;
+    margin-bottom:60px;
+    overflow:hidden;
+    isolation:isolate;
+  }
+
+  .slider-image{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    opacity:0;
+    transform:scale(1.08);
+    transition:
+      opacity 1.6s ease,
+      transform 2.2s cubic-bezier(0.16,1,0.3,1),
+      filter 1.8s ease;
+    filter:
+      blur(12px)
+      brightness(1.12);
+    pointer-events:none;
+    z-index:1;
+  }
+
+  .slider-image.active{
+    opacity:1;
+    transform:scale(1);
+    filter:
+      blur(0)
+      brightness(1);
+    pointer-events:auto;
+    z-index:2;
+  }
+
+  .slide-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:46px;
+    height:46px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,0.95);
+    z-index:9999;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+
+  .prev-btn{ left:16px; }
+  .next-btn{ right:16px; }
+
+  .project-item.active{
+    height:auto;
+    animation: mobileOpen 0.7s ease;
+    min-height:100vh;
+  }
+
+  .project-item.active .color-img{
+    opacity:1;
+    animation: mobileColorReveal 2.2s cubic-bezier(0.16,1,0.3,1);
+    animation-fill-mode:both;
+    animation-delay:0.15s;
+  }
+
+  .project-item.active .mobile-project-details{
+    display:block;
+    animation: mobileDetailsReveal 1.8s cubic-bezier(0.16,1,0.3,1);
+    animation-delay:0.7s;
+    animation-fill-mode:both;
+  }
+
+  .project-item.active .mobile-slider{
+    display:block;
+    animation: mobileSliderReveal 2.4s cubic-bezier(0.16,1,0.3,1);
+    animation-delay:1.15s;
+    animation-fill-mode:both;
+  }
+
+  body.project-open{
+    overflow: hidden !important;
+    height: 100vh;
+  }
 }
 
 .project-socials{
@@ -1664,8 +1926,8 @@ body.project-open .project-socials{
   
   <div class="project-item line-up-1">
     <div class="img-box">
-      <img src="./images/image1.jpeg"class="sketch-img">
-      <img src="./images/image 1.1.jpeg" class="color-img">
+      <img src="./image/11.11img.png"class="sketch-img">
+      <img src="./image/11.11111 img.png" class="color-img">
     </div>
     <div class="project-title">Sako Office, Hyderabad</div>
 
@@ -1735,8 +1997,8 @@ body.project-open .project-socials{
 </div>
     <div class="project-item  line-down-1">
   <div class="img-box">
-    <img src="./images/image 2.jpeg" class="sketch-img">
-        <img src="./images/image 2.1.jpeg" class="color-img">
+    <img src="./image/2.1.png" class="sketch-img">
+        <img src="./image/2.png" class="color-img">
       </div>   
 
 <div class="project-title">Farmhouse Panjarla, India</div>
@@ -1807,8 +2069,8 @@ body.project-open .project-socials{
 
     <div class="project-item line-up-2">
   <div class="img-box">
-    <img src="./images/image 3.jpeg" class="sketch-img">
-        <img src="./images/image 3.1.jpeg" class="color-img">
+    <img src="./image/3.1.png" class="sketch-img">
+        <img src="./image/3.png" class="color-img">
       </div>
 
 <div class="project-title">Villa Maheshwaram, India</div>
@@ -1879,8 +2141,8 @@ body.project-open .project-socials{
 
     <div class="project-item  line-down-2">
   <div class="img-box">
-     <img src="./images/image 4.jpeg" class="sketch-img">
-        <img src="./images/image 4.1.jpeg" class="color-img">
+     <img src="./image/4.1.png" class="sketch-img">
+        <img src="./image/4.png" class="color-img">
       </div>
 <div class="project-title">Lakeview Farmhouse, India</div>
 
@@ -1950,8 +2212,8 @@ body.project-open .project-socials{
 
     <div class="project-item line-up-3">
   <div class="img-box">
-    <img src="./images/image 2.jpeg" class="sketch-img">
-        <img src="./images/image 2.1.jpeg" class="color-img">
+    <img src="./image/5.1.png" class="sketch-img">
+        <img src="./image/5.png" class="color-img">
       </div>
 <div class="project-title">Farmhouse Panjarla, India</div>
 
@@ -2021,8 +2283,8 @@ body.project-open .project-socials{
 
 <div  class="project-item line-up-4">
     <div class="img-box">
-      <img src="./images/image1.jpeg" class="sketch-img">
-      <img src="./images/image 1.1.jpeg" class="color-img">
+      <img src="./image/11.11img.png" class="sketch-img">
+      <img src="./image/11.11111 img.png" class="color-img">
     </div>
     <div class="project-title">Sako Office, Hyderabad</div>
 
@@ -2091,8 +2353,8 @@ body.project-open .project-socials{
 
     <div class="project-item line-down-1">
   <div class="img-box">
-    <img src="./images/image 2.jpeg" class="sketch-img">
-        <img src="./images/image 2.1.jpeg" class="color-img">
+    <img src="./image/2.1.png" class="sketch-img">
+        <img src="./image/2.png" class="color-img">
       </div>   
 
 <div class="project-title">Farmhouse Panjarla, India</div>
@@ -2163,8 +2425,8 @@ body.project-open .project-socials{
 
     <div  class="project-item line-up-2">
   <div class="img-box">
-    <img src="./images/image 3.jpeg" class="sketch-img">
-        <img src="./images/image 3.1.jpeg" class="color-img">
+    <img src="./image/3.1.png" class="sketch-img">
+        <img src="./image/3.png" class="color-img">
       </div>
 
 <div class="project-title">Villa Maheshwaram, India</div>
@@ -2234,8 +2496,8 @@ body.project-open .project-socials{
 
     <div  class="project-item line-down-2">
   <div class="img-box">
-     <img src="./images/image 4.jpeg" class="sketch-img">
-        <img src="./images/image 4.1.jpeg" class="color-img">
+     <img src="./image/4.1.png" class="sketch-img">
+        <img src="./image/4.png" class="color-img">
       </div>
 <div class="project-title">Lakeview Farmhouse, India</div>
 
@@ -2305,8 +2567,8 @@ body.project-open .project-socials{
 
     <div class="project-item line-up-3">
   <div class="img-box">
-    <img src="./images/image 2.jpeg" class="sketch-img">
-        <img src="./images/image 2.1.jpeg" class="color-img">
+    <img src="./image/2.1.png" class="sketch-img">
+        <img src="./image/2.png" class="color-img">
       </div>
 <div class="project-title">Farmhouse Panjarla, India</div>
 
