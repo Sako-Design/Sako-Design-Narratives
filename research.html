@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Research | Sako Design Narratives</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+    font-family: 'Outfit', sans-serif;
+  background:#ffffff;
+  color:#111;
+  overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+.navbar{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 45px;
+  background:#fff;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  text-decoration:none;
+}
+
+.logo-img{
+  width:60px;
+}
+
+.logo-text-img{
+  width:260px;
+}
+
+.menu{
+  display:flex;
+  gap:42px;
+}
+
+.menu a{
+  text-decoration:none;
+  color:#111;
+  font-size:15px;
+  letter-spacing:1px;
+}
+
+.menu a,
+.side-menu a{
+    font-family: 'Outfit', sans-serif;
+}
+
+.menu a:hover{
+  opacity:.6;
+}
+
+/* HAMBURGER */
+
+.hamburger{
+  display:none;
+  font-size:34px;
+  cursor:pointer;
+}
+
+.menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.25);
+  opacity:0;
+  visibility:hidden;
+  transition:.3s;
+  z-index:999;
+}
+
+.menu-overlay.active{
+  opacity:1;
+  visibility:visible;
+}
+
+.side-menu{
+  position:fixed;
+  top:0;
+  right:-300px;
+  width:280px;
+  height:100vh;
+  background:#fff;
+  display:flex;
+  flex-direction:column;
+  padding:100px 45px;
+  gap:30px;
+  transition:.4s ease;
+  z-index:2000;
+}
+
+.side-menu.active{
+  right:0;
+}
+
+.side-menu a{
+  text-decoration:none;
+  color:#111;
+  font-size:22px;
+}
+
+.close-btn{
+  position:absolute;
+  top:28px;
+  right:35px;
+  font-size:34px;
+  cursor:pointer;
+}
+
+/* HERO */
+
+.research-hero{
+  width:100%;
+  height:320px;
+  display:flex;
+}
+
+.research-left{
+
+  width:50%;
+
+  background:#b6b3b3;
+
+  display:flex;
+
+  justify-content:flex-start;
+
+  align-items:center;
+
+  overflow:hidden;
+}
+
+.research-left img{
+
+  width:58%;
+
+  margin-left:-10px;
+
+  margin-top:20px;
+
+  object-fit:contain;
+
+  mix-blend-mode:multiply;
+}
+
+.research-right{
+
+  width:50%;
+
+  background:#bebaba;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+
+  align-items:flex-start;
+
+  padding-left:40px;
+
+  position:relative;
+}
+
+.research-right h1{
+
+  font-size:42px;
+
+  font-weight:300;
+
+  color:#fff;
+
+  margin-bottom:18px;
+
+  transition:.3s;
+}
+
+.research-right h1:hover{
+  color:#00d1b2;
+}
+
+.research-right p{
+
+  font-size:22px;
+
+  color:#8d8d8d;
+}
+
+.research-socials{
+
+  display:flex;
+
+  gap:18px;
+
+  margin-top:28px;
+}
+
+.research-socials a{
+
+  color:#fff;
+
+  font-size:20px;
+
+  transition:.3s;
+}
+
+.research-socials a:hover{
+  color:#00d1b2;
+}
+
+/* WORDPRESS SECTION */
+
+.wordpress-section{
+
+  width:100%;
+
+  height:100vh;
+
+  overflow:hidden;
+
+  background:#fff;
+}
+
+.wordpress-section iframe{
+
+  width:100%;
+
+  height:100vh;
+
+  border:none;
+
+  overflow-y:auto;
+
+  display:block;
+}
+
+
+
+.research-page{
+    padding:90px 8%;
+}
+
+.hero{
+    display:flex;
+    align-items:center;
+    min-height:450px;
+}
+
+.hero-content{
+    max-width:620px;
+}
+
+.tag{
+    letter-spacing:3px;
+    font-size:13px;
+    color:#8b7355;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:72px;
+    font-family:Georgia,serif;
+    margin-bottom:20px;
+}
+
+.desc{
+    font-size:20px;
+    line-height:1.8;
+    color:#666;
+    margin-bottom:35px;
+}
+
+.explore-btn{
+    text-decoration:none;
+    color:#111;
+    font-weight:600;
+}
+
+.categories{
+    padding:60px 8%;
+}
+
+.category-grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:25px;
+}
+
+.category-card{
+    background:#fff;
+    border:1px solid #ececec;
+    padding:35px 20px;
+    text-align:center;
+    border-radius:16px;
+    transition:.35s;
+}
+
+.category-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 35px rgba(0,0,0,.08);
+}
+
+/* ================= RESEARCH GRID / CIRCLE CARDS ================= */
+
+.research-grid{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:60px 46px;
+    padding:70px 8% 110px;
+}
+
+.research-card{
+    display:block;
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    overflow:hidden;
+    position:relative;
+    cursor:pointer;
+    box-shadow:0 12px 30px rgba(0,0,0,.14);
+    text-decoration:none;
+    color:#fff;
+    transition:transform .4s ease, box-shadow .4s ease;
+}
+
+.research-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(0,0,0,.22);
+}
+
+.research-card img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .5s ease;
+}
+
+.research-card:hover img{
+    transform:scale(1.08);
+}
+
+.research-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top,
+        rgba(0,0,0,.82),
+        rgba(0,0,0,.25) 55%,
+        transparent 85%);
+    z-index:1;
+}
+
+.card-content{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:2;
+    text-align:center;
+    padding:0 26px 26px;
+}
+
+.card-content span{
+    display:block;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:#e3c48f;
+    margin-bottom:6px;
+}
+
+.card-content h3{
+    font-size:17px;
+    font-family:Georgia,serif;
+    font-weight:600;
+    margin-bottom:6px;
+    line-height:1.2;
+}
+
+.card-content p{
+    color:rgba(255,255,255,.85);
+    font-size:11.5px;
+    line-height:1.45;
+    margin-bottom:8px;
+
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+}
+
+.card-content .read-more{
+    display:inline-block;
+    color:#fff;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.3px;
+}
+
+.research-card:hover .card-content .read-more{
+    text-decoration:underline;
+}
+
+/* RESEARCH BANNER */
+
+.research-banner{
+    width:100%;
+    overflow:hidden;
+}
+
+.research-banner img{
+    width:100%;
+    display:block;
+    object-fit:cover;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.menu{
+  display:none;
+}
+
+.hamburger{
+  display:block;
+}
+
+.navbar{
+  padding:18px 24px;
+}
+
+.logo-img{
+  width:46px;
+}
+
+.logo-text-img{
+  width:210px;
+}
+
+.research-hero{
+  flex-direction:column;
+  height:auto;
+}
+
+.research-left,
+.research-right{
+  width:100%;
+}
+
+.research-right{
+  padding:60px 25px;
+}
+
+.research-right h1{
+  font-size:34px;
+}
+
+.research-right p{
+  font-size:18px;
+}
+
+.wordpress-section{
+  height:100vh;
+}
+
+.research-grid{
+    gap:40px 28px;
+    padding:50px 6% 80px;
+}
+
+.research-card{
+    width:210px;
+    height:210px;
+}
+
+.card-content h3{
+    font-size:15px;
+}
+
+.card-content span,
+.card-content .read-more{
+    font-size:10px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+<a href="index.html" class="logo">
+
+<img src="./images/logo.png"
+class="logo-img">
+
+<img src="./images/logo-text.png"
+class="logo-text-img">
+
+</a>
+
+ <!-- Desktop Menu -->
+  <nav class="menu">
+  <a href="index.html">Home</a>
+  <a href="architecture.html">Architecture</a>
+  <a href="interior.html">Interior</a>
+  <a href="research.html">Research</a>
+  <a href="about.html">About</a>
+   <a href="publication.html">Publication</a>
+  <a href="contact.html">Contact</a>
+
+ <a href="https://lightscameraarchitecture.wordpress.com/"
+target="_blank">
+</nav>
+<!-- RESEARCH
+
+</a>
+
+<a href="about.html">ABOUT</a>
+<a href="publication.html">PUBLICATION</a>
+<a href="contact.html">CONTACT</a>
+
+</nav> -->
+
+<div class="hamburger" id="hamburger">☰</div>
+
+<div class="menu-overlay" id="overlay"></div>
+
+<nav class="side-menu" id="sideMenu">
+
+<div class="close-btn" id="closeMenu">✕</div>
+
+<a href="index.html">Home</a>
+  <a href="architecture.html">Architecture</a>
+  <a href="interior.html">Interior</a>
+  <a href="research.html">Research</a>
+  <a href="about.html">About</a>
+   <a href="publication.html">Publication</a>
+  <a href="contact.html">Contact</a>
+
+<a href="https://lightscameraarchitecture.wordpress.com/"
+target="_blank">
+
+</a>
+
+</nav>
+
+</header>
+
+
+
+<!-- WORDPRESS PAGE -->
+
+<!-- RESEARCH HERO -->
+
+<!-- <section class="research-page">
+
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <p class="tag">SAKO DESIGN NARRATIVES</p>
+
+            <h1>Research</h1>
+
+            <p class="desc">
+                Exploring architecture through films, culture, materials,
+                urban spaces and design thinking.
+            </p>
+
+            <a href="#research-grid" class="explore-btn">
+                Explore Research →
+            </a>
+
+        </div>
+
+    </div>
+
+</section> -->
+
+<section class="research-banner">
+
+    <img src="./images/research logo (2).jpeg" alt="Research Banner">
+
+</section>
+
+
+<!-- <section class="categories">
+
+    <h2>Browse by Topic</h2>
+
+    <div class="category-grid">
+
+        <div class="category-card">
+            <i class="fas fa-film"></i>
+            <span>Architecture in Films</span>
+        </div>
+
+        <div class="category-card">
+            <i class="fas fa-landmark"></i>
+            <span>Heritage</span>
+        </div>
+
+        <div class="category-card">
+            <i class="fas fa-tree"></i>
+            <span>Landscape</span>
+        </div>
+
+        <div class="category-card">
+            <i class="fas fa-city"></i>
+            <span>Urban Design</span>
+        </div>
+
+        <div class="category-card">
+            <i class="fas fa-couch"></i>
+            <span>Interior Design</span>
+        </div>
+
+        <div class="category-card">
+            <i class="fas fa-layer-group"></i>
+            <span>Materials</span>
+        </div>
+
+    </div>
+
+</section> -->
+
+
+<section id="research-grid" class="research-grid">
+
+    <a class="research-card"
+       href="https://lightscameraarchitecture.wordpress.com/2017/07/10/facades-of-kahaani/"
+       target="_blank" rel="noopener">
+
+        <img src="./images/card 1.jpeg" alt="Facades of Kahaani">
+
+        <div class="card-content">
+            <span>Architecture in Films</span>
+            <h3>Facades of Kahaani</h3>
+            <p>Discover how Kolkata's streets become a character in the film.</p>
+            <span class="read-more">Read More →</span>
+        </div>
+
+    </a>
+
+    <a class="research-card"
+       href="https://lightscameraarchitecture.wordpress.com/2017/06/24/ramleela/"
+       target="_blank" rel="noopener">
+
+        <img src="./images/ramleela.jpg" alt="Ram-Leela">
+
+        <div class="card-content">
+            <span>Architecture in Films</span>
+            <h3>Ram-Leela</h3>
+            <p>Understanding space, colour and emotion through architecture.</p>
+            <span class="read-more">Read More →</span>
+        </div>
+
+    </a>
+
+    <a class="research-card"
+       href="https://lightscameraarchitecture.wordpress.com/2017/06/07/143/"
+       target="_blank" rel="noopener">
+
+        <img src="./images/geetanjali.jpg" alt="Geetanjali">
+
+        <div class="card-content">
+            <span>Landscape</span>
+            <h3>Geetanjali</h3>
+            <p>Landscape as an emotional storytelling element.</p>
+            <span class="read-more">Read More →</span>
+        </div>
+
+    </a>
+
+    <a class="research-card"
+       href="https://lightscameraarchitecture.wordpress.com/2017/04/18/sakhi/"
+       target="_blank" rel="noopener">
+
+        <img src="https://lightscameraarchitecture.wordpress.com/wp-content/uploads/2017/04/sakhi_poster.jpg?w=1400" alt="Sakhi">
+
+        <div class="card-content">
+            <span>Architecture in Films</span>
+            <h3>Sakhi</h3>
+            <p>Railway stations as a moving stage for a quietly unfolding romance.</p>
+            <span class="read-more">Read More →</span>
+        </div>
+
+    </a>
+
+    <a class="research-card"
+       href="https://lightscameraarchitecture.wordpress.com/2017/05/28/guzarish/"
+       target="_blank" rel="noopener">
+
+        <img src="https://lightscameraarchitecture.wordpress.com/wp-content/uploads/2017/05/cp2.jpg?w=1400" alt="Guzarish">
+
+        <div class="card-content">
+            <span>Architecture in Films</span>
+            <h3>Guzarish</h3>
+            <p>A single bedroom tells an entire story of confinement and memory.</p>
+            <span class="read-more">Read More →</span>
+        </div>
+
+    </a>
+
+    <a class="research-card"
+       href="https://lightscameraarchitecture.wordpress.com/2017/05/06/mayabazaar/"
+       target="_blank" rel="noopener">
+
+        <img src="https://lightscameraarchitecture.wordpress.com/wp-content/uploads/2017/05/mayabazaar.jpg" alt="MayaBazaar">
+
+        <div class="card-content">
+            <span>Architecture in Films</span>
+            <h3>MayaBazaar</h3>
+            <p>Palace backdrops and garden scenes that carry a classic's emotion.</p>
+            <span class="read-more">Read More →</span>
+        </div>
+
+    </a>
+
+    <a class="research-card"
+       href="https://lightscameraarchitecture.wordpress.com/2017/05/06/baahubali/"
+       target="_blank" rel="noopener">
+
+        <img src="https://lightscameraarchitecture.wordpress.com/wp-content/uploads/2017/05/baahubali-final.gif" alt="Baahubali">
+
+        <div class="card-content">
+            <span>Architecture in Films</span>
+            <h3>Baahubali</h3>
+            <p>Staging and scale that shift a kingdom's balance of power.</p>
+            <span class="read-more">Read More →</span>
+        </div>
+
+    </a>
+
+    <a class="research-card"
+       href="https://lightscameraarchitecture.wordpress.com/2017/04/15/bajirao-mastani/"
+       target="_blank" rel="noopener">
+
+        <img src="https://i0.wp.com/lightscameraarchitecture.wordpress.com/wp-content/uploads/2017/04/mastani-2.jpg?fit=1200%2C664&ssl=1" alt="Bajirao Mastani">
+
+        <div class="card-content">
+            <span>Architecture in Films</span>
+            <h3>Bajirao Mastani</h3>
+            <p>An octagonal mahal and its arches built for grandeur on screen.</p>
+            <span class="read-more">Read More →</span>
+        </div>
+
+    </a>
+
+    <a class="research-card"
+       href="https://lightscameraarchitecture.wordpress.com/2017/04/15/drushyam/"
+       target="_blank" rel="noopener">
+
+        <img src="https://lightscameraarchitecture.wordpress.com/wp-content/uploads/2017/04/drushyam.jpg?w=1400" alt="Drushyam">
+
+        <div class="card-content">
+            <span>Architecture in Films</span>
+            <h3>Drushyam</h3>
+            <p>A zig-zag corridor that turns ordinary space into pure tension.</p>
+            <span class="read-more">Read More →</span>
+        </div>
+
+    </a>
+
+    <a class="research-card"
+       href="https://lightscameraarchitecture.wordpress.com/2017/04/15/magadheera/"
+       target="_blank" rel="noopener">
+
+        <img src="https://i0.wp.com/lightscameraarchitecture.wordpress.com/wp-content/uploads/2017/03/magadheera.gif?fit=1200%2C664&ssl=1" alt="Magadheera">
+
+        <div class="card-content">
+            <span>Architecture in Films</span>
+            <h3>Magadheera</h3>
+            <p>A narrow passage opening into vastness, framing a 400-year flashback.</p>
+            <span class="read-more">Read More →</span>
+        </div>
+
+    </a>
+
+    <a class="research-card"
+       href="https://lightscameraarchitecture.wordpress.com/2017/04/07/arundathi/"
+       target="_blank" rel="noopener">
+
+        <img src="https://lightscameraarchitecture.wordpress.com/wp-content/uploads/2017/04/arundathi.gif" alt="Arundathi">
+
+        <div class="card-content">
+            <span>Architecture in Films</span>
+            <h3>Arundathi</h3>
+            <p>Circular drums and sheer light drama into a pivotal death scene.</p>
+            <span class="read-more">Read More →</span>
+        </div>
+
+    </a>
+
+    <a class="research-card"
+       href="https://lightscameraarchitecture.wordpress.com/2017/03/18/introduction/"
+       target="_blank" rel="noopener">
+
+        <img src="https://lightscameraarchitecture.wordpress.com/wp-content/uploads/2017/03/logo-no-text.jpg?w=1400" alt="Inceptive Studies">
+
+        <div class="card-content">
+            <span>Architecture in Films</span>
+            <h3>Inceptive Studies</h3>
+            <p>Where the Facades of Films project began — first drawings, first exercises.</p>
+            <span class="read-more">Read More →</span>
+        </div>
+
+    </a>
+
+</section>
+
+<!-- <section class="wordpress-section">
+
+<iframe
+src="https://lightscameraarchitecture.wordpress.com/">
+</iframe>
+
+</section> -->
+
+<script>
+
+const hamburger =
+document.getElementById('hamburger');
+
+const sideMenu =
+document.getElementById('sideMenu');
+
+const closeMenu =
+document.getElementById('closeMenu');
+
+const overlay =
+document.getElementById('overlay');
+
+hamburger.addEventListener('click', ()=>{
+
+sideMenu.classList.add('active');
+overlay.classList.add('active');
+
+});
+
+closeMenu.addEventListener('click', ()=>{
+
+sideMenu.classList.remove('active');
+overlay.classList.remove('active');
+
+});
+
+overlay.addEventListener('click', ()=>{
+
+sideMenu.classList.remove('active');
+overlay.classList.remove('active');
+
+});
+
+</script>
+
+</body>
+</html>
