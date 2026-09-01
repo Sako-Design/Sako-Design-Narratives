@@ -1,0 +1,2582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Sako Design Narratives</title>
+  <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+    font-family: 'Outfit', sans-serif;
+  background: #ffffff;
+
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+  height: 100vh;
+}
+
+.project-info .architects {
+  white-space: nowrap;
+}
+
+    .navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  box-sizing: border-box;
+   position:relative;
+  z-index:2000;
+  background: #ffffff;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  color: inherit;
+}
+.logo-text-img{
+  height:66px;
+  width:auto;
+  display:block;
+}
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  
+}
+
+.menu a {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  white-space: nowrap;
+   font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+}
+
+    .logo-img {
+  width: 60px;
+  height: auto;
+  margin-right: 12px;
+  mix-blend-mode: multiply;
+}
+
+.logo-text h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.logo-text p {
+  margin-top: 2px;
+  font-size: 11px;
+  color: #666;
+}
+
+    .menu a:hover {
+      color: black;
+    }
+.menu a:hover {
+  text-decoration: underline;
+}
+.menu a:hover::after {
+  width: 100%;
+}
+.projects{
+  position: relative;
+  padding: 20px 120px 20px;
+  gap:40px;
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+  min-height: calc(100vh - 120px);
+   overflow-x: auto;
+  scrollbar-width: none;
+  overflow-y: visible;
+  background: #ffffff;
+}
+
+.projects::-webkit-scrollbar{
+  display:none;
+}
+
+
+.project-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:340px;
+  flex-shrink: 0;
+  text-decoration: none;
+  color: inherit;
+  overflow:visible;
+  position: relative;
+  z-index: 2;
+}
+
+.project-item::after{
+  content: "";
+  position: absolute;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.project-item.desktop-active .project-socials{
+    position: absolute;
+    left: 150px;
+    top: calc(350px + 360px);
+
+    width: 320px;
+    background:#000;
+    padding:18px 0;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    z-index:9999;
+}
+
+.project-socials {
+    position: fixed !important;
+    left: 0 !important;
+    bottom: 0 !important;
+
+    width: 100vw !important;
+    height: 38px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    gap: 20px;
+
+    background: #000 !important;
+    z-index: 999999;
+
+    transform: none !important;
+}
+
+.project-socials a {
+    width: 30px;
+    height: 30px;
+
+    border: 1px solid #a56243;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #a56243;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.project-socials a:hover {
+    background: #a56243;
+    color: #fff;
+    transform: translateY(-4px);
+}
+
+body.project-open .project-socials {
+    bottom: 0 !important;
+}
+
+.line-up-1::after{
+   top:45.6%;
+  left:-30px;
+  width:20px;
+  border-bottom:1.5px solid #999;
+  border-left:1.5px solid #999;
+}
+.line-up-2::after{
+   top:49.5%;
+  left:-30px;
+  width:25px;
+  border-bottom:1.5px solid #999;
+  border-left:1.5px solid #999;
+}
+
+.line-up-3::after{
+   top:49.4%;
+  left:-31px;
+  width:25px;
+  border-bottom:1.5px solid #999;
+  border-left:1.5px solid #999;
+}
+
+.line-up-4::after{
+   top:49.5%;
+  left:-30px;
+  width:20px;
+  border-bottom:1.5px solid #999;
+  border-left:1.5px solid #999;
+}
+
+.line-down-1::after{
+  top:45.6%;
+  left:-30px;
+  width:20px;
+  border-top:1.5px solid #999;
+  border-left:1.5px solid #999;
+}
+
+.line-down-2::after{
+  top:49.5%;
+  left:-30px;
+  width:20px;
+  border-top:1.5px solid #999;
+  border-left:1.5px solid #999;
+}
+
+.project-item:last-child::after{
+  display: none;
+}
+
+.project-item > .img-box img {
+  object-fit: contain;
+}
+
+.project-title {
+ font-family: 'Outfit', sans-serif;
+  font-size:16px;
+  font-weight:300;
+
+  position: relative;
+  bottom:165px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:100%;
+  text-align:center;
+  z-index:3;
+  margin-top:120px;
+}
+
+.project-item .project-title{
+   font-weight:400;
+}
+
+.project-item .img-box {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 170px;
+}
+
+.img-box{
+  width: 100%;
+  height: 400px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+.img-box img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 500px !important;
+  height: 500px !important;
+
+  object-fit: contain;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+
+  transition: opacity 0.4s ease;
+}
+
+.img-box::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -600px;
+  bottom:-600px;
+  width: 1px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #555 0px,
+    #555 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  z-index:10;
+  display: block;
+  
+}
+
+/* Sketch always visible by default */
+.sketch-img {
+  opacity: 1;
+  z-index: 1;
+  display:block;
+   width: 500px;
+  height: 500px;
+  filter:
+    blur(0px)
+    brightness(1)
+    grayscale(0%);
+}
+
+/* Color render hidden by default */
+.color-img {
+  opacity: 0;
+  z-index: 2;
+  width: 500px !important;
+  height: 500px;
+   transform:translate(-50%, -50%) scale(1);
+   transform-origin:center center;
+}
+
+.project-item:not(.desktop-active):hover .sketch-img {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.project-item:not(.desktop-active):hover .color-img {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.project-title {
+  font-size: 14px;
+  margin-top: 185px;
+  position: relative;
+  z-index: 3;
+  font-weight: 600;
+}
+
+.arrow{
+  position:fixed;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:100;
+  background:white;
+  border:none;
+  font-size:30px;
+  cursor:pointer;
+  transition:all 0.3s ease;
+}
+
+.arrow:hover{
+  transform: translateY(-50%) scale(1.15);
+  background: grey;
+  box-shadow : 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.left:hover{
+  transform: translateY(-50%) translateX(-4px);
+  scale:(1.15);
+}
+
+.hamburger{
+    display:none;
+    font-size:42px;
+    font-weight:400;
+    line-height:1;
+    cursor:pointer;
+    color:#000;
+    z-index:2001;
+    background:none;
+    border:none;
+    padding:0;
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  z-index: 999;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  height: 100%;
+  background: white;
+  padding: 80px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+  transition: 0.4s ease;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.side-menu a {
+  text-decoration: none;
+  color: black;
+  font-size: 22px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.side-menu.active {
+  right: 0;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ================= DESKTOP ACTIVE LAYOUT ================= */
+
+.project-item.desktop-active{
+
+  position: fixed;
+
+  top: 95px;
+  left: 0;
+
+  width: 100vw;
+  height: calc(100vh - 95px);
+
+  background: #ffffff;
+
+  z-index: 999;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  display: block;
+  animation: smoothOpen 0.8s ease;
+    backdrop-filter: blur(2px);
+}
+
+@keyframes smoothOpen {
+
+  0%{
+    opacity:1;
+    transform:translateY(40px) scale(0.985);
+    filter:blur(8px);
+  }
+
+  100%{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    filter:blur(0);
+  }
+}
+
+.project-item.desktop-active ~ .project-item{
+  display:none;
+}
+
+.project-item.desktop-active .img-box{
+
+  position:relative;
+
+  top:20px;
+  left:25px;
+
+  width:300px;
+  height:300px;
+
+   z-index:5;
+   overflow: visible;
+   animation: imageFloat 3s ease forwards;
+}
+
+@keyframes imageFloat{
+
+  0%{
+    opacity:0;
+    transform:translateX(-120px) scale(0.92);
+  }
+
+  100%{
+    opacity:1;
+    transform:translateX(0) scale(1);
+  }
+}
+
+.project-item.desktop-active::before{
+  content: "";
+  position: absolute;
+
+  top: 220px;
+  left: 130px;
+
+  width: 700px;
+
+  border-top: 1px solid #999;
+
+  z-index: 1;
+}
+
+.project-item.desktop-active .img-box{
+  overflow: visible;
+}
+
+.project-item.desktop-active .img-box::before{
+
+  top:-1000px !important;
+
+  bottom:-1500px !important;
+
+  z-index:20;
+  
+}
+
+.project-item.desktop-active .sketch-img{
+  opacity:0;
+}
+
+.project-item.desktop-active .color-img{
+  opacity:1;
+  z-index: 3;
+}
+
+@keyframes imageReveal{
+
+  0%{
+    opacity:0;
+
+    transform:
+      translate(-50%, -50%)
+     scale(1.04);
+
+    filter:
+      blur(8px)
+      brightness(1.15);
+  }
+
+  100%{
+    opacity:1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+
+    filter:
+      blur(0)
+      brightness(1);
+  }
+}
+
+.project-item.desktop-active .project-title{
+
+  position:absolute;
+
+  top: 187px;     
+  left: 460px; 
+
+  width:260px;
+
+  margin:0;
+
+font-size:14px;
+
+  font-weight:400;
+
+  line-height:1.4;
+
+  text-align:left;
+
+  z-index:99999;
+  white-space: normal;
+  
+
+  color:#000;
+   animation-delay:10s;
+animation-fill-mode:both;
+}
+
+.project-item.desktop-active .mobile-project-details{
+
+  display:block !important;
+
+  position:absolute;
+
+  top:350px;
+    right:1525px;
+    width:360px;
+
+  z-index:9999;
+
+  overflow:visible;
+  opacity:1;
+  transform:translateY(0);
+
+  animation:none;
+
+  transition:none !important;
+}
+
+.project-item.desktop-active.show-details .mobile-project-details{
+    animation:fadeContent 0.8s ease forwards;
+}
+
+@keyframes fadeContent{
+
+ 0%{
+  opacity:0;
+  transform:translateY(8px);
+  filter:blur(1px);
+}
+
+  100%{
+    opacity:1;
+    transform:translateY(0);
+    filter:blur(0);
+  }
+}
+
+.project-item.desktop-active .project-info{
+
+  width:550px;
+
+  margin:0;
+
+  font-size:15px;
+
+  line-height:1.9;
+
+  text-align:right;
+
+  color:#222;
+}
+
+.project-info p{
+  margin-bottom:16px;
+}
+
+.project-item.desktop-active .full-details-btn{
+
+  margin-top:30px;
+
+  padding:14px 24px;
+
+  font-size:15px;
+}
+
+.project-item.desktop-active .mobile-slider{
+
+  display:block;
+
+  position:absolute;
+
+  top:190px;
+
+  right:20px;
+
+  width:69%;
+
+  height:68vh;
+
+  z-index:500;
+
+  overflow:hidden;
+  will-change: transform, opacity;
+  animation-fill-mode:both;
+}
+
+@keyframes slideReveal{
+
+  0%{
+  opacity:0;
+  transform:translateX(40px);
+  filter:blur(6px);
+  }
+
+  100%{
+    opacity:1;
+
+    transform:
+      translateX(0)
+      scale(1);
+
+    filter:
+      blur(0)
+      brightness(1);
+  }
+}
+
+.project-item.desktop-active .mobile-slider{
+  isolation:isolate;
+}
+
+.project-item.desktop-active .slide-btn{
+
+  position:absolute;
+
+  top:50%;
+
+  transform:translateY(-50%);
+
+  z-index:500;
+}
+
+.project-item.desktop-active .prev-btn{
+  left:40px;
+}
+
+.project-item.desktop-active .next-btn{
+  right:40px;
+}
+
+body.project-open::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:999;
+
+    background-image:
+      repeating-linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.18) 0px,
+        #999 8px,
+        transparent 8px,
+        transparent 16px
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        #999 0px,
+        #999 8px,
+        transparent 8px,
+        transparent 16px
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        #999 0px,
+        #999 8px,
+        transparent 8px,
+        transparent 16px
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        #999 0px,
+        #999 8px,
+        transparent 8px,
+        transparent 16px
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        #999 0px,
+        #999 8px,
+        transparent 8px,
+        transparent 16px
+      );
+
+    background-repeat:no-repeat;
+
+    background-size:
+      1px 100%,
+      1px 100%,
+      1px 100%,
+      1px 100%;
+
+    background-position:
+      10% 0,
+      30% 0,
+      50% 0,
+      70% 0,
+      90% 0;
+}
+
+.project-item.desktop-active::after{
+
+  content:"";
+
+  position:absolute;
+
+    top:220px;
+
+  left:120px;
+
+  width:calc(100% - 120px);
+
+  height:1px;
+
+  background:#999;
+
+  z-index:1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-item:hover .sketch-img {
+    opacity: 0;
+  }
+
+  .project-item:hover .color-img {
+    opacity: 1;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+.project-item.active .sketch-img {
+  opacity: 0;
+}
+
+.project-item.active .color-img {
+  opacity: 1;
+  visibility: visible;
+}
+}
+
+.arrow{
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index:500;
+  background: rgba(255,255,255,0.9);
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+  width:42px;
+  height:42px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left{
+  left: 7px;
+}
+
+.right{
+  right: 7px;
+}
+
+.menu-overlay{
+  z-index: 999;
+}
+
+.side-menu{
+  z-index: 1000;
+}
+
+.side-menu.active ~ .arrow{
+  display:none;
+}
+
+/* ================= MOBILE PROJECT DETAILS ================= */
+
+.mobile-project-details{
+  display:none;
+  width:100%;
+  margin-top:20px;
+  animation:fadeUp 0.4s ease;
+  padding-bottom:40px;
+
+  max-height:75vh;
+  overflow-y:auto;
+  overflow-x:hidden;
+
+  -webkit-overflow-scrolling:touch;
+}
+
+.project-item.active .mobile-project-details{
+  display:block;
+}
+
+.project-item.active .sketch-img{
+  opacity:0;
+}
+
+.project-item.active .color-img{
+  opacity:1;
+}
+
+.project-info{
+  width:88%;
+  margin:auto;
+   font-family: 'Outfit', sans-serif;
+  font-size:15px;
+  line-height:1.8;
+  font-weight:400;
+  color:#222;
+}
+
+.project-info p{
+  margin:0 0 8px;
+}
+
+.full-details-btn{
+  display:block;
+  width:max-content;
+  text-align:center;
+  margin:20px auto;
+  font-size:14px;
+  color:black;
+  text-decoration:none;
+  font-weight:600;
+  padding:10px 18px;
+  border:1px solid #000;
+  border-radius:30px;
+  background:white;
+  position:relative;
+  z-index:20;
+}
+
+.full-details-btn:hover{
+  background:black;
+  color:white;
+}
+
+/* ================= MOBILE SLIDER ================= */
+
+.mobile-slider{
+
+  display:none;
+
+  position:relative;
+
+  width:100%;
+
+  margin:30px auto 0;
+
+  padding:0;
+
+  overflow:hidden;
+}
+
+.slider-image{
+
+  position:absolute;
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+  object-position:center;
+
+  opacity:0;
+
+  visibility:hidden;
+
+  transform:scale(1.02);
+
+  transition:
+    opacity 0.9s ease,
+    transform 1.4s cubic-bezier(0.16,1,0.3,1);
+
+  pointer-events:none;
+
+  z-index:1;
+
+  will-change:transform, opacity;
+
+  backface-visibility:hidden;
+}
+
+.slider-image.active{
+
+  opacity:1;
+
+  visibility:visible;
+
+  transform:scale(1);
+
+  pointer-events:auto;
+
+  z-index:5;
+}
+
+.slide-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:38px;
+  height:38px;
+  border:none;
+  border-radius:50%;
+  background:white;
+  color:#000;
+  font-size:24px;
+  cursor:pointer;
+  z-index:30;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+
+.prev-btn{
+  left:25px;
+}
+
+.next-btn{
+  right:25px;
+  z-index: 9999;
+}
+
+.slide-btn:active{
+  transform:translateY(-50%) scale(0.95);
+}
+
+.project-item.desktop-active .img-box::before{
+  display:none;
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* =========================================================
+   LAPTOP VIEW  (891px – 1600px)
+   ========================================================= */
+@media (min-width: 891px) and (max-width: 1600px) {
+
+  .projects{
+    padding: 20px 30px 20px;
+    gap: 16px;
+    justify-content: flex-start;
+  }
+
+  .project-item{
+    width: calc((100vw - 60px - (16px * 4)) / 5);
+    min-width: 190px;
+    max-width: 300px;
+  }
+
+  .img-box{
+    height: 300px;
+  }
+
+  .img-box img{
+    width: 85%;
+  }
+
+  .sketch-img{
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .color-img{
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .project-title{
+    font-size: 13px;
+    margin-top: 150px;
+  }
+
+  /* ---- FIX: the "opened project" detail view above uses
+     fixed desktop-only pixel positions (left:460px,
+     right:1525px, width:550px etc). On laptop-width screens
+     those values push content off-screen or overlapping.
+     This override replaces them with values that fit a
+     narrower viewport, keeping the same left-image /
+     right-slider layout idea. ---- */
+
+  .project-item.desktop-active .img-box{
+    top: 20px;
+    left: 20px;
+    width: 220px;
+    height: 220px;
+  }
+
+  .project-item.desktop-active::before{
+    top: 170px;
+    left: 90px;
+    width: calc(100% - 130px);
+  }
+
+  .project-item.desktop-active .project-title{
+    top: 130px;
+    left: 260px;
+    width: 200px;
+    font-size: 13px;
+  }
+
+  .project-item.desktop-active .mobile-project-details{
+    top: 210px;
+    left: 20px;
+    right: auto;
+    width: 260px;
+  }
+
+  .project-item.desktop-active .project-info{
+    width: 100%;
+    font-size: 13px;
+    line-height: 1.7;
+    text-align: left;
+  }
+
+  .project-item.desktop-active .mobile-slider{
+    top: 130px;
+    right: 20px;
+    width: 55%;
+    height: 60vh;
+  }
+
+  .project-item.desktop-active .project-socials{
+    left: 20px;
+    top: auto;
+    bottom: 20px;
+    width: 260px;
+  }
+}
+
+@media (min-width: 891px) and (max-width: 1280px) {
+  .project-title{
+    font-size: 12px;
+  }
+}
+
+/* =========================================================
+   MOBILE VIEW (<= 890px)
+   ========================================================= */
+@media (max-width: 890px) {
+
+  .projects{
+    gap:0;
+  }
+
+  .navbar {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position:relative;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 28px;
+    cursor: pointer;
+    color: black;
+    z-index: 1100;
+    margin-left: auto;
+  }
+
+  .logo {
+    max-width: 70%;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+
+  .img-box::before,
+  .project-item::after {
+    display: none;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    flex-direction: column;
+    gap: 15px;
+    z-index:1000;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu a {
+    margin: 0;
+    display: block;
+    font-weight: 400;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  body, html {
+    overflow-x:hidden;
+    overflow-y: auto;
+    height:auto;
+  }
+
+  .logo-img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .logo-text h2 {
+    font-size: 14px;
+    line-height: 1.2;
+    margin:0;
+  }
+
+  .logo-text p {
+    font-size: 9px;
+  }
+
+  .projects{
+    width:100vw;
+    overflow-x:auto;
+    overflow-y:visible;
+    padding:0;
+    align-items:flex-start;
+  }
+
+  .project-item{
+    flex:0 0 100vw;
+    width:100vw;
+    min-width:100vw;
+    padding-bottom:120px;
+    box-sizing:border-box;
+    height: auto;
+  }
+
+  .mobile-project-details{
+    display:none;
+    width:100%;
+    margin-top:20px;
+    padding-bottom:30px;
+    max-height:none;
+    overflow:visible;
+  }
+
+  .project-title{
+    position: static;
+    transform: none;
+    left: auto;
+    bottom: auto;
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    z-index:3;
+  }
+
+  .projects::before {
+    display: none;
+  }
+
+  .img-box::before {
+    display: none;
+  }
+
+  .sketch-img {
+    opacity: 1;
+    z-index: 1;
+    width: 300px !important;
+  }
+
+  .color-img{
+    opacity:0;
+    position:absolute;
+    width: 300px !important;
+  }
+
+  .img-box{
+    min-height:420px;
+    overflow: visible;
+  }
+
+  .img-box img{
+    max-height: 430px;
+    object-fit:contain;
+  }
+
+  .mobile-slider{
+    display:none;
+    position:relative;
+    width:100vw;
+    height:340px;
+    left:50%;
+    transform:translateX(-50%);
+    margin-top:30px;
+    margin-bottom:60px;
+    overflow:hidden;
+    isolation:isolate;
+  }
+
+  .slider-image{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    opacity:0;
+    transform:scale(1.08);
+    transition:
+      opacity 1.6s ease,
+      transform 2.2s cubic-bezier(0.16,1,0.3,1),
+      filter 1.8s ease;
+    filter:
+      blur(12px)
+      brightness(1.12);
+    pointer-events:none;
+    z-index:1;
+  }
+
+  .slider-image.active{
+    opacity:1;
+    transform:scale(1);
+    filter:
+      blur(0)
+      brightness(1);
+    pointer-events:auto;
+    z-index:2;
+  }
+
+  .slide-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:46px;
+    height:46px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,0.95);
+    z-index:9999;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+
+  .prev-btn{ left:16px; }
+  .next-btn{ right:16px; }
+
+  .project-item.active{
+    height:auto;
+    animation: mobileOpen 0.7s ease;
+    min-height:100vh;
+  }
+
+  .project-item.active .color-img{
+    opacity:1;
+    animation: mobileColorReveal 2.2s cubic-bezier(0.16,1,0.3,1);
+    animation-fill-mode:both;
+    animation-delay:0.15s;
+  }
+
+  .project-item.active .mobile-project-details{
+    display:block;
+    animation: mobileDetailsReveal 1.8s cubic-bezier(0.16,1,0.3,1);
+    animation-delay:0.7s;
+    animation-fill-mode:both;
+  }
+
+  .project-item.active .mobile-slider{
+    display:block;
+    animation: mobileSliderReveal 2.4s cubic-bezier(0.16,1,0.3,1);
+    animation-delay:1.15s;
+    animation-fill-mode:both;
+  }
+
+  body.project-open{
+    overflow: hidden !important;
+    height: 100vh;
+  }
+}
+
+.project-socials{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
+
+    background:#000;
+    padding:20px 0;
+    margin-top:30px;
+    width:100%;
+}
+
+.project-item.desktop-active .project-socials{
+    position:fixed !important;
+    left:0 !important;
+    bottom:0 !important;
+
+    width:100vw !important;
+    height:0px;
+
+    margin:0 !important;
+
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+    gap:20px;
+
+    background:#000 !important;
+
+    z-index:999999;
+
+    transform:translateX(-170px)  ;
+}
+
+.project-socials a{
+    width:30px;
+    height:30px;
+    border:1px solid #a56243;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#a56243;
+    text-decoration:none;
+    font-size:18px;
+}
+
+body.project-open .project-socials{
+    bottom:auto !important;
+}
+
+.project-socials a:hover{
+
+  background:#a56243;
+
+  color:#fff;
+
+  transform:translateY(-4px);
+}
+
+  </style>
+</head>
+
+<body class="inside-page">
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar">
+
+    <a href="index.html" class="logo">
+    <img src="./images/logo.png" alt="Sako Logo" class="logo-img">
+
+    <img src="./images/logo-text.png" alt="Sako Logo" class="logo-text-img">
+</a>
+
+    <!-- Desktop Menu -->
+  <nav class="menu">
+  <a href="index.html">Home</a>
+  <a href="architecture.html">Architecture</a>
+  <a href="interior.html">Interior</a>
+  <a href="research.html">Research</a>
+  <a href="about.html">About</a>
+  <a href="publication.html">Publication</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+    <div class="hamburger" id="hamburger">
+  ☰
+</div>
+
+<div class="menu-overlay" id="overlay"></div>
+
+<nav class="side-menu" id="sideMenu">
+  <div class="close-btn" id="closeMenu">✕</div>
+
+  <a href="index.html">Home</a>
+  <a href="architecture.html">Architecture</a>
+  <a href="interior.html">Interior</a>
+  <a href="research.html">Research</a>
+  <a href="about.html">About</a>
+  <a href="publication.html">Publication</a>
+  <a href="contact.html">Contact</a>
+</nav>
+  </header>
+
+  <button class="arrow left">&#10094;</button>
+  <button class="arrow right">&#10095;</button>
+  <!-- ================= MAIN SECTION ================= -->
+  <section class="projects">
+
+  
+  <div class="project-item line-up-1">
+    <div class="img-box">
+      <img src="./images/1.png"class="sketch-img">
+      <img src="./images/1.1.png" class="color-img">
+    </div>
+    <div class="project-title">Sako Office, Hyderabad</div>
+
+   <!-- MOBILE DETAILS -->
+
+  <div class="mobile-project-details">
+
+    <div class="project-info">
+
+      <p><b>Project Name –</b> SaKo studio</p>
+
+      <p><b>Studio Name –</b> Sako design narratives</p>
+
+      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+      <p><b>Project Size –</b> 250 sq ft</p>
+
+      <p><b>Principal Architects –</b> Sangeetha Polisetti,
+      Kondal Siddhuri</p>
+
+      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+  
+
+      <p>
+        Nestled within a dense urban neighborhood in
+        the heart of Hyderabad, sako Studio is a compact
+        250 sq ft workspace designed for efficiency
+        and style.
+      </p>
+
+    </div>
+    
+
+     <div class="project-socials">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fas fa-envelope"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fas fa-briefcase"></i></a>
+    </div>
+
+    </div>
+
+    <!-- SLIDER -->
+
+    <div class="mobile-slider">
+
+      <button class="slide-btn prev-btn">&#10094;</button>
+
+      <img src="./images/o1.jpg"
+           class="slider-image active">
+
+      <img src="./images/o2.jpeg"
+           class="slider-image">
+
+      <img src="./images/o3.jpeg"
+           class="slider-image">
+
+      <img src="./images/o4.jpeg"
+           class="slider-image">
+
+
+      <button class="slide-btn next-btn">&#10095;</button>
+
+    </div>
+
+</div>
+    <div class="project-item  line-down-1">
+  <div class="img-box">
+    <img src="./images/2.1.png" class="sketch-img">
+        <img src="./images/2.1111.png" class="color-img">
+      </div>   
+
+<div class="project-title">Farmhouse Panjarla, India</div>
+
+ <!-- MOBILE DETAILS -->
+
+  <div class="mobile-project-details">
+
+    <div class="project-info">
+
+      <p><b>Project Name –</b> SaKo studio</p>
+
+      <p><b>Studio Name –</b> Sako design narratives</p>
+
+      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+      <p><b>Project Size –</b> 250 sq ft</p>
+
+      <p><b>Principal Architects –</b> Sangeetha Polisetti,
+      Kondal Siddhuri</p>
+
+      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+  
+
+      <p>
+        Nestled within a dense urban neighborhood in
+        the heart of Hyderabad, sako Studio is a compact
+        250 sq ft workspace designed for efficiency
+        and style.
+      </p>
+
+    </div>
+
+    <div class="project-socials">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fas fa-envelope"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fas fa-briefcase"></i></a>
+</div>
+
+     </div>
+
+    <!-- SLIDER -->
+
+    <div class="mobile-slider">
+
+      <button class="slide-btn prev-btn">&#10094;</button>
+
+      <img src="./images/o1.jpg"
+           class="slider-image active">
+
+      <img src="./images/o2.jpeg"
+           class="slider-image">
+
+      <img src="./images/o3.jpeg"
+           class="slider-image">
+
+      <img src="./images/o4.jpeg"
+           class="slider-image">
+
+
+      <button class="slide-btn next-btn">&#10095;</button>
+
+    </div>
+
+  </div>
+
+    <div class="project-item line-up-2">
+  <div class="img-box">
+    <img src="./images/3.1.png" class="sketch-img">
+        <img src="./images/3 (1).png" class="color-img">
+      </div>
+
+<div class="project-title">Villa Maheshwaram, India</div>
+
+ <!-- MOBILE DETAILS -->
+
+  <div class="mobile-project-details">
+
+    <div class="project-info">
+
+      <p><b>Project Name –</b> SaKo studio</p>
+
+      <p><b>Studio Name –</b> Sako design narratives</p>
+
+      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+      <p><b>Project Size –</b> 250 sq ft</p>
+
+      <p><b>Principal Architects –</b> Sangeetha Polisetti,
+      Kondal Siddhuri</p>
+
+      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+    
+
+      <p>
+        Nestled within a dense urban neighborhood in
+        the heart of Hyderabad, sako Studio is a compact
+        250 sq ft workspace designed for efficiency
+        and style.
+      </p>
+
+    </div>
+
+    <div class="project-socials">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fas fa-envelope"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fas fa-briefcase"></i></a>
+</div>
+
+    </div>
+
+    <!-- SLIDER -->
+
+    <div class="mobile-slider">
+
+      <button class="slide-btn prev-btn">&#10094;</button>
+
+      <img src="./images/o1.jpg"
+           class="slider-image active">
+
+      <img src="./images/o2.jpeg"
+           class="slider-image">
+
+      <img src="./images/o3.jpeg"
+           class="slider-image">
+
+      <img src="./images/o4.jpeg"
+           class="slider-image">
+
+
+      <button class="slide-btn next-btn">&#10095;</button>
+
+    </div>
+
+  </div>
+
+    <div class="project-item  line-down-2">
+  <div class="img-box">
+     <img src="./images/4.1.png" class="sketch-img">
+        <img src="./images/4 (1).png" class="color-img">
+      </div>
+<div class="project-title">Lakeview Farmhouse, India</div>
+
+ <!-- MOBILE DETAILS -->
+
+  <div class="mobile-project-details">
+
+    <div class="project-info">
+
+      <p><b>Project Name –</b> SaKo studio</p>
+
+      <p><b>Studio Name –</b> Sako design narratives</p>
+
+      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+      <p><b>Project Size –</b> 250 sq ft</p>
+
+      <p><b>Principal Architects –</b> Sangeetha Polisetti,
+      Kondal Siddhuri</p>
+
+      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+    
+
+      <p>
+        Nestled within a dense urban neighborhood in
+        the heart of Hyderabad, sako Studio is a compact
+        250 sq ft workspace designed for efficiency
+        and style.
+      </p>
+
+    </div>
+
+    <div class="project-socials">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fas fa-envelope"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fas fa-briefcase"></i></a>
+</div>
+
+    </div>
+
+    <!-- SLIDER -->
+
+    <div class="mobile-slider">
+
+      <button class="slide-btn prev-btn">&#10094;</button>
+
+      <img src="./images/o1.jpg"
+           class="slider-image active">
+
+      <img src="./images/o2.jpeg"
+           class="slider-image">
+
+      <img src="./images/o3.jpeg"
+           class="slider-image">
+
+      <img src="./images/o4.jpeg"
+           class="slider-image">
+
+
+      <button class="slide-btn next-btn">&#10095;</button>
+
+    </div>
+
+  </div>
+
+    <div class="project-item line-up-3">
+  <div class="img-box">
+    <img src="./images/5.1.png" class="sketch-img">
+        <img src="./images/5 (1).png" class="color-img">
+      </div>
+<div class="project-title">Farmhouse Panjarla, India</div>
+
+ <!-- MOBILE DETAILS -->
+
+  <div class="mobile-project-details">
+
+    <div class="project-info">
+
+      <p><b>Project Name –</b> SaKo studio</p>
+
+      <p><b>Studio Name –</b> Sako design narratives</p>
+
+      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+      <p><b>Project Size –</b> 250 sq ft</p>
+
+      <p><b>Principal Architects –</b> Sangeetha Polisetti,
+      Kondal Siddhuri</p>
+
+      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+    
+
+      <p>
+        Nestled within a dense urban neighborhood in
+        the heart of Hyderabad, sako Studio is a compact
+        250 sq ft workspace designed for efficiency
+        and style.
+      </p>
+
+    </div>
+
+    <div class="project-socials">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fas fa-envelope"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fas fa-briefcase"></i></a>
+</div>
+
+    </div>
+
+    <!-- SLIDER -->
+
+    <div class="mobile-slider">
+
+      <button class="slide-btn prev-btn">&#10094;</button>
+
+      <img src="./images/o1.jpg"
+           class="slider-image active">
+
+      <img src="./images/o2.jpeg"
+           class="slider-image">
+
+      <img src="./images/o3.jpeg"
+           class="slider-image">
+
+      <img src="./images/o4.jpeg"
+           class="slider-image">
+
+
+      <button class="slide-btn next-btn">&#10095;</button>
+
+    </div>
+
+  </div>
+
+<div  class="project-item line-up-4">
+    <div class="img-box">
+      <img src="./images/11.11img.png" class="sketch-img">
+      <img src="./images/11.11111 img.png" class="color-img">
+    </div>
+    <div class="project-title">Sako Office, Hyderabad</div>
+
+ <!-- MOBILE DETAILS -->
+
+  <div class="mobile-project-details">
+
+    <div class="project-info">
+
+      <p><b>Project Name –</b> SaKo studio</p>
+
+      <p><b>Studio Name –</b> Sako design narratives</p>
+
+      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+      <p><b>Project Size –</b> 250 sq ft</p>
+
+      <p><b>Principal Architects –</b> Sangeetha Polisetti,
+      Kondal Siddhuri</p>
+
+      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+
+
+      <p>
+        Nestled within a dense urban neighborhood in
+        the heart of Hyderabad, sako Studio is a compact
+        250 sq ft workspace designed for efficiency
+        and style.
+      </p>
+
+    </div>
+
+    <div class="project-socials">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fas fa-envelope"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fas fa-briefcase"></i></a>
+</div>
+
+</div>
+    <!-- SLIDER -->
+
+    <div class="mobile-slider">
+
+      <button class="slide-btn prev-btn">&#10094;</button>
+
+      <img src="./images/o1.jpg"
+           class="slider-image active">
+
+      <img src="./images/o2.jpeg"
+           class="slider-image">
+
+      <img src="./images/o3.jpeg"
+           class="slider-image">
+
+      <img src="./images/o4.jpeg"
+           class="slider-image">
+
+
+      <button class="slide-btn next-btn">&#10095;</button>
+
+    </div>
+
+  </div>
+
+    <div class="project-item line-down-1">
+  <div class="img-box">
+    <img src="./images/2.1.png" class="sketch-img">
+        <img src="./images/2 (2).png" class="color-img">
+      </div>   
+
+<div class="project-title">Farmhouse Panjarla, India</div>
+
+ <!-- MOBILE DETAILS -->
+
+  <div class="mobile-project-details">
+
+    <div class="project-info">
+
+      <p><b>Project Name –</b> SaKo studio</p>
+
+      <p><b>Studio Name –</b> Sako design narratives</p>
+
+      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+      <p><b>Project Size –</b> 250 sq ft</p>
+
+      <p><b>Principal Architects –</b> Sangeetha Polisetti,
+      Kondal Siddhuri</p>
+
+      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+
+
+      <p>
+        Nestled within a dense urban neighborhood in
+        the heart of Hyderabad, sako Studio is a compact
+        250 sq ft workspace designed for efficiency
+        and style.
+      </p>
+
+    </div>
+
+    <div class="project-socials">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fas fa-envelope"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fas fa-briefcase"></i></a>
+</div>
+
+    </div>
+
+    <!-- SLIDER -->
+
+    <div class="mobile-slider">
+
+      <button class="slide-btn prev-btn">&#10094;</button>
+
+      <img src="./images/o1.jpg"
+           class="slider-image active">
+
+      <img src="./images/o2.jpeg"
+           class="slider-image">
+
+      <img src="./images/o3.jpeg"
+           class="slider-image">
+
+      <img src="./images/o4.jpeg"
+           class="slider-image">
+
+
+      <button class="slide-btn next-btn">&#10095;</button>
+
+    </div>
+
+  </div>
+
+    <div  class="project-item line-up-2">
+  <div class="img-box">
+    <img src="./images/3.1.png" class="sketch-img">
+        <img src="./images/3 (1).png" class="color-img">
+      </div>
+
+<div class="project-title">Villa Maheshwaram, India</div>
+
+ <!-- MOBILE DETAILS -->
+
+  <div class="mobile-project-details">
+
+    <div class="project-info">
+
+      <p><b>Project Name –</b> SaKo studio</p>
+
+      <p><b>Studio Name –</b> Sako design narratives</p>
+
+      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+      <p><b>Project Size –</b> 250 sq ft</p>
+
+      <p><b>Principal Architects –</b> Sangeetha Polisetti,
+      Kondal Siddhuri</p>
+
+      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+
+      <p>
+        Nestled within a dense urban neighborhood in
+        the heart of Hyderabad, sako Studio is a compact
+        250 sq ft workspace designed for efficiency
+        and style.
+      </p>
+
+    </div>
+
+    <div class="project-socials">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fas fa-envelope"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fas fa-briefcase"></i></a>
+</div>
+
+    </div>
+
+    <!-- SLIDER -->
+
+    <div class="mobile-slider">
+
+      <button class="slide-btn prev-btn">&#10094;</button>
+
+      <img src="./images/o1.jpg"
+           class="slider-image active">
+
+      <img src="./images/o2.jpeg"
+           class="slider-image">
+
+      <img src="./images/o3.jpeg"
+           class="slider-image">
+
+      <img src="./images/o4.jpeg"
+           class="slider-image">
+
+
+      <button class="slide-btn next-btn">&#10095;</button>
+
+    </div>
+
+  </div>
+
+    <div  class="project-item line-down-2">
+  <div class="img-box">
+     <img src="./images/4.1.png" class="sketch-img">
+        <img src="./images/4 (1).png" class="color-img">
+      </div>
+<div class="project-title">Lakeview Farmhouse, India</div>
+
+ <!-- MOBILE DETAILS -->
+
+  <div class="mobile-project-details">
+
+    <div class="project-info">
+
+      <p><b>Project Name –</b> SaKo studio</p>
+
+      <p><b>Studio Name –</b> Sako design narratives</p>
+
+      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+      <p><b>Project Size –</b> 250 sq ft</p>
+
+      <p><b>Principal Architects –</b> Sangeetha Polisetti,
+      Kondal Siddhuri</p>
+
+      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+
+
+      <p>
+        Nestled within a dense urban neighborhood in
+        the heart of Hyderabad, sako Studio is a compact
+        250 sq ft workspace designed for efficiency
+        and style.
+      </p>
+
+    </div>
+
+    <div class="project-socials">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fas fa-envelope"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fas fa-briefcase"></i></a>
+</div>
+
+    </div>
+
+    <!-- SLIDER -->
+
+    <div class="mobile-slider">
+
+      <button class="slide-btn prev-btn">&#10094;</button>
+
+      <img src="./images/o1.jpg"
+           class="slider-image active">
+
+      <img src="./images/o2.jpeg"
+           class="slider-image">
+
+      <img src="./images/o3.jpeg"
+           class="slider-image">
+
+      <img src="./images/o4.jpeg"
+           class="slider-image">
+
+
+      <button class="slide-btn next-btn">&#10095;</button>
+
+    </div>
+
+  </div>
+
+    <div class="project-item line-up-3">
+  <div class="img-box">
+    <img src="./images/2.1.png" class="sketch-img">
+        <img src="./images/2 (2).png" class="color-img">
+      </div>
+<div class="project-title">Farmhouse Panjarla, India</div>
+
+ <!-- MOBILE DETAILS -->
+
+  <div class="mobile-project-details">
+
+    <div class="project-info">
+
+      <p><b>Project Name –</b> SaKo studio</p>
+
+      <p><b>Studio Name –</b> Sako design narratives</p>
+
+      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+      <p><b>Project Size –</b> 250 sq ft</p>
+
+       <p class="architects"><b>Principal Architects –</b> Sangeetha Polisetti, Kondal Siddhuri</p>
+
+      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+      
+
+      <p>
+        Nestled within a dense urban neighborhood in
+        the heart of Hyderabad, sako Studio is a compact
+        250 sq ft workspace designed for efficiency
+        and style.
+      </p>
+
+    </div>
+
+    <div class="project-socials">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fas fa-envelope"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fas fa-briefcase"></i></a>
+</div>
+
+    </div>
+
+    <!-- SLIDER -->
+
+    <div class="mobile-slider">
+
+      <button class="slide-btn prev-btn">&#10094;</button>
+
+      <img src="./images/o1.jpg"
+           class="slider-image active">
+
+      <img src="./images/o2.jpeg"
+           class="slider-image">
+
+      <img src="./images/o3.jpeg"
+           class="slider-image">
+
+      <img src="./images/o4.jpeg"
+           class="slider-image">
+
+
+      <button class="slide-btn next-btn">&#10095;</button>
+
+    </div>
+
+  </div>
+
+
+</section>
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const sideMenu = document.getElementById("sideMenu");
+const overlay = document.getElementById("overlay");
+const closeMenu = document.getElementById("closeMenu");
+
+hamburger.addEventListener("click", () => {
+  sideMenu.classList.add("active");
+  overlay.classList.add("active");
+  hamburger.style.display = "none";
+});
+
+closeMenu.addEventListener("click", () => {
+  sideMenu.classList.remove("active");
+  overlay.classList.remove("active");
+  hamburger.style.display = "block";
+});
+
+overlay.addEventListener("click", () => {
+  sideMenu.classList.remove("active");
+  overlay.classList.remove("active");
+  hamburger.style.display = "block";
+});
+
+const projectItems = document.querySelectorAll(".project-item");
+
+const projects = document.querySelector(".projects");
+
+window.addEventListener("load", () => {
+ const isDesktop = window.innerWidth > 890;
+    const firstCard = projects.querySelector(".project-item");
+  }
+);
+
+const leftArrow = document.querySelector(".left");
+const rightArrow = document.querySelector(".right");
+
+function getGap() {
+  return parseInt(window.getComputedStyle(projects).gap) || 0;
+}
+
+let auto;
+let moveRightTimeout = null;
+
+function stopAutoSlide() {
+  clearInterval(auto);
+  auto = null;
+
+  if (moveRightTimeout) {
+    clearTimeout(moveRightTimeout);
+    moveRightTimeout = null;
+  }
+
+  const currentScroll = projects.scrollLeft;
+  projects.style.scrollBehavior = "auto";
+  projects.scrollLeft = currentScroll;
+  projects.style.scrollBehavior = "";
+}
+
+function moveRight() {
+  if (document.body.classList.contains("project-open")) {
+    return;
+  }
+
+  const firstCard = projects.querySelector(".project-item");
+  if (!firstCard) return;
+
+  const cardWidth = firstCard.offsetWidth + getGap();
+
+  projects.scrollBy({
+    left: cardWidth,
+    behavior: "smooth"
+  });
+
+  moveRightTimeout = setTimeout(() => {
+
+    if (document.body.classList.contains("project-open")) {
+      moveRightTimeout = null;
+      return;
+    }
+
+    projects.appendChild(firstCard);
+    projects.scrollLeft -= cardWidth;
+
+    moveRightTimeout = null;
+
+  }, 500);
+}
+
+function isLaptopView() {
+  return window.innerWidth > 890 && window.innerWidth <= 1600;
+}
+
+function startAutoSlide() {
+  clearInterval(auto);
+
+  if (isLaptopView()) return;
+
+  auto = setInterval(() => {
+    moveRight();
+  }, 2500);
+
+}
+
+startAutoSlide();
+
+if (isLaptopView()) {
+  projects.scrollLeft = 0;
+}
+
+window.addEventListener("resize", () => {
+  if (isLaptopView()) {
+    clearInterval(auto);
+    projects.scrollLeft = 0;
+  } else if (!auto && !document.body.classList.contains("project-open")) {
+    startAutoSlide();
+  }
+});
+
+document.querySelectorAll(".img-box").forEach(box => {
+
+  box.addEventListener("mouseenter", () => {
+    stopAutoSlide();
+  });
+
+  box.addEventListener("mouseleave", () => {
+    startAutoSlide();
+  });
+
+});
+
+rightArrow.addEventListener("click", (e) => {
+  e.preventDefault();
+  moveRight();
+});
+
+let leftMoveTimeout = null;
+
+leftArrow.addEventListener("click", (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+
+  clearInterval(auto);
+
+  const cards = projects.querySelectorAll(".project-item");
+  if (!cards.length) return;
+
+  const cardWidth = cards[0].offsetWidth + getGap();
+
+  if (projects.scrollLeft <= 5) {
+
+    const lastCard = projects.lastElementChild;
+
+    projects.insertBefore(lastCard, projects.firstElementChild);
+
+    projects.scrollLeft += cardWidth;
+
+  }
+
+  projects.scrollBy({
+    left: -cardWidth,
+    behavior: "smooth"
+  });
+
+  clearTimeout(leftMoveTimeout);
+
+  leftMoveTimeout = setTimeout(() => {
+    startAutoSlide();
+  }, 800);
+});
+
+const allProjects = document.querySelectorAll(".project-item");
+
+allProjects.forEach(project => {
+
+  project.addEventListener("click", (e) => {
+
+    if (
+      e.target.closest(".mobile-slider") ||
+      e.target.closest(".slide-btn")
+    ) {
+      return;
+    }
+
+    e.preventDefault();
+
+    const isActive =
+      project.classList.contains("active") ||
+      project.classList.contains("desktop-active");
+
+    allProjects.forEach(item => {
+      item.classList.remove("active");
+      item.classList.remove("desktop-active");
+      item.classList.remove("show-details");
+    });
+
+    if (!isActive) {
+
+      clearInterval(auto);
+
+      if (window.innerWidth > 890) {
+
+    if(project.classList.contains("opened")) return;
+
+    project.classList.add("desktop-active");
+project.classList.add("opened");
+
+setTimeout(() => {
+    project.classList.add("show-details");
+}, 300);
+
+document.body.classList.add("project-open");
+
+      } else {
+
+        project.classList.add("active");
+
+      }
+
+      leftArrow.style.display = "none";
+      rightArrow.style.display = "none";
+
+    } else {
+
+      startAutoSlide();
+
+      document.body.classList.remove("project-open");
+
+      leftArrow.style.display = "flex";
+      rightArrow.style.display = "flex";
+    }
+
+  });
+
+});
+ 
+
+/* ================= MOBILE IMAGE SLIDER ================= */
+
+const sliders = document.querySelectorAll(".mobile-slider");
+
+sliders.forEach(slider => {
+
+  const images = slider.querySelectorAll(".slider-image");
+
+  const nextBtn = slider.querySelector(".next-btn");
+
+  const prevBtn = slider.querySelector(".prev-btn");
+
+  let current = 0;
+
+  let autoSlide;
+
+  function showImage(index){
+
+    images.forEach(img => {
+      img.classList.remove("active");
+    });
+
+    images[index].classList.add("active");
+  }
+
+  function nextSlide(){
+
+    current++;
+
+    if(current >= images.length){
+      current = 0;
+    }
+
+    showImage(current);
+  }
+
+  function prevSlide(){
+
+    current--;
+
+    if(current < 0){
+      current = images.length - 1;
+    }
+
+    showImage(current);
+  }
+
+  function startAutoSlide(){
+
+    clearInterval(autoSlide);
+
+    autoSlide = setInterval(() => {
+      nextSlide();
+    }, 3000);
+
+  }
+
+  startAutoSlide();
+
+  nextBtn.addEventListener("click", (e) => {
+
+    e.stopPropagation();
+
+    nextSlide();
+
+    startAutoSlide();
+
+  });
+
+  prevBtn.addEventListener("click", (e) => {
+
+    e.stopPropagation();
+
+    prevSlide();
+
+    startAutoSlide();
+
+  });
+
+});
+document.querySelectorAll(".full-details-btn").forEach(btn => {
+
+  btn.addEventListener("click", (e) => {
+
+    e.stopPropagation();
+
+    window.location.href = btn.getAttribute("href");
+
+  });
+
+});
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+
+<script>
+const lenis = new Lenis({
+  duration: 1.2,
+  smoothWheel: true,
+  smoothTouch: false,
+  easing: (t) => 1 - Math.pow(1 - t, 3)
+});
+
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
+</script>
+
+</body>
+</html>
