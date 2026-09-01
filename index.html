@@ -1092,6 +1092,24 @@ body.project-open::after{
     height: 100% !important;
   }
 
+    /* FORCE BOTH IMAGES TO STAY INSIDE 220x220 */
+  .project-item.desktop-active .img-box .sketch-img,
+  .project-item.desktop-active .img-box .color-img {
+    width: 220px !important;
+    height: 220px !important;
+
+    max-width: 220px !important;
+    max-height: 220px !important;
+
+    object-fit: contain !important;
+
+    top: 50% !important;
+    left: 50% !important;
+
+    transform: translate(-50%, -50%) !important;
+  }
+
+
   .project-title{
     font-size: 13px;
     margin-top: 150px;
@@ -1104,6 +1122,7 @@ body.project-open::after{
     left: 20px;
     width: 220px;
     height: 220px;
+    overflow: hidden !important;
   }
 
 .project-item.desktop-active .project-title {
@@ -1111,6 +1130,9 @@ body.project-open::after{
     left: 260px;
     width: 200px;
     font-size: 13px;
+     margin: 0;
+
+    z-index: 100;
   }
 
   .project-item.desktop-active::before{
@@ -1126,19 +1148,46 @@ body.project-open::after{
     font-size: 13px;
   }
 
-  .project-item.desktop-active .mobile-project-details{
-    top: 250px;
+  .project-item.desktop-active .mobile-project-details {
+
+    position: absolute;
+
+    /* IMPORTANT:
+       image ends around 240px,
+       so details start below it */
+    top: 270px;
+
     left: 20px;
     right: auto;
-    width: 260px;
+
+    width: 300px;
+
+    z-index: 100;
+
+    display: block !important;
+
+    overflow: visible;
   }
 
-  .project-item.desktop-active .project-info{
-    width: 100%;
+   .project-item.desktop-active .project-info {
+
+    width: 300px;
+
+    margin: 0;
+
     font-size: 13px;
+
     line-height: 1.7;
+
     text-align: left;
+
+    color: #222;
   }
+ 
+  .project-item.desktop-active .project-info p {
+    margin: 0 0 10px;
+  }
+
 
   .project-item.desktop-active .mobile-slider{
     top: 130px;
