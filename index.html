@@ -1097,19 +1097,20 @@ body.project-open::after{
     margin-top: 150px;
   }
 
-  /* ---- FIX: the "opened project" detail view above uses
-     fixed desktop-only pixel positions (left:460px,
-     right:1525px, width:550px etc). On laptop-width screens
-     those values push content off-screen or overlapping.
-     This override replaces them with values that fit a
-     narrower viewport, keeping the same left-image /
-     right-slider layout idea. ---- */
 
   .project-item.desktop-active .img-box{
+    position: relative;
     top: 20px;
     left: 20px;
     width: 220px;
     height: 220px;
+  }
+
+.project-item.desktop-active .project-title {
+    top: 130px;
+    left: 260px;
+    width: 200px;
+    font-size: 13px;
   }
 
   .project-item.desktop-active::before{
@@ -1126,7 +1127,7 @@ body.project-open::after{
   }
 
   .project-item.desktop-active .mobile-project-details{
-    top: 210px;
+    top: 250px;
     left: 20px;
     right: auto;
     width: 260px;
@@ -1147,10 +1148,14 @@ body.project-open::after{
   }
 
   .project-item.desktop-active .project-socials{
-    left: 20px;
-    top: auto;
-    bottom: 20px;
-    width: 260px;
+     position: absolute !important;
+    left: 20px !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: 20px !important;
+    width: 260px !important;
+    height: auto !important;
+    transform: none !important;
   }
 }
 
