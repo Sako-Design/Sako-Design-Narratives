@@ -1057,215 +1057,54 @@ body.project-open::after{
   }
 }
 
-/* =========================================================
-   LAPTOP VIEW  (891px – 1600px)
-   ========================================================= */
 
-/* =========================================================
-   LAPTOP VIEW (891px – 1600px)
-   PROJECT OPEN / INSIDE PROJECT
-   ========================================================= */
+   /* FINAL LAPTOP FIX
+   SLIDER + FOOTER ICONS */
+  
 
 @media (min-width: 891px) and (max-width: 1600px) {
 
-  /* ---------- PROJECT GRID ---------- */
+  /* ---------- ACTIVE PROJECT ---------- */
 
-  .projects{
-    padding: 20px 30px;
-    gap: 16px;
-    justify-content: flex-start;
-  }
+  .project-item.desktop-active {
+    position: fixed !important;
 
-  .project-item{
-    width: calc((100vw - 60px - (16px * 4)) / 5);
-    min-width: 190px;
-    max-width: 300px;
-  }
+    top: 95px !important;
+    left: 0 !important;
 
-  .img-box{
-    height: 300px;
-  }
+    width: 100vw !important;
+    height: calc(100vh - 95px) !important;
 
+    overflow: visible !important;
 
-  /* =====================================================
-     NORMAL PROJECT IMAGES
-     ===================================================== */
-
-  .img-box img{
-    width: 85%;
-  }
-
-  .sketch-img,
-  .color-img{
-    width: 100% !important;
-    height: 100% !important;
+    z-index: 999 !important;
   }
 
 
-  /* =====================================================
-     ACTIVE PROJECT
-     ===================================================== */
+  /* =======================================================
+     PROJECT DETAILS - LEFT
+     ======================================================= */
 
-  .project-item.desktop-active{
-    position: fixed;
-    top:95px;
-    left:0;
-
-    width:100vw;
-    height:calc(100vh - 95px);
-
-    overflow-y:auto;
-    overflow-x:hidden;
-    z-index:999;
-  }
-
-
-  /* ---------- SMALL PROJECT IMAGE / ICON ---------- */
-
-  .project-item.desktop-active .img-box{
-
-    position:absolute;
-
-    top:30px;
-    left:25px;
-
-    width:220px;
-    height:220px;
-
-    overflow:visible !important;
-
-    z-index:10;
-  }
-
-  .project-item.desktop-active .img-box .sketch-img,
-  .project-item.desktop-active .img-box .color-img{
-
-    width:220px !important;
-    height:220px !important;
-
-    max-width:220px !important;
-    max-height:220px !important;
-
-    object-fit:contain !important;
-
-    top:50% !important;
-    left:50% !important;
-
-    transform:translate(-50%, -50%) !important;
-  }
-
-
-  /* ---------- PROJECT TITLE ---------- */
-
-  .project-item.desktop-active .project-title{
-
-    position:absolute;
-
-    top:135px;
-    left:285px;
-
-    width:200px;
-
-    margin:0;
-
-    font-size:13px;
-    line-height:1.4;
-
-    text-align:left;
-
-    z-index:100;
-  }
-
-
-  /* ---------- HORIZONTAL CONNECTOR ---------- */
-
-  .project-item.desktop-active::before{
-
-    top:190px;
-    left:90px;
-
-    width:calc(100% - 140px);
-
-    border-top:1px solid #999;
-
-    z-index:1;
-  }
-
-  .project-item.desktop-active::after{
-
-    top:190px;
-    left:90px;
-
-    width:calc(100% - 140px);
-
-    height:1px;
-
-    background:#999;
-
-    z-index:1;
-  }
-
-
-  /* =====================================================
-     PROJECT INFORMATION
-     ===================================================== */
-
-  /* .project-item.desktop-active .mobile-project-details{
-
-    position:absolute;
-
-    top:250px;
-
-    left:200px;
-   
-    width:360px;
-
-    display:block !important;
-
-    z-index:100;
-
-    overflow:visible !important;
-  }
-
-
-  .project-item.desktop-active .project-info{
-
-    width:360px;
-
-    margin:0;
-   
-    font-size:13px;
-
-    line-height:1.7;
-
-    text-align:center;
-
-    color:#222;
-    overflow:visible !important;
-  }
-
-  .project-item.desktop-active .project-info p{
-
-    margin:0 0 10px;
-    white-space:normal;
-  } */
-
-     .project-item.desktop-active .mobile-project-details {
+  .project-item.desktop-active .mobile-project-details {
     position: absolute !important;
 
-    top: 250px !important;
-    left: 200px !important;
-    right: auto !important;
+    top: 235px !important;
+    left: 25px !important;
 
-    width: 360px !important;
+    width: 330px !important;
+    max-width: 330px !important;
 
     display: block !important;
+
     z-index: 1000 !important;
+
     overflow: visible !important;
   }
 
   .project-item.desktop-active .project-info {
-    width: 360px !important;
+    width: 330px !important;
+    max-width: 330px !important;
+
     margin: 0 !important;
     padding: 0 !important;
 
@@ -1273,6 +1112,10 @@ body.project-open::after{
     line-height: 1.7 !important;
 
     text-align: left !important;
+
+    color: #222 !important;
+
+    overflow: visible !important;
   }
 
   .project-item.desktop-active .project-info p {
@@ -1280,180 +1123,189 @@ body.project-open::after{
     white-space: normal !important;
   }
 
-  /* =====================================================
-     MAIN IMAGE SLIDER
-     ===================================================== */
 
-  .project-item.desktop-active .mobile-slider{
+  /* =======================================================
+     SLIDER - RIGHT SIDE
+     ======================================================= */
 
-    position:absolute;
+  .project-item.desktop-active .mobile-slider {
+    position: absolute !important;
 
-    top:190px;
+    top: 190px !important;
+    left: 380px !important;
+    right: 20px !important;
 
-    right:20px;
+    width: auto !important;
 
-    width:58%;
+    height: 65vh !important;
+    min-height: 400px !important;
+    max-height: 650px !important;
 
-    height:65vh;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 
-    min-height:420px;
+    overflow: hidden !important;
 
-    max-height:650px;
-
-    display:block;
-
-    overflow:hidden;
-
-    isolation:isolate;
-
-    z-index:500;
+    z-index: 5000 !important;
   }
 
 
-  /* ---------- SLIDER IMAGE ---------- */
+  /* Slider image */
 
-  .project-item.desktop-active .slider-image{
+  .project-item.desktop-active .mobile-slider .slider-image {
+    display: block !important;
 
-    width:100%;
-    height:100%;
+    width: 100% !important;
+    height: 100% !important;
 
-    object-fit:cover;
+    max-width: none !important;
+    max-height: none !important;
 
-    object-position:center;
+    object-fit: cover !important;
+    object-position: center !important;
 
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
 
-  /* ---------- ARROWS ---------- */
+  /* =======================================================
+     SLIDER ARROWS
+     ======================================================= */
 
-  .project-item.desktop-active .slide-btn{
+  .project-item.desktop-active .mobile-slider .slide-btn {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 
-    position:absolute;
+    position: absolute !important;
 
-    top:50%;
+    top: 50% !important;
 
-    transform:translateY(-50%);
+    transform: translateY(-50%) !important;
 
-    width:42px;
-    height:42px;
+    width: 42px !important;
+    height: 42px !important;
 
-    z-index:9999;
+    z-index: 99999 !important;
   }
 
-  .project-item.desktop-active .prev-btn{
-    left:30px;
+  .project-item.desktop-active .mobile-slider .prev-btn {
+    left: 20px !important;
   }
 
-  .project-item.desktop-active .next-btn{
-    right:30px;
+  .project-item.desktop-active .mobile-slider .next-btn {
+    right: 20px !important;
   }
 
 
-  /* =====================================================
-     SOCIAL FOOTER
-     ===================================================== */
+  /* =======================================================
+     FOOTER / SOCIAL ICONS
+     ======================================================= */
 
-  .project-item.desktop-active .project-socials{
+  .project-item.desktop-active .project-socials {
+    position: fixed !important;
 
-    position:fixed !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 
-    left:0 !important;
-    right:0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
 
-    bottom:0 !important;
+    width: 100vw !important;
+    height: 40px !important;
 
-    width:100vw !important;
+    margin: 0 !important;
+    padding: 8px 0 !important;
 
-    height:40px !important;
+    justify-content: center !important;
+    align-items: center !important;
 
-    margin:0 !important;
+    gap: 20px !important;
 
-    padding:8px 0 !important;
+    background: #000 !important;
 
-    display:flex !important;
+    z-index: 999999 !important;
 
-    justify-content:center !important;
+    transform: none !important;
+  }
 
-    align-items:center !important;
 
-    gap:20px;
+  /* Footer icons */
 
-    background:#000 !important;
+  .project-item.desktop-active .project-socials a,
+  .project-item.desktop-active .project-socials i,
+  .project-item.desktop-active .project-socials svg {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 
-    z-index:999999;
+    position: relative !important;
 
-    transform:none !important;
+    z-index: 1000000 !important;
   }
 
 }
 
 
 /* =========================================================
-   SMALLER LAPTOP
-   891px – 1200px
+   SMALL LAPTOP
+   891px - 1200px
    ========================================================= */
 
-@media (min-width:891px) and (max-width:1200px){
+@media (min-width: 891px) and (max-width: 1200px) {
 
-  .project-item.desktop-active .img-box{
+  /* Details */
 
-    left:20px;
+  .project-item.desktop-active .mobile-project-details {
+    top: 220px !important;
+    left: 20px !important;
 
-    width:180px;
-    height:180px;
+    width: 330px !important;
+    max-width: 330px !important;
   }
 
-  .project-item.desktop-active .img-box .sketch-img,
-  .project-item.desktop-active .img-box .color-img{
+  .project-item.desktop-active .project-info {
+    width: 330px !important;
+    max-width: 330px !important;
 
-    width:180px !important;
-    height:180px !important;
-
-    max-width:180px !important;
-    max-height:180px !important;
+    font-size: 12px !important;
+    line-height: 1.6 !important;
   }
 
-  .project-item.desktop-active .project-title{
 
-    left:240px;
-    top:120px;
+  /* Slider */
 
-    width:180px;
+  .project-item.desktop-active .mobile-slider {
+    top: 170px !important;
 
-    font-size:12px;
+    left: 360px !important;
+    right: 15px !important;
+
+    width: auto !important;
+
+    height: 60vh !important;
+    min-height: 360px !important;
   }
 
-  /* .project-item.desktop-active .mobile-project-details{
 
-    top:235px;
-    left:20px;
+  /* Footer */
 
-    width:330px;
-  } */
+  .project-item.desktop-active .project-socials {
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
 
-   .project-item.desktop-active .mobile-project-details{
-    top:235px;
-    left:20px;
-    width:330px;
-  }
+    width: 100vw !important;
 
-  .project-item.desktop-active .project-info{
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 
-    width:330px;
-
-    font-size:12px;
-    line-height:1.6;
-  }
-
-  .project-item.desktop-active .mobile-slider{
-
-    top:170px;
-    right:15px;
-
-    width:55%;
-
-    height:60vh;
-    min-height:360px;
+    z-index: 999999 !important;
   }
 
 }
