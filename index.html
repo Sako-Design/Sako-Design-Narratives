@@ -1061,10 +1061,16 @@ body.project-open::after{
    /* FINAL LAPTOP FIX
    SLIDER + FOOTER ICONS */
   
+/* =========================================================
+   LAPTOP FINAL FIX
+   SCROLLBAR + FOOTER ICONS
+   ========================================================= */
 
 @media (min-width: 891px) and (max-width: 1600px) {
 
-  /* ---------- ACTIVE PROJECT ---------- */
+  /* =======================================================
+     ACTIVE PROJECT - SCROLL ENABLE
+     ======================================================= */
 
   .project-item.desktop-active {
     position: fixed !important;
@@ -1075,9 +1081,41 @@ body.project-open::after{
     width: 100vw !important;
     height: calc(100vh - 95px) !important;
 
-    overflow: visible !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
 
     z-index: 999 !important;
+  }
+
+
+  /* =======================================================
+     SCROLLBAR
+     ======================================================= */
+
+  .project-item.desktop-active::-webkit-scrollbar {
+    width: 7px !important;
+    display: block !important;
+  }
+
+  .project-item.desktop-active::-webkit-scrollbar-track {
+    background: #f5f5f5 !important;
+  }
+
+  .project-item.desktop-active::-webkit-scrollbar-thumb {
+    background: #777 !important;
+    border-radius: 0 !important;
+  }
+
+  .project-item.desktop-active::-webkit-scrollbar-thumb:hover {
+    background: #555 !important;
+  }
+
+
+  /* Firefox */
+
+  .project-item.desktop-active {
+    scrollbar-width: thin !important;
+    scrollbar-color: #777 #f5f5f5 !important;
   }
 
 
@@ -1118,14 +1156,9 @@ body.project-open::after{
     overflow: visible !important;
   }
 
-  .project-item.desktop-active .project-info p {
-    margin: 0 0 10px !important;
-    white-space: normal !important;
-  }
-
 
   /* =======================================================
-     SLIDER - RIGHT SIDE
+     SLIDER
      ======================================================= */
 
   .project-item.desktop-active .mobile-slider {
@@ -1150,17 +1183,11 @@ body.project-open::after{
     z-index: 5000 !important;
   }
 
-
-  /* Slider image */
-
-  .project-item.desktop-active .mobile-slider .slider-image {
+  .project-item.desktop-active .slider-image {
     display: block !important;
 
     width: 100% !important;
     height: 100% !important;
-
-    max-width: none !important;
-    max-height: none !important;
 
     object-fit: cover !important;
     object-position: center !important;
@@ -1174,10 +1201,8 @@ body.project-open::after{
      SLIDER ARROWS
      ======================================================= */
 
-  .project-item.desktop-active .mobile-slider .slide-btn {
+  .project-item.desktop-active .slide-btn {
     display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
 
     position: absolute !important;
 
@@ -1188,28 +1213,28 @@ body.project-open::after{
     width: 42px !important;
     height: 42px !important;
 
+    visibility: visible !important;
+    opacity: 1 !important;
+
     z-index: 99999 !important;
   }
 
-  .project-item.desktop-active .mobile-slider .prev-btn {
+  .project-item.desktop-active .prev-btn {
     left: 20px !important;
   }
 
-  .project-item.desktop-active .mobile-slider .next-btn {
+  .project-item.desktop-active .next-btn {
     right: 20px !important;
   }
 
 
   /* =======================================================
-     FOOTER / SOCIAL ICONS
+     FOOTER
      ======================================================= */
 
   .project-item.desktop-active .project-socials {
-    position: fixed !important;
 
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+    position: fixed !important;
 
     left: 0 !important;
     right: 0 !important;
@@ -1221,6 +1246,9 @@ body.project-open::after{
     margin: 0 !important;
     padding: 8px 0 !important;
 
+    display: flex !important;
+    flex-direction: row !important;
+
     justify-content: center !important;
     align-items: center !important;
 
@@ -1228,32 +1256,59 @@ body.project-open::after{
 
     background: #000 !important;
 
+    visibility: visible !important;
+    opacity: 1 !important;
+
     z-index: 999999 !important;
 
     transform: none !important;
   }
 
 
-  /* Footer icons */
+  /* =======================================================
+     FOOTER LINKS
+     ======================================================= */
 
-  .project-item.desktop-active .project-socials a,
-  .project-item.desktop-active .project-socials i,
-  .project-item.desktop-active .project-socials svg {
-    display: inline-flex !important;
+  .project-item.desktop-active .project-socials a {
+
+    display: flex !important;
+
+    width: 34px !important;
+    height: 34px !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
     visibility: visible !important;
     opacity: 1 !important;
 
-    position: relative !important;
+    color: #c56b2c !important;
+
+    text-decoration: none !important;
 
     z-index: 1000000 !important;
+  }
+
+
+  /* Font Awesome icons */
+
+  .project-item.desktop-active .project-socials i {
+
+    display: inline-block !important;
+
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    color: #c56b2c !important;
+
+    font-size: 18px !important;
   }
 
 }
 
 
 /* =========================================================
-   SMALL LAPTOP
-   891px - 1200px
+   SMALL LAPTOP — 891px TO 1200px
    ========================================================= */
 
 @media (min-width: 891px) and (max-width: 1200px) {
@@ -1264,13 +1319,13 @@ body.project-open::after{
     top: 220px !important;
     left: 20px !important;
 
-    width: 330px !important;
-    max-width: 330px !important;
+    width: 320px !important;
+    max-width: 320px !important;
   }
 
   .project-item.desktop-active .project-info {
-    width: 330px !important;
-    max-width: 330px !important;
+    width: 320px !important;
+    max-width: 320px !important;
 
     font-size: 12px !important;
     line-height: 1.6 !important;
@@ -1295,15 +1350,22 @@ body.project-open::after{
   /* Footer */
 
   .project-item.desktop-active .project-socials {
+    position: fixed !important;
+
     left: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
 
     width: 100vw !important;
 
+    height: 40px !important;
+
     display: flex !important;
+
     visibility: visible !important;
     opacity: 1 !important;
+
+    background: #000 !important;
 
     z-index: 999999 !important;
   }
