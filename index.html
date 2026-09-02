@@ -1060,7 +1060,405 @@ body.project-open::after{
 /* =========================================================
    LAPTOP VIEW  (891px – 1600px)
    ========================================================= */
+
+/* =========================================================
+   LAPTOP VIEW (891px – 1600px)
+   PROJECT OPEN / INSIDE PROJECT
+   ========================================================= */
+
 @media (min-width: 891px) and (max-width: 1600px) {
+
+  /* ---------- PROJECT GRID ---------- */
+
+  .projects{
+    padding: 20px 30px;
+    gap: 16px;
+    justify-content: flex-start;
+  }
+
+  .project-item{
+    width: calc((100vw - 60px - (16px * 4)) / 5);
+    min-width: 190px;
+    max-width: 300px;
+  }
+
+  .img-box{
+    height: 300px;
+  }
+
+
+  /* =====================================================
+     NORMAL PROJECT IMAGES
+     ===================================================== */
+
+  .img-box img{
+    width: 85%;
+  }
+
+  .sketch-img,
+  .color-img{
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+
+  /* =====================================================
+     ACTIVE PROJECT
+     ===================================================== */
+
+  .project-item.desktop-active{
+    position: fixed;
+    top:95px;
+    left:0;
+
+    width:100vw;
+    height:calc(100vh - 95px);
+
+    overflow-y:auto;
+    overflow-x:hidden;
+    z-index:999;
+  }
+
+
+  /* ---------- SMALL PROJECT IMAGE / ICON ---------- */
+
+  .project-item.desktop-active .img-box{
+
+    position:absolute;
+
+    top:30px;
+    left:25px;
+
+    width:220px;
+    height:220px;
+
+    overflow:visible !important;
+
+    z-index:10;
+  }
+
+  .project-item.desktop-active .img-box .sketch-img,
+  .project-item.desktop-active .img-box .color-img{
+
+    width:220px !important;
+    height:220px !important;
+
+    max-width:220px !important;
+    max-height:220px !important;
+
+    object-fit:contain !important;
+
+    top:50% !important;
+    left:50% !important;
+
+    transform:translate(-50%, -50%) !important;
+  }
+
+
+  /* ---------- PROJECT TITLE ---------- */
+
+  .project-item.desktop-active .project-title{
+
+    position:absolute;
+
+    top:135px;
+    left:285px;
+
+    width:200px;
+
+    margin:0;
+
+    font-size:13px;
+    line-height:1.4;
+
+    text-align:left;
+
+    z-index:100;
+  }
+
+
+  /* ---------- HORIZONTAL CONNECTOR ---------- */
+
+  .project-item.desktop-active::before{
+
+    top:190px;
+    left:90px;
+
+    width:calc(100% - 140px);
+
+    border-top:1px solid #999;
+
+    z-index:1;
+  }
+
+  .project-item.desktop-active::after{
+
+    top:190px;
+    left:90px;
+
+    width:calc(100% - 140px);
+
+    height:1px;
+
+    background:#999;
+
+    z-index:1;
+  }
+
+
+  /* =====================================================
+     PROJECT INFORMATION
+     ===================================================== */
+
+  /* .project-item.desktop-active .mobile-project-details{
+
+    position:absolute;
+
+    top:250px;
+
+    left:200px;
+   
+    width:360px;
+
+    display:block !important;
+
+    z-index:100;
+
+    overflow:visible !important;
+  }
+
+
+  .project-item.desktop-active .project-info{
+
+    width:360px;
+
+    margin:0;
+   
+    font-size:13px;
+
+    line-height:1.7;
+
+    text-align:center;
+
+    color:#222;
+    overflow:visible !important;
+  }
+
+  .project-item.desktop-active .project-info p{
+
+    margin:0 0 10px;
+    white-space:normal;
+  } */
+
+     .project-item.desktop-active .mobile-project-details {
+    position: absolute !important;
+
+    top: 250px !important;
+    left: 200px !important;
+    right: auto !important;
+
+    width: 360px !important;
+
+    display: block !important;
+    z-index: 1000 !important;
+    overflow: visible !important;
+  }
+
+  .project-item.desktop-active .project-info {
+    width: 360px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    font-size: 13px !important;
+    line-height: 1.7 !important;
+
+    text-align: left !important;
+  }
+
+  .project-item.desktop-active .project-info p {
+    margin: 0 0 10px !important;
+    white-space: normal !important;
+  }
+
+  /* =====================================================
+     MAIN IMAGE SLIDER
+     ===================================================== */
+
+  .project-item.desktop-active .mobile-slider{
+
+    position:absolute;
+
+    top:190px;
+
+    right:20px;
+
+    width:58%;
+
+    height:65vh;
+
+    min-height:420px;
+
+    max-height:650px;
+
+    display:block;
+
+    overflow:hidden;
+
+    isolation:isolate;
+
+    z-index:500;
+  }
+
+
+  /* ---------- SLIDER IMAGE ---------- */
+
+  .project-item.desktop-active .slider-image{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    object-position:center;
+
+  }
+
+
+  /* ---------- ARROWS ---------- */
+
+  .project-item.desktop-active .slide-btn{
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:42px;
+    height:42px;
+
+    z-index:9999;
+  }
+
+  .project-item.desktop-active .prev-btn{
+    left:30px;
+  }
+
+  .project-item.desktop-active .next-btn{
+    right:30px;
+  }
+
+
+  /* =====================================================
+     SOCIAL FOOTER
+     ===================================================== */
+
+  .project-item.desktop-active .project-socials{
+
+    position:fixed !important;
+
+    left:0 !important;
+    right:0 !important;
+
+    bottom:0 !important;
+
+    width:100vw !important;
+
+    height:40px !important;
+
+    margin:0 !important;
+
+    padding:8px 0 !important;
+
+    display:flex !important;
+
+    justify-content:center !important;
+
+    align-items:center !important;
+
+    gap:20px;
+
+    background:#000 !important;
+
+    z-index:999999;
+
+    transform:none !important;
+  }
+
+}
+
+
+/* =========================================================
+   SMALLER LAPTOP
+   891px – 1200px
+   ========================================================= */
+
+@media (min-width:891px) and (max-width:1200px){
+
+  .project-item.desktop-active .img-box{
+
+    left:20px;
+
+    width:180px;
+    height:180px;
+  }
+
+  .project-item.desktop-active .img-box .sketch-img,
+  .project-item.desktop-active .img-box .color-img{
+
+    width:180px !important;
+    height:180px !important;
+
+    max-width:180px !important;
+    max-height:180px !important;
+  }
+
+  .project-item.desktop-active .project-title{
+
+    left:240px;
+    top:120px;
+
+    width:180px;
+
+    font-size:12px;
+  }
+
+  /* .project-item.desktop-active .mobile-project-details{
+
+    top:235px;
+    left:20px;
+
+    width:330px;
+  } */
+
+   .project-item.desktop-active .mobile-project-details{
+    top:235px;
+    left:20px;
+    width:330px;
+  }
+
+  .project-item.desktop-active .project-info{
+
+    width:330px;
+
+    font-size:12px;
+    line-height:1.6;
+  }
+
+  .project-item.desktop-active .mobile-slider{
+
+    top:170px;
+    right:15px;
+
+    width:55%;
+
+    height:60vh;
+    min-height:360px;
+  }
+
+}
+
+/* @media (min-width: 891px) and (max-width: 1600px) {
 
   .projects{
     padding: 20px 30px 20px;
@@ -1093,7 +1491,7 @@ body.project-open::after{
   }
 
     /* FORCE BOTH IMAGES TO STAY INSIDE 220x220 */
-  .project-item.desktop-active .img-box .sketch-img,
+  /* .project-item.desktop-active .img-box .sketch-img,
   .project-item.desktop-active .img-box .color-img {
     width: 220px !important;
     height: 220px !important;
@@ -1150,12 +1548,12 @@ body.project-open::after{
 
   .project-item.desktop-active .mobile-project-details {
 
-    position: absolute;
+    position: absolute; */
 
     /* IMPORTANT:
        image ends around 240px,
        so details start below it */
-    top: 270px;
+    /* top: 270px;
 
     left: 20px;
     right: auto;
@@ -1206,13 +1604,13 @@ body.project-open::after{
     height: auto !important;
     transform: none !important;
   }
-}
+} */ 
 
-@media (min-width: 891px) and (max-width: 1280px) {
+/* @media (min-width: 891px) and (max-width: 1280px) {
   .project-title{
     font-size: 12px;
   }
-}
+} */
 
 /* =========================================================
    MOBILE VIEW (<= 890px)
