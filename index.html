@@ -828,7 +828,7 @@ body.project-open::after{
   z-index:1;
 }
 
-@media (hover: hover) and (pointer: fine) {
+/* @media (hover: hover) and (pointer: fine) {
   .project-item:hover .sketch-img {
     opacity: 0;
   }
@@ -836,7 +836,7 @@ body.project-open::after{
   .project-item:hover .color-img {
     opacity: 1;
   }
-}
+} */
 
 @media (hover: none) and (pointer: coarse) {
 .project-item.active .sketch-img {
@@ -1126,7 +1126,7 @@ body.project-open::after{
   .project-item.desktop-active .mobile-project-details {
     position: absolute !important;
 
-    top: 235px !important;
+    top: 265px !important;
     left: 25px !important;
 
     width: 330px !important;
@@ -1146,10 +1146,10 @@ body.project-open::after{
     margin: 0 !important;
     padding: 0 !important;
 
-    font-size: 13px !important;
-    line-height: 1.7 !important;
+    font-size: 12px !important;
+    line-height: 1.6 !important;
 
-    text-align: left !important;
+    text-align: right !important;
 
     color: #222 !important;
 
@@ -1304,7 +1304,136 @@ body.project-open::after{
     font-size: 18px !important;
   }
 
+    /* .projects-container,
+  .projects-wrapper,
+  .project-list {
+    width: 100% !important;
+  }
+
+  .project-item {
+    width: 20% !important;
+    flex: 0 0 20% !important;
+    max-width: 20% !important;
+  } */
+
+
+  .project-item {
+  flex: 0 0 20% !important;
+  width: 20% !important;
+   
 }
+
+.projects-container {
+  overflow: visible !important;
+}
+
+.project-item:not(.desktop-active) {
+  transform: none !important;
+}
+
+
+/* =========================================================
+   LAPTOP PROJECT IMAGE — SKETCH DEFAULT / COLOR ON HOVER
+   ========================================================= */
+
+ /* Laptop Hover Fix */
+
+.project-item:not(.desktop-active) .img-box {
+  cursor: pointer;
+}
+
+.project-item:not(.desktop-active) .sketch-img {
+  opacity: 1 !important;
+  transition: opacity .35s ease;
+}
+
+.project-item:not(.desktop-active) .color-img {
+  opacity: 0 !important;
+  transition: opacity .35s ease;
+}
+
+/* .project-item:not(.desktop-active) .img-box:hover .sketch-img {
+  opacity: 0 !important;
+}
+
+.project-item:not(.desktop-active) .img-box:hover .color-img {
+  opacity: 1 !important;
+} */
+
+/* Hover ONLY when cursor is on the sketch image */
+
+.project-item:not(.desktop-active) .sketch-img,
+.project-item:not(.desktop-active) .color-img{
+  pointer-events: auto;
+  transition: opacity .35s ease;
+}
+
+/* Default */
+/* .project-item:not(.desktop-active) .sketch-img{
+  opacity:1 !important;
+}
+
+.project-item:not(.desktop-active) .color-img{
+  opacity:0 !important;
+} */
+
+.project-item:not(.desktop-active):hover .sketch-img {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.project-item:not(.desktop-active):hover .color-img {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Cursor sketch image meeda unte matrame */
+.project-item:not(.desktop-active) .img-box:has(.sketch-img:hover) .sketch-img,
+.project-item:not(.desktop-active) .img-box:has(.color-img:hover) .sketch-img{
+  opacity:0 !important;
+}
+
+.project-item:not(.desktop-active) .img-box:has(.sketch-img:hover) .color-img,
+.project-item:not(.desktop-active) .img-box:has(.color-img:hover) .color-img{
+  opacity:1 !important;
+}
+
+
+/* Desktop default */
+.project-item:not(.desktop-active) .sketch-img{
+    opacity:1;
+  z-index:2;
+}
+
+.project-item:not(.desktop-active) .color-img{
+   opacity:0;
+  z-index:3;
+  pointer-events:none;
+}
+
+.project-item.hover-active .sketch-img{
+  opacity:0 !important;
+}
+
+.project-item.hover-active .color-img{
+  opacity:1 !important;
+}
+
+.color-img{
+  pointer-events:none;
+}
+
+/* Hover */
+/* .project-item:not(.desktop-active):hover .sketch-img{
+    opacity:0 !important;
+}
+
+.project-item:not(.desktop-active):hover .color-img{
+    opacity:1 !important;
+} */
+
+}
+
 
 
 /* =========================================================
@@ -2685,34 +2814,28 @@ function moveRight() {
   }, 500);
 }
 
-function isLaptopView() {
-  return window.innerWidth > 890 && window.innerWidth <= 1600;
-}
 
 function startAutoSlide() {
   clearInterval(auto);
 
-  if (isLaptopView()) return;
+  if (document.body.classList.contains("project-open")) {
+    return;
+  }
 
   auto = setInterval(() => {
     moveRight();
   }, 2500);
-
 }
 
 startAutoSlide();
 
-if (isLaptopView()) {
-  projects.scrollLeft = 0;
-}
 
 window.addEventListener("resize", () => {
-  if (isLaptopView()) {
-    clearInterval(auto);
-    projects.scrollLeft = 0;
-  } else if (!auto && !document.body.classList.contains("project-open")) {
+
+  if (!document.body.classList.contains("project-open")) {
     startAutoSlide();
   }
+
 });
 
 document.querySelectorAll(".img-box").forEach(box => {
@@ -2942,6 +3065,22 @@ function raf(time) {
 }
 
 requestAnimationFrame(raf);
+</script>
+
+
+<script>
+document.querySelectorAll(".project-item").forEach(item => {
+    const imgBox = item.querySelector(".img-box");
+    if (!imgBox) return;
+
+    imgBox.addEventListener("mouseenter", () => {
+        item.classList.add("hover-active");
+    });
+
+    imgBox.addEventListener("mouseleave", () => {
+        item.classList.remove("hover-active");
+    });
+});
 </script>
 
 </body>
