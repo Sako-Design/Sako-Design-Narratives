@@ -1350,14 +1350,14 @@ body.project-open::after{
   transition: opacity .35s ease;
 }
 
- /* .project-item:not(.desktop-active) .project-info {
-   transform: translateY(50px);
-  } */
-
+ .project-item:not(.desktop-active) .project-info {
+   transform: translateY(150px);
+  }
+/* 
   .project-item:not(.desktop-active) .project-info {
   position: relative !important;
-  top:70px;        
-}
+  top:170px;
+} */
 
 /* .project-item:not(.desktop-active) .img-box:hover .sketch-img {
   opacity: 0 !important;
@@ -2822,80 +2822,6 @@ function moveRight() {
 }
 
 
-function startAutoSlide() {
-  clearInterval(auto);
-
-  if (document.body.classList.contains("project-open")) {
-    return;
-  }
-
-  auto = setInterval(() => {
-    moveRight();
-  }, 2500);
-}
-
-startAutoSlide();
-
-
-window.addEventListener("resize", () => {
-
-  if (!document.body.classList.contains("project-open")) {
-    startAutoSlide();
-  }
-
-});
-
-document.querySelectorAll(".img-box").forEach(box => {
-
-  box.addEventListener("mouseenter", () => {
-    stopAutoSlide();
-  });
-
-  box.addEventListener("mouseleave", () => {
-    startAutoSlide();
-  });
-
-});
-
-rightArrow.addEventListener("click", (e) => {
-  e.preventDefault();
-  moveRight();
-});
-
-let leftMoveTimeout = null;
-
-leftArrow.addEventListener("click", (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-
-  clearInterval(auto);
-
-  const cards = projects.querySelectorAll(".project-item");
-  if (!cards.length) return;
-
-  const cardWidth = cards[0].offsetWidth + getGap();
-
-  if (projects.scrollLeft <= 5) {
-
-    const lastCard = projects.lastElementChild;
-
-    projects.insertBefore(lastCard, projects.firstElementChild);
-
-    projects.scrollLeft += cardWidth;
-
-  }
-
-  projects.scrollBy({
-    left: -cardWidth,
-    behavior: "smooth"
-  });
-
-  clearTimeout(leftMoveTimeout);
-
-  leftMoveTimeout = setTimeout(() => {
-    startAutoSlide();
-  }, 800);
-});
 
 const allProjects = document.querySelectorAll(".project-item");
 
