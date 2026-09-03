@@ -1351,8 +1351,13 @@ body.project-open::after{
 }
 
 .project-item:not(.desktop-active) .project-title {
-  transform: translateY(30px) !important;
+  position: relative !important;
+  top: 10px !important;
 }
+
+/* .project-item:not(.desktop-active) .project-title {
+  transform: translateX(12px) !important;
+} */
 
 /* 
   .project-item:not(.desktop-active) .project-info {
