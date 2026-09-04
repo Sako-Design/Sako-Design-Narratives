@@ -102,7 +102,7 @@ body {
   justify-content:flex-start;
   align-items: center;
   min-height: calc(100vh - 120px);
-   overflow-x: auto;
+   overflow-x: hidden;
   scrollbar-width: none;
   overflow-y: visible;
   background: #ffffff;
@@ -469,7 +469,7 @@ body.project-open .project-socials {
 
   z-index: 999;
 
-  overflow-y: auto;
+  overflow-y: hidden;
   overflow-x: hidden;
 
   display: block;
@@ -692,17 +692,44 @@ animation-fill-mode:both;
 
   top:190px;
 
-  right:20px;
+  left:30vw;
+  right:10vw;
 
-  width:69%;
+  width:auto;
 
-  height:68vh;
+  height:calc(100vh - 335px);
+  min-height:350px;
+  max-height:650px;
 
   z-index:500;
 
-  overflow:hidden;
+  overflow-y:auto;
+  overflow-x:hidden;
   will-change: transform, opacity;
   animation-fill-mode:both;
+}
+
+.project-item.desktop-active .mobile-slider::-webkit-scrollbar{
+  width:7px;
+  display:block;
+}
+
+.project-item.desktop-active .mobile-slider::-webkit-scrollbar-track{
+  background:#f5f5f5;
+}
+
+.project-item.desktop-active .mobile-slider::-webkit-scrollbar-thumb{
+  background:#777;
+  border-radius:0;
+}
+
+.project-item.desktop-active .mobile-slider::-webkit-scrollbar-thumb:hover{
+  background:#555;
+}
+
+.project-item.desktop-active .mobile-slider{
+  scrollbar-width:thin;
+  scrollbar-color:#777 #f5f5f5;
 }
 
 @keyframes slideReveal{
@@ -747,6 +774,18 @@ animation-fill-mode:both;
 
 .project-item.desktop-active .next-btn{
   right:40px;
+}
+
+.project-item.desktop-active .slider-image{
+  position:absolute;
+  top:0;
+  left:0;
+
+  width:100%;
+  height:auto;
+
+  object-fit:unset;
+  object-position:center;
 }
 
 body.project-open::after{
@@ -884,6 +923,12 @@ body.project-open::after{
 
 .side-menu.active ~ .arrow{
   display:none;
+}
+
+/* Keep the next/prev arrows visible & clickable on top of the open project detail */
+body.project-open .arrow{
+  display:flex !important;
+  z-index: 1000000 !important;
 }
 
 /* ================= MOBILE PROJECT DETAILS ================= */
@@ -1079,40 +1124,11 @@ body.project-open::after{
     width: 100vw !important;
     height: calc(100vh - 95px) !important;
 
+    /* outer/page scrollbar removed - only the image frame below scrolls now */
     overflow-x: hidden !important;
-    overflow-y: auto !important;
+    overflow-y: hidden !important;
 
     z-index: 999 !important;
-  }
-
-  /* =======================================================
-     SCROLLBAR
-     ======================================================= */
-
-  .project-item.desktop-active::-webkit-scrollbar {
-    width: 7px !important;
-    display: block !important;
-  }
-
-  .project-item.desktop-active::-webkit-scrollbar-track {
-    background: #f5f5f5 !important;
-  }
-
-  .project-item.desktop-active::-webkit-scrollbar-thumb {
-    background: #777 !important;
-    border-radius: 0 !important;
-  }
-
-  .project-item.desktop-active::-webkit-scrollbar-thumb:hover {
-    background: #555 !important;
-  }
-
-
-  /* Firefox */
-
-  .project-item.desktop-active {
-    scrollbar-width: thin !important;
-    scrollbar-color: #777 #f5f5f5 !important;
   }
 
 
@@ -1162,31 +1178,61 @@ body.project-open::after{
     position: absolute !important;
 
     top: 190px !important;
-    left: 380px !important;
-    right: 20px !important;
+    left: 30vw !important;   /* aligns with grid line 2 */
+    right: 10vw !important;  /* aligns with grid line 5 */
 
     width: auto !important;
 
-    height: 65vh !important;
-    min-height: 400px !important;
+    height: calc(100vh - 335px) !important;
+    min-height: 350px !important;
     max-height: 650px !important;
 
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
 
-    overflow: hidden !important;
+    /* image frame owns its own scroll now, not the page */
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
 
     z-index: 5000 !important;
+  }
+
+  /* Visible thin scrollbar on the image frame */
+  .project-item.desktop-active .mobile-slider::-webkit-scrollbar {
+    width: 7px !important;
+    display: block !important;
+  }
+
+  .project-item.desktop-active .mobile-slider::-webkit-scrollbar-track {
+    background: #f5f5f5 !important;
+  }
+
+  .project-item.desktop-active .mobile-slider::-webkit-scrollbar-thumb {
+    background: #777 !important;
+    border-radius: 0 !important;
+  }
+
+  .project-item.desktop-active .mobile-slider::-webkit-scrollbar-thumb:hover {
+    background: #555 !important;
+  }
+
+  .project-item.desktop-active .mobile-slider {
+    scrollbar-width: thin !important;
+    scrollbar-color: #777 #f5f5f5 !important;
   }
 
   .project-item.desktop-active .slider-image {
     display: block !important;
 
-    width: 100% !important;
-    height: 100% !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
 
-    object-fit: cover !important;
+    width: 100% !important;
+    height: auto !important;   /* full width fit, no side/height cropping */
+
+    object-fit: unset !important;
     object-position: center !important;
 
     visibility: visible !important;
@@ -1324,6 +1370,18 @@ body.project-open::after{
   overflow: visible !important;
 }
 
+  /* ============ HIDDEN-SCROLL FIX ============
+     .projects has overflow-x:auto with the scrollbar hidden
+     (scrollbar-width:none / ::-webkit-scrollbar{display:none}),
+     which lets users accidentally drag/wheel-scroll it with no
+     visible scrollbar, conflicting with the JS autoplay/infinite-loop
+     logic. This locks out manual scroll while keeping the JS
+     scrollBy()/scrollLeft calls (arrows + autoplay) fully working. */
+  .projects{
+    overflow-x: hidden !important;
+    scroll-behavior: smooth;
+  }
+
 .project-item:not(.desktop-active) {
   transform: none !important;
 }
@@ -1381,15 +1439,6 @@ body.project-open::after{
   transition: opacity .35s ease;
 }
 
-/* Default */
-/* .project-item:not(.desktop-active) .sketch-img{
-  opacity:1 !important;
-}
-
-.project-item:not(.desktop-active) .color-img{
-  opacity:0 !important;
-} */
-
 .project-item:not(.desktop-active):hover .sketch-img {
   opacity: 0;
   transform: translate(-50%, -50%) scale(1);
@@ -1445,6 +1494,14 @@ body.project-open::after{
   border-left: 1.5px solid black !important;
 }
 
+.project-item.line-up-1::after {
+  top: 45.6% !important;
+  left: -30px !important;
+  width: 20px !important;
+  border-bottom: 1.5px solid #999 !important;
+  border-left: 1.5px solid #999 !important;
+}
+
 .project-item.line-up-2::after {
   top: 40% !important;
   left: -30px !important;
@@ -1492,13 +1549,13 @@ body.project-open::after{
   .project-item.desktop-active .mobile-slider {
     top: 170px !important;
 
-    left: 360px !important;
-    right: 15px !important;
+    left: 30vw !important;
+    right: 10vw !important;
 
     width: auto !important;
 
-    height: 60vh !important;
-    min-height: 360px !important;
+    height: calc(100vh - 315px) !important;
+    min-height: 300px !important;
   }
 
 
@@ -1526,160 +1583,6 @@ body.project-open::after{
   }
 
 }
-
-/* @media (min-width: 891px) and (max-width: 1600px) {
-
-  .projects{
-    padding: 20px 30px 20px;
-    gap: 16px;
-    justify-content: flex-start;
-  }
-
-  .project-item{
-    width: calc((100vw - 60px - (16px * 4)) / 5);
-    min-width: 190px;
-    max-width: 300px;
-  }
-
-  .img-box{
-    height: 300px;
-  }
-
-  .img-box img{
-    width: 85%;
-  }
-
-  .sketch-img{
-    width: 100% !important;
-    height: 100% !important;
-  }
-
-  .color-img{
-    width: 100% !important;
-    height: 100% !important;
-  }
-
-    /* FORCE BOTH IMAGES TO STAY INSIDE 220x220 */
-  /* .project-item.desktop-active .img-box .sketch-img,
-  .project-item.desktop-active .img-box .color-img {
-    width: 220px !important;
-    height: 220px !important;
-
-    max-width: 220px !important;
-    max-height: 220px !important;
-
-    object-fit: contain !important;
-
-    top: 50% !important;
-    left: 50% !important;
-
-    transform: translate(-50%, -50%) !important;
-  }
-
-
-  .project-title{
-    font-size: 13px;
-    margin-top: 150px;
-  }
-
-
-  .project-item.desktop-active .img-box{
-    position: relative;
-    top: 20px;
-    left: 20px;
-    width: 220px;
-    height: 220px;
-    overflow: hidden !important;
-  }
-
-.project-item.desktop-active .project-title {
-    top: 130px;
-    left: 260px;
-    width: 200px;
-    font-size: 13px;
-     margin: 0;
-
-    z-index: 100;
-  }
-
-  .project-item.desktop-active::before{
-    top: 170px;
-    left: 90px;
-    width: calc(100% - 130px);
-  }
-
-  .project-item.desktop-active .project-title{
-    top: 130px;
-    left: 260px;
-    width: 200px;
-    font-size: 13px;
-  }
-
-  .project-item.desktop-active .mobile-project-details {
-
-    position: absolute; */
-
-    /* IMPORTANT:
-       image ends around 240px,
-       so details start below it */
-    /* top: 270px;
-
-    left: 20px;
-    right: auto;
-
-    width: 300px;
-
-    z-index: 100;
-
-    display: block !important;
-
-    overflow: visible;
-  }
-
-   .project-item.desktop-active .project-info {
-
-    width: 300px;
-
-    margin: 0;
-
-    font-size: 13px;
-
-    line-height: 1.7;
-
-    text-align: left;
-
-    color: #222;
-  }
- 
-  .project-item.desktop-active .project-info p {
-    margin: 0 0 10px;
-  }
-
-
-  .project-item.desktop-active .mobile-slider{
-    top: 130px;
-    right: 20px;
-    width: 55%;
-    height: 60vh;
-  }
-
-  .project-item.desktop-active .project-socials{
-     position: absolute !important;
-    left: 20px !important;
-    right: auto !important;
-    top: auto !important;
-    bottom: 20px !important;
-    width: 260px !important;
-    height: auto !important;
-    transform: none !important;
-  }
-} */ 
-
-/* @media (min-width: 891px) and (max-width: 1280px) {
-  .project-title{
-    font-size: 12px;
-  }
-} */
 
 /* =========================================================
    MOBILE VIEW (<= 890px)
@@ -2876,8 +2779,44 @@ document.querySelectorAll(".img-box").forEach(box => {
 
 });
 
+/* ================= NEXT/PREV INSIDE PROJECT DETAIL ================= */
+
+function goToProject(direction) {
+
+  const items = Array.from(document.querySelectorAll(".project-item"));
+
+  const currentIndex = items.findIndex(it => it.classList.contains("desktop-active"));
+
+  if (currentIndex === -1) return;
+
+  const nextIndex = (currentIndex + direction + items.length) % items.length;
+
+  const current = items[currentIndex];
+  const next = items[nextIndex];
+
+  current.classList.remove("desktop-active", "opened", "show-details");
+
+  next.classList.add("desktop-active");
+  next.classList.remove("show-details");
+
+  const nextSlider = next.querySelector(".mobile-slider");
+  if (nextSlider) {
+    nextSlider.scrollTop = 0;
+  }
+
+  setTimeout(() => {
+    next.classList.add("show-details");
+  }, 300);
+}
+
 rightArrow.addEventListener("click", (e) => {
   e.preventDefault();
+
+  if (document.body.classList.contains("project-open")) {
+    goToProject(1);
+    return;
+  }
+
   moveRight();
 });
 
@@ -2886,6 +2825,11 @@ let leftMoveTimeout = null;
 leftArrow.addEventListener("click", (e) => {
   e.preventDefault();
   e.stopPropagation();
+
+  if (document.body.classList.contains("project-open")) {
+    goToProject(-1);
+    return;
+  }
 
   clearInterval(auto);
 
@@ -2964,17 +2908,12 @@ document.body.classList.add("project-open");
 
       }
 
-      leftArrow.style.display = "none";
-      rightArrow.style.display = "none";
-
     } else {
 
       startAutoSlide();
 
       document.body.classList.remove("project-open");
 
-      leftArrow.style.display = "flex";
-      rightArrow.style.display = "flex";
     }
 
   });
