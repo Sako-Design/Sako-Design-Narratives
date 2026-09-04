@@ -304,13 +304,14 @@ body.project-open .project-socials {
   transition: opacity 0.4s ease;
 }
 
-.img-box::before {
-  content: "";
+/* ================= GRID LINE (standalone element, not tied to img-box) ================= */
+
+.grid-line {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   top: -600px;
-  bottom:-600px;
+  bottom: -600px;
   width: 1px;
   background: repeating-linear-gradient(
     to bottom,
@@ -319,9 +320,9 @@ body.project-open .project-socials {
     transparent 6px,
     transparent 12px
   );
-  z-index:10;
+  z-index: 10;
   display: block;
-  
+  pointer-events: none;
 }
 
 /* Sketch always visible by default */
@@ -548,7 +549,7 @@ body.project-open .project-socials {
   overflow: visible;
 }
 
-.project-item.desktop-active .img-box::before{
+.project-item.desktop-active .grid-line{
 
   top:-1000px !important;
 
@@ -1109,7 +1110,7 @@ body.project-open .arrow{
   transform:translateY(-50%) scale(0.95);
 }
 
-.project-item.desktop-active .img-box::before{
+.project-item.desktop-active .grid-line{
   display:none;
 }
 
@@ -1414,19 +1415,6 @@ body.project-open .arrow{
     font-size: 18px !important;
   }
 
-    /* .projects-container,
-  .projects-wrapper,
-  .project-list {
-    width: 100% !important;
-  }
-
-  .project-item {
-    width: 20% !important;
-    flex: 0 0 20% !important;
-    max-width: 20% !important;
-  } */
-
-
   .project-item {
   flex: 0 0 20% !important;
   width: 20% !important;
@@ -1479,24 +1467,6 @@ body.project-open .arrow{
   position: relative !important;
   top:-125px;
 }
-
-/* .project-item:not(.desktop-active) .project-title {
-  transform: translateX(12px) !important;
-} */
-
-/* 
-  .project-item:not(.desktop-active) .project-info {
-  position: relative !important;
-  top:170px;
-} */
-
-/* .project-item:not(.desktop-active) .img-box:hover .sketch-img {
-  opacity: 0 !important;
-}
-
-.project-item:not(.desktop-active) .img-box:hover .color-img {
-  opacity: 1 !important;
-} */
 
 /* Hover ONLY when cursor is on the sketch image */
 
@@ -1554,36 +1524,54 @@ body.project-open .arrow{
 
 /* EXISTING CONNECTOR - LAPTOP */
 .project-item.line-down-1::after {
-  top:40% !important;
-  left: -30px !important;
-  width: 25px !important;
-  border-top: 1.5px solid black !important;
-  border-left: 1.5px solid black !important;
+  top:40.1% !important;
+  left: -32px !important;
+  width: 26px !important;
+  border-top: 1.5px solid grey!important;
+  border-left: 1.5px solid grey !important;
 }
 
 .project-item.line-up-1::after {
-  top: 45.6% !important;
-  left: -30px !important;
-  width: 20px !important;
-  border-bottom: 1.5px solid #999 !important;
-  border-left: 1.5px solid #999 !important;
+  top: 43.1% !important;
+  left: -33px !important;
+  width: 26px !important;
+  border-bottom: 1.5px solid grey!important;
+  border-left: 1.5px solid grey !important;
 }
 
 .project-item.line-up-2::after {
-  top: 40% !important;
-  left: -30px !important;
-  width: 25px !important;
-  border-bottom: 1.5px solid #999 !important;
-  border-left: 1.5px solid #999 !important;
+  top: 43.1% !important;
+  left: -33px !important;
+  width: 36px !important;
+  border-bottom: 1.5px solid grey!important;
+  border-left: 1.5px solid grey !important;
 }
 
 .project-item.line-down-2::after {
-  top: 40% !important;
-  left: -30px !important;
-  width: 20px !important;
-  border-top: 1.5px solid #999 !important;
-  border-left: 1.5px solid #999 !important;
+  top: 43.1% !important;
+  left: -32px !important;
+  width: 26px !important;
+  border-top: 1.5px solid grey!important;
+  border-left: 1.5px solid grey !important;
 }
+
+.project-item.line-up-3::after {
+  top: 43.1% !important;
+  left: -33px !important;
+  width: 26px !important;
+  border-bottom: 1.5px solid grey!important;
+  border-left: 1.5px solid grey !important;
+}
+
+.project-item.line-up-4::after {
+  top: 43.1% !important;
+  left: -33px !important;
+  width: 26px !important;
+  border-bottom: 1.5px solid grey!important;
+  border-left: 1.5px solid grey !important;
+}
+
+
 
 }
 
@@ -1709,7 +1697,7 @@ body.project-open .arrow{
     gap:12px;
   }
 
-  .img-box::before,
+  .grid-line,
   .project-item::after {
     display: none;
   }
@@ -1802,7 +1790,7 @@ body.project-open .arrow{
     display: none;
   }
 
-  .img-box::before {
+  .grid-line {
     display: none;
   }
 
@@ -2035,6 +2023,7 @@ body.project-open .project-socials{
     <div class="img-box">
       <img src="./images/1.png"class="sketch-img">
       <img src="./images/1.1.png" class="color-img">
+      <div class="grid-line"></div>
     </div>
     <div class="project-title">Sako Office, Hyderabad</div>
 
@@ -2106,6 +2095,7 @@ body.project-open .project-socials{
   <div class="img-box">
     <img src="./images/2.1.png" class="sketch-img">
         <img src="./images/2.1111.png" class="color-img">
+        <div class="grid-line"></div>
       </div>   
 
 <div class="project-title">Farmhouse Panjarla, India</div>
@@ -2178,6 +2168,7 @@ body.project-open .project-socials{
   <div class="img-box">
     <img src="./images/3.1.png" class="sketch-img">
         <img src="./images/3 (1).png" class="color-img">
+        <div class="grid-line"></div>
       </div>
 
 <div class="project-title">Villa Maheshwaram, India</div>
@@ -2250,6 +2241,7 @@ body.project-open .project-socials{
   <div class="img-box">
      <img src="./images/4.1.png" class="sketch-img">
         <img src="./images/4 (1).png" class="color-img">
+        <div class="grid-line"></div>
       </div>
 <div class="project-title">Lakeview Farmhouse, India</div>
 
@@ -2321,6 +2313,7 @@ body.project-open .project-socials{
   <div class="img-box">
     <img src="./images/5.1.png" class="sketch-img">
         <img src="./images/5 (1).png" class="color-img">
+        <div class="grid-line"></div>
       </div>
 <div class="project-title">Farmhouse Panjarla, India</div>
 
@@ -2392,6 +2385,7 @@ body.project-open .project-socials{
     <div class="img-box">
       <img src="./images/11.11img.png" class="sketch-img">
       <img src="./images/11.11111 img.png" class="color-img">
+      <div class="grid-line"></div>
     </div>
     <div class="project-title">Sako Office, Hyderabad</div>
 
@@ -2462,6 +2456,7 @@ body.project-open .project-socials{
   <div class="img-box">
     <img src="./images/2.1.png" class="sketch-img">
         <img src="./images/2 (2).png" class="color-img">
+        <div class="grid-line"></div>
       </div>   
 
 <div class="project-title">Farmhouse Panjarla, India</div>
@@ -2534,6 +2529,7 @@ body.project-open .project-socials{
   <div class="img-box">
     <img src="./images/3.1.png" class="sketch-img">
         <img src="./images/3 (1).png" class="color-img">
+        <div class="grid-line"></div>
       </div>
 
 <div class="project-title">Villa Maheshwaram, India</div>
@@ -2605,6 +2601,7 @@ body.project-open .project-socials{
   <div class="img-box">
      <img src="./images/4.1.png" class="sketch-img">
         <img src="./images/4 (1).png" class="color-img">
+        <div class="grid-line"></div>
       </div>
 <div class="project-title">Lakeview Farmhouse, India</div>
 
@@ -2676,6 +2673,7 @@ body.project-open .project-socials{
   <div class="img-box">
     <img src="./images/2.1.png" class="sketch-img">
         <img src="./images/2 (2).png" class="color-img">
+        <div class="grid-line"></div>
       </div>
 <div class="project-title">Farmhouse Panjarla, India</div>
 
