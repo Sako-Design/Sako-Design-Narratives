@@ -511,6 +511,12 @@ body.project-open .project-socials {
    animation: imageFloat 3s ease forwards;
 }
 
+.project-item.desktop-active .sketch-img,
+.project-item.desktop-active .color-img{
+  width:220px !important;
+  height:220px !important;
+}
+
 @keyframes imageFloat{
 
   0%{
@@ -1160,6 +1166,12 @@ body.project-open .arrow{
     height: 130px !important;
   }
 
+  .project-item.desktop-active .sketch-img,
+  .project-item.desktop-active .color-img {
+    width: 130px !important;
+    height: 130px !important;
+  }
+
   /* =======================================================
      TITLE - MOVED BELOW THE CIRCLE
      ======================================================= */
@@ -1586,6 +1598,12 @@ body.project-open .arrow{
     top: 20px !important;
     left: 20px !important;
 
+    width: 160px !important;
+    height: 160px !important;
+  }
+
+  .project-item.desktop-active .sketch-img,
+  .project-item.desktop-active .color-img {
     width: 160px !important;
     height: 160px !important;
   }
@@ -2809,7 +2827,12 @@ function moveRight() {
     }
 
     projects.appendChild(firstCard);
+
+    // do this correction instantly, not smoothly animated,
+    // so the loop doesn't visibly glide backward
+    projects.style.scrollBehavior = "auto";
     projects.scrollLeft -= cardWidth;
+    projects.style.scrollBehavior = "";
 
     moveRightTimeout = null;
 
@@ -2917,7 +2940,10 @@ leftArrow.addEventListener("click", (e) => {
 
     projects.insertBefore(lastCard, projects.firstElementChild);
 
+    // instant correction, not animated, so it doesn't visibly glide
+    projects.style.scrollBehavior = "auto";
     projects.scrollLeft += cardWidth;
+    projects.style.scrollBehavior = "";
 
   }
 
