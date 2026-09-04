@@ -469,7 +469,7 @@ body.project-open .project-socials {
 
   z-index: 999;
 
-  overflow-y: auto;
+  overflow-y: hidden;
   overflow-x: hidden;
 
   display: block;
@@ -503,8 +503,8 @@ body.project-open .project-socials {
   top:20px;
   left:25px;
 
-  width:300px;
-  height:300px;
+  width:220px;
+  height:220px;
 
    z-index:5;
    overflow: visible;
@@ -592,10 +592,12 @@ body.project-open .project-socials {
 
   position:absolute;
 
-  top: 187px;     
-  left: 460px; 
+  top: 260px;     
+  left: 25px; 
+  bottom:auto;
+  transform:none;
 
-  width:260px;
+  width:280px;
 
   margin:0;
 
@@ -666,7 +668,7 @@ animation-fill-mode:both;
 
   line-height:1.9;
 
-  text-align:right;
+  text-align:left;
 
   color:#222;
 }
@@ -690,19 +692,51 @@ animation-fill-mode:both;
 
   position:absolute;
 
-  top:190px;
+  top:20px;
 
-  right:20px;
+  left:30vw;
+  right:10vw;
 
-  width:69%;
+  width:auto;
 
-  height:68vh;
+  height:calc(100vh - 165px);
+  min-height:450px;
+  max-height:750px;
 
   z-index:500;
 
-  overflow:hidden;
+  overflow-y:auto;
+  overflow-x:hidden;
+
+  /* small gap after the image once scrolled to the end, before the footer */
+  padding-bottom:30px;
+  box-sizing:border-box;
+
   will-change: transform, opacity;
   animation-fill-mode:both;
+}
+
+.project-item.desktop-active .mobile-slider::-webkit-scrollbar{
+  width:7px;
+  display:block;
+}
+
+.project-item.desktop-active .mobile-slider::-webkit-scrollbar-track{
+  background:#f5f5f5;
+}
+
+.project-item.desktop-active .mobile-slider::-webkit-scrollbar-thumb{
+  background:#777;
+  border-radius:0;
+}
+
+.project-item.desktop-active .mobile-slider::-webkit-scrollbar-thumb:hover{
+  background:#555;
+}
+
+.project-item.desktop-active .mobile-slider{
+  scrollbar-width:thin;
+  scrollbar-color:#777 #f5f5f5;
 }
 
 @keyframes slideReveal{
@@ -747,6 +781,27 @@ animation-fill-mode:both;
 
 .project-item.desktop-active .next-btn{
   right:40px;
+}
+
+/* Inactive slide images: no height, so they never add blank scroll space */
+.project-item.desktop-active .slider-image{
+  position:absolute;
+  top:0;
+  left:0;
+
+  width:100%;
+  height:0;
+  overflow:hidden;
+
+  object-fit:unset;
+  object-position:center;
+}
+
+/* Active slide image: back in normal flow, so it alone defines the scrollable height */
+.project-item.desktop-active .slider-image.active{
+  position:relative;
+  height:auto;
+  overflow:visible;
 }
 
 body.project-open::after{
@@ -884,6 +939,12 @@ body.project-open::after{
 
 .side-menu.active ~ .arrow{
   display:none;
+}
+
+/* Keep the next/prev arrows visible & clickable on top of the open project detail */
+body.project-open .arrow{
+  display:flex !important;
+  z-index: 1000000 !important;
 }
 
 /* ================= MOBILE PROJECT DETAILS ================= */
@@ -1079,42 +1140,40 @@ body.project-open::after{
     width: 100vw !important;
     height: calc(100vh - 95px) !important;
 
+    /* outer/page scrollbar removed - only the image frame below scrolls now */
     overflow-x: hidden !important;
-    overflow-y: auto !important;
+    overflow-y: hidden !important;
 
     z-index: 999 !important;
   }
 
+
   /* =======================================================
-     SCROLLBAR
+     CIRCLE SKETCH IMAGE - SMALLER ON LAPTOP
      ======================================================= */
 
-  .project-item.desktop-active::-webkit-scrollbar {
-    width: 7px !important;
-    display: block !important;
+  .project-item.desktop-active .img-box {
+    top: 20px !important;
+    left: 25px !important;
+
+    width: 130px !important;
+    height: 130px !important;
   }
 
-  .project-item.desktop-active::-webkit-scrollbar-track {
-    background: #f5f5f5 !important;
+  /* =======================================================
+     TITLE - MOVED BELOW THE CIRCLE
+     ======================================================= */
+
+  .project-item.desktop-active .project-title {
+    top: 170px !important;
+    left: 25px !important;
+    bottom: auto !important;
+    transform: none !important;
+
+    width: 280px !important;
+
+    text-align: left !important;
   }
-
-  .project-item.desktop-active::-webkit-scrollbar-thumb {
-    background: #777 !important;
-    border-radius: 0 !important;
-  }
-
-  .project-item.desktop-active::-webkit-scrollbar-thumb:hover {
-    background: #555 !important;
-  }
-
-
-  /* Firefox */
-
-  .project-item.desktop-active {
-    scrollbar-width: thin !important;
-    scrollbar-color: #777 #f5f5f5 !important;
-  }
-
 
   /* =======================================================
      PROJECT DETAILS - LEFT
@@ -1146,7 +1205,7 @@ body.project-open::after{
     font-size: 12px !important;
     line-height: 1.6 !important;
 
-    text-align: right !important;
+    text-align: left !important;
 
     color: #222 !important;
 
@@ -1161,36 +1220,78 @@ body.project-open::after{
   .project-item.desktop-active .mobile-slider {
     position: absolute !important;
 
-    top: 190px !important;
-    left: 380px !important;
-    right: 20px !important;
+    top: 20px !important;
+    left: 30vw !important;   /* aligns with grid line 2 */
+    right: 10vw !important;  /* aligns with grid line 5 */
 
     width: auto !important;
 
-    height: 65vh !important;
-    min-height: 400px !important;
-    max-height: 650px !important;
+    height: calc(100vh - 165px) !important;
+    min-height: 450px !important;
+    max-height: 750px !important;
 
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
 
-    overflow: hidden !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    /* small gap after the image once scrolled to the end, before the footer */
+    padding-bottom: 30px !important;
+    box-sizing: border-box !important;
 
     z-index: 5000 !important;
   }
 
+  /* Visible thin scrollbar on the image frame */
+  .project-item.desktop-active .mobile-slider::-webkit-scrollbar {
+    width: 7px !important;
+    display: block !important;
+  }
+
+  .project-item.desktop-active .mobile-slider::-webkit-scrollbar-track {
+    background: #f5f5f5 !important;
+  }
+
+  .project-item.desktop-active .mobile-slider::-webkit-scrollbar-thumb {
+    background: #777 !important;
+    border-radius: 0 !important;
+  }
+
+  .project-item.desktop-active .mobile-slider::-webkit-scrollbar-thumb:hover {
+    background: #555 !important;
+  }
+
+  .project-item.desktop-active .mobile-slider {
+    scrollbar-width: thin !important;
+    scrollbar-color: #777 #f5f5f5 !important;
+  }
+
+  /* Inactive images: zero height so they never leave blank scroll space */
   .project-item.desktop-active .slider-image {
     display: block !important;
 
-    width: 100% !important;
-    height: 100% !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
 
-    object-fit: cover !important;
+    width: 100% !important;
+    height: 0 !important;
+    overflow: hidden !important;
+
+    object-fit: unset !important;
     object-position: center !important;
 
     visibility: visible !important;
     opacity: 1 !important;
+  }
+
+  /* Active image: in normal flow, so it alone defines the scrollable height */
+  .project-item.desktop-active .slider-image.active {
+    position: relative !important;
+    height: auto !important;
+    overflow: visible !important;
   }
 
 
@@ -1324,8 +1425,15 @@ body.project-open::after{
   overflow: visible !important;
 }
 
+  /* ============ HIDDEN-SCROLL FIX ============
+     .projects has overflow-x:auto with the scrollbar hidden
+     (scrollbar-width:none / ::-webkit-scrollbar{display:none}),
+     which lets users accidentally drag/wheel-scroll it with no
+     visible scrollbar, conflicting with the JS autoplay/infinite-loop
+     logic. This locks out manual scroll while keeping the JS
+     scrollBy()/scrollLeft calls (arrows + autoplay) fully working. */
   .projects{
-    overflow-x: hidden !important;   /* removes the hidden manual scroll */
+    overflow-x: hidden !important;
     scroll-behavior: smooth;
   }
 
@@ -1474,8 +1582,27 @@ body.project-open::after{
 
   /* Details */
 
+  .project-item.desktop-active .img-box {
+    top: 20px !important;
+    left: 20px !important;
+
+    width: 160px !important;
+    height: 160px !important;
+  }
+
+  .project-item.desktop-active .project-title {
+    top: 195px !important;
+    left: 20px !important;
+    bottom: auto !important;
+    transform: none !important;
+
+    width: 280px !important;
+
+    text-align: left !important;
+  }
+
   .project-item.desktop-active .mobile-project-details {
-    top: 220px !important;
+    top: 235px !important;
     left: 20px !important;
 
     width: 320px !important;
@@ -1494,15 +1621,15 @@ body.project-open::after{
   /* Slider */
 
   .project-item.desktop-active .mobile-slider {
-    top: 170px !important;
+    top: 20px !important;
 
-    left: 360px !important;
-    right: 15px !important;
+    left: 30vw !important;
+    right: 10vw !important;
 
     width: auto !important;
 
-    height: 60vh !important;
-    min-height: 360px !important;
+    height: calc(100vh - 165px) !important;
+    min-height: 400px !important;
   }
 
 
@@ -1530,160 +1657,6 @@ body.project-open::after{
   }
 
 }
-
-/* @media (min-width: 891px) and (max-width: 1600px) {
-
-  .projects{
-    padding: 20px 30px 20px;
-    gap: 16px;
-    justify-content: flex-start;
-  }
-
-  .project-item{
-    width: calc((100vw - 60px - (16px * 4)) / 5);
-    min-width: 190px;
-    max-width: 300px;
-  }
-
-  .img-box{
-    height: 300px;
-  }
-
-  .img-box img{
-    width: 85%;
-  }
-
-  .sketch-img{
-    width: 100% !important;
-    height: 100% !important;
-  }
-
-  .color-img{
-    width: 100% !important;
-    height: 100% !important;
-  }
-
-    /* FORCE BOTH IMAGES TO STAY INSIDE 220x220 */
-  /* .project-item.desktop-active .img-box .sketch-img,
-  .project-item.desktop-active .img-box .color-img {
-    width: 220px !important;
-    height: 220px !important;
-
-    max-width: 220px !important;
-    max-height: 220px !important;
-
-    object-fit: contain !important;
-
-    top: 50% !important;
-    left: 50% !important;
-
-    transform: translate(-50%, -50%) !important;
-  }
-
-
-  .project-title{
-    font-size: 13px;
-    margin-top: 150px;
-  }
-
-
-  .project-item.desktop-active .img-box{
-    position: relative;
-    top: 20px;
-    left: 20px;
-    width: 220px;
-    height: 220px;
-    overflow: hidden !important;
-  }
-
-.project-item.desktop-active .project-title {
-    top: 130px;
-    left: 260px;
-    width: 200px;
-    font-size: 13px;
-     margin: 0;
-
-    z-index: 100;
-  }
-
-  .project-item.desktop-active::before{
-    top: 170px;
-    left: 90px;
-    width: calc(100% - 130px);
-  }
-
-  .project-item.desktop-active .project-title{
-    top: 130px;
-    left: 260px;
-    width: 200px;
-    font-size: 13px;
-  }
-
-  .project-item.desktop-active .mobile-project-details {
-
-    position: absolute; */
-
-    /* IMPORTANT:
-       image ends around 240px,
-       so details start below it */
-    /* top: 270px;
-
-    left: 20px;
-    right: auto;
-
-    width: 300px;
-
-    z-index: 100;
-
-    display: block !important;
-
-    overflow: visible;
-  }
-
-   .project-item.desktop-active .project-info {
-
-    width: 300px;
-
-    margin: 0;
-
-    font-size: 13px;
-
-    line-height: 1.7;
-
-    text-align: left;
-
-    color: #222;
-  }
- 
-  .project-item.desktop-active .project-info p {
-    margin: 0 0 10px;
-  }
-
-
-  .project-item.desktop-active .mobile-slider{
-    top: 130px;
-    right: 20px;
-    width: 55%;
-    height: 60vh;
-  }
-
-  .project-item.desktop-active .project-socials{
-     position: absolute !important;
-    left: 20px !important;
-    right: auto !important;
-    top: auto !important;
-    bottom: 20px !important;
-    width: 260px !important;
-    height: auto !important;
-    transform: none !important;
-  }
-} */ 
-
-/* @media (min-width: 891px) and (max-width: 1280px) {
-  .project-title{
-    font-size: 12px;
-  }
-} */
 
 /* =========================================================
    MOBILE VIEW (<= 890px)
@@ -1800,9 +1773,10 @@ body.project-open::after{
     left: auto;
     bottom: auto;
     margin-top: 20px;
+    padding-left: 6%;
     font-size: 14px;
     font-weight: 600;
-    text-align: center;
+    text-align: left;
     z-index:3;
   }
 
@@ -1817,22 +1791,22 @@ body.project-open::after{
   .sketch-img {
     opacity: 1;
     z-index: 1;
-    width: 300px !important;
+    width: 220px !important;
   }
 
   .color-img{
     opacity:0;
     position:absolute;
-    width: 300px !important;
+    width: 220px !important;
   }
 
   .img-box{
-    min-height:420px;
+    min-height:320px;
     overflow: visible;
   }
 
   .img-box img{
-    max-height: 430px;
+    max-height: 330px;
     object-fit:contain;
   }
 
@@ -1949,7 +1923,7 @@ body.project-open::after{
     bottom:0 !important;
 
     width:100vw !important;
-    height:0px;
+    height:38px;
 
     margin:0 !important;
 
@@ -1961,8 +1935,6 @@ body.project-open::after{
     background:#000 !important;
 
     z-index:999999;
-
-    transform:translateX(-170px)  ;
 }
 
 .project-socials a{
@@ -1979,7 +1951,7 @@ body.project-open::after{
 }
 
 body.project-open .project-socials{
-    bottom:auto !important;
+    bottom:0 !important;
 }
 
 .project-socials a:hover{
@@ -2880,8 +2852,44 @@ document.querySelectorAll(".img-box").forEach(box => {
 
 });
 
+/* ================= NEXT/PREV INSIDE PROJECT DETAIL ================= */
+
+function goToProject(direction) {
+
+  const items = Array.from(document.querySelectorAll(".project-item"));
+
+  const currentIndex = items.findIndex(it => it.classList.contains("desktop-active"));
+
+  if (currentIndex === -1) return;
+
+  const nextIndex = (currentIndex + direction + items.length) % items.length;
+
+  const current = items[currentIndex];
+  const next = items[nextIndex];
+
+  current.classList.remove("desktop-active", "opened", "show-details");
+
+  next.classList.add("desktop-active");
+  next.classList.remove("show-details");
+
+  const nextSlider = next.querySelector(".mobile-slider");
+  if (nextSlider) {
+    nextSlider.scrollTop = 0;
+  }
+
+  setTimeout(() => {
+    next.classList.add("show-details");
+  }, 300);
+}
+
 rightArrow.addEventListener("click", (e) => {
   e.preventDefault();
+
+  if (document.body.classList.contains("project-open")) {
+    goToProject(1);
+    return;
+  }
+
   moveRight();
 });
 
@@ -2890,6 +2898,11 @@ let leftMoveTimeout = null;
 leftArrow.addEventListener("click", (e) => {
   e.preventDefault();
   e.stopPropagation();
+
+  if (document.body.classList.contains("project-open")) {
+    goToProject(-1);
+    return;
+  }
 
   clearInterval(auto);
 
@@ -2968,17 +2981,12 @@ document.body.classList.add("project-open");
 
       }
 
-      leftArrow.style.display = "none";
-      rightArrow.style.display = "none";
-
     } else {
 
       startAutoSlide();
 
       document.body.classList.remove("project-open");
 
-      leftArrow.style.display = "flex";
-      rightArrow.style.display = "flex";
     }
 
   });
