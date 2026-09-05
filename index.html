@@ -890,16 +890,6 @@ body.project-open::after{
   z-index:1;
 }
 
-/* @media (hover: hover) and (pointer: fine) {
-  .project-item:hover .sketch-img {
-    opacity: 0;
-  }
-
-  .project-item:hover .color-img {
-    opacity: 1;
-  }
-} */
-
 @media (hover: none) and (pointer: coarse) {
 .project-item.active .sketch-img {
   opacity: 0;
@@ -1125,8 +1115,6 @@ body.project-open .arrow{
   }
 }
 
-
-  
 /* =========================================================
    LAPTOP FINAL FIX
    SCROLLBAR + FOOTER ICONS
@@ -1154,7 +1142,6 @@ body.project-open .arrow{
     z-index: 999 !important;
   }
 
-
   /* =======================================================
      CIRCLE SKETCH IMAGE - SMALLER ON LAPTOP
      ======================================================= */
@@ -1163,14 +1150,14 @@ body.project-open .arrow{
     top: 20px !important;
     left: 25px !important;
 
-    width: 220px !important;
-    height: 220px !important;
+    width: 400px !important;
+    height: 400px !important;
   }
 
   .project-item.desktop-active .sketch-img,
   .project-item.desktop-active .color-img {
-    width: 220px !important;
-    height: 220px !important;
+    width: 400px !important;
+    height: 400px !important;
   }
 
   /* =======================================================
@@ -1225,10 +1212,7 @@ body.project-open .arrow{
     overflow: visible !important;
   }
 
-
-  /* =======================================================
-     SLIDER
-     ======================================================= */
+     /* SLIDER */
 
   .project-item.desktop-active .mobile-slider {
     position: absolute !important;
@@ -1306,8 +1290,86 @@ body.project-open .arrow{
     height: auto !important;
     overflow: visible !important;
   }
+/* =========================================================
+   LAPTOP PROJECT DETAILS
+   ONLY SAME 5 GRID LINES AS HOME PAGE
+   ========================================================= */
 
+/* Remove the extra project-open grid */
+body.project-open::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:999;
+}
 
+/* Remove existing project grid lines */
+body.project-open .project-item.desktop-active .grid-line {
+  display: none !important;
+}
+
+/* Create only the 5 required lines */
+body.project-open::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      #999 0,
+      #999 7px,
+      transparent 7px,
+      transparent 14px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      #999 0,
+      #999 7px,
+      transparent 7px,
+      transparent 14px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      #999 0,
+      #999 7px,
+      transparent 7px,
+      transparent 14px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      #999 0,
+      #999 7px,
+      transparent 7px,
+      transparent 14px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      #999 0,
+      #999 7px,
+      transparent 7px,
+      transparent 14px
+    );
+
+  background-repeat: no-repeat;
+
+  background-size:
+    1px 100%,
+    1px 100%,
+    1px 100%,
+    1px 100%,
+    1px 100%;
+
+  background-position:
+    17% 0,
+    36.2% 0,
+    55.5% 0,
+    74.8% 0,
+    94.1% 0;
+}
   /* =======================================================
      SLIDER ARROWS
      ======================================================= */
@@ -1425,13 +1487,7 @@ body.project-open .arrow{
   overflow: visible !important;
 }
 
-  /* ============ HIDDEN-SCROLL FIX ============
-     .projects has overflow-x:auto with the scrollbar hidden
-     (scrollbar-width:none / ::-webkit-scrollbar{display:none}),
-     which lets users accidentally drag/wheel-scroll it with no
-     visible scrollbar, conflicting with the JS autoplay/infinite-loop
-     logic. This locks out manual scroll while keeping the JS
-     scrollBy()/scrollLeft calls (arrows + autoplay) fully working. */
+  /* ============ HIDDEN-SCROLL FIX ============ */
   .projects{
     overflow-x: hidden !important;
     scroll-behavior: smooth;
@@ -1440,7 +1496,6 @@ body.project-open .arrow{
 .project-item:not(.desktop-active) {
   transform: none !important;
 }
-
 
 /* =========================================================
    LAPTOP PROJECT IMAGE — SKETCH DEFAULT / COLOR ON HOVER
@@ -1496,7 +1551,6 @@ body.project-open .arrow{
 .project-item:not(.desktop-active) .img-box:has(.color-img:hover) .color-img{
   opacity:1 !important;
 }
-
 
 /* Desktop default */
 .project-item:not(.desktop-active) .sketch-img{
@@ -1571,13 +1625,9 @@ body.project-open .arrow{
   border-left: 1.5px solid grey !important;
 }
 
-
-
 }
-
    /* SMALL LAPTOP — 891px TO 1200px */
    
-
 @media (min-width: 891px) and (max-width: 1200px) {
 
   /* Details */
@@ -1586,14 +1636,16 @@ body.project-open .arrow{
     top: 20px !important;
     left: 20px !important;
 
-    width: 220px !important;
-    height: 220px !important;
+    width: 260px !important;
+    height: 260px !important;
+    transform: scale(1.25) !important;
+    transform-origin: top left !important;
   }
 
   .project-item.desktop-active .sketch-img,
   .project-item.desktop-active .color-img {
-    width: 220px !important;
-    height: 220px !important;
+    width: 260px !important;
+    height: 260px !important;
   }
 
   .project-item.desktop-active .project-title {
@@ -1623,13 +1675,12 @@ body.project-open .arrow{
     line-height: 1.6 !important;
   }
 
-
   /* Slider */
 
   .project-item.desktop-active .mobile-slider {
     top: 20px !important;
 
-    left: 30vw !important;
+    left: 36.2vw !important;
     right: 10vw !important;
 
     width: auto !important;
@@ -1637,7 +1688,6 @@ body.project-open .arrow{
     height: calc(100vh - 165px) !important;
     min-height: 400px !important;
   }
-
 
   /* Footer */
 
@@ -2455,7 +2505,7 @@ body.project-open .project-socials{
     <div class="project-item line-down-1">
   <div class="img-box">
     <img src="./images/2.1.png" class="sketch-img">
-        <img src="./images/2 (2).png" class="color-img">
+        <img src="./images/2.1111.png" class="color-img">
         <div class="grid-line"></div>
       </div>   
 
@@ -2672,7 +2722,7 @@ body.project-open .project-socials{
     <div class="project-item line-up-3">
   <div class="img-box">
     <img src="./images/2.1.png" class="sketch-img">
-        <img src="./images/2 (2).png" class="color-img">
+        <img src="./images/2.1111.png" class="color-img">
         <div class="grid-line"></div>
       </div>
 <div class="project-title">Farmhouse Panjarla, India</div>
@@ -2825,9 +2875,6 @@ function moveRight() {
     }
 
     projects.appendChild(firstCard);
-
-    // do this correction instantly, not smoothly animated,
-    // so the loop doesn't visibly glide backward
     projects.style.scrollBehavior = "auto";
     projects.scrollLeft -= cardWidth;
     projects.style.scrollBehavior = "";
