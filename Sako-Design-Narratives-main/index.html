@@ -1477,9 +1477,24 @@ right: 0;
     font-size: 18px !important;
   }
 
+  /* --card-gap is defined once so both the row's gap and the card-width
+     formula below always agree with each other - no more separately
+     guessed vw fractions that can drift apart and leave a partial 6th
+     card or only fit 4 instead of 5. */
+  .projects {
+    --card-gap: clamp(20px, 2.2vw, 40px);
+  }
+
   .project-item {
-  flex: 0 0 20% !important;
-  width: 20% !important;
+  /* Exactly 5 cards + 4 gaps = 100% of the row's content width, always -
+     so 5 full cards tile the row with zero leftover space at any laptop
+     width, matching the desktop layout, instead of 4 fitting with a gap
+     left over or a 5th getting cut off. The 200px floor only kicks in
+     very close to the 891px bottom of this breakpoint, where showing
+     slightly fewer full cards is the honest trade-off vs. illegibly
+     tiny ones. */
+  flex: 0 0 clamp(200px, calc((100% - 4 * var(--card-gap)) / 5), 340px) !important;
+  width: clamp(200px, calc((100% - 4 * var(--card-gap)) / 5), 340px) !important;
    
 }
 
@@ -1491,6 +1506,8 @@ right: 0;
   .projects{
     overflow-x: hidden !important;
     scroll-behavior: smooth;
+    gap: var(--card-gap) !important;
+    padding: 20px clamp(40px, 5vw, 120px) 20px !important;
   }
 
 .project-item:not(.desktop-active) {
@@ -1505,17 +1522,26 @@ right: 0;
 
 .project-item:not(.desktop-active) .img-box {
   cursor: pointer;
-   transform: scale(0.85) !important;
+}
+
+/* Fluid image size in step with the fluid card width/gap above (max value
+   425px = the old 500px * the old fixed 0.85 scale, so large viewports look
+   identical to before; below that it now shrinks smoothly instead of
+   snapping). */
+.project-item:not(.desktop-active) .sketch-img,
+.project-item:not(.desktop-active) .color-img {
+  width: clamp(260px, 26vw, 425px) !important;
+  height: clamp(260px, 26vw, 425px) !important;
 }
 
 .project-item:not(.desktop-active) .sketch-img {
   opacity: 1 !important;
-  transition: opacity .35s ease;
+  transition: opacity .35s ease, width .2s ease, height .2s ease;
 }
 
 .project-item:not(.desktop-active) .color-img {
   opacity: 0 !important;
-  transition: opacity .35s ease;
+  transition: opacity .35s ease, width .2s ease, height .2s ease;
 }
 
 .project-item:not(.desktop-active) .project-title {
