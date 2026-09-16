@@ -1296,13 +1296,13 @@ body.project-open .arrow{
    ========================================================= */
 
 /* Remove the extra project-open grid */
-body.project-open::after{
+/* body.project-open::after{
     content:"";
     position:fixed;
     inset:0;
     pointer-events:none;
     z-index:999;
-}
+} */
 
 /* Remove existing project grid lines */
 body.project-open .project-item.desktop-active .grid-line {
@@ -1311,11 +1311,11 @@ body.project-open .project-item.desktop-active .grid-line {
 
 /* Create only the 5 required lines */
 body.project-open::after {
-  content: "";
   position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
+top: 99px;
+bottom: 10px;
+left: 0;
+right: 0;
 
   background-image:
     repeating-linear-gradient(
@@ -1710,6 +1710,30 @@ body.project-open::after {
 
     z-index: 999999 !important;
   }
+
+  /* Stop the dash from landing on top of the opened project's
+     smaller/repositioned circle + title at this breakpoint */
+  .project-item.desktop-active.line-up-1::after,
+  .project-item.desktop-active.line-up-2::after,
+  .project-item.desktop-active.line-up-3::after,
+  .project-item.desktop-active.line-up-4::after,
+  .project-item.desktop-active.line-down-1::after,
+  .project-item.desktop-active.line-down-2::after {
+    display: none !important;
+  }
+
+  /* ---- THE ACTUAL BUG ----
+     .project-item.desktop-active::before/::after is a header divider line
+     hard-coded to top:220px / left:120-130px, tuned for the original
+     220px-tall circle. This small-laptop block moves the circle to
+     top:20px and the title to top:195px, but never moves this divider,
+     so it freezes at the old position and cuts straight across the
+     title / project details instead of sitting under the image. */
+  .project-item.desktop-active::before,
+  .project-item.desktop-active::after {
+    display: none !important;
+  }
+
 
 }
 
