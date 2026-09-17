@@ -227,6 +227,32 @@ body {
   transition: opacity 0.4s ease;
 }
 
+.sketch-img[src*="2.1.png"], .color-img[src*="2.1111.png"] {
+  transform: translate(-50%, calc(-50% + 11px));
+}
+.sketch-img[src*="3.1.png"], .color-img[src*="3 (1).png"] {
+  transform: translate(-50%, calc(-50% + 5px));
+}
+.sketch-img[src*="4.1.png"], .color-img[src*="4 (1).png"] {
+  transform: translate(-50%, calc(-50% + 3px));
+}
+
+/* Per-image vertical nudge, so each house's own ground line lines up with
+   the shared baseline (the source PNGs have different internal spacing,
+   so this can't be fixed by moving the single shared line - only these
+   individual images need it, whichever ones look off).
+   Positive px = moves that house DOWN. Negative px = moves it UP.
+   Edit only the ones that don't match; leave others at 0px. */
+.sketch-img[src*="2.1.png"], .color-img[src*="2.1111.png"] {
+  transform: translate(-50%, calc(-50% + 0px));
+}
+.sketch-img[src*="3.1.png"], .color-img[src*="3 (1).png"] {
+  transform: translate(-50%, calc(-50% + 0px));
+}
+.sketch-img[src*="4.1.png"], .color-img[src*="4 (1).png"] {
+  transform: translate(-50%, calc(-50% + 0px));
+}
+
 /* ================= GRID LINE (standalone element, not tied to img-box) ================= */
 
 .grid-line {
@@ -1847,25 +1873,36 @@ right: 0;
    FINAL PROJECT DETAIL / HOMEPAGE PATCH
    ========================================================= */
 
-/* 1) HOME PAGE - continuous connection line */
-@media (min-width: 891px) {
-  .projects::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 48.6%;
-    height: 2px;
-    background:lightgray;
+/* 1) HOME PAGE - continuous connection line
+   NOTE: this line used to be a position:absolute ::before pseudo-element
+   sized to the *visible* .projects box (left:0/right:0). That box width
+   never changes on scroll, but the row is auto-scrolled horizontally via
+   JS (projects.scrollLeft), so the old line stayed glued to the original
+   unscrolled 0->viewport-width span and visibly fell out from under the
+   cards that scrolled into view later - the "missing between profiles"
+   gap. Painting it as a background with background-attachment:local
+   instead makes it part of the row's own scrollable content, so it
+   always spans the full scrollable width and moves together with the
+   cards, regardless of how far the row has auto-scrolled or been
+   reordered by the slider script. */
+  .projects {
+  --line-position: 41.5%;
+  background-color: #ffffff;
+  background-image: linear-gradient(
+    to bottom,
+    transparent var(--line-position),
+    lightgray var(--line-position),
+    lightgray calc(var(--line-position) + 2px),
+    transparent calc(var(--line-position) + 2px)
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: local;
+}
 
-  
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  body.project-open .projects::before {
-    display: none !important;
-  }
+body.project-open .projects {
+  background-image: none !important;
+}
 
   /* 3) Project-detail image area: exactly grid line 2 -> grid line 5 */
   .project-item.desktop-active .mobile-slider {
@@ -1937,7 +1974,7 @@ right: 0;
     text-decoration: underline;
   }
 }
-.similar-projects {
+/* .similar-projects {
     margin-top: 45px;
     padding: 0 20px 10px;
   }
@@ -1949,7 +1986,25 @@ right: 0;
 
   .similar-project-card .similar-image {
     height: 130px;
+  } */
+
+/* FIX ONLY THE BROKEN CONNECTION BETWEEN PROJECT 1 AND PROJECT 2 */
+
+/* @media (min-width: 891px) { */
+
+  /* Connect ONLY the gap between Project 1 and Project 2 */
+  /* .project-item.line-up-1::before {
+    content: "";
+    position: absolute;
+    top: 41.5%;
+    left: 100%;
+    width: 40px;
+    height: 2px;
+    background: lightgray;
+    z-index: 50;
   }
+
+} */
 
   </style>
 </head>
