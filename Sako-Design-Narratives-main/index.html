@@ -1096,17 +1096,17 @@ body.project-open .arrow{
      ======================================================= */
 
   .project-item.desktop-active .img-box {
-    top: -42px !important;
-    left: 68px !important;
+    top: -10px !important;
+    left: 50px !important;
 
-    width: 400px !important;
-    height: 400px !important;
+    width: 340px !important;
+    height: 340px !important;
   }
 
   .project-item.desktop-active .sketch-img,
   .project-item.desktop-active .color-img {
-    width: 400px !important;
-    height: 400px !important;
+    width: 340px !important;
+    height: 340px !important;
   }
 
   /* =======================================================
@@ -1114,8 +1114,8 @@ body.project-open .arrow{
      ======================================================= */
 
   .project-item.desktop-active .project-title {
-    top: 275px !important;
-    left: 173px !important;
+    top: 250px !important;
+    left: 150px !important;
     bottom: auto !important;
     transform: none !important;
 
@@ -1131,7 +1131,7 @@ body.project-open .arrow{
   .project-item.desktop-active .mobile-project-details {
     position: absolute !important;
 
-    top: 265px !important;
+    top: 250px !important;
     left: 25px !important;
 
     width: 330px !important;
@@ -1151,7 +1151,7 @@ body.project-open .arrow{
     margin: 0 !important;
     padding: 0 !important;
 
-    font-size: 14px !important;
+    font-size: 12px !important;
     line-height: 1.6 !important;
 
     text-align: left !important;
@@ -1164,30 +1164,22 @@ body.project-open .arrow{
      /* SLIDER */
 
   .project-item.desktop-active .mobile-slider {
-    position: absolute !important;
+    position:absolute !important;
 
-    top: 20px !important;
-    left: 30vw !important;   /* aligns with grid line 2 */
-    right: 10vw !important;  /* aligns with grid line 5 */
+    top:20px !important;
+    left:30vw !important;
+    right:10vw !important;
 
-    width: auto !important;
+    height:calc(100vh - 40px) !important;
 
-    height: calc(100vh - 165px) !important;
-    min-height: 450px !important;
-    max-height: 750px !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
 
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+    padding-top:170px !important; /* image starts below the line */
+    padding-bottom:0 !important;
+    box-sizing:border-box !important;
 
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-
-    /* keep the image/gallery scroll area compact at its end */
-    padding-bottom: 30px !important;
-    box-sizing: border-box !important;
-
-    z-index: 5000 !important;
+    z-index:5000 !important;
   }
 
   /* Visible thin scrollbar on the image frame */
@@ -1235,9 +1227,11 @@ body.project-open .arrow{
 
   /* Active image: in normal flow, so it alone defines the scrollable height */
   .project-item.desktop-active .slider-image.active {
-    position: relative !important;
-    height: auto !important;
-    overflow: visible !important;
+    position:relative !important;
+    top:0 !important;   /* line daggara stop avutundi */
+    height:auto !important;
+    overflow:visible !important;
+    z-index:1 !important; 
   }
 /* =========================================================
    LAPTOP PROJECT DETAILS
@@ -1323,32 +1317,49 @@ right: 0;
      SLIDER ARROWS
      ======================================================= */
 
-  .project-item.desktop-active .slide-btn {
-    display: flex !important;
+  /* SLIDER ARROWS - image center */
 
-    position: absolute !important;
+.project-item.desktop-active .slide-btn{
+    position:absolute !important;
 
-    top: 50% !important;
+    top:calc(250px + ((100vh - 40px - 170px) / 2)) !important;
+    transform:translateY(-50%) !important;
 
-    transform: translateY(-50%) !important;
+    width:50px !important;
+    height:50px !important;
+    border-radius:50% !important;
+    border:none !important;
 
-    width: 42px !important;
-    height: 42px !important;
+    display:flex !important;
+    align-items:center;
+    justify-content:center;
 
-    visibility: visible !important;
-    opacity: 1 !important;
+    /* iPhone glass effect */
+    background:rgba(255,255,255,0.18) !important;
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
 
-    z-index: 99999 !important;
-  }
+    color:#fff !important;
+    font-size:22px !important;
 
-  .project-item.desktop-active .prev-btn {
-    left: 20px !important;
-  }
+    box-shadow:0 4px 12px rgba(0,0,0,0.18);
 
-  .project-item.desktop-active .next-btn {
-    right: 20px !important;
-  }
+    transition:all .25s ease;
+    z-index:99999 !important;
+}
 
+.project-item.desktop-active .slide-btn:hover{
+    background:rgba(255,255,255,0.28) !important;
+    transform:translateY(-50%) scale(1.05);
+}
+
+.project-item.desktop-active .prev-btn{
+    left:16px !important;
+}
+
+.project-item.desktop-active .next-btn{
+    right:16px !important;
+}
 
   /* Keep the existing laptop icon sizing/colors; only the bar position is now normal flow. */
   .project-item.desktop-active .project-socials a {
@@ -1874,32 +1885,62 @@ right: 0;
    ========================================================= */
 
 /* 1) HOME PAGE - continuous connection line
-   NOTE: this line used to be a position:absolute ::before pseudo-element
-   sized to the *visible* .projects box (left:0/right:0). That box width
-   never changes on scroll, but the row is auto-scrolled horizontally via
-   JS (projects.scrollLeft), so the old line stayed glued to the original
-   unscrolled 0->viewport-width span and visibly fell out from under the
-   cards that scrolled into view later - the "missing between profiles"
-   gap. Painting it as a background with background-attachment:local
-   instead makes it part of the row's own scrollable content, so it
-   always spans the full scrollable width and moves together with the
-   cards, regardless of how far the row has auto-scrolled or been
-   reordered by the slider script. */
+   ...
+*/
+/* =========================================================
+   HOME PAGE - BASELINE CONNECTOR
+   Anchored to the project image row
+   ========================================================= */
+
+@media (min-width: 891px) {
+
   .projects {
-  --line-position: 41.5%;
-  background-color: #ffffff;
-  background-image: linear-gradient(
-    to bottom,
-    transparent var(--line-position),
-    lightgray var(--line-position),
-    lightgray calc(var(--line-position) + 2px),
-    transparent calc(var(--line-position) + 2px)
-  );
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-attachment: local;
+    background-color: #ffffff;
+    background-image: none !important;
+  }
+
+.project-item:not(.desktop-active) .img-box::after {
+  content: "";
+  position: absolute;
+
+  /* Move the baseline DOWN */
+  top: 156.6px;
+
+  /* Continue through the gap between cards */
+  left: -20px;
+  width: calc(100% + 40px);
+
+  height: 0.4px;
+  background: rgb(120, 120, 120);
+
+  /* BEHIND the project images */
+  z-index: 0;
+
+  pointer-events: none;
 }
 
+  body.project-open .project-item:not(.desktop-active) .img-box::after {
+    display: none !important;
+  }
+
+}
+
+/* =========================================================
+   PC BASELINE POSITION
+   ========================================================= */
+
+@media (min-width: 1601px) {
+  .project-item:not(.desktop-active) .img-box::after {
+    top: 174.5px;
+  }
+}
+
+/* Narrow laptop viewport - 150% scaling */
+@media (min-width: 1101px) and (max-width: 1300px) {
+  .project-item:not(.desktop-active) .img-box::after {
+    top: 144.3px;
+  }
+}
 body.project-open .projects {
   background-image: none !important;
 }
@@ -2006,7 +2047,7 @@ body.project-open .projects {
 
 } */
 
-  </style>
+</style>
 </head>
 
 <body class="inside-page">
