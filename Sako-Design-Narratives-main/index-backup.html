@@ -131,59 +131,30 @@ body {
   position: absolute;
   z-index: 10;
   box-sizing: border-box;
-  top: var(--conn-top, 43.1%);
-  left: var(--conn-left, -33px);
-  width: var(--conn-width, 26px);
-}
-
-.project-item.desktop-active .project-socials{
-    position: absolute;
-    left: 150px;
-    top: calc(350px + 360px);
-
-    width: 320px;
-    background:#000;
-    padding:18px 0;
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    z-index:9999;
 }
 
 .project-socials {
-    position: fixed !important;
-    left: 0 !important;
-    bottom: 0 !important;
-
-    width: 100vw !important;
-    height: 38px !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-
+    width: 100%;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
-
-    background: #000 !important;
-    z-index: 999999;
-
-    transform: none !important;
+    background: #000;
+    z-index: 20;
 }
 
 .project-socials a {
     width: 30px;
     height: 30px;
-
     border: 1px solid #a56243;
     border-radius: 50%;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     color: #a56243;
     text-decoration: none;
     font-size: 18px;
@@ -193,24 +164,6 @@ body {
     background: #a56243;
     color: #fff;
     transform: translateY(-4px);
-}
-
-body.project-open .project-socials {
-    bottom: 0 !important;
-}
-
-.line-up-1::after,
-.line-up-2::after,
-.line-up-3::after,
-.line-up-4::after{
-  border-bottom:1.5px solid #999;
-  border-left:1.5px solid #999;
-}
-
-.line-down-1::after,
-.line-down-2::after{
-  border-top:1.5px solid #999;
-  border-left:1.5px solid #999;
 }
 
 .project-item:last-child::after{
@@ -272,6 +225,32 @@ body.project-open .project-socials {
   transform-origin: center center;
 
   transition: opacity 0.4s ease;
+}
+
+.sketch-img[src*="2.1.png"], .color-img[src*="2.1111.png"] {
+  transform: translate(-50%, calc(-50% + 11px));
+}
+.sketch-img[src*="3.1.png"], .color-img[src*="3 (1).png"] {
+  transform: translate(-50%, calc(-50% + 5px));
+}
+.sketch-img[src*="4.1.png"], .color-img[src*="4 (1).png"] {
+  transform: translate(-50%, calc(-50% + 3px));
+}
+
+/* Per-image vertical nudge, so each house's own ground line lines up with
+   the shared baseline (the source PNGs have different internal spacing,
+   so this can't be fixed by moving the single shared line - only these
+   individual images need it, whichever ones look off).
+   Positive px = moves that house DOWN. Negative px = moves it UP.
+   Edit only the ones that don't match; leave others at 0px. */
+.sketch-img[src*="2.1.png"], .color-img[src*="2.1111.png"] {
+  transform: translate(-50%, calc(-50% + 0px));
+}
+.sketch-img[src*="3.1.png"], .color-img[src*="3 (1).png"] {
+  transform: translate(-50%, calc(-50% + 0px));
+}
+.sketch-img[src*="4.1.png"], .color-img[src*="4 (1).png"] {
+  transform: translate(-50%, calc(-50% + 0px));
 }
 
 /* ================= GRID LINE (standalone element, not tied to img-box) ================= */
@@ -685,7 +664,7 @@ animation-fill-mode:both;
   overflow-y:auto;
   overflow-x:hidden;
 
-  /* small gap after the image once scrolled to the end, before the footer */
+  /* keep the image/gallery scroll area compact at its end */
   padding-bottom:30px;
   box-sizing:border-box;
 
@@ -860,19 +839,6 @@ body.project-open::after{
   z-index:1;
 }
 
-<<<<<<< HEAD
-@media (hover: hover) and (pointer: fine) {
-  .project-item:hover .sketch-img {
-    opacity: 0;
-  }
-
-  .project-item:hover .color-img {
-    opacity: 1;
-  }
-}
-
-=======
->>>>>>> e6aad68 (Initial commit)
 @media (hover: none) and (pointer: coarse) {
 .project-item.active .sketch-img {
   opacity: 0;
@@ -1098,163 +1064,11 @@ body.project-open .arrow{
   }
 }
 
-/* =========================================================
-   LAPTOP VIEW  (891px – 1600px)
-   ========================================================= */
+   /* LAPTOP FINAL FIX
+   SCROLLBAR + SOCIAL ICONS */
+
 @media (min-width: 891px) and (max-width: 1600px) {
 
-<<<<<<< HEAD
-  .projects{
-    padding: 20px 30px 20px;
-    gap: 16px;
-    justify-content: flex-start;
-  }
-
-  .project-item{
-    width: calc((100vw - 60px - (16px * 4)) / 5);
-    min-width: 190px;
-    max-width: 300px;
-  }
-
-  .img-box{
-    height: 300px;
-  }
-
-  .img-box img{
-    width: 85%;
-  }
-
-  .sketch-img{
-    width: 100% !important;
-    height: 100% !important;
-  }
-
-  .color-img{
-    width: 100% !important;
-    height: 100% !important;
-  }
-
-    /* FORCE BOTH IMAGES TO STAY INSIDE 220x220 */
-  .project-item.desktop-active .img-box .sketch-img,
-  .project-item.desktop-active .img-box .color-img {
-    width: 220px !important;
-    height: 220px !important;
-
-    max-width: 220px !important;
-    max-height: 220px !important;
-
-    object-fit: contain !important;
-
-    top: 50% !important;
-    left: 50% !important;
-
-    transform: translate(-50%, -50%) !important;
-  }
-
-
-  .project-title{
-    font-size: 13px;
-    margin-top: 150px;
-  }
-
-
-  .project-item.desktop-active .img-box{
-    position: relative;
-    top: 20px;
-    left: 20px;
-    width: 220px;
-    height: 220px;
-    overflow: hidden !important;
-  }
-
-.project-item.desktop-active .project-title {
-    top: 130px;
-    left: 260px;
-    width: 200px;
-    font-size: 13px;
-     margin: 0;
-
-    z-index: 100;
-  }
-
-  .project-item.desktop-active::before{
-    top: 170px;
-    left: 90px;
-    width: calc(100% - 130px);
-  }
-
-  .project-item.desktop-active .project-title{
-    top: 130px;
-    left: 260px;
-    width: 200px;
-    font-size: 13px;
-  }
-
-  .project-item.desktop-active .mobile-project-details {
-
-    position: absolute;
-
-    /* IMPORTANT:
-       image ends around 240px,
-       so details start below it */
-    top: 270px;
-
-    left: 20px;
-    right: auto;
-
-    width: 300px;
-
-    z-index: 100;
-
-    display: block !important;
-
-    overflow: visible;
-  }
-
-   .project-item.desktop-active .project-info {
-
-    width: 300px;
-
-    margin: 0;
-
-    font-size: 13px;
-
-    line-height: 1.7;
-
-    text-align: left;
-
-    color: #222;
-  }
- 
-  .project-item.desktop-active .project-info p {
-    margin: 0 0 10px;
-  }
-
-
-  .project-item.desktop-active .mobile-slider{
-    top: 130px;
-    right: 20px;
-    width: 55%;
-    height: 60vh;
-  }
-
-  .project-item.desktop-active .project-socials{
-     position: absolute !important;
-    left: 20px !important;
-    right: auto !important;
-    top: auto !important;
-    bottom: 20px !important;
-    width: 260px !important;
-    height: auto !important;
-    transform: none !important;
-  }
-}
-
-@media (min-width: 891px) and (max-width: 1280px) {
-  .project-title{
-    font-size: 12px;
-  }
-=======
   /* =======================================================
      ACTIVE PROJECT - SCROLL ENABLE
      ======================================================= */
@@ -1280,17 +1094,17 @@ body.project-open .arrow{
      ======================================================= */
 
   .project-item.desktop-active .img-box {
-    top: -42px !important;
-    left: 68px !important;
+    top: -10px !important;
+    left: 50px !important;
 
-    width: 400px !important;
-    height: 400px !important;
+    width: 340px !important;
+    height: 340px !important;
   }
 
   .project-item.desktop-active .sketch-img,
   .project-item.desktop-active .color-img {
-    width: 400px !important;
-    height: 400px !important;
+    width: 340px !important;
+    height: 340px !important;
   }
 
   /* =======================================================
@@ -1298,8 +1112,8 @@ body.project-open .arrow{
      ======================================================= */
 
   .project-item.desktop-active .project-title {
-    top: 275px !important;
-    left: 173px !important;
+    top: 250px !important;
+    left: 150px !important;
     bottom: auto !important;
     transform: none !important;
 
@@ -1315,7 +1129,7 @@ body.project-open .arrow{
   .project-item.desktop-active .mobile-project-details {
     position: absolute !important;
 
-    top: 265px !important;
+    top: 250px !important;
     left: 25px !important;
 
     width: 330px !important;
@@ -1335,7 +1149,7 @@ body.project-open .arrow{
     margin: 0 !important;
     padding: 0 !important;
 
-    font-size: 14px !important;
+    font-size: 12px !important;
     line-height: 1.6 !important;
 
     text-align: left !important;
@@ -1348,30 +1162,22 @@ body.project-open .arrow{
      /* SLIDER */
 
   .project-item.desktop-active .mobile-slider {
-    position: absolute !important;
+    position:absolute !important;
 
-    top: 20px !important;
-    left: 36.2vw !important;   /* aligns with grid line 2 */
-    right: 5.9vw !important;  /* aligns with grid line 5 */
+    top:20px !important;
+    left:30vw !important;
+    right:10vw !important;
 
-    width: auto !important;
+    height:calc(100vh - 40px) !important;
 
-    height: calc(100vh - 165px) !important;
-    min-height: 450px !important;
-    max-height: 750px !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
 
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+    padding-top:170px !important; /* image starts below the line */
+    padding-bottom:0 !important;
+    box-sizing:border-box !important;
 
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-
-    /* small gap after the image once scrolled to the end, before the footer */
-    padding-bottom: 30px !important;
-    box-sizing: border-box !important;
-
-    z-index: 5000 !important;
+    z-index:5000 !important;
   }
 
   /* Visible thin scrollbar on the image frame */
@@ -1419,9 +1225,11 @@ body.project-open .arrow{
 
   /* Active image: in normal flow, so it alone defines the scrollable height */
   .project-item.desktop-active .slider-image.active {
-    position: relative !important;
-    height: auto !important;
-    overflow: visible !important;
+    position:relative !important;
+    top:0 !important;   /* line daggara stop avutundi */
+    height:auto !important;
+    overflow:visible !important;
+    z-index:1 !important; 
   }
 /* =========================================================
    LAPTOP PROJECT DETAILS
@@ -1429,13 +1237,13 @@ body.project-open .arrow{
    ========================================================= */
 
 /* Remove the extra project-open grid */
-body.project-open::after{
+/* body.project-open::after{
     content:"";
     position:fixed;
     inset:0;
     pointer-events:none;
     z-index:999;
-}
+} */
 
 /* Remove existing project grid lines */
 body.project-open .project-item.desktop-active .grid-line {
@@ -1444,11 +1252,11 @@ body.project-open .project-item.desktop-active .grid-line {
 
 /* Create only the 5 required lines */
 body.project-open::after {
-  content: "";
   position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
+top: 99px;
+bottom: 10px;
+left: 0;
+right: 0;
 
   background-image:
     repeating-linear-gradient(
@@ -1507,118 +1315,85 @@ body.project-open::after {
      SLIDER ARROWS
      ======================================================= */
 
-  .project-item.desktop-active .slide-btn {
-    display: flex !important;
+  /* SLIDER ARROWS - image center */
 
-    position: absolute !important;
+.project-item.desktop-active .slide-btn{
+    position:absolute !important;
 
-    top: 50% !important;
+    top:calc(250px + ((100vh - 40px - 170px) / 2)) !important;
+    transform:translateY(-50%) !important;
 
-    transform: translateY(-50%) !important;
+    width:50px !important;
+    height:50px !important;
+    border-radius:50% !important;
+    border:none !important;
 
-    width: 42px !important;
-    height: 42px !important;
+    display:flex !important;
+    align-items:center;
+    justify-content:center;
 
-    visibility: visible !important;
-    opacity: 1 !important;
+    /* iPhone glass effect */
+    background:rgba(255,255,255,0.18) !important;
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
 
-    z-index: 99999 !important;
-  }
+    color:#fff !important;
+    font-size:22px !important;
 
-  .project-item.desktop-active .prev-btn {
-    left: 20px !important;
-  }
+    box-shadow:0 4px 12px rgba(0,0,0,0.18);
 
-  .project-item.desktop-active .next-btn {
-    right: 20px !important;
-  }
+    transition:all .25s ease;
+    z-index:99999 !important;
+}
 
+.project-item.desktop-active .slide-btn:hover{
+    background:rgba(255,255,255,0.28) !important;
+    transform:translateY(-50%) scale(1.05);
+}
 
-  /* =======================================================
-     FOOTER
-     ======================================================= */
+.project-item.desktop-active .prev-btn{
+    left:16px !important;
+}
 
-  .project-item.desktop-active .project-socials {
+.project-item.desktop-active .next-btn{
+    right:16px !important;
+}
 
-    position: fixed !important;
-
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-
-    width: 100vw !important;
-    height: 40px !important;
-
-    margin: 0 !important;
-    padding: 8px 0 !important;
-
-    display: flex !important;
-    flex-direction: row !important;
-
-    justify-content: center !important;
-    align-items: center !important;
-
-    gap: 20px !important;
-
-    background: #000 !important;
-
-    visibility: visible !important;
-    opacity: 1 !important;
-
-    z-index: 999999 !important;
-
-    transform: none !important;
-  }
-
-
-  /* =======================================================
-     FOOTER LINKS
-     ======================================================= */
-
+  /* Keep the existing laptop icon sizing/colors; only the bar position is now normal flow. */
   .project-item.desktop-active .project-socials a {
-
-    display: flex !important;
-
     width: 34px !important;
     height: 34px !important;
-
+    display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-
-    visibility: visible !important;
-    opacity: 1 !important;
-
     color: #c56b2c !important;
-
-    text-decoration: none !important;
-
-    z-index: 1000000 !important;
   }
 
-
-  /* Font Awesome icons */
-
   .project-item.desktop-active .project-socials i {
-
     display: inline-block !important;
-
-    visibility: visible !important;
-    opacity: 1 !important;
-
     color: #c56b2c !important;
-
     font-size: 18px !important;
   }
 
-  /* .project-item {
-  flex: 0 0 20% !important;
-  width: 20% !important;
-} */
+  /* --card-gap is defined once so both the row's gap and the card-width
+     formula below always agree with each other - no more separately
+     guessed vw fractions that can drift apart and leave a partial 6th
+     card or only fit 4 instead of 5. */
+  .projects {
+    --card-gap: clamp(20px, 2.2vw, 40px);
+  }
 
-.project-item {
-  flex: 0 0 calc((100vw - 80px) / 5) !important;
-  width: calc((100vw - 80px) / 5) !important;
-  box-sizing: border-box !important;
+  .project-item {
+  /* Exactly 5 cards + 4 gaps = 100% of the row's content width, always -
+     so 5 full cards tile the row with zero leftover space at any laptop
+     width, matching the desktop layout, instead of 4 fitting with a gap
+     left over or a 5th getting cut off. The 200px floor only kicks in
+     very close to the 891px bottom of this breakpoint, where showing
+     slightly fewer full cards is the honest trade-off vs. illegibly
+     tiny ones. */
+  flex: 0 0 clamp(200px, calc((100% - 4 * var(--card-gap)) / 5), 340px) !important;
+  width: clamp(200px, calc((100% - 4 * var(--card-gap)) / 5), 340px) !important;
+   
 }
 
 .projects-container {
@@ -1629,6 +1404,8 @@ body.project-open::after {
   .projects{
     overflow-x: hidden !important;
     scroll-behavior: smooth;
+    gap: var(--card-gap) !important;
+    padding: 20px clamp(40px, 5vw, 120px) 20px !important;
   }
 
 .project-item:not(.desktop-active) {
@@ -1643,17 +1420,26 @@ body.project-open::after {
 
 .project-item:not(.desktop-active) .img-box {
   cursor: pointer;
-   transform: scale(0.85) !important;
+}
+
+/* Fluid image size in step with the fluid card width/gap above (max value
+   425px = the old 500px * the old fixed 0.85 scale, so large viewports look
+   identical to before; below that it now shrinks smoothly instead of
+   snapping). */
+.project-item:not(.desktop-active) .sketch-img,
+.project-item:not(.desktop-active) .color-img {
+  width: clamp(260px, 26vw, 425px) !important;
+  height: clamp(260px, 26vw, 425px) !important;
 }
 
 .project-item:not(.desktop-active) .sketch-img {
   opacity: 1 !important;
-  transition: opacity .35s ease;
+  transition: opacity .35s ease, width .2s ease, height .2s ease;
 }
 
 .project-item:not(.desktop-active) .color-img {
   opacity: 0 !important;
-  transition: opacity .35s ease;
+  transition: opacity .35s ease, width .2s ease, height .2s ease;
 }
 
 .project-item:not(.desktop-active) .project-title {
@@ -1714,61 +1500,11 @@ body.project-open::after {
   pointer-events:none;
 }
 
-/* EXISTING CONNECTOR - LAPTOP (position/length now come from JS-computed CSS vars per card, only the border shape is fixed here) */
-/* .project-item.line-down-1::after,
-.project-item.line-down-2::after {
-  border-top: 1.5px solid grey !important;
-  border-left: 1.5px solid grey !important;
-} */
-
-/* .project-item.line-up-1::after,
-.project-item.line-up-2::after,
-.project-item.line-up-3::after,
-.project-item.line-up-4::after {
-  border-bottom: 1.5px solid grey !important;
-  border-left: 1.5px solid grey !important;
-} */
-
-}
-   /* SMALL LAPTOP — 891px TO 1200px */
-   
-@media (min-width: 891px) and (max-width: 1200px) {
-
-  /* .projects {
-    padding: 20px 40px 20px !important;
-    gap: 0 !important;
-    width: 100vw !important;
-    box-sizing: border-box !important;
-     padding-left: 0 !important;
-    padding-right: 0 !important;
-  } */
-
-  .projects {
-  padding: 20px 0 !important;
-  gap: 40px !important;
-  width: 100vw !important;
-  box-sizing: border-box !important;
 }
 
-  /* .project-item {
-    flex: 0 0 20% !important;
-    width: 20% !important;
-    box-sizing: border-box !important;
-     margin: 0 !important;
-  } */
+  /* SMALL LAPTOP — 891px TO 1200px */
 
-  .project-item {
-  flex: 0 0 calc((100% - 160px) / 5) !important;
-  width: calc((100% - 160px) / 5) !important;
-  box-sizing: border-box !important;
-  margin: 0 !important;
-}
-
-  /* .project-item .img-box {
-  transform: translateX(-25px) !important;
-} */
-
-  /* Details */
+  @media (min-width: 891px) and (max-width: 1200px) {
 
   .project-item.desktop-active .img-box {
     top: 20px !important;
@@ -1826,31 +1562,30 @@ body.project-open::after {
     height: calc(100vh - 165px) !important;
     min-height: 400px !important;
   }
-
-  /* Footer */
-
-  .project-item.desktop-active .project-socials {
-    position: fixed !important;
-
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-
-    width: 100vw !important;
-
-    height: 40px !important;
-
-    display: flex !important;
-
-    visibility: visible !important;
-    opacity: 1 !important;
-
-    background: #000 !important;
-
-    z-index: 999999 !important;
+/* Stop the dash from landing on top of the opened project's
+     smaller/repositioned circle + title at this breakpoint */
+  .project-item.desktop-active.line-up-1::after,
+  .project-item.desktop-active.line-up-2::after,
+  .project-item.desktop-active.line-up-3::after,
+  .project-item.desktop-active.line-up-4::after,
+  .project-item.desktop-active.line-down-1::after,
+  .project-item.desktop-active.line-down-2::after {
+    display: none !important;
   }
 
->>>>>>> e6aad68 (Initial commit)
+  /* ---- THE ACTUAL BUG ----
+     .project-item.desktop-active::before/::after is a header divider line
+     hard-coded to top:220px / left:120-130px, tuned for the original
+     220px-tall circle. This small-laptop block moves the circle to
+     top:20px and the title to top:195px, but never moves this divider,
+     so it freezes at the old position and cuts straight across the
+     title / project details instead of sitting under the image. */
+  .project-item.desktop-active::before,
+  .project-item.desktop-active::after {
+    display: none !important;
+  }
+
+
 }
 
 /* =========================================================
@@ -2073,6 +1808,14 @@ body.project-open::after {
     min-height:100vh;
   }
 
+  .project-item.active{
+    padding-bottom:0;
+  }
+
+  .project-item.active .mobile-slider{
+    margin-bottom:0;
+  }
+
   .project-item.active .color-img{
     opacity:1;
     animation: mobileColorReveal 2.2s cubic-bezier(0.16,1,0.3,1);
@@ -2112,26 +1855,6 @@ body.project-open::after {
     width:100%;
 }
 
-.project-item.desktop-active .project-socials{
-    position:fixed !important;
-    left:0 !important;
-    bottom:0 !important;
-
-    width:100vw !important;
-    height:38px;
-
-    margin:0 !important;
-
-    display:flex !important;
-    justify-content:center !important;
-    align-items:center !important;
-    gap:20px;
-
-    background:#000 !important;
-
-    z-index:999999;
-}
-
 .project-socials a{
     width:30px;
     height:30px;
@@ -2144,11 +1867,6 @@ body.project-open::after {
     text-decoration:none;
     font-size:18px;
 }
-
-body.project-open .project-socials{
-    bottom:0 !important;
-}
-
 .project-socials a:hover{
 
   background:#a56243;
@@ -2158,7 +1876,175 @@ body.project-open .project-socials{
   transform:translateY(-4px);
 }
 
-  </style>
+  
+/* =========================================================
+   FINAL PROJECT DETAIL / HOMEPAGE PATCH
+   ========================================================= */
+
+/* 1) HOME PAGE - continuous connection line
+   ...
+*/
+/* =========================================================
+   HOME PAGE - BASELINE CONNECTOR
+   Anchored to the project image row
+   ========================================================= */
+
+@media (min-width: 891px) {
+
+  .projects {
+    background-color: #ffffff;
+    background-image: none !important;
+  }
+
+.project-item:not(.desktop-active) .img-box::after {
+  content: "";
+  position: absolute;
+
+  /* Move the baseline DOWN */
+  top: 156.6px;
+
+  /* Continue through the gap between cards */
+  left: -20px;
+  width: calc(100% + 40px);
+
+  height: 0.4px;
+  background: rgb(120, 120, 120);
+
+  /* BEHIND the project images */
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+  body.project-open .project-item:not(.desktop-active) .img-box::after {
+    display: none !important;
+  }
+
+}
+
+/* =========================================================
+   PC BASELINE POSITION
+   ========================================================= */
+
+@media (min-width: 1601px) {
+  .project-item:not(.desktop-active) .img-box::after {
+    top: 174.5px;
+  }
+}
+
+/* Narrow laptop viewport - 150% scaling */
+@media (min-width: 1101px) and (max-width: 1300px) {
+  .project-item:not(.desktop-active) .img-box::after {
+    top: 144.3px;
+  }
+}
+body.project-open .projects {
+  background-image: none !important;
+}
+
+  /* 3) Project-detail image area: exactly grid line 2 -> grid line 5 */
+  .project-item.desktop-active .mobile-slider {
+    left: 36.2vw !important;
+    right: 5.9vw !important;
+    padding-bottom: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 2 + 4) Remove bottom gap, keep scrolling but hide scrollbar */
+  .project-item.desktop-active .mobile-slider::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+    display: none !important;
+  }
+
+  .project-item.desktop-active .mobile-slider {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  /* Make the image frame end directly above the slim social bar */
+  .project-item.desktop-active .mobile-slider {
+    top: 20px !important;
+    height: calc(100vh - 155px) !important;
+    max-height: none !important;
+  }
+
+  /* 5) Similar projects below the project-detail content */
+  .similar-projects {
+    margin-top: 75px;
+    padding: 0 35px 0;
+    box-sizing: border-box;
+  }
+
+  .similar-projects h2 {
+    margin: 0 0 28px;
+    font-size: 22px;
+    font-weight: 400;
+  }
+
+  .similar-project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .similar-project-card {
+    display: block;
+    text-decoration: none;
+    color: #000;
+  }
+
+  .similar-project-card .similar-image {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    background: #fff;
+    display: block;
+  }
+
+  .similar-project-card .similar-name {
+    margin-top: 12px;
+    font-size: 13px;
+    text-align: left;
+  }
+
+  .similar-project-card:hover .similar-name {
+    text-decoration: underline;
+  }
+}
+/* .similar-projects {
+    margin-top: 45px;
+    padding: 0 20px 10px;
+  }
+
+  .similar-project-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .similar-project-card .similar-image {
+    height: 130px;
+  } */
+
+/* FIX ONLY THE BROKEN CONNECTION BETWEEN PROJECT 1 AND PROJECT 2 */
+
+/* @media (min-width: 891px) { */
+
+  /* Connect ONLY the gap between Project 1 and Project 2 */
+  /* .project-item.line-up-1::before {
+    content: "";
+    position: absolute;
+    top: 41.5%;
+    left: 100%;
+    width: 40px;
+    height: 2px;
+    background: lightgray;
+    z-index: 50;
+  }
+
+} */
+
+</style>
 </head>
 
 <body class="inside-page">
@@ -2210,8 +2096,8 @@ body.project-open .project-socials{
   
   <div class="project-item line-up-1">
     <div class="img-box">
-      <img src="./images/1.png"class="sketch-img">
-      <img src="./images/1.1.png" class="color-img">
+      <img src="./images/sketch door.jpeg"class="sketch-img">
+      <img src="./images/color door.jpeg" class="color-img">
       <div class="grid-line"></div>
     </div>
     <div class="project-title">Sako Office, Hyderabad</div>
@@ -2245,16 +2131,7 @@ body.project-open .project-socials{
       </p>
 
     </div>
-    
-
-     <div class="project-socials">
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fas fa-envelope"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fas fa-briefcase"></i></a>
-    </div>
-
-    </div>
+</div>
 
     <!-- SLIDER -->
 
@@ -2277,13 +2154,39 @@ body.project-open .project-socials{
 
       <button class="slide-btn next-btn">&#10095;</button>
 
-    </div>
+      <!-- ================= SIMILAR PROJECTS ================= -->
+      <section class="similar-projects">
+        <h2>Similar Projects</h2>
+        <div class="similar-project-grid">
+          <a href="#" class="similar-project-card">
+            <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
+            <div class="similar-name">Sako Office, Hyderabad</div>
+          </a>
+          <a href="#" class="similar-project-card">
+            <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
+            <div class="similar-name">Villa Maheshwaram, India</div>
+          </a>
+          <a href="#" class="similar-project-card">
+            <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
+            <div class="similar-name">Lakeview Farmhouse, India</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ================= SLIM SOCIAL BAR ================= -->
+      <div class="project-socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fas fa-envelope"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fas fa-briefcase"></i></a>
+      </div>
+</div>
 
 </div>
     <div class="project-item  line-down-1">
   <div class="img-box">
-    <img src="./images/2.1.png" class="sketch-img">
-        <img src="./images/2.1111.png" class="color-img">
+    <img src="./images/sketch house.jpeg" class="sketch-img">
+        <img src="./images/color house.jpeg" class="color-img">
         <div class="grid-line"></div>
       </div>   
 
@@ -2318,15 +2221,7 @@ body.project-open .project-socials{
       </p>
 
     </div>
-
-    <div class="project-socials">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fas fa-envelope"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fas fa-briefcase"></i></a>
 </div>
-
-     </div>
 
     <!-- SLIDER -->
 
@@ -2334,22 +2229,48 @@ body.project-open .project-socials{
 
       <button class="slide-btn prev-btn">&#10094;</button>
 
-      <img src="./images/o1.jpg"
+      <img src="./Panjarla Farmhouse/1.jpeg"
            class="slider-image active">
 
-      <img src="./images/o2.jpeg"
+      <img src="./Panjarla Farmhouse/2.jpeg"
            class="slider-image">
 
-      <img src="./images/o3.jpeg"
+      <img src="./Panjarla Farmhouse/3.jpeg"
            class="slider-image">
 
-      <img src="./images/o4.jpeg"
+      <img src="./Panjarla Farmhouse/4.jpeg"
            class="slider-image">
 
 
       <button class="slide-btn next-btn">&#10095;</button>
 
-    </div>
+      <!-- ================= SIMILAR PROJECTS ================= -->
+      <section class="similar-projects">
+        <h2>Similar Projects</h2>
+        <div class="similar-project-grid">
+          <a href="#" class="similar-project-card">
+            <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
+            <div class="similar-name">Sako Office, Hyderabad</div>
+          </a>
+          <a href="#" class="similar-project-card">
+            <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
+            <div class="similar-name">Villa Maheshwaram, India</div>
+          </a>
+          <a href="#" class="similar-project-card">
+            <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
+            <div class="similar-name">Lakeview Farmhouse, India</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ================= SLIM SOCIAL BAR ================= -->
+      <div class="project-socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fas fa-envelope"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fas fa-briefcase"></i></a>
+      </div>
+</div>
 
   </div>
 
@@ -2391,15 +2312,7 @@ body.project-open .project-socials{
       </p>
 
     </div>
-
-    <div class="project-socials">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fas fa-envelope"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fas fa-briefcase"></i></a>
 </div>
-
-    </div>
 
     <!-- SLIDER -->
 
@@ -2422,7 +2335,33 @@ body.project-open .project-socials{
 
       <button class="slide-btn next-btn">&#10095;</button>
 
-    </div>
+      <!-- ================= SIMILAR PROJECTS ================= -->
+      <section class="similar-projects">
+        <h2>Similar Projects</h2>
+        <div class="similar-project-grid">
+          <a href="#" class="similar-project-card">
+            <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
+            <div class="similar-name">Sako Office, Hyderabad</div>
+          </a>
+          <a href="#" class="similar-project-card">
+            <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
+            <div class="similar-name">Villa Maheshwaram, India</div>
+          </a>
+          <a href="#" class="similar-project-card">
+            <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
+            <div class="similar-name">Lakeview Farmhouse, India</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ================= SLIM SOCIAL BAR ================= -->
+      <div class="project-socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fas fa-envelope"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fas fa-briefcase"></i></a>
+      </div>
+</div>
 
   </div>
 
@@ -2463,15 +2402,7 @@ body.project-open .project-socials{
       </p>
 
     </div>
-
-    <div class="project-socials">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fas fa-envelope"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fas fa-briefcase"></i></a>
 </div>
-
-    </div>
 
     <!-- SLIDER -->
 
@@ -2494,7 +2425,33 @@ body.project-open .project-socials{
 
       <button class="slide-btn next-btn">&#10095;</button>
 
-    </div>
+      <!-- ================= SIMILAR PROJECTS ================= -->
+      <section class="similar-projects">
+        <h2>Similar Projects</h2>
+        <div class="similar-project-grid">
+          <a href="#" class="similar-project-card">
+            <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
+            <div class="similar-name">Sako Office, Hyderabad</div>
+          </a>
+          <a href="#" class="similar-project-card">
+            <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
+            <div class="similar-name">Villa Maheshwaram, India</div>
+          </a>
+          <a href="#" class="similar-project-card">
+            <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
+            <div class="similar-name">Lakeview Farmhouse, India</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ================= SLIM SOCIAL BAR ================= -->
+      <div class="project-socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fas fa-envelope"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fas fa-briefcase"></i></a>
+      </div>
+</div>
 
   </div>
 
@@ -2535,15 +2492,7 @@ body.project-open .project-socials{
       </p>
 
     </div>
-
-    <div class="project-socials">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fas fa-envelope"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fas fa-briefcase"></i></a>
 </div>
-
-    </div>
 
     <!-- SLIDER -->
 
@@ -2551,32 +2500,63 @@ body.project-open .project-socials{
 
       <button class="slide-btn prev-btn">&#10094;</button>
 
-      <img src="./images/o1.jpg"
+      <img src="./ncc yard/AAA09578-HDR-1.jpg"
            class="slider-image active">
 
-      <img src="./images/o2.jpeg"
+      <img src="./ncc yard/AAA09648-HDR-20.jpg"
            class="slider-image">
 
-      <img src="./images/o3.jpeg"
+      <img src="./ncc yard/AAA09651-HDR-21.jpg"
            class="slider-image">
 
-      <img src="./images/o4.jpeg"
+      <img src="./ncc yard/AAA09717-HDR-35-5.jpg"
            class="slider-image">
 
 
       <button class="slide-btn next-btn">&#10095;</button>
 
-    </div>
+      <!-- ================= SIMILAR PROJECTS ================= -->
+      <section class="similar-projects">
+        <h2>Similar Projects</h2>
+        <div class="similar-project-grid">
+          <a href="#" class="similar-project-card">
+            <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
+            <div class="similar-name">Sako Office, Hyderabad</div>
+          </a>
+          <a href="#" class="similar-project-card">
+            <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
+            <div class="similar-name">Villa Maheshwaram, India</div>
+          </a>
+          <a href="#" class="similar-project-card">
+            <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
+            <div class="similar-name">Lakeview Farmhouse, India</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ================= SLIM SOCIAL BAR ================= -->
+      <div class="project-socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fas fa-envelope"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fas fa-briefcase"></i></a>
+      </div>
+</div>
 
   </div>
 
 <div  class="project-item line-up-4">
     <div class="img-box">
-      <img src="./images/11.11img.png" class="sketch-img">
-      <img src="./images/11.11111 img.png" class="color-img">
+<<<<<<< HEAD
+      <img src="./images/sketch door - Copy.jpeg" class="sketch-img">
+      <img src="./images/color door - Copy.jpeg" class="color-img">
+=======
+      <img src="./images/sketch door copy.jpeg" class="sketch-img">
+      <img src="./images/color door copy.jpeg" class="color-img">
+>>>>>>> 18807e1 (Initial commit)
       <div class="grid-line"></div>
     </div>
-    <div class="project-title">Sako Office, Hyderabad</div>
+    <div class="project-title">Sanjay Residency, Hyderabad</div>
 
  <!-- MOBILE DETAILS -->
 
@@ -2607,14 +2587,6 @@ body.project-open .project-socials{
       </p>
 
     </div>
-
-    <div class="project-socials">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fas fa-envelope"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fas fa-briefcase"></i></a>
-</div>
-
 </div>
     <!-- SLIDER -->
 
@@ -2637,19 +2609,46 @@ body.project-open .project-socials{
 
       <button class="slide-btn next-btn">&#10095;</button>
 
-    </div>
+      <!-- ================= SIMILAR PROJECTS ================= -->
+      <section class="similar-projects">
+        <h2>Similar Projects</h2>
+        <div class="similar-project-grid">
+          <a href="#" class="similar-project-card">
+            <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
+            <div class="similar-name">Sako Office, Hyderabad</div>
+          </a>
+          <a href="#" class="similar-project-card">
+            <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
+            <div class="similar-name">Villa Maheshwaram, India</div>
+          </a>
+          <a href="#" class="similar-project-card">
+            <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
+            <div class="similar-name">Lakeview Farmhouse, India</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ================= SLIM SOCIAL BAR ================= -->
+      <div class="project-socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fas fa-envelope"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fas fa-briefcase"></i></a>
+      </div>
+</div>
 
   </div>
 
     <div class="project-item line-down-1">
   <div class="img-box">
-    <img src="./images/2.1.png" class="sketch-img">
 <<<<<<< HEAD
-        <img src="./images/2 (2).png" class="color-img">
+    <img src="./images/Sketch house - Copy.jpeg" class="sketch-img">
+        <img src="./images/color house- copy.jpeg" class="color-img">
 =======
-        <img src="./images/2.1111.png" class="color-img">
+    <img src="./images/sketch house copy.jpeg" class="sketch-img">
+        <img src="./images/color house copy.jpeg" class="color-img">
+>>>>>>> 18807e1 (Initial commit)
         <div class="grid-line"></div>
->>>>>>> e6aad68 (Initial commit)
       </div>   
 
 <div class="project-title">Farmhouse Panjarla, India</div>
@@ -2683,15 +2682,7 @@ body.project-open .project-socials{
       </p>
 
     </div>
-
-    <div class="project-socials">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fas fa-envelope"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fas fa-briefcase"></i></a>
 </div>
-
-    </div>
 
     <!-- SLIDER -->
 
@@ -2714,7 +2705,33 @@ body.project-open .project-socials{
 
       <button class="slide-btn next-btn">&#10095;</button>
 
-    </div>
+      <!-- ================= SIMILAR PROJECTS ================= -->
+      <section class="similar-projects">
+        <h2>Similar Projects</h2>
+        <div class="similar-project-grid">
+          <a href="#" class="similar-project-card">
+            <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
+            <div class="similar-name">Sako Office, Hyderabad</div>
+          </a>
+          <a href="#" class="similar-project-card">
+            <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
+            <div class="similar-name">Villa Maheshwaram, India</div>
+          </a>
+          <a href="#" class="similar-project-card">
+            <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
+            <div class="similar-name">Lakeview Farmhouse, India</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ================= SLIM SOCIAL BAR ================= -->
+      <div class="project-socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fas fa-envelope"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fas fa-briefcase"></i></a>
+      </div>
+</div>
 
   </div>
 
@@ -2755,15 +2772,7 @@ body.project-open .project-socials{
       </p>
 
     </div>
-
-    <div class="project-socials">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fas fa-envelope"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fas fa-briefcase"></i></a>
 </div>
-
-    </div>
 
     <!-- SLIDER -->
 
@@ -2786,7 +2795,33 @@ body.project-open .project-socials{
 
       <button class="slide-btn next-btn">&#10095;</button>
 
-    </div>
+      <!-- ================= SIMILAR PROJECTS ================= -->
+      <section class="similar-projects">
+        <h2>Similar Projects</h2>
+        <div class="similar-project-grid">
+          <a href="#" class="similar-project-card">
+            <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
+            <div class="similar-name">Sako Office, Hyderabad</div>
+          </a>
+          <a href="#" class="similar-project-card">
+            <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
+            <div class="similar-name">Villa Maheshwaram, India</div>
+          </a>
+          <a href="#" class="similar-project-card">
+            <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
+            <div class="similar-name">Lakeview Farmhouse, India</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ================= SLIM SOCIAL BAR ================= -->
+      <div class="project-socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fas fa-envelope"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fas fa-briefcase"></i></a>
+      </div>
+</div>
 
   </div>
 
@@ -2827,15 +2862,7 @@ body.project-open .project-socials{
       </p>
 
     </div>
-
-    <div class="project-socials">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fas fa-envelope"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fas fa-briefcase"></i></a>
 </div>
-
-    </div>
 
     <!-- SLIDER -->
 
@@ -2858,19 +2885,41 @@ body.project-open .project-socials{
 
       <button class="slide-btn next-btn">&#10095;</button>
 
-    </div>
+      <!-- ================= SIMILAR PROJECTS ================= -->
+      <section class="similar-projects">
+        <h2>Similar Projects</h2>
+        <div class="similar-project-grid">
+          <a href="#" class="similar-project-card">
+            <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
+            <div class="similar-name">Sako Office, Hyderabad</div>
+          </a>
+          <a href="#" class="similar-project-card">
+            <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
+            <div class="similar-name">Villa Maheshwaram, India</div>
+          </a>
+          <a href="#" class="similar-project-card">
+            <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
+            <div class="similar-name">Lakeview Farmhouse, India</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ================= SLIM SOCIAL BAR ================= -->
+      <div class="project-socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fas fa-envelope"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fas fa-briefcase"></i></a>
+      </div>
+</div>
 
   </div>
 
     <div class="project-item line-up-3">
   <div class="img-box">
-    <img src="./images/2.1.png" class="sketch-img">
-<<<<<<< HEAD
-        <img src="./images/2 (2).png" class="color-img">
-=======
-        <img src="./images/2.1111.png" class="color-img">
+    <img src="./images/sketch house.jpeg" class="sketch-img">
+        <img src="./images/color house.jpeg" class="color-img">
         <div class="grid-line"></div>
->>>>>>> e6aad68 (Initial commit)
       </div>
 <div class="project-title">Farmhouse Panjarla, India</div>
 
@@ -2902,15 +2951,7 @@ body.project-open .project-socials{
       </p>
 
     </div>
-
-    <div class="project-socials">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fas fa-envelope"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fas fa-briefcase"></i></a>
 </div>
-
-    </div>
 
     <!-- SLIDER -->
 
@@ -2933,10 +2974,35 @@ body.project-open .project-socials{
 
       <button class="slide-btn next-btn">&#10095;</button>
 
-    </div>
+      <!-- ================= SIMILAR PROJECTS ================= -->
+      <section class="similar-projects">
+        <h2>Similar Projects</h2>
+        <div class="similar-project-grid">
+          <a href="#" class="similar-project-card">
+            <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
+            <div class="similar-name">Sako Office, Hyderabad</div>
+          </a>
+          <a href="#" class="similar-project-card">
+            <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
+            <div class="similar-name">Villa Maheshwaram, India</div>
+          </a>
+          <a href="#" class="similar-project-card">
+            <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
+            <div class="similar-name">Lakeview Farmhouse, India</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ================= SLIM SOCIAL BAR ================= -->
+      <div class="project-socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fas fa-envelope"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fas fa-briefcase"></i></a>
+      </div>
+</div>
 
   </div>
-
 
 </section>
 
@@ -3031,34 +3097,28 @@ function moveRight() {
   }, 500);
 }
 
-function isLaptopView() {
-  return window.innerWidth > 890 && window.innerWidth <= 1600;
-}
 
 function startAutoSlide() {
   clearInterval(auto);
 
-  if (isLaptopView()) return;
+  if (document.body.classList.contains("project-open")) {
+    return;
+  }
 
   auto = setInterval(() => {
     moveRight();
   }, 2500);
-
 }
 
 startAutoSlide();
 
-if (isLaptopView()) {
-  projects.scrollLeft = 0;
-}
 
 window.addEventListener("resize", () => {
-  if (isLaptopView()) {
-    clearInterval(auto);
-    projects.scrollLeft = 0;
-  } else if (!auto && !document.body.classList.contains("project-open")) {
+
+  if (!document.body.classList.contains("project-open")) {
     startAutoSlide();
   }
+
 });
 
 document.querySelectorAll(".img-box").forEach(box => {
@@ -3329,8 +3389,6 @@ function raf(time) {
 requestAnimationFrame(raf);
 </script>
 
-<<<<<<< HEAD
-=======
 
 <script>
 document.querySelectorAll(".project-item").forEach(item => {
@@ -3347,60 +3405,5 @@ document.querySelectorAll(".project-item").forEach(item => {
 });
 </script>
 
-<!-- ================= DYNAMIC CONNECTOR LINES ================= -->
-<script>
-function updateConnectorLines(){
-
-  const items = document.querySelectorAll(".projects > .project-item");
-
-  items.forEach((item, idx) => {
-
-    const imgBox = item.querySelector(".img-box");
-    if (!imgBox) return;
-
-    const itemRect = item.getBoundingClientRect();
-    const imgRect = imgBox.getBoundingClientRect();
-
-    if (itemRect.height === 0) return;
-
-    /* vertical center of THIS card's image relative to THIS card's own height */
-    const centerY = (imgRect.top + imgRect.height / 2) - itemRect.top;
-    const topPercent = (centerY / itemRect.height) * 100;
-
-    /* horizontal gap to the previous card, measured live, so width always
-       matches the real space between cards instead of a fixed number */
-    let gap = 26;
-    const prev = items[idx - 1];
-    if (prev) {
-      const prevRect = prev.getBoundingClientRect();
-      const measuredGap = itemRect.left - prevRect.right;
-      if (measuredGap > 0) {
-        gap = measuredGap;
-      }
-    }
-
-    const width = Math.max(gap - 6, 10);
-
-    item.style.setProperty("--conn-top", topPercent + "%");
-    item.style.setProperty("--conn-width", width + "px");
-    item.style.setProperty("--conn-left", -(width + 7) + "px");
-  });
-}
-
-window.addEventListener("load", updateConnectorLines);
-window.addEventListener("resize", updateConnectorLines);
-
-/* recalc once each sketch image has actually finished loading,
-   since img-box position/size can shift as images load in */
-document.querySelectorAll(".img-box img").forEach(img => {
-  if (img.complete) return;
-  img.addEventListener("load", updateConnectorLines);
-});
-
-/* one safety pass after layout/fonts settle */
-setTimeout(updateConnectorLines, 300);
-</script>
-
->>>>>>> e6aad68 (Initial commit)
 </body>
 </html>
