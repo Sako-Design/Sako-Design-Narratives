@@ -1932,6 +1932,18 @@ right: 0;
   .project-item:not(.desktop-active) .img-box::after {
     top: 174.5px;
   }
+
+  .projects {
+    --card-gap: clamp(20px, 2.2vw, 40px);
+    gap: var(--card-gap) !important;
+    padding: 20px clamp(40px, 5vw, 120px) 20px !important;
+    overflow-x: hidden !important;
+  }
+
+  .project-item:not(.desktop-active) {
+    flex: 0 0 clamp(200px, calc((100% - 4 * var(--card-gap)) / 5), 340px) !important;
+    width: clamp(200px, calc((100% - 4 * var(--card-gap)) / 5), 340px) !important;
+  }
 }
 
 /* Narrow laptop viewport - 150% scaling */
