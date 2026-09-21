@@ -1168,13 +1168,15 @@ body.project-open .arrow{
     left:30vw !important;
     right:10vw !important;
 
-    height:calc(100vh - 40px) !important;
-
+  height: calc(100vh - 165px);
+  min-height: 450px;
+max-height: 750px;
+padding-bottom: 30px;
     overflow-y:auto !important;
     overflow-x:hidden !important;
 
     padding-top:170px !important; /* image starts below the line */
-    padding-bottom:0 !important;
+    /* padding-bottom:0 !important; */
     box-sizing:border-box !important;
 
     z-index:5000 !important;
@@ -1984,7 +1986,7 @@ body.project-open .projects {
 
   .similar-project-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 22px;
   }
 
@@ -2011,6 +2013,8 @@ body.project-open .projects {
   .similar-project-card:hover .similar-name {
     text-decoration: underline;
   }
+
+  
 }
 /* .similar-projects {
     margin-top: 45px;
@@ -2043,6 +2047,174 @@ body.project-open .projects {
   }
 
 } */
+
+/* FULL WIDTH PROJECT FOOTER */
+.project-socials {
+    width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    background: #000 !important;
+    padding: 20px 0 !important;
+}
+
+/* Hide project social bars on the main projects page */
+.projects > .project-item:not(.desktop-active) .project-socials {
+    display: none !important;
+}
+/* PUT PROJECT FOOTER AT BOTTOM */
+.project-item.desktop-active > .project-socials {
+    position: absolute !important;
+    left: 0 !important;
+    bottom: 0 !important;
+
+    width: 100vw !important;
+    margin: 0 !important;
+    transform: none !important;
+
+    z-index: 9999 !important;
+    box-sizing: border-box !important;
+}
+/* TEST: allow opened project to become full-page scroll content
+.project-item.desktop-active {
+    position: absolute !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: hidden !important;
+} */
+/* Hide the global social bar when a project is open */
+body.project-open > .project-socials {
+    display: none !important;
+}
+
+body.inside-page > .project-socials {
+    display: none !important;
+}
+
+/* PROJECT FOOTER — NORMAL FLOW */
+.project-item.desktop-active > .project-socials {
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    top: auto !important;
+
+    width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: 0 !important;
+
+    transform: none !important;
+    z-index: auto !important;
+    box-sizing: border-box !important;
+}
+
+/* PROJECT FOOTER — PLACE AFTER MAIN PROJECT AREA */
+.project-item.desktop-active > .project-socials {
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+
+    width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: 0 !important;
+
+    margin-top: calc(100vh - 95px) !important;
+
+    z-index: auto !important;
+    box-sizing: border-box !important;
+}
+
+/* REMOVE INTERNAL PROJECT SCROLL
+.project-item.desktop-active > .mobile-slider {
+    overflow-y: visible !important;
+    overflow-x: visible !important;
+} */
+
+/* SIMILAR PROJECTS — FULL BROWSER WIDTH */
+.project-item.desktop-active > .similar-projects {
+    width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: 0 !important;
+
+    box-sizing: border-box !important;
+}
+
+/* SIMILAR PROJECTS — FULL WIDTH NORMAL FLOW */
+.project-item.desktop-active > .similar-projects {
+    position: static !important;
+
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+
+    width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: 0 !important;
+
+    transform: none !important;
+    box-sizing: border-box !important;
+}
+
+/* SIMILAR PROJECTS — FULL BROWSER WIDTH */
+.project-item.desktop-active > .similar-projects {
+    width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* Hide Similar Projects on the main projects page */
+.projects > .project-item:not(.desktop-active) .similar-projects {
+    display: none !important;
+}
+
+/* SIMILAR PROJECTS — ABOVE FOOTER */
+/* .project-item.desktop-active > .similar-projects {
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    bottom: 95px !important;
+
+    width: 100vw !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+} */
+
+/* Hide grid lines only on the opened Farmhouse Panjarla project */
+.project-item.line-up-3.desktop-active .grid-line {
+    display: none !important;
+}
+
+/* Hide inactive project grid lines when viewing a project */
+body.project-open .projects > .project-item:not(.desktop-active) .grid-line {
+    display: none !important;
+}
+
+/* LET THE WHOLE PAGE HANDLE THE SCROLL */
+body.project-open .projects {
+    overflow-y: visible !important;
+    overflow-x: hidden !important;
+}
+/* KEEP NAVBAR FIXED ON ALL PAGES
+.navbar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 10000 !important;
+} */
+
+
 
 </style>
 </head>
@@ -2153,7 +2325,7 @@ body.project-open .projects {
 
 
       <button class="slide-btn next-btn">&#10095;</button>
-
+</div>
       <!-- ================= SIMILAR PROJECTS ================= -->
       <section class="similar-projects">
         <h2>Similar Projects</h2>
@@ -2182,7 +2354,6 @@ body.project-open .projects {
       </div>
 </div>
 
-</div>
     <div class="project-item  line-down-1">
   <div class="img-box">
     <img src="./images/sketch house.jpeg" class="sketch-img">
