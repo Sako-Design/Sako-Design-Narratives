@@ -17,7 +17,7 @@ body {
   background: #ffffff;
 
   overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-y: auto;
 
   height: 100vh;
 }
@@ -1064,8 +1064,10 @@ body.project-open .arrow{
   }
 }
 
-   /* LAPTOP FINAL FIX
-   SCROLLBAR + SOCIAL ICONS */
+/* =========================================================
+   LAPTOP FINAL FIX
+   SCROLLBAR + SOCIAL ICONS
+   ========================================================= */
 
 @media (min-width: 891px) and (max-width: 1600px) {
 
@@ -1094,17 +1096,17 @@ body.project-open .arrow{
      ======================================================= */
 
   .project-item.desktop-active .img-box {
-    top: -10px !important;
-    left: 50px !important;
+    top: -42px !important;
+    left: 68px !important;
 
-    width: 340px !important;
-    height: 340px !important;
+    width: 400px !important;
+    height: 400px !important;
   }
 
   .project-item.desktop-active .sketch-img,
   .project-item.desktop-active .color-img {
-    width: 340px !important;
-    height: 340px !important;
+    width: 400px !important;
+    height: 400px !important;
   }
 
   /* =======================================================
@@ -1112,8 +1114,8 @@ body.project-open .arrow{
      ======================================================= */
 
   .project-item.desktop-active .project-title {
-    top: 250px !important;
-    left: 150px !important;
+    top: 275px !important;
+    left: 173px !important;
     bottom: auto !important;
     transform: none !important;
 
@@ -1129,7 +1131,7 @@ body.project-open .arrow{
   .project-item.desktop-active .mobile-project-details {
     position: absolute !important;
 
-    top: 250px !important;
+    top: 265px !important;
     left: 25px !important;
 
     width: 330px !important;
@@ -1149,7 +1151,7 @@ body.project-open .arrow{
     margin: 0 !important;
     padding: 0 !important;
 
-    font-size: 12px !important;
+    font-size: 14px !important;
     line-height: 1.6 !important;
 
     text-align: left !important;
@@ -1162,24 +1164,30 @@ body.project-open .arrow{
      /* SLIDER */
 
   .project-item.desktop-active .mobile-slider {
-    position:absolute !important;
+    position: absolute !important;
 
-    top:20px !important;
-    left:30vw !important;
-    right:10vw !important;
+    top: 20px !important;
+    left: 30vw !important;   /* aligns with grid line 2 */
+    right: 10vw !important;  /* aligns with grid line 5 */
 
-  height: calc(100vh - 165px);
-  min-height: 450px;
-max-height: 750px;
-padding-bottom: 30px;
-    overflow-y:auto !important;
-    overflow-x:hidden !important;
+    width: auto !important;
 
-    padding-top:170px !important; /* image starts below the line */
-    /* padding-bottom:0 !important; */
-    box-sizing:border-box !important;
+    height: calc(100vh - 165px) !important;
+    min-height: 450px !important;
+    max-height: 750px !important;
 
-    z-index:5000 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    /* keep the image/gallery scroll area compact at its end */
+    padding-bottom: 30px !important;
+    box-sizing: border-box !important;
+
+    z-index: 5000 !important;
   }
 
   /* Visible thin scrollbar on the image frame */
@@ -1227,11 +1235,9 @@ padding-bottom: 30px;
 
   /* Active image: in normal flow, so it alone defines the scrollable height */
   .project-item.desktop-active .slider-image.active {
-    position:relative !important;
-    top:0 !important;   /* line daggara stop avutundi */
-    height:auto !important;
-    overflow:visible !important;
-    z-index:1 !important; 
+    position: relative !important;
+    height: auto !important;
+    overflow: visible !important;
   }
 /* =========================================================
    LAPTOP PROJECT DETAILS
@@ -1317,49 +1323,32 @@ right: 0;
      SLIDER ARROWS
      ======================================================= */
 
-  /* SLIDER ARROWS - image center */
+  .project-item.desktop-active .slide-btn {
+    display: flex !important;
 
-.project-item.desktop-active .slide-btn{
-    position:absolute !important;
+    position: absolute !important;
 
-    top:calc(250px + ((100vh - 40px - 170px) / 2)) !important;
-    transform:translateY(-50%) !important;
+    top: 50% !important;
 
-    width:50px !important;
-    height:50px !important;
-    border-radius:50% !important;
-    border:none !important;
+    transform: translateY(-50%) !important;
 
-    display:flex !important;
-    align-items:center;
-    justify-content:center;
+    width: 42px !important;
+    height: 42px !important;
 
-    /* iPhone glass effect */
-    background:rgba(255,255,255,0.18) !important;
-    backdrop-filter:blur(12px);
-    -webkit-backdrop-filter:blur(12px);
+    visibility: visible !important;
+    opacity: 1 !important;
 
-    color:#fff !important;
-    font-size:22px !important;
+    z-index: 99999 !important;
+  }
 
-    box-shadow:0 4px 12px rgba(0,0,0,0.18);
+  .project-item.desktop-active .prev-btn {
+    left: 20px !important;
+  }
 
-    transition:all .25s ease;
-    z-index:99999 !important;
-}
+  .project-item.desktop-active .next-btn {
+    right: 20px !important;
+  }
 
-.project-item.desktop-active .slide-btn:hover{
-    background:rgba(255,255,255,0.28) !important;
-    transform:translateY(-50%) scale(1.05);
-}
-
-.project-item.desktop-active .prev-btn{
-    left:16px !important;
-}
-
-.project-item.desktop-active .next-btn{
-    right:16px !important;
-}
 
   /* Keep the existing laptop icon sizing/colors; only the bar position is now normal flow. */
   .project-item.desktop-active .project-socials a {
@@ -1589,6 +1578,7 @@ right: 0;
 
 
 }
+
 
 /* =========================================================
    MOBILE VIEW (<= 890px)
@@ -1903,14 +1893,14 @@ right: 0;
   position: absolute;
 
   /* Move the baseline DOWN */
-  top: 156.6px;
+  top: 155px;
 
   /* Continue through the gap between cards */
   left: -20px;
   width: calc(100% + 40px);
 
-  height: 0.4px;
-  background: rgb(120, 120, 120);
+  height: 0.09px;
+  background: rgb(112, 112, 112);
 
   /* BEHIND the project images */
   z-index: 0;
@@ -1931,18 +1921,6 @@ right: 0;
 @media (min-width: 1601px) {
   .project-item:not(.desktop-active) .img-box::after {
     top: 174.5px;
-  }
-
-  .projects {
-    --card-gap: clamp(20px, 2.2vw, 40px);
-    gap: var(--card-gap) !important;
-    padding: 20px clamp(40px, 5vw, 120px) 20px !important;
-    overflow-x: hidden !important;
-  }
-
-  .project-item:not(.desktop-active) {
-    flex: 0 0 clamp(200px, calc((100% - 4 * var(--card-gap)) / 5), 340px) !important;
-    width: clamp(200px, calc((100% - 4 * var(--card-gap)) / 5), 340px) !important;
   }
 }
 
@@ -2057,7 +2035,6 @@ body.project-open .projects {
   }
 
 } */
-
 /* FULL WIDTH PROJECT FOOTER */
 .project-socials {
     width: 100vw !important;
@@ -2090,22 +2067,20 @@ body.project-open .projects {
     z-index: 9999 !important;
     box-sizing: border-box !important;
 }
-/* TEST: allow opened project to become full-page scroll content
+/* TEST: allow opened project to become full-page scroll content */
 .project-item.desktop-active {
     position: absolute !important;
     height: auto !important;
     min-height: 100vh !important;
-    overflow: hidden !important;
-} */
+    overflow: visible !important;
+}
 /* Hide the global social bar when a project is open */
 body.project-open > .project-socials {
     display: none !important;
 }
-
 body.inside-page > .project-socials {
     display: none !important;
 }
-
 /* PROJECT FOOTER — NORMAL FLOW */
 .project-item.desktop-active > .project-socials {
     position: static !important;
@@ -2122,7 +2097,6 @@ body.inside-page > .project-socials {
     z-index: auto !important;
     box-sizing: border-box !important;
 }
-
 /* PROJECT FOOTER — PLACE AFTER MAIN PROJECT AREA */
 .project-item.desktop-active > .project-socials {
     position: static !important;
@@ -2141,13 +2115,11 @@ body.inside-page > .project-socials {
     z-index: auto !important;
     box-sizing: border-box !important;
 }
-
-/* REMOVE INTERNAL PROJECT SCROLL
+/* REMOVE INTERNAL PROJECT SCROLL */
 .project-item.desktop-active > .mobile-slider {
     overflow-y: visible !important;
     overflow-x: visible !important;
-} */
-
+}
 /* SIMILAR PROJECTS — FULL BROWSER WIDTH */
 .project-item.desktop-active > .similar-projects {
     width: 100vw !important;
@@ -2156,7 +2128,6 @@ body.inside-page > .project-socials {
 
     box-sizing: border-box !important;
 }
-
 /* SIMILAR PROJECTS — FULL WIDTH NORMAL FLOW */
 .project-item.desktop-active > .similar-projects {
     position: static !important;
@@ -2173,7 +2144,6 @@ body.inside-page > .project-socials {
     transform: none !important;
     box-sizing: border-box !important;
 }
-
 /* SIMILAR PROJECTS — FULL BROWSER WIDTH */
 .project-item.desktop-active > .similar-projects {
     width: 100vw !important;
@@ -2181,12 +2151,10 @@ body.inside-page > .project-socials {
     margin-right: 0 !important;
     box-sizing: border-box !important;
 }
-
 /* Hide Similar Projects on the main projects page */
 .projects > .project-item:not(.desktop-active) .similar-projects {
     display: none !important;
 }
-
 /* SIMILAR PROJECTS — ABOVE FOOTER */
 .project-item.desktop-active > .similar-projects {
     position: absolute !important;
@@ -2199,31 +2167,76 @@ body.inside-page > .project-socials {
     margin: 0 !important;
     box-sizing: border-box !important;
 }
-
 /* Hide grid lines only on the opened Farmhouse Panjarla project */
 .project-item.line-up-3.desktop-active .grid-line {
     display: none !important;
 }
-
 /* Hide inactive project grid lines when viewing a project */
 body.project-open .projects > .project-item:not(.desktop-active) .grid-line {
     display: none !important;
 }
-
 /* LET THE WHOLE PAGE HANDLE THE SCROLL */
 body.project-open .projects {
     overflow-y: visible !important;
     overflow-x: hidden !important;
 }
-/* KEEP NAVBAR FIXED ON ALL PAGES
+/* KEEP NAVBAR FIXED ON ALL PAGES */
 .navbar {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     width: 100% !important;
     z-index: 10000 !important;
-} */
+}
+/* REMOVE SPACE BELOW PROJECT FOOTER */
+body.project-open .project-item.desktop-active {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+/* HIDE EXTRA STANDALONE SOCIAL BAR */
+body > .project-socials {
+    display: none !important;
+}
+/* FINAL PROJECT POSITIONING */
+@media (min-width: 891px) {
 
+  .project-item:not(.desktop-active) .img-box {
+    transform: translateY(95px) !important;
+  }
+
+  .project-item:not(.desktop-active) .project-title {
+    position: relative !important;
+    top: -25px !important;
+    bottom: auto !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+
+}
+/* REMOVE HOME PAGE HORIZONTAL SCROLL */
+@media (min-width: 891px) {
+  body:not(.project-open) {
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+  }
+
+  body:not(.project-open) .projects {
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+  }
+}
+/* iPad connector-line positioning */
+@media (min-width: 768px) and (max-width: 1100px) and (orientation: portrait) {
+  .project-item:not(.desktop-active) .img-box::after {
+    top: 132.5px !important;
+  }
+}
+
+@media (min-width: 1101px) and (max-width: 1400px) and (orientation: landscape) {
+  .project-item:not(.desktop-active) .img-box::after {
+    top: 148px !important;
+  }
+}
 
 </style>
 </head>
@@ -2355,12 +2368,7 @@ body.project-open .projects {
       </section>
 
       <!-- ================= SLIM SOCIAL BAR ================= -->
-      <div class="project-socials">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fas fa-envelope"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fas fa-briefcase"></i></a>
-      </div>
+      
 </div>
 
 </div>
@@ -2410,16 +2418,16 @@ body.project-open .projects {
 
       <button class="slide-btn prev-btn">&#10094;</button>
 
-      <img src="./Panjarla Farmhouse/1.jpeg"
+      <img src="./images/o1.jpg"
            class="slider-image active">
 
-      <img src="./Panjarla Farmhouse/2.jpeg"
+      <img src="./images/o2.jpeg"
            class="slider-image">
 
-      <img src="./Panjarla Farmhouse/3.jpeg"
+      <img src="./images/o3.jpeg"
            class="slider-image">
 
-      <img src="./Panjarla Farmhouse/4.jpeg"
+      <img src="./images/o4.jpeg"
            class="slider-image">
 
 
@@ -2681,22 +2689,23 @@ body.project-open .projects {
 
       <button class="slide-btn prev-btn">&#10094;</button>
 
-      <img src="./ncc yard/AAA09578-HDR-1.jpg"
+      <img src="./images/o1.jpg"
            class="slider-image active">
 
-      <img src="./ncc yard/AAA09648-HDR-20.jpg"
+      <img src="./images/o2.jpeg"
            class="slider-image">
 
-      <img src="./ncc yard/AAA09651-HDR-21.jpg"
+      <img src="./images/o3.jpeg"
            class="slider-image">
 
-      <img src="./ncc yard/AAA09717-HDR-35-5.jpg"
+      <img src="./images/o4.jpeg"
            class="slider-image">
 
 
       <button class="slide-btn next-btn">&#10095;</button>
 
-      <!-- ================= SIMILAR PROJECTS ================= -->
+</div>
+          <!-- ================= SIMILAR PROJECTS ================= -->
       <section class="similar-projects">
         <h2>Similar Projects</h2>
         <div class="similar-project-grid">
@@ -2714,7 +2723,6 @@ body.project-open .projects {
           </a>
         </div>
       </section>
-
       <!-- ================= SLIM SOCIAL BAR ================= -->
       <div class="project-socials">
         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -2722,20 +2730,15 @@ body.project-open .projects {
         <a href="#"><i class="fab fa-instagram"></i></a>
         <a href="#"><i class="fas fa-briefcase"></i></a>
       </div>
-</div>
-
   </div>
 
 <div  class="project-item line-up-4">
     <div class="img-box">
-
       <img src="./images/sketch door - Copy.jpeg" class="sketch-img">
       <img src="./images/color door - Copy.jpeg" class="color-img">
-      <img src="./images/sketch door copy.jpeg" class="sketch-img">
-      <img src="./images/color door copy.jpeg" class="color-img">
       <div class="grid-line"></div>
     </div>
-    <div class="project-title">Sanjay Residency, Hyderabad</div>
+    <div class="project-title">Sako Office, Hyderabad</div>
 
  <!-- MOBILE DETAILS -->
 
@@ -2820,11 +2823,8 @@ body.project-open .projects {
 
     <div class="project-item line-down-1">
   <div class="img-box">
-    <img src="./images/Sketch house - Copy.jpeg" class="sketch-img">
-        <img src="./images/color house- copy.jpeg" class="color-img">
-
-    <img src="./images/sketch house copy.jpeg" class="sketch-img">
-        <img src="./images/color house copy.jpeg" class="color-img">
+    <img src="./images/sketch house - Copy.jpeg" class="sketch-img">
+        <img src="./images/color house - Copy.jpeg" class="color-img">
         <div class="grid-line"></div>
       </div>   
 
@@ -3151,37 +3151,21 @@ body.project-open .projects {
 
       <button class="slide-btn next-btn">&#10095;</button>
 
-      <!-- ================= SIMILAR PROJECTS ================= -->
-      <section class="similar-projects">
-        <h2>Similar Projects</h2>
-        <div class="similar-project-grid">
-          <a href="#" class="similar-project-card">
-            <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
-            <div class="similar-name">Sako Office, Hyderabad</div>
-          </a>
-          <a href="#" class="similar-project-card">
-            <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
-            <div class="similar-name">Villa Maheshwaram, India</div>
-          </a>
-          <a href="#" class="similar-project-card">
-            <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
-            <div class="similar-name">Lakeview Farmhouse, India</div>
-          </a>
-        </div>
-      </section>
-
-      <!-- ================= SLIM SOCIAL BAR ================= -->
-      <div class="project-socials">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fas fa-envelope"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fas fa-briefcase"></i></a>
-      </div>
+     
 </div>
 
   </div>
 
+
 </section>
+
+<!-- ================= SLIM SOCIAL BAR ================= -->
+<div class="project-socials">
+  <a href="#"><i class="fab fa-facebook-f"></i></a>
+  <a href="#"><i class="fas fa-envelope"></i></a>
+  <a href="#"><i class="fab fa-instagram"></i></a>
+  <a href="#"><i class="fas fa-briefcase"></i></a>
+</div>
 
 <script>
 const hamburger = document.getElementById("hamburger");
