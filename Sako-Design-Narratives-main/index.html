@@ -1,3570 +1,4271 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="UTF-8">
-  <title>Sako Design Narratives</title>
-  <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Sako Design Narratives</title>
+    <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
-  <style>
+    <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
-body {
-  margin: 0;
-    font-family: 'Outfit', sans-serif;
-  background: #ffffff;
-
-  overflow-x: hidden;
-  overflow-y: auto;
-
-  height: 100vh;
-}
-
-.project-info .architects {
-  white-space: nowrap;
-}
-
-    .navbar {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  box-sizing: border-box;
-   position:relative;
-  z-index:2000;
-  background: #ffffff;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  flex-shrink: 0;
-  color: inherit;
-}
-.logo-text-img{
-  height:66px;
-  width:auto;
-  display:block;
-}
-.menu {
-  display: flex;
-  align-items: center;
-  gap: 35px;
-  
-}
-
-.menu a {
-  text-decoration: none;
-  color: #000;
-  font-size: 14px;
-  white-space: nowrap;
-   font-family: 'Outfit', sans-serif;
-    font-weight: 400;
-}
-
-    .logo-img {
-  width: 60px;
-  height: auto;
-  margin-right: 12px;
-  mix-blend-mode: multiply;
-}
-
-.logo-text h2 {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.logo-text p {
-  margin-top: 2px;
-  font-size: 11px;
-  color: #666;
-}
-
-    .menu a:hover {
-      color: black;
-    }
-.menu a:hover {
-  text-decoration: underline;
-}
-.menu a:hover::after {
-  width: 100%;
-}
-.projects{
-  position: relative;
-  padding: 20px 120px 20px;
-  gap:40px;
-  display: flex;
-  justify-content:flex-start;
-  align-items: center;
-  min-height: calc(100vh - 120px);
-   overflow-x: hidden;
-  scrollbar-width: none;
-  overflow-y: visible;
-  background: #ffffff;
-}
-
-.projects::-webkit-scrollbar{
-  display:none;
-}
-
-
-.project-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width:340px;
-  flex-shrink: 0;
-  text-decoration: none;
-  color: inherit;
-  overflow:visible;
-  position: relative;
-  z-index: 2;
-}
-
-.project-item::after{
-  content: "";
-  position: absolute;
-  z-index: 10;
-  box-sizing: border-box;
-}
-
-.project-socials {
-    width: 100%;
-    height: 40px;
+  body {
     margin: 0;
-    padding: 0;
+      font-family: 'Outfit', sans-serif;
+    background: #ffffff;
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    height: 100vh;
+  }
+
+  .project-info .architects {
+    white-space: nowrap;
+  }
+
+      .navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
     box-sizing: border-box;
+    position:relative;
+    z-index:2000;
+    background: #ffffff;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+    color: inherit;
+  }
+  .logo-text-img{
+    height:66px;
+    width:auto;
+    display:block;
+  }
+  .menu {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    
+  }
+
+  .menu a {
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+    white-space: nowrap;
+    font-family: 'Outfit', sans-serif;
+      font-weight: 400;
+  }
+
+      .logo-img {
+    width: 60px;
+    height: auto;
+    margin-right: 12px;
+    mix-blend-mode: multiply;
+  }
+
+  .logo-text h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .logo-text p {
+    margin-top: 2px;
+    font-size: 11px;
+    color: #666;
+  }
+
+      .menu a:hover {
+        color: black;
+      }
+  .menu a:hover {
+    text-decoration: underline;
+  }
+  .menu a:hover::after {
+    width: 100%;
+  }
+  .projects{
+    position: relative;
+    padding: 20px 120px 20px;
+    gap:40px;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    min-height: calc(100vh - 120px);
+    overflow-x: hidden;
+    scrollbar-width: none;
+    overflow-y: visible;
+    background: #ffffff;
+  }
+
+  .projects::-webkit-scrollbar{
+    display:none;
+  }
+
+
+  .project-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:340px;
+    flex-shrink: 0;
+    text-decoration: none;
+    color: inherit;
+    overflow:visible;
+    position: relative;
+    z-index: 2;
+  }
+
+  .project-item::after{
+    content: "";
+    position: absolute;
+    z-index: 10;
+    box-sizing: border-box;
+  }
+
+  .project-socials {
+      width: 100%;
+      height: 40px;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      background: #000;
+      z-index: 20;
+  }
+
+  .project-socials a {
+      width: 30px;
+      height: 30px;
+      border: 1px solid #a56243;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #a56243;
+      text-decoration: none;
+      font-size: 18px;
+  }
+
+  .project-socials a:hover {
+      background: #a56243;
+      color: #fff;
+      transform: translateY(-4px);
+  }
+
+  .project-item:last-child::after{
+    display: none;
+  }
+
+  .project-item > .img-box img {
+    object-fit: contain;
+  }
+
+  .project-title {
+  font-family: 'Outfit', sans-serif;
+    font-size:16px;
+    font-weight:300;
+
+    position: relative;
+    bottom:165px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:100%;
+    text-align:center;
+    z-index:3;
+    margin-top:120px;
+  }
+
+  .project-item .project-title{
+    font-weight:400;
+  }
+
+  .project-item .img-box {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 170px;
+  }
+
+  .img-box{
+    width: 100%;
+    height: 400px;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    background: #000;
-    z-index: 20;
-}
+    overflow: visible;
+  }
 
-.project-socials a {
-    width: 30px;
-    height: 30px;
-    border: 1px solid #a56243;
+  .img-box img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 500px !important;
+    height: 500px !important;
+
+    object-fit: contain;
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
+
+    transition: opacity 0.4s ease;
+  }
+
+  .sketch-img[src*="2.1.png"], .color-img[src*="2.1111.png"] {
+    transform: translate(-50%, calc(-50% + 11px));
+  }
+  .sketch-img[src*="3.1.png"], .color-img[src*="3 (1).png"] {
+    transform: translate(-50%, calc(-50% + 5px));
+  }
+  .sketch-img[src*="4.1.png"], .color-img[src*="4 (1).png"] {
+    transform: translate(-50%, calc(-50% + 3px));
+  }
+
+  /* Per-image vertical nudge, so each house's own ground line lines up with
+    the shared baseline (the source PNGs have different internal spacing,
+    so this can't be fixed by moving the single shared line - only these
+    individual images need it, whichever ones look off).
+    Positive px = moves that house DOWN. Negative px = moves it UP.
+    Edit only the ones that don't match; leave others at 0px. */
+  .sketch-img[src*="2.1.png"], .color-img[src*="2.1111.png"] {
+    transform: translate(-50%, calc(-50% + 0px));
+  }
+  .sketch-img[src*="3.1.png"], .color-img[src*="3 (1).png"] {
+    transform: translate(-50%, calc(-50% + 0px));
+  }
+  .sketch-img[src*="4.1.png"], .color-img[src*="4 (1).png"] {
+    transform: translate(-50%, calc(-50% + 0px));
+  }
+
+  /* ================= GRID LINE (standalone element, not tied to img-box) ================= */
+
+  .grid-line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -600px;
+    bottom: -600px;
+    width: 1px;
+    background: repeating-linear-gradient(
+      to bottom,
+      #555 0px,
+      #555 6px,
+      transparent 6px,
+      transparent 12px
+    );
+    z-index: 10;
+    display: block;
+    pointer-events: none;
+  }
+
+  /* Sketch always visible by default */
+  .sketch-img {
+    opacity: 1;
+    z-index: 1;
+    display:block;
+    width: 500px;
+    height: 500px;
+    filter:
+      blur(0px)
+      brightness(1)
+      grayscale(0%);
+  }
+
+  /* Color render hidden by default */
+  .color-img {
+    opacity: 0;
+    z-index: 2;
+    width: 500px !important;
+    height: 500px;
+    transform:translate(-50%, -50%) scale(1);
+    transform-origin:center center;
+  }
+
+  .project-item:not(.desktop-active):hover .sketch-img {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .project-item:not(.desktop-active):hover .color-img {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .project-title {
+    font-size: 14px;
+    margin-top: 185px;
+    position: relative;
+    z-index: 3;
+    font-weight: 600;
+  }
+
+  .arrow{
+    position:fixed;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:100;
+    background:white;
+    border:none;
+    font-size:30px;
+    cursor:pointer;
+    transition:all 0.3s ease;
+  }
+
+  .arrow:hover{
+    transform: translateY(-50%) scale(1.15);
+    background: grey;
+    box-shadow : 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .left:hover{
+    transform: translateY(-50%) translateX(-4px);
+    scale:(1.15);
+  }
+
+  .hamburger{
+      display:none;
+      font-size:42px;
+      font-weight:400;
+      line-height:1;
+      cursor:pointer;
+      color:#000;
+      z-index:2001;
+      background:none;
+      border:none;
+      padding:0;
+  }
+
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    z-index: 999;
+  }
+
+  .side-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100%;
+    background: white;
+    padding: 80px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    transition: 0.4s ease;
+    z-index: 1000;
+    overflow: hidden;
+  }
+
+  .side-menu a {
+    text-decoration: none;
+    color: black;
+    font-size: 22px;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  .side-menu.active {
+    right: 0;
+  }
+
+  .menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* ================= DESKTOP ACTIVE LAYOUT ================= */
+
+  .project-item.desktop-active{
+
+    position: fixed;
+
+    top: 95px;
+    left: 0;
+
+    width: 100vw;
+    height: calc(100vh - 95px);
+
+    background: #ffffff;
+
+    z-index: 999;
+
+    overflow-y: hidden;
+    overflow-x: hidden;
+
+    display: block;
+    animation: smoothOpen 0.8s ease;
+      backdrop-filter: blur(2px);
+  }
+
+  @keyframes smoothOpen {
+
+    0%{
+      opacity:1;
+      transform:translateY(40px) scale(0.985);
+      filter:blur(8px);
+    }
+
+    100%{
+      opacity:1;
+      transform:translateY(0) scale(1);
+      filter:blur(0);
+    }
+  }
+
+  .project-item.desktop-active ~ .project-item{
+    display:none;
+  }
+
+  .project-item.desktop-active .img-box{
+
+    position:relative;
+
+    top:20px;
+    left:25px;
+
+    width:220px;
+    height:220px;
+
+    z-index:5;
+    overflow: visible;
+    animation: imageFloat 3s ease forwards;
+  }
+
+  .project-item.desktop-active .sketch-img,
+  .project-item.desktop-active .color-img{
+    width:220px !important;
+    height:220px !important;
+  }
+
+  @keyframes imageFloat{
+
+    0%{
+      opacity:0;
+      transform:translateX(-120px) scale(0.92);
+    }
+
+    100%{
+      opacity:1;
+      transform:translateX(0) scale(1);
+    }
+  }
+
+  .project-item.desktop-active::before{
+    content: "";
+    position: absolute;
+
+    top: 220px;
+    left: 130px;
+
+    width: 700px;
+
+    border-top: 1px solid #999;
+
+    z-index: 1;
+  }
+
+  .project-item.desktop-active .img-box{
+    overflow: visible;
+  }
+
+  .project-item.desktop-active .grid-line{
+
+    top:-1000px !important;
+
+    bottom:-1500px !important;
+
+    z-index:20;
+    
+  }
+
+  .project-item.desktop-active .sketch-img{
+    opacity:0;
+  }
+
+  .project-item.desktop-active .color-img{
+    opacity:1;
+    z-index: 3;
+  }
+
+  @keyframes imageReveal{
+
+    0%{
+      opacity:0;
+
+      transform:
+        translate(-50%, -50%)
+      scale(1.04);
+
+      filter:
+        blur(8px)
+        brightness(1.15);
+    }
+
+    100%{
+      opacity:1;
+
+      transform:
+        translate(-50%, -50%)
+        scale(1);
+
+      filter:
+        blur(0)
+        brightness(1);
+    }
+  }
+
+  .project-item.desktop-active .project-title{
+
+    position:absolute;
+
+    top: 260px;     
+    left: 25px; 
+    bottom:auto;
+    transform:none;
+
+    width:280px;
+
+    margin:0;
+
+  font-size:14px;
+
+    font-weight:400;
+
+    line-height:1.4;
+
+    text-align:left;
+
+    z-index:99999;
+    white-space: normal;
+    
+
+    color:#000;
+    animation-delay:10s;
+  animation-fill-mode:both;
+  }
+
+  .project-item.desktop-active .mobile-project-details{
+
+    display:block !important;
+
+    position:absolute;
+
+    top:350px;
+      right:1525px;
+      width:360px;
+
+    z-index:9999;
+
+    overflow:visible;
+    opacity:1;
+    transform:translateY(0);
+
+    animation:none;
+
+    transition:none !important;
+  }
+
+  .project-item.desktop-active.show-details .mobile-project-details{
+      animation:fadeContent 0.8s ease forwards;
+  }
+
+  @keyframes fadeContent{
+
+  0%{
+    opacity:0;
+    transform:translateY(8px);
+    filter:blur(1px);
+  }
+
+    100%{
+      opacity:1;
+      transform:translateY(0);
+      filter:blur(0);
+    }
+  }
+
+  .project-item.desktop-active .project-info{
+
+    width:550px;
+
+    margin:0;
+
+    font-size:15px;
+
+    line-height:1.9;
+
+    text-align:left;
+
+    color:#222;
+  }
+
+  .project-info p{
+    margin-bottom:16px;
+  }
+
+  .project-item.desktop-active .full-details-btn{
+
+    margin-top:30px;
+
+    padding:14px 24px;
+
+    font-size:15px;
+  }
+
+  .project-item.desktop-active .mobile-slider{
+
+    display:block;
+
+    position:absolute;
+
+    top:20px;
+
+    left:30vw;
+    right:10vw;
+
+    width:auto;
+
+    height:calc(100vh - 165px);
+    min-height:450px;
+    max-height:750px;
+
+    z-index:500;
+
+    overflow-y:auto;
+    overflow-x:hidden;
+
+    /* keep the image/gallery scroll area compact at its end */
+    padding-bottom:30px;
+    box-sizing:border-box;
+
+    will-change: transform, opacity;
+    animation-fill-mode:both;
+  }
+
+  .project-item.desktop-active .mobile-slider::-webkit-scrollbar{
+    width:7px;
+    display:block;
+  }
+
+  .project-item.desktop-active .mobile-slider::-webkit-scrollbar-track{
+    background:#f5f5f5;
+  }
+
+  .project-item.desktop-active .mobile-slider::-webkit-scrollbar-thumb{
+    background:#777;
+    border-radius:0;
+  }
+
+  .project-item.desktop-active .mobile-slider::-webkit-scrollbar-thumb:hover{
+    background:#555;
+  }
+
+  .project-item.desktop-active .mobile-slider{
+    scrollbar-width:thin;
+    scrollbar-color:#777 #f5f5f5;
+  }
+
+  @keyframes slideReveal{
+
+    0%{
+    opacity:0;
+    transform:translateX(40px);
+    filter:blur(6px);
+    }
+
+    100%{
+      opacity:1;
+
+      transform:
+        translateX(0)
+        scale(1);
+
+      filter:
+        blur(0)
+        brightness(1);
+    }
+  }
+
+  .project-item.desktop-active .mobile-slider{
+    isolation:isolate;
+  }
+
+  .project-item.desktop-active .slide-btn{
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    z-index:500;
+  }
+
+  .project-item.desktop-active .prev-btn{
+    left:40px;
+  }
+
+  .project-item.desktop-active .next-btn{
+    right:40px;
+  }
+
+  /* Inactive slide images: no height, so they never add blank scroll space */
+  .project-item.desktop-active .slider-image{
+    position:absolute;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:0;
+    overflow:hidden;
+
+    object-fit:unset;
+    object-position:center;
+  }
+
+  /* Active slide image: back in normal flow, so it alone defines the scrollable height */
+  .project-item.desktop-active .slider-image.active{
+    position:relative;
+    height:auto;
+    overflow:visible;
+  }
+
+  body.project-open::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:999;
+
+      background-image:
+        repeating-linear-gradient(
+          to bottom,
+          rgba(0,0,0,0.18) 0px,
+          #999 8px,
+          transparent 8px,
+          transparent 16px
+        ),
+        repeating-linear-gradient(
+          to bottom,
+          #999 0px,
+          #999 8px,
+          transparent 8px,
+          transparent 16px
+        ),
+        repeating-linear-gradient(
+          to bottom,
+          #999 0px,
+          #999 8px,
+          transparent 8px,
+          transparent 16px
+        ),
+        repeating-linear-gradient(
+          to bottom,
+          #999 0px,
+          #999 8px,
+          transparent 8px,
+          transparent 16px
+        ),
+        repeating-linear-gradient(
+          to bottom,
+          #999 0px,
+          #999 8px,
+          transparent 8px,
+          transparent 16px
+        );
+
+      background-repeat:no-repeat;
+
+      background-size:
+        1px 100%,
+        1px 100%,
+        1px 100%,
+        1px 100%;
+
+      background-position:
+        10% 0,
+        30% 0,
+        50% 0,
+        70% 0,
+        90% 0;
+  }
+
+  .project-item.desktop-active::after{
+
+    content:"";
+
+    position:absolute;
+
+      top:220px;
+
+    left:120px;
+
+    width:calc(100% - 120px);
+
+    height:1px;
+
+    background:#999;
+
+    z-index:1;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+  .project-item.active .sketch-img {
+    opacity: 0;
+  }
+
+  .project-item.active .color-img {
+    opacity: 1;
+    visibility: visible;
+  }
+  }
+
+  .arrow{
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index:500;
+    background: rgba(255,255,255,0.9);
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+    width:42px;
+    height:42px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #a56243;
-    text-decoration: none;
-    font-size: 18px;
-}
+  }
 
-.project-socials a:hover {
-    background: #a56243;
-    color: #fff;
-    transform: translateY(-4px);
-}
+  .left{
+    left: 7px;
+  }
 
-.project-item:last-child::after{
-  display: none;
-}
+  .right{
+    right: 7px;
+  }
 
-.project-item > .img-box img {
-  object-fit: contain;
-}
+  .menu-overlay{
+    z-index: 999;
+  }
 
-.project-title {
- font-family: 'Outfit', sans-serif;
-  font-size:16px;
-  font-weight:300;
+  .side-menu{
+    z-index: 1000;
+  }
 
-  position: relative;
-  bottom:165px;
-  left:50%;
-
-  transform:translateX(-50%);
-
-  width:100%;
-  text-align:center;
-  z-index:3;
-  margin-top:120px;
-}
-
-.project-item .project-title{
-   font-weight:400;
-}
-
-.project-item .img-box {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 170px;
-}
-
-.img-box{
-  width: 100%;
-  height: 400px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: visible;
-}
-
-.img-box img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-
-  width: 500px !important;
-  height: 500px !important;
-
-  object-fit: contain;
-  transform: translate(-50%, -50%);
-  transform-origin: center center;
-
-  transition: opacity 0.4s ease;
-}
-
-.sketch-img[src*="2.1.png"], .color-img[src*="2.1111.png"] {
-  transform: translate(-50%, calc(-50% + 11px));
-}
-.sketch-img[src*="3.1.png"], .color-img[src*="3 (1).png"] {
-  transform: translate(-50%, calc(-50% + 5px));
-}
-.sketch-img[src*="4.1.png"], .color-img[src*="4 (1).png"] {
-  transform: translate(-50%, calc(-50% + 3px));
-}
-
-/* Per-image vertical nudge, so each house's own ground line lines up with
-   the shared baseline (the source PNGs have different internal spacing,
-   so this can't be fixed by moving the single shared line - only these
-   individual images need it, whichever ones look off).
-   Positive px = moves that house DOWN. Negative px = moves it UP.
-   Edit only the ones that don't match; leave others at 0px. */
-.sketch-img[src*="2.1.png"], .color-img[src*="2.1111.png"] {
-  transform: translate(-50%, calc(-50% + 0px));
-}
-.sketch-img[src*="3.1.png"], .color-img[src*="3 (1).png"] {
-  transform: translate(-50%, calc(-50% + 0px));
-}
-.sketch-img[src*="4.1.png"], .color-img[src*="4 (1).png"] {
-  transform: translate(-50%, calc(-50% + 0px));
-}
-
-/* ================= GRID LINE (standalone element, not tied to img-box) ================= */
-
-.grid-line {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: -600px;
-  bottom: -600px;
-  width: 1px;
-  background: repeating-linear-gradient(
-    to bottom,
-    #555 0px,
-    #555 6px,
-    transparent 6px,
-    transparent 12px
-  );
-  z-index: 10;
-  display: block;
-  pointer-events: none;
-}
-
-/* Sketch always visible by default */
-.sketch-img {
-  opacity: 1;
-  z-index: 1;
-  display:block;
-   width: 500px;
-  height: 500px;
-  filter:
-    blur(0px)
-    brightness(1)
-    grayscale(0%);
-}
-
-/* Color render hidden by default */
-.color-img {
-  opacity: 0;
-  z-index: 2;
-  width: 500px !important;
-  height: 500px;
-   transform:translate(-50%, -50%) scale(1);
-   transform-origin:center center;
-}
-
-.project-item:not(.desktop-active):hover .sketch-img {
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.project-item:not(.desktop-active):hover .color-img {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.project-title {
-  font-size: 14px;
-  margin-top: 185px;
-  position: relative;
-  z-index: 3;
-  font-weight: 600;
-}
-
-.arrow{
-  position:fixed;
-  top:50%;
-  transform:translateY(-50%);
-  z-index:100;
-  background:white;
-  border:none;
-  font-size:30px;
-  cursor:pointer;
-  transition:all 0.3s ease;
-}
-
-.arrow:hover{
-  transform: translateY(-50%) scale(1.15);
-  background: grey;
-  box-shadow : 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.left:hover{
-  transform: translateY(-50%) translateX(-4px);
-  scale:(1.15);
-}
-
-.hamburger{
+  .side-menu.active ~ .arrow{
     display:none;
-    font-size:42px;
-    font-weight:400;
-    line-height:1;
-    cursor:pointer;
-    color:#000;
-    z-index:2001;
-    background:none;
-    border:none;
-    padding:0;
-}
-
-.menu-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.45);
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.3s;
-  z-index: 999;
-}
-
-.side-menu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 80%;
-  height: 100%;
-  background: white;
-  padding: 80px 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 45px;
-  transition: 0.4s ease;
-  z-index: 1000;
-  overflow: hidden;
-}
-
-.side-menu a {
-  text-decoration: none;
-  color: black;
-  font-size: 22px;
-}
-
-.close-btn {
-  position: absolute;
-  top: 25px;
-  right: 25px;
-  font-size: 30px;
-  cursor: pointer;
-}
-
-.side-menu.active {
-  right: 0;
-}
-
-.menu-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* ================= DESKTOP ACTIVE LAYOUT ================= */
-
-.project-item.desktop-active{
-
-  position: fixed;
-
-  top: 95px;
-  left: 0;
-
-  width: 100vw;
-  height: calc(100vh - 95px);
-
-  background: #ffffff;
-
-  z-index: 999;
-
-  overflow-y: hidden;
-  overflow-x: hidden;
-
-  display: block;
-  animation: smoothOpen 0.8s ease;
-    backdrop-filter: blur(2px);
-}
-
-@keyframes smoothOpen {
-
-  0%{
-    opacity:1;
-    transform:translateY(40px) scale(0.985);
-    filter:blur(8px);
   }
 
-  100%{
-    opacity:1;
-    transform:translateY(0) scale(1);
-    filter:blur(0);
-  }
-}
-
-.project-item.desktop-active ~ .project-item{
-  display:none;
-}
-
-.project-item.desktop-active .img-box{
-
-  position:relative;
-
-  top:20px;
-  left:25px;
-
-  width:220px;
-  height:220px;
-
-   z-index:5;
-   overflow: visible;
-   animation: imageFloat 3s ease forwards;
-}
-
-.project-item.desktop-active .sketch-img,
-.project-item.desktop-active .color-img{
-  width:220px !important;
-  height:220px !important;
-}
-
-@keyframes imageFloat{
-
-  0%{
-    opacity:0;
-    transform:translateX(-120px) scale(0.92);
+  /* Keep the next/prev arrows visible & clickable on top of the open project detail */
+  body.project-open .arrow{
+    display:flex !important;
+    z-index: 1000000 !important;
   }
 
-  100%{
-    opacity:1;
-    transform:translateX(0) scale(1);
-  }
-}
-
-.project-item.desktop-active::before{
-  content: "";
-  position: absolute;
-
-  top: 220px;
-  left: 130px;
-
-  width: 700px;
-
-  border-top: 1px solid #999;
-
-  z-index: 1;
-}
-
-.project-item.desktop-active .img-box{
-  overflow: visible;
-}
-
-.project-item.desktop-active .grid-line{
-
-  top:-1000px !important;
-
-  bottom:-1500px !important;
-
-  z-index:20;
-  
-}
-
-.project-item.desktop-active .sketch-img{
-  opacity:0;
-}
-
-.project-item.desktop-active .color-img{
-  opacity:1;
-  z-index: 3;
-}
-
-@keyframes imageReveal{
-
-  0%{
-    opacity:0;
-
-    transform:
-      translate(-50%, -50%)
-     scale(1.04);
-
-    filter:
-      blur(8px)
-      brightness(1.15);
-  }
-
-  100%{
-    opacity:1;
-
-    transform:
-      translate(-50%, -50%)
-      scale(1);
-
-    filter:
-      blur(0)
-      brightness(1);
-  }
-}
-
-.project-item.desktop-active .project-title{
-
-  position:absolute;
-
-  top: 260px;     
-  left: 25px; 
-  bottom:auto;
-  transform:none;
-
-  width:280px;
-
-  margin:0;
-
-font-size:14px;
-
-  font-weight:400;
-
-  line-height:1.4;
-
-  text-align:left;
-
-  z-index:99999;
-  white-space: normal;
-  
-
-  color:#000;
-   animation-delay:10s;
-animation-fill-mode:both;
-}
-
-.project-item.desktop-active .mobile-project-details{
-
-  display:block !important;
-
-  position:absolute;
-
-  top:350px;
-    right:1525px;
-    width:360px;
-
-  z-index:9999;
-
-  overflow:visible;
-  opacity:1;
-  transform:translateY(0);
-
-  animation:none;
-
-  transition:none !important;
-}
-
-.project-item.desktop-active.show-details .mobile-project-details{
-    animation:fadeContent 0.8s ease forwards;
-}
-
-@keyframes fadeContent{
-
- 0%{
-  opacity:0;
-  transform:translateY(8px);
-  filter:blur(1px);
-}
-
-  100%{
-    opacity:1;
-    transform:translateY(0);
-    filter:blur(0);
-  }
-}
-
-.project-item.desktop-active .project-info{
-
-  width:550px;
-
-  margin:0;
-
-  font-size:15px;
-
-  line-height:1.9;
-
-  text-align:left;
-
-  color:#222;
-}
-
-.project-info p{
-  margin-bottom:16px;
-}
-
-.project-item.desktop-active .full-details-btn{
-
-  margin-top:30px;
-
-  padding:14px 24px;
-
-  font-size:15px;
-}
-
-.project-item.desktop-active .mobile-slider{
-
-  display:block;
-
-  position:absolute;
-
-  top:20px;
-
-  left:30vw;
-  right:10vw;
-
-  width:auto;
-
-  height:calc(100vh - 165px);
-  min-height:450px;
-  max-height:750px;
-
-  z-index:500;
-
-  overflow-y:auto;
-  overflow-x:hidden;
-
-  /* keep the image/gallery scroll area compact at its end */
-  padding-bottom:30px;
-  box-sizing:border-box;
-
-  will-change: transform, opacity;
-  animation-fill-mode:both;
-}
-
-.project-item.desktop-active .mobile-slider::-webkit-scrollbar{
-  width:7px;
-  display:block;
-}
-
-.project-item.desktop-active .mobile-slider::-webkit-scrollbar-track{
-  background:#f5f5f5;
-}
-
-.project-item.desktop-active .mobile-slider::-webkit-scrollbar-thumb{
-  background:#777;
-  border-radius:0;
-}
-
-.project-item.desktop-active .mobile-slider::-webkit-scrollbar-thumb:hover{
-  background:#555;
-}
-
-.project-item.desktop-active .mobile-slider{
-  scrollbar-width:thin;
-  scrollbar-color:#777 #f5f5f5;
-}
-
-@keyframes slideReveal{
-
-  0%{
-  opacity:0;
-  transform:translateX(40px);
-  filter:blur(6px);
-  }
-
-  100%{
-    opacity:1;
-
-    transform:
-      translateX(0)
-      scale(1);
-
-    filter:
-      blur(0)
-      brightness(1);
-  }
-}
-
-.project-item.desktop-active .mobile-slider{
-  isolation:isolate;
-}
-
-.project-item.desktop-active .slide-btn{
-
-  position:absolute;
-
-  top:50%;
-
-  transform:translateY(-50%);
-
-  z-index:500;
-}
-
-.project-item.desktop-active .prev-btn{
-  left:40px;
-}
-
-.project-item.desktop-active .next-btn{
-  right:40px;
-}
-
-/* Inactive slide images: no height, so they never add blank scroll space */
-.project-item.desktop-active .slider-image{
-  position:absolute;
-  top:0;
-  left:0;
-
-  width:100%;
-  height:0;
-  overflow:hidden;
-
-  object-fit:unset;
-  object-position:center;
-}
-
-/* Active slide image: back in normal flow, so it alone defines the scrollable height */
-.project-item.desktop-active .slider-image.active{
-  position:relative;
-  height:auto;
-  overflow:visible;
-}
-
-body.project-open::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:999;
-
-    background-image:
-      repeating-linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.18) 0px,
-        #999 8px,
-        transparent 8px,
-        transparent 16px
-      ),
-      repeating-linear-gradient(
-        to bottom,
-        #999 0px,
-        #999 8px,
-        transparent 8px,
-        transparent 16px
-      ),
-      repeating-linear-gradient(
-        to bottom,
-        #999 0px,
-        #999 8px,
-        transparent 8px,
-        transparent 16px
-      ),
-      repeating-linear-gradient(
-        to bottom,
-        #999 0px,
-        #999 8px,
-        transparent 8px,
-        transparent 16px
-      ),
-      repeating-linear-gradient(
-        to bottom,
-        #999 0px,
-        #999 8px,
-        transparent 8px,
-        transparent 16px
-      );
-
-    background-repeat:no-repeat;
-
-    background-size:
-      1px 100%,
-      1px 100%,
-      1px 100%,
-      1px 100%;
-
-    background-position:
-      10% 0,
-      30% 0,
-      50% 0,
-      70% 0,
-      90% 0;
-}
-
-.project-item.desktop-active::after{
-
-  content:"";
-
-  position:absolute;
-
-    top:220px;
-
-  left:120px;
-
-  width:calc(100% - 120px);
-
-  height:1px;
-
-  background:#999;
-
-  z-index:1;
-}
-
-@media (hover: none) and (pointer: coarse) {
-.project-item.active .sketch-img {
-  opacity: 0;
-}
-
-.project-item.active .color-img {
-  opacity: 1;
-  visibility: visible;
-}
-}
-
-.arrow{
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index:500;
-  background: rgba(255,255,255,0.9);
-  border: none;
-  font-size: 26px;
-  cursor: pointer;
-  width:42px;
-  height:42px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.left{
-  left: 7px;
-}
-
-.right{
-  right: 7px;
-}
-
-.menu-overlay{
-  z-index: 999;
-}
-
-.side-menu{
-  z-index: 1000;
-}
-
-.side-menu.active ~ .arrow{
-  display:none;
-}
-
-/* Keep the next/prev arrows visible & clickable on top of the open project detail */
-body.project-open .arrow{
-  display:flex !important;
-  z-index: 1000000 !important;
-}
-
-/* ================= MOBILE PROJECT DETAILS ================= */
-
-.mobile-project-details{
-  display:none;
-  width:100%;
-  margin-top:20px;
-  animation:fadeUp 0.4s ease;
-  padding-bottom:40px;
-
-  max-height:75vh;
-  overflow-y:auto;
-  overflow-x:hidden;
-
-  -webkit-overflow-scrolling:touch;
-}
-
-.project-item.active .mobile-project-details{
-  display:block;
-}
-
-.project-item.active .sketch-img{
-  opacity:0;
-}
-
-.project-item.active .color-img{
-  opacity:1;
-}
-
-.project-info{
-  width:88%;
-  margin:auto;
-   font-family: 'Outfit', sans-serif;
-  font-size:15px;
-  line-height:1.8;
-  font-weight:400;
-  color:#222;
-}
-
-.project-info p{
-  margin:0 0 8px;
-}
-
-.full-details-btn{
-  display:block;
-  width:max-content;
-  text-align:center;
-  margin:20px auto;
-  font-size:14px;
-  color:black;
-  text-decoration:none;
-  font-weight:600;
-  padding:10px 18px;
-  border:1px solid #000;
-  border-radius:30px;
-  background:white;
-  position:relative;
-  z-index:20;
-}
-
-.full-details-btn:hover{
-  background:black;
-  color:white;
-}
-
-/* ================= MOBILE SLIDER ================= */
-
-.mobile-slider{
-
-  display:none;
-
-  position:relative;
-
-  width:100%;
-
-  margin:30px auto 0;
-
-  padding:0;
-
-  overflow:hidden;
-}
-
-.slider-image{
-
-  position:absolute;
-  inset:0;
-
-  width:100%;
-  height:100%;
-
-  object-fit:cover;
-  object-position:center;
-
-  opacity:0;
-
-  visibility:hidden;
-
-  transform:scale(1.02);
-
-  transition:
-    opacity 0.9s ease,
-    transform 1.4s cubic-bezier(0.16,1,0.3,1);
-
-  pointer-events:none;
-
-  z-index:1;
-
-  will-change:transform, opacity;
-
-  backface-visibility:hidden;
-}
-
-.slider-image.active{
-
-  opacity:1;
-
-  visibility:visible;
-
-  transform:scale(1);
-
-  pointer-events:auto;
-
-  z-index:5;
-}
-
-.slide-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:38px;
-  height:38px;
-  border:none;
-  border-radius:50%;
-  background:white;
-  color:#000;
-  font-size:24px;
-  cursor:pointer;
-  z-index:30;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  box-shadow:0 4px 10px rgba(0,0,0,0.15);
-}
-
-.prev-btn{
-  left:25px;
-}
-
-.next-btn{
-  right:25px;
-  z-index: 9999;
-}
-
-.slide-btn:active{
-  transform:translateY(-50%) scale(0.95);
-}
-
-.project-item.desktop-active .grid-line{
-  display:none;
-}
-
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(20px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-/* =========================================================
-   LAPTOP FINAL FIX
-   SCROLLBAR + SOCIAL ICONS
-   ========================================================= */
-
-@media (min-width: 891px) and (max-width: 1600px) {
-
-  /* =======================================================
-     ACTIVE PROJECT - SCROLL ENABLE
-     ======================================================= */
-
-  .project-item.desktop-active {
-    position: fixed !important;
-
-    top: 95px !important;
-    left: 0 !important;
-
-    width: 100vw !important;
-    height: calc(100vh - 95px) !important;
-
-    /* outer/page scrollbar removed - only the image frame below scrolls now */
-    overflow-x: hidden !important;
-    overflow-y: hidden !important;
-
-    z-index: 999 !important;
-  }
-
-  /* =======================================================
-     CIRCLE SKETCH IMAGE - SMALLER ON LAPTOP
-     ======================================================= */
-
-  .project-item.desktop-active .img-box {
-    top: -42px !important;
-    left: 68px !important;
-
-    width: 400px !important;
-    height: 400px !important;
-  }
-
-  .project-item.desktop-active .sketch-img,
-  .project-item.desktop-active .color-img {
-    width: 400px !important;
-    height: 400px !important;
-  }
-
-  /* =======================================================
-     TITLE - MOVED BELOW THE CIRCLE
-     ======================================================= */
-
-  .project-item.desktop-active .project-title {
-    top: 275px !important;
-    left: 173px !important;
-    bottom: auto !important;
-    transform: none !important;
-
-    width: 280px !important;
-
-    text-align: left !important;
-  }
-
-  /* =======================================================
-     PROJECT DETAILS - LEFT
-     ======================================================= */
-
-  .project-item.desktop-active .mobile-project-details {
-    position: absolute !important;
-
-    top: 265px !important;
-    left: 25px !important;
-
-    width: 330px !important;
-    max-width: 330px !important;
-
-    display: block !important;
-
-    z-index: 1000 !important;
-
-    overflow: visible !important;
-  }
-
-  .project-item.desktop-active .project-info {
-    width: 330px !important;
-    max-width: 330px !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    font-size: 14px !important;
-    line-height: 1.6 !important;
-
-    text-align: left !important;
-
-    color: #222 !important;
-
-    overflow: visible !important;
-  }
-
-     /* SLIDER */
-
-  .project-item.desktop-active .mobile-slider {
-    position: absolute !important;
-
-    top: 20px !important;
-    left: 30vw !important;   /* aligns with grid line 2 */
-    right: 10vw !important;  /* aligns with grid line 5 */
-
-    width: auto !important;
-
-    height: calc(100vh - 165px) !important;
-    min-height: 450px !important;
-    max-height: 750px !important;
-
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-
-    /* keep the image/gallery scroll area compact at its end */
-    padding-bottom: 30px !important;
-    box-sizing: border-box !important;
-
-    z-index: 5000 !important;
-  }
-
-  /* Visible thin scrollbar on the image frame */
-  .project-item.desktop-active .mobile-slider::-webkit-scrollbar {
-    width: 7px !important;
-    display: block !important;
-  }
-
-  .project-item.desktop-active .mobile-slider::-webkit-scrollbar-track {
-    background: #f5f5f5 !important;
-  }
-
-  .project-item.desktop-active .mobile-slider::-webkit-scrollbar-thumb {
-    background: #777 !important;
-    border-radius: 0 !important;
-  }
-
-  .project-item.desktop-active .mobile-slider::-webkit-scrollbar-thumb:hover {
-    background: #555 !important;
-  }
-
-  .project-item.desktop-active .mobile-slider {
-    scrollbar-width: thin !important;
-    scrollbar-color: #777 #f5f5f5 !important;
-  }
-
-  /* Inactive images: zero height so they never leave blank scroll space */
-  .project-item.desktop-active .slider-image {
-    display: block !important;
-
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-
-    width: 100% !important;
-    height: 0 !important;
-    overflow: hidden !important;
-
-    object-fit: unset !important;
-    object-position: center !important;
-
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-
-  /* Active image: in normal flow, so it alone defines the scrollable height */
-  .project-item.desktop-active .slider-image.active {
-    position: relative !important;
-    height: auto !important;
-    overflow: visible !important;
-  }
-/* =========================================================
-   LAPTOP PROJECT DETAILS
-   ONLY SAME 5 GRID LINES AS HOME PAGE
-   ========================================================= */
-
-/* Remove the extra project-open grid */
-/* body.project-open::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:999;
-} */
-
-/* Remove existing project grid lines */
-body.project-open .project-item.desktop-active .grid-line {
-  display: none !important;
-}
-
-/* Create only the 5 required lines */
-body.project-open::after {
-  position: fixed;
-top: 99px;
-bottom: 10px;
-left: 0;
-right: 0;
-
-  background-image:
-    repeating-linear-gradient(
-      to bottom,
-      #999 0,
-      #999 7px,
-      transparent 7px,
-      transparent 14px
-    ),
-    repeating-linear-gradient(
-      to bottom,
-      #999 0,
-      #999 7px,
-      transparent 7px,
-      transparent 14px
-    ),
-    repeating-linear-gradient(
-      to bottom,
-      #999 0,
-      #999 7px,
-      transparent 7px,
-      transparent 14px
-    ),
-    repeating-linear-gradient(
-      to bottom,
-      #999 0,
-      #999 7px,
-      transparent 7px,
-      transparent 14px
-    ),
-    repeating-linear-gradient(
-      to bottom,
-      #999 0,
-      #999 7px,
-      transparent 7px,
-      transparent 14px
-    );
-
-  background-repeat: no-repeat;
-
-  background-size:
-    1px 100%,
-    1px 100%,
-    1px 100%,
-    1px 100%,
-    1px 100%;
-
-  background-position:
-    17% 0,
-    36.2% 0,
-    55.5% 0,
-    74.8% 0,
-    94.1% 0;
-}
-  /* =======================================================
-     SLIDER ARROWS
-     ======================================================= */
-
-  .project-item.desktop-active .slide-btn {
-    display: flex !important;
-
-    position: absolute !important;
-
-    top: 50% !important;
-
-    transform: translateY(-50%) !important;
-
-    width: 42px !important;
-    height: 42px !important;
-
-    visibility: visible !important;
-    opacity: 1 !important;
-
-    z-index: 99999 !important;
-  }
-
-  .project-item.desktop-active .prev-btn {
-    left: 20px !important;
-  }
-
-  .project-item.desktop-active .next-btn {
-    right: 20px !important;
-  }
-
-
-  /* Keep the existing laptop icon sizing/colors; only the bar position is now normal flow. */
-  .project-item.desktop-active .project-socials a {
-    width: 34px !important;
-    height: 34px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    color: #c56b2c !important;
-  }
-
-  .project-item.desktop-active .project-socials i {
-    display: inline-block !important;
-    color: #c56b2c !important;
-    font-size: 18px !important;
-  }
-
-  /* --card-gap is defined once so both the row's gap and the card-width
-     formula below always agree with each other - no more separately
-     guessed vw fractions that can drift apart and leave a partial 6th
-     card or only fit 4 instead of 5. */
-  .projects {
-    --card-gap: clamp(20px, 2.2vw, 40px);
-  }
-
-  .project-item {
-  /* Exactly 5 cards + 4 gaps = 100% of the row's content width, always -
-     so 5 full cards tile the row with zero leftover space at any laptop
-     width, matching the desktop layout, instead of 4 fitting with a gap
-     left over or a 5th getting cut off. The 200px floor only kicks in
-     very close to the 891px bottom of this breakpoint, where showing
-     slightly fewer full cards is the honest trade-off vs. illegibly
-     tiny ones. */
-  flex: 0 0 clamp(200px, calc((100% - 4 * var(--card-gap)) / 5), 340px) !important;
-  width: clamp(200px, calc((100% - 4 * var(--card-gap)) / 5), 340px) !important;
-   
-}
-
-.projects-container {
-  overflow: visible !important;
-}
-
-  /* ============ HIDDEN-SCROLL FIX ============ */
-  .projects{
-    overflow-x: hidden !important;
-    scroll-behavior: smooth;
-    gap: var(--card-gap) !important;
-    padding: 20px clamp(40px, 5vw, 120px) 20px !important;
-  }
-
-.project-item:not(.desktop-active) {
-  transform: none !important;
-}
-
-/* =========================================================
-   LAPTOP PROJECT IMAGE — SKETCH DEFAULT / COLOR ON HOVER
-   ========================================================= */
-
- /* Laptop Hover Fix */
-
-.project-item:not(.desktop-active) .img-box {
-  cursor: pointer;
-}
-
-/* Fluid image size in step with the fluid card width/gap above (max value
-   425px = the old 500px * the old fixed 0.85 scale, so large viewports look
-   identical to before; below that it now shrinks smoothly instead of
-   snapping). */
-.project-item:not(.desktop-active) .sketch-img,
-.project-item:not(.desktop-active) .color-img {
-  width: clamp(260px, 26vw, 425px) !important;
-  height: clamp(260px, 26vw, 425px) !important;
-}
-
-.project-item:not(.desktop-active) .sketch-img {
-  opacity: 1 !important;
-  transition: opacity .35s ease, width .2s ease, height .2s ease;
-}
-
-.project-item:not(.desktop-active) .color-img {
-  opacity: 0 !important;
-  transition: opacity .35s ease, width .2s ease, height .2s ease;
-}
-
-.project-item:not(.desktop-active) .project-title {
-  position: relative !important;
-  top:-125px;
-}
-
-/* Hover ONLY when cursor is on the sketch image */
-
-.project-item:not(.desktop-active) .sketch-img,
-.project-item:not(.desktop-active) .color-img{
-  pointer-events: auto;
-  transition: opacity .35s ease;
-}
-
-.project-item:not(.desktop-active):hover .sketch-img {
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.project-item:not(.desktop-active):hover .color-img {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-/* Cursor sketch image meeda unte matrame */
-.project-item:not(.desktop-active) .img-box:has(.sketch-img:hover) .sketch-img,
-.project-item:not(.desktop-active) .img-box:has(.color-img:hover) .sketch-img{
-  opacity:0 !important;
-}
-
-.project-item:not(.desktop-active) .img-box:has(.sketch-img:hover) .color-img,
-.project-item:not(.desktop-active) .img-box:has(.color-img:hover) .color-img{
-  opacity:1 !important;
-}
-
-/* Desktop default */
-.project-item:not(.desktop-active) .sketch-img{
-    opacity:1;
-  z-index:2;
-}
-
-.project-item:not(.desktop-active) .color-img{
-   opacity:0;
-  z-index:3;
-  pointer-events:none;
-}
-
-.project-item.hover-active .sketch-img{
-  opacity:0 !important;
-}
-
-.project-item.hover-active .color-img{
-  opacity:1 !important;
-}
-
-.color-img{
-  pointer-events:none;
-}
-
-}
-
-  /* SMALL LAPTOP — 891px TO 1200px */
-
-  @media (min-width: 891px) and (max-width: 1200px) {
-
-  .project-item.desktop-active .img-box {
-    top: 20px !important;
-    left: 20px !important;
-
-    width: 260px !important;
-    height: 260px !important;
-    transform: scale(1.25) !important;
-    transform-origin: top left !important;
-  }
-
-  .project-item.desktop-active .sketch-img,
-  .project-item.desktop-active .color-img {
-    width: 260px !important;
-    height: 260px !important;
-  }
-
-  .project-item.desktop-active .project-title {
-    top: 195px !important;
-    left: 20px !important;
-    bottom: auto !important;
-    transform: none !important;
-
-    width: 280px !important;
-
-    text-align: left !important;
-  }
-
-  .project-item.desktop-active .mobile-project-details {
-    top: 235px !important;
-    left: 20px !important;
-
-    width: 320px !important;
-    max-width: 320px !important;
-  }
-
-  .project-item.desktop-active .project-info {
-    width: 320px !important;
-    max-width: 320px !important;
-
-    font-size: 12px !important;
-    line-height: 1.6 !important;
-  }
-
-  /* Slider */
-
-  .project-item.desktop-active .mobile-slider {
-    top: 20px !important;
-
-    left: 36.2vw !important;
-    right: 5.9vw !important;
-
-    width: auto !important;
-
-    height: calc(100vh - 165px) !important;
-    min-height: 400px !important;
-  }
-/* Stop the dash from landing on top of the opened project's
-     smaller/repositioned circle + title at this breakpoint */
-  .project-item.desktop-active.line-up-1::after,
-  .project-item.desktop-active.line-up-2::after,
-  .project-item.desktop-active.line-up-3::after,
-  .project-item.desktop-active.line-up-4::after,
-  .project-item.desktop-active.line-down-1::after,
-  .project-item.desktop-active.line-down-2::after {
-    display: none !important;
-  }
-
-  /* ---- THE ACTUAL BUG ----
-     .project-item.desktop-active::before/::after is a header divider line
-     hard-coded to top:220px / left:120-130px, tuned for the original
-     220px-tall circle. This small-laptop block moves the circle to
-     top:20px and the title to top:195px, but never moves this divider,
-     so it freezes at the old position and cuts straight across the
-     title / project details instead of sitting under the image. */
-  .project-item.desktop-active::before,
-  .project-item.desktop-active::after {
-    display: none !important;
-  }
-
-
-}
-
-
-/* =========================================================
-   MOBILE VIEW (<= 890px)
-   ========================================================= */
-@media (max-width: 890px) {
-
-  .projects{
-    gap:0;
-  }
-
-  .navbar {
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position:relative;
-  }
-
-  .hamburger {
-    display: block;
-    font-size: 28px;
-    cursor: pointer;
-    color: black;
-    z-index: 1100;
-    margin-left: auto;
-  }
-
-  .logo {
-    max-width: 70%;
-    display:flex;
-    align-items:center;
-    gap:12px;
-  }
-
-  .grid-line,
-  .project-item::after {
-    display: none;
-  }
-
-  .menu {
-    display: none;
-    position: absolute;
-    top: 80px;
-    right: 20px;
-    background: white;
-    padding: 20px;
-    border: 1px solid #ddd;
-    flex-direction: column;
-    gap: 15px;
-    z-index:1000;
-  }
-
-  .menu.active {
-    display: flex;
-  }
-
-  .menu a {
-    margin: 0;
-    display: block;
-    font-weight: 400;
-    font-family: 'Outfit', sans-serif;
-  }
-
-  body, html {
-    overflow-x:hidden;
-    overflow-y: auto;
-    height:auto;
-  }
-
-  .logo-img {
-    width: 50px;
-    height: 50px;
-  }
-
-  .logo-text h2 {
-    font-size: 14px;
-    line-height: 1.2;
-    margin:0;
-  }
-
-  .logo-text p {
-    font-size: 9px;
-  }
-
-  .projects{
-    width:100vw;
-    overflow-x:auto;
-    overflow-y:visible;
-    padding:0;
-    align-items:flex-start;
-  }
-
-  .project-item{
-    flex:0 0 100vw;
-    width:100vw;
-    min-width:100vw;
-    padding-bottom:120px;
-    box-sizing:border-box;
-    height: auto;
-  }
+  /* ================= MOBILE PROJECT DETAILS ================= */
 
   .mobile-project-details{
     display:none;
     width:100%;
     margin-top:20px;
-    padding-bottom:30px;
-    max-height:none;
-    overflow:visible;
+    animation:fadeUp 0.4s ease;
+    padding-bottom:40px;
+
+    max-height:75vh;
+    overflow-y:auto;
+    overflow-x:hidden;
+
+    -webkit-overflow-scrolling:touch;
   }
 
-  .project-title{
-    position: static;
-    transform: none;
-    left: auto;
-    bottom: auto;
-    margin-top: 20px;
-    padding-left: 6%;
-    font-size: 14px;
-    font-weight: 600;
-    text-align: left;
-    z-index:3;
+  .project-item.active .mobile-project-details{
+    display:block;
   }
 
-  .projects::before {
-    display: none;
-  }
-
-  .grid-line {
-    display: none;
-  }
-
-  .sketch-img {
-    opacity: 1;
-    z-index: 1;
-    width: 220px !important;
-  }
-
-  .color-img{
+  .project-item.active .sketch-img{
     opacity:0;
-    position:absolute;
-    width: 220px !important;
   }
 
-  .img-box{
-    min-height:320px;
-    overflow: visible;
+  .project-item.active .color-img{
+    opacity:1;
   }
 
-  .img-box img{
-    max-height: 330px;
-    object-fit:contain;
+  .project-info{
+    width:88%;
+    margin:auto;
+    font-family: 'Outfit', sans-serif;
+    font-size:15px;
+    line-height:1.8;
+    font-weight:400;
+    color:#222;
   }
+
+  .project-info p{
+    margin:0 0 8px;
+  }
+
+  .full-details-btn{
+    display:block;
+    width:max-content;
+    text-align:center;
+    margin:20px auto;
+    font-size:14px;
+    color:black;
+    text-decoration:none;
+    font-weight:600;
+    padding:10px 18px;
+    border:1px solid #000;
+    border-radius:30px;
+    background:white;
+    position:relative;
+    z-index:20;
+  }
+
+  .full-details-btn:hover{
+    background:black;
+    color:white;
+  }
+
+  /* ================= MOBILE SLIDER ================= */
 
   .mobile-slider{
+
     display:none;
+
     position:relative;
-    width:100vw;
-    height:340px;
-    left:50%;
-    transform:translateX(-50%);
-    margin-top:30px;
-    margin-bottom:60px;
+
+    width:100%;
+
+    margin:30px auto 0;
+
+    padding:0;
+
     overflow:hidden;
-    isolation:isolate;
   }
 
   .slider-image{
+
     position:absolute;
-    top:0;
-    left:0;
+    inset:0;
+
     width:100%;
     height:100%;
+
     object-fit:cover;
     object-position:center;
+
     opacity:0;
-    transform:scale(1.08);
+
+    visibility:hidden;
+
+    transform:scale(1.02);
+
     transition:
-      opacity 1.6s ease,
-      transform 2.2s cubic-bezier(0.16,1,0.3,1),
-      filter 1.8s ease;
-    filter:
-      blur(12px)
-      brightness(1.12);
+      opacity 0.9s ease,
+      transform 1.4s cubic-bezier(0.16,1,0.3,1);
+
     pointer-events:none;
+
     z-index:1;
+
+    will-change:transform, opacity;
+
+    backface-visibility:hidden;
   }
 
   .slider-image.active{
+
     opacity:1;
+
+    visibility:visible;
+
     transform:scale(1);
-    filter:
-      blur(0)
-      brightness(1);
+
     pointer-events:auto;
-    z-index:2;
+
+    z-index:5;
   }
 
   .slide-btn{
     position:absolute;
     top:50%;
     transform:translateY(-50%);
-    width:46px;
-    height:46px;
+    width:38px;
+    height:38px;
     border:none;
     border-radius:50%;
-    background:rgba(255,255,255,0.95);
-    z-index:9999;
+    background:white;
+    color:#000;
+    font-size:24px;
+    cursor:pointer;
+    z-index:30;
     display:flex;
     justify-content:center;
     align-items:center;
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
   }
 
-  .prev-btn{ left:16px; }
-  .next-btn{ right:16px; }
-
-  .project-item.active{
-    height:auto;
-    animation: mobileOpen 0.7s ease;
-    min-height:100vh;
+  .prev-btn{
+    left:25px;
   }
 
-  .project-item.active{
-    padding-bottom:0;
+  .next-btn{
+    right:25px;
+    z-index: 9999;
   }
 
-  .project-item.active .mobile-slider{
-    margin-bottom:0;
+  .slide-btn:active{
+    transform:translateY(-50%) scale(0.95);
   }
 
-  .project-item.active .color-img{
-    opacity:1;
-    animation: mobileColorReveal 2.2s cubic-bezier(0.16,1,0.3,1);
-    animation-fill-mode:both;
-    animation-delay:0.15s;
+  .project-item.desktop-active .grid-line{
+    display:none;
   }
 
-  .project-item.active .mobile-project-details{
-    display:block;
-    animation: mobileDetailsReveal 1.8s cubic-bezier(0.16,1,0.3,1);
-    animation-delay:0.7s;
-    animation-fill-mode:both;
+  @keyframes fadeUp{
+    from{
+      opacity:0;
+      transform:translateY(20px);
+    }
+    to{
+      opacity:1;
+      transform:translateY(0);
+    }
   }
 
-  .project-item.active .mobile-slider{
-    display:block;
-    animation: mobileSliderReveal 2.4s cubic-bezier(0.16,1,0.3,1);
-    animation-delay:1.15s;
-    animation-fill-mode:both;
-  }
+    /* LAPTOP FINAL FIX
+    SCROLLBAR + SOCIAL ICONS */
 
-  body.project-open{
-    overflow: hidden !important;
-    height: 100vh;
-  }
-}
+  @media (min-width: 891px) and (max-width: 1600px) {
 
-.project-socials{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:25px;
+    /* =======================================================
+      ACTIVE PROJECT - SCROLL ENABLE
+      ======================================================= */
 
-    background:#000;
-    padding:20px 0;
-    margin-top:30px;
-    width:100%;
-}
+    .project-item.desktop-active {
+      position: fixed !important;
 
-.project-socials a{
-    width:30px;
-    height:30px;
-    border:1px solid #a56243;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:#a56243;
-    text-decoration:none;
-    font-size:18px;
-}
-.project-socials a:hover{
+      top: 95px !important;
+      left: 0 !important;
 
-  background:#a56243;
+      width: 100vw !important;
+      height: calc(100vh - 95px) !important;
 
-  color:#fff;
+      /* outer/page scrollbar removed - only the image frame below scrolls now */
+      overflow-x: hidden !important;
+      overflow-y: hidden !important;
 
-  transform:translateY(-4px);
-}
+      z-index: 999 !important;
+    }
 
-  
-/* =========================================================
-   FINAL PROJECT DETAIL / HOMEPAGE PATCH
-   ========================================================= */
+    /* =======================================================
+      CIRCLE SKETCH IMAGE - SMALLER ON LAPTOP
+      ======================================================= */
 
-/* 1) HOME PAGE - continuous connection line
-   ...
-*/
-/* =========================================================
-   HOME PAGE - BASELINE CONNECTOR
-   Anchored to the project image row
-   ========================================================= */
+    .project-item.desktop-active .img-box {
+      top: -10px !important;
+      left: -5px !important;
 
-@media (min-width: 891px) {
+      width: 340px !important;
+      height: 340px !important;
+    }
 
-  .projects {
-    background-color: #ffffff;
-    background-image: none !important;
-  }
+    .project-item.desktop-active .sketch-img,
+    .project-item.desktop-active .color-img {
+      width: 340px !important;
+      height: 340px !important;
+    }
 
-.project-item:not(.desktop-active) .img-box::after {
-  content: "";
-  position: absolute;
+    /* =======================================================
+      TITLE - MOVED BELOW THE CIRCLE
+      ======================================================= */
 
-  /* Move the baseline DOWN */
-  top: 155px;
+    .project-item.desktop-active .project-title {
+      top: 250px !important;
+      left: 100px !important;
+      bottom: auto !important;
+      transform: none !important;
 
-  /* Continue through the gap between cards */
-  left: -20px;
-  width: calc(100% + 40px);
+      width: 280px !important;
 
-  height: 0.09px;
-  background: rgb(112, 112, 112);
+      text-align: left !important;
+    }
 
-  /* BEHIND the project images */
-  z-index: 0;
+    /* =======================================================
+      PROJECT DETAILS - LEFT
+      ======================================================= */
 
-  pointer-events: none;
-}
+    .project-item.desktop-active .mobile-project-details {
+      position: absolute !important;
 
-  body.project-open .project-item:not(.desktop-active) .img-box::after {
+      top: 250px !important;
+      left: 25px !important;
+
+      width: 330px !important;
+      max-width: 330px !important;
+
+      display: block !important;
+
+      z-index: 1000 !important;
+
+      overflow: visible !important;
+    }
+
+    .project-item.desktop-active .project-info {
+      width: 330px !important;
+      max-width: 330px !important;
+
+      margin: 0 !important;
+      padding: 0 !important;
+
+      font-size: 14px !important;
+      line-height: 1.6 !important;
+
+      text-align: left !important;
+
+      color: #222 !important;
+
+      overflow: visible !important;
+    }
+
+      /* SLIDER */
+
+    .project-item.desktop-active .mobile-slider {
+      position:absolute !important;
+
+      top:20px !important;
+      left:30vw !important;
+      right:10vw !important;
+
+    height: calc(100vh - 165px);
+    min-height: 450px;
+  max-height: 750px;
+  padding-bottom: 30px;
+      overflow-y:auto !important;
+      overflow-x:hidden !important;
+
+      padding-top:170px !important; /* image starts below the line */
+      /* padding-bottom:0 !important; */
+      box-sizing:border-box !important;
+
+      z-index:5000 !important;
+    }
+
+    /* Visible thin scrollbar on the image frame */
+    .project-item.desktop-active .mobile-slider::-webkit-scrollbar {
+      width: 7px !important;
+      display: block !important;
+    }
+
+    .project-item.desktop-active .mobile-slider::-webkit-scrollbar-track {
+      background: #f5f5f5 !important;
+    }
+
+    .project-item.desktop-active .mobile-slider::-webkit-scrollbar-thumb {
+      background: #777 !important;
+      border-radius: 0 !important;
+    }
+
+    .project-item.desktop-active .mobile-slider::-webkit-scrollbar-thumb:hover {
+      background: #555 !important;
+    }
+
+    .project-item.desktop-active .mobile-slider {
+      scrollbar-width: thin !important;
+      scrollbar-color: #777 #f5f5f5 !important;
+    }
+
+    /* Inactive images: zero height so they never leave blank scroll space */
+    .project-item.desktop-active .slider-image {
+      display: block !important;
+
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+
+      width: 100% !important;
+      height: 0 !important;
+      overflow: hidden !important;
+
+      object-fit: unset !important;
+      object-position: center !important;
+
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+
+    /* Active image: in normal flow, so it alone defines the scrollable height */
+    .project-item.desktop-active .slider-image.active {
+      position:relative !important;
+      top:0 !important;   /* line daggara stop avutundi */
+      height:auto !important;
+      overflow:visible !important;
+      z-index:1 !important; 
+    }
+  /* =========================================================
+    LAPTOP PROJECT DETAILS
+    ONLY SAME 5 GRID LINES AS HOME PAGE
+    ========================================================= */
+
+  /* Remove the extra project-open grid */
+  /* body.project-open::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:999;
+  } */
+
+  /* =========================================================
+    LAPTOP PROJECT DETAILS
+    ONLY SAME 5 GRID LINES AS HOME PAGE
+    ========================================================= */
+
+  /* Remove the extra project-open grid */
+  /* body.project-open::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:999;
+  } */
+
+  /* Remove existing project grid lines */
+  body.project-open .project-item.desktop-active .grid-line {
     display: none !important;
   }
 
+  /* Create only the 5 required lines */
+  body.project-open::after {
+    position: fixed;
+  top: 99px;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+
+    background-image:
+      repeating-linear-gradient(
+        to bottom,
+        #999 0,
+        #999 7px,
+        transparent 7px,
+        transparent 14px
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        #999 0,
+        #999 7px,
+        transparent 7px,
+        transparent 14px
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        #999 0,
+        #999 7px,
+        transparent 7px,
+        transparent 14px
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        #999 0,
+        #999 7px,
+        transparent 7px,
+        transparent 14px
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        #999 0,
+        #999 7px,
+        transparent 7px,
+        transparent 14px
+      );
+
+    background-repeat: no-repeat;
+
+    background-size:
+      1px 100%,
+      1px 100%,
+      1px 100%,
+      1px 100%,
+      1px 100%;
+
+    background-position:
+      17% 0,
+      36.2% 0,
+      55.5% 0,
+      74.8% 0,
+      94.1% 0;
+  }
+    /* =======================================================
+      SLIDER ARROWS
+      ======================================================= */
+
+    .project-item.desktop-active .slide-btn {
+      display: flex !important;
+
+      position: absolute !important;
+
+      top: 50% !important;
+
+      transform: translateY(-50%) !important;
+
+      width: 42px !important;
+      height: 42px !important;
+
+      visibility: visible !important;
+      opacity: 1 !important;
+
+      z-index: 99999 !important;
+    }
+
+    .project-item.desktop-active .prev-btn {
+      left: 20px !important;
+    }
+
+    .project-item.desktop-active .next-btn {
+      right: 20px !important;
+    }
+
+
+    /* Keep the existing laptop icon sizing/colors; only the bar position is now normal flow. */
+    .project-item.desktop-active .project-socials a {
+      width: 34px !important;
+      height: 34px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      color: #c56b2c !important;
+    }
+
+    .project-item.desktop-active .project-socials i {
+      display: inline-block !important;
+      color: #c56b2c !important;
+      font-size: 18px !important;
+    }
+
+    /* --card-gap is defined once so both the row's gap and the card-width
+      formula below always agree with each other - no more separately
+      guessed vw fractions that can drift apart and leave a partial 6th
+      card or only fit 4 instead of 5. */
+    .projects {
+      --card-gap: clamp(20px, 2.2vw, 40px);
+    }
+
+    .project-item {
+    /* Exactly 5 cards + 4 gaps = 100% of the row's content width, always -
+      so 5 full cards tile the row with zero leftover space at any laptop
+      width, matching the desktop layout, instead of 4 fitting with a gap
+      left over or a 5th getting cut off. The 200px floor only kicks in
+      very close to the 891px bottom of this breakpoint, where showing
+      slightly fewer full cards is the honest trade-off vs. illegibly
+      tiny ones. */
+    flex: 0 0 clamp(200px, calc((100% - 4 * var(--card-gap)) / 5), 340px) !important;
+    width: clamp(200px, calc((100% - 4 * var(--card-gap)) / 5), 340px) !important;
+    
+  }
+
+  .projects-container {
+    overflow: visible !important;
+  }
+
+    /* ============ HIDDEN-SCROLL FIX ============ */
+    .projects{
+      overflow-x: hidden !important;
+      scroll-behavior: smooth;
+      gap: var(--card-gap) !important;
+      padding: 20px clamp(40px, 5vw, 120px) 20px !important;
+    }
+
+  .project-item:not(.desktop-active) {
+    transform: none !important;
+  }
+
+  /* =========================================================
+    LAPTOP PROJECT IMAGE — SKETCH DEFAULT / COLOR ON HOVER
+    ========================================================= */
+
+  /* Laptop Hover Fix */
+
+  .project-item:not(.desktop-active) .img-box {
+    cursor: pointer;
+  }
+
+  /* Fluid image size in step with the fluid card width/gap above (max value
+    425px = the old 500px * the old fixed 0.85 scale, so large viewports look
+    identical to before; below that it now shrinks smoothly instead of
+    snapping). */
+  .project-item:not(.desktop-active) .sketch-img,
+  .project-item:not(.desktop-active) .color-img {
+    width: clamp(260px, 26vw, 425px) !important;
+    height: clamp(260px, 26vw, 425px) !important;
+  }
+
+  .project-item:not(.desktop-active) .sketch-img {
+    opacity: 1 !important;
+    transition: opacity .35s ease, width .2s ease, height .2s ease;
+  }
+
+  .project-item:not(.desktop-active) .color-img {
+    opacity: 0 !important;
+    transition: opacity .35s ease, width .2s ease, height .2s ease;
+  }
+
+  .project-item:not(.desktop-active) .project-title {
+    position: relative !important;
+    top:-125px;
+  }
+
+  /* Hover ONLY when cursor is on the sketch image */
+
+  .project-item:not(.desktop-active) .sketch-img,
+  .project-item:not(.desktop-active) .color-img{
+    pointer-events: auto;
+    transition: opacity .35s ease;
+  }
+
+  .project-item:not(.desktop-active):hover .sketch-img {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .project-item:not(.desktop-active):hover .color-img {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  /* Cursor sketch image meeda unte matrame */
+  .project-item:not(.desktop-active) .img-box:has(.sketch-img:hover) .sketch-img,
+  .project-item:not(.desktop-active) .img-box:has(.color-img:hover) .sketch-img{
+    opacity:0 !important;
+  }
+
+  .project-item:not(.desktop-active) .img-box:has(.sketch-img:hover) .color-img,
+  .project-item:not(.desktop-active) .img-box:has(.color-img:hover) .color-img{
+    opacity:1 !important;
+  }
+
+  /* Desktop default */
+  .project-item:not(.desktop-active) .sketch-img{
+      opacity:1;
+    z-index:2;
+  }
+
+  .project-item:not(.desktop-active) .color-img{
+    opacity:0;
+    z-index:3;
+    pointer-events:none;
+  }
+
+  .project-item.hover-active .sketch-img{
+    opacity:0 !important;
+  }
+
+  .project-item.hover-active .color-img{
+    opacity:1 !important;
+  }
+
+  .color-img{
+    pointer-events:none;
+  }
+
+  }
+
+    /* SMALL LAPTOP — 891px TO 1200px */
+
+    @media (min-width: 891px) and (max-width: 1200px) {
+
+    .project-item.desktop-active .img-box {
+      top: 20px !important;
+      left: 10px !important;
+
+      width: 260px !important;
+      height: 260px !important;
+      transform: scale(1.25) !important;
+      transform-origin: top left !important;
+    }
+
+    .project-item.desktop-active .sketch-img,
+    .project-item.desktop-active .color-img {
+      width: 260px !important;
+      height: 260px !important;
+    }
+
+    .project-item.desktop-active .project-title {
+      top: 195px !important;
+      left: 20px !important;
+      bottom: auto !important;
+      transform: none !important;
+
+      width: 280px !important;
+
+      text-align: left !important;
+    }
+
+    .project-item.desktop-active .mobile-project-details {
+      top: 235px !important;
+      left: 20px !important;
+
+      width: 320px !important;
+      max-width: 320px !important;
+    }
+
+    .project-item.desktop-active .project-info {
+      width: 320px !important;
+      max-width: 320px !important;
+
+      font-size: 12px !important;
+      line-height: 1.6 !important;
+    }
+
+    /* Slider */
+
+    .project-item.desktop-active .mobile-slider {
+      top: 20px !important;
+
+      left: 36.2vw !important;
+      right: 5.9vw !important;
+
+      width: auto !important;
+
+      height: calc(100vh - 165px) !important;
+      min-height: 400px !important;
+    }
+  /* Stop the dash from landing on top of the opened project's
+      smaller/repositioned circle + title at this breakpoint */
+    .project-item.desktop-active.line-up-1::after,
+    .project-item.desktop-active.line-up-2::after,
+    .project-item.desktop-active.line-up-3::after,
+    .project-item.desktop-active.line-up-4::after,
+    .project-item.desktop-active.line-down-1::after,
+    .project-item.desktop-active.line-down-2::after {
+      display: none !important;
+    }
+
+    /* ---- THE ACTUAL BUG ----
+      .project-item.desktop-active::before/::after is a header divider line
+      hard-coded to top:220px / left:120-130px, tuned for the original
+      220px-tall circle. This small-laptop block moves the circle to
+      top:20px and the title to top:195px, but never moves this divider,
+      so it freezes at the old position and cuts straight across the
+      title / project details instead of sitting under the image. */
+    .project-item.desktop-active::before,
+    .project-item.desktop-active::after {
+      display: none !important;
+    }
+
+
+  }
+
+
+  /* =========================================================
+    MOBILE VIEW (<= 890px)
+    ========================================================= */
+  @media (max-width: 890px) {
+
+    .projects{
+      gap:0;
+    }
+
+    .navbar {
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position:relative;
+    }
+
+    .hamburger {
+      display: block;
+      font-size: 28px;
+      cursor: pointer;
+      color: black;
+      z-index: 1100;
+      margin-left: auto;
+    }
+
+    .logo {
+      max-width: 70%;
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .grid-line,
+    .project-item::after {
+      display: none;
+    }
+
+    .menu {
+      display: none;
+      position: absolute;
+      top: 80px;
+      right: 20px;
+      background: white;
+      padding: 20px;
+      border: 1px solid #ddd;
+      flex-direction: column;
+      gap: 15px;
+      z-index:1000;
+    }
+
+    .menu.active {
+      display: flex;
+    }
+
+    .menu a {
+      margin: 0;
+      display: block;
+      font-weight: 400;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    body, html {
+      overflow-x:hidden;
+      overflow-y: auto;
+      height:auto;
+    }
+
+    .logo-img {
+      width: 50px;
+      height: 50px;
+    }
+
+    .logo-text h2 {
+      font-size: 14px;
+      line-height: 1.2;
+      margin:0;
+    }
+
+    .logo-text p {
+      font-size: 9px;
+    }
+
+    .projects{
+      width:100vw;
+      overflow-x:auto;
+      overflow-y:visible;
+      padding:0;
+      align-items:flex-start;
+    }
+
+    .project-item{
+      flex:0 0 100vw;
+      width:100vw;
+      min-width:100vw;
+      padding-bottom:120px;
+      box-sizing:border-box;
+      height: auto;
+    }
+
+    .mobile-project-details{
+      display:none;
+      width:100%;
+      margin-top:20px;
+      padding-bottom:30px;
+      max-height:none;
+      overflow:visible;
+    }
+
+    .project-title{
+      position: static;
+      transform: none;
+      left: auto;
+      bottom: auto;
+      margin-top: 20px;
+      padding-left: 6%;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: left;
+      z-index:3;
+    }
+
+    .projects::before {
+      display: none;
+    }
+
+    .grid-line {
+      display: none;
+    }
+
+    .sketch-img {
+      opacity: 1;
+      z-index: 1;
+      width: 220px !important;
+    }
+
+    .color-img{
+      opacity:0;
+      position:absolute;
+      width: 220px !important;
+    }
+
+    .img-box{
+      min-height:320px;
+      overflow: visible;
+    }
+
+    .img-box img{
+      max-height: 330px;
+      object-fit:contain;
+    }
+
+    .mobile-slider{
+      display:none;
+      position:relative;
+      width:100vw;
+      height:340px;
+      left:50%;
+      transform:translateX(-50%);
+      margin-top:30px;
+      margin-bottom:60px;
+      overflow:hidden;
+      isolation:isolate;
+    }
+
+    .slider-image{
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      opacity:0;
+      transform:scale(1.08);
+      transition:
+        opacity 1.6s ease,
+        transform 2.2s cubic-bezier(0.16,1,0.3,1),
+        filter 1.8s ease;
+      filter:
+        blur(12px)
+        brightness(1.12);
+      pointer-events:none;
+      z-index:1;
+    }
+
+    .slider-image.active{
+      opacity:1;
+      transform:scale(1);
+      filter:
+        blur(0)
+        brightness(1);
+      pointer-events:auto;
+      z-index:2;
+    }
+
+    .slide-btn{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:46px;
+      height:46px;
+      border:none;
+      border-radius:50%;
+      background:rgba(255,255,255,0.95);
+      z-index:9999;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .prev-btn{ left:16px; }
+    .next-btn{ right:16px; }
+
+    .project-item.active{
+      height:auto;
+      animation: mobileOpen 0.7s ease;
+      min-height:100vh;
+    }
+
+    .project-item.active{
+      padding-bottom:0;
+    }
+
+    .project-item.active .mobile-slider{
+      margin-bottom:0;
+    }
+
+    .project-item.active .color-img{
+      opacity:1;
+      animation: mobileColorReveal 2.2s cubic-bezier(0.16,1,0.3,1);
+      animation-fill-mode:both;
+      animation-delay:0.15s;
+    }
+
+    .project-item.active .mobile-project-details{
+      display:block;
+      animation: mobileDetailsReveal 1.8s cubic-bezier(0.16,1,0.3,1);
+      animation-delay:0.7s;
+      animation-fill-mode:both;
+    }
+
+    .project-item.active .mobile-slider{
+      display:block;
+      animation: mobileSliderReveal 2.4s cubic-bezier(0.16,1,0.3,1);
+      animation-delay:1.15s;
+      animation-fill-mode:both;
+    }
+
+    body.project-open{
+      overflow: hidden !important;
+      height: 100vh;
+    }
+  }
+
+  .project-socials{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:25px;
+
+      background:#000;
+      padding:20px 0;
+      margin-top:30px;
+      width:100%;
+  }
+
+  .project-socials a{
+      width:30px;
+      height:30px;
+      border:1px solid #a56243;
+      border-radius:50%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      color:#a56243;
+      text-decoration:none;
+      font-size:18px;
+  }
+  .project-socials a:hover{
+
+    background:#a56243;
+
+    color:#fff;
+
+    transform:translateY(-4px);
+  }
+
+    
+  /* =========================================================
+    FINAL PROJECT DETAIL / HOMEPAGE PATCH
+    ========================================================= */
+
+  /* 1) HOME PAGE - continuous connection line
+    ...
+  */
+  /* =========================================================
+    HOME PAGE - BASELINE CONNECTOR
+    Anchored to the project image row
+    ========================================================= */
+
+  @media (min-width: 891px) {
+
+    .projects {
+      background-color: #ffffff;
+      background-image: none !important;
+    }
+
+    body.project-open {
+      overflow-y: auto !important;
+      height: auto !important;
+    }
+
+  .project-item:not(.desktop-active) .img-box::after {
+    content: "";
+    position: absolute;
+
+    /* Move the baseline DOWN */
+    top: 156.6px;
+
+    /* Continue through the gap between cards */
+    left: -20px;
+    width: calc(100% + 40px);
+
+    height: 0.4px;
+    background: rgb(120, 120, 120);
+
+    /* BEHIND the project images */
+    z-index: 0;
+
+    pointer-events: none;
+  }
+
+    body.project-open .project-item:not(.desktop-active) .img-box::after {
+      display: none !important;
+    }
+
+  }
+
+  /* =========================================================
+    PC BASELINE POSITION
+    ========================================================= */
+
+  @media (min-width: 1601px) {
+    .project-item:not(.desktop-active) .img-box::after {
+      top: 174.5px;
+    }
+  }
+
+  /* Narrow laptop viewport - 150% scaling */
+  @media (min-width: 1101px) and (max-width: 1300px) {
+    .project-item:not(.desktop-active) .img-box::after {
+      top: 144.3px;
+    }
+  }
+  body.project-open .projects {
+    background-image: none !important;
+  }
+
+    /* 3) Project-detail image area: exactly grid line 2 -> grid line 5 */
+    .project-item.desktop-active .mobile-slider {
+      left: 36.2vw !important;
+      right: 5.9vw !important;
+      padding-bottom: 0 !important;
+      box-sizing: border-box !important;
+    }
+
+    /* 2 + 4) Remove bottom gap, keep scrolling but hide scrollbar */
+    .project-item.desktop-active .mobile-slider::-webkit-scrollbar {
+      width: 0 !important;
+      height: 0 !important;
+      display: none !important;
+    }
+
+    .project-item.desktop-active .mobile-slider {
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
+    }
+
+    /* Make the image frame end directly above the slim social bar */
+    .project-item.desktop-active .mobile-slider {
+      top: 20px !important;
+      height: calc(100vh - 155px) !important;
+      max-height: none !important;
+    }
+
+    /* 5) Similar projects below the project-detail content */
+    .similar-projects {
+      margin-top: 75px;
+      padding: 0 35px 0;
+      box-sizing: border-box;
+    }
+
+    .similar-projects h2 {
+      margin: 0 0 28px;
+      font-size: 22px;
+      font-weight: 400;
+    }
+
+    .similar-project-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .similar-project-card {
+      display: block;
+      text-decoration: none;
+      color: #000;
+    }
+
+    .similar-project-card .similar-image {
+      width: 100%;
+      height: 180px;
+      object-fit: contain;
+      background: #fff;
+      display: block;
+    }
+
+    .similar-project-card .similar-name {
+      margin-top: 12px;
+      font-size: 13px;
+      text-align: left;
+    }
+
+    .similar-project-card:hover .similar-name {
+      text-decoration: underline;
+    }
+
+  /* .similar-projects {
+      margin-top: 45px;
+      padding: 0 20px 10px;
+    }
+
+    .similar-project-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .similar-project-card .similar-image {
+      height: 130px;
+    } */
+
+  /* FIX ONLY THE BROKEN CONNECTION BETWEEN PROJECT 1 AND PROJECT 2 */
+
+  /* @media (min-width: 891px) { */
+
+    /* Connect ONLY the gap between Project 1 and Project 2 */
+    /* .project-item.line-up-1::before {
+      content: "";
+      position: absolute;
+      top: 41.5%;
+      left: 100%;
+      width: 40px;
+      height: 2px;
+      background: lightgray;
+      z-index: 50;
+    }
+
+  } */
+  /* FULL WIDTH PROJECT FOOTER */
+  .project-socials {
+      width: 100vw !important;
+      margin-left: calc(50% - 50vw) !important;
+      margin-right: 0 !important;
+      box-sizing: border-box !important;
+
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+
+      background: #000 !important;
+      padding: 20px 0 !important;
+  }
+
+  /* Hide project social bars on the main projects page */
+  .projects > .project-item:not(.desktop-active) .project-socials {
+      display: none !important;
+  }
+  /* PUT PROJECT FOOTER AT BOTTOM */
+  .project-item.desktop-active > .project-socials {
+      position: absolute !important;
+      left: 0 !important;
+      bottom: 0 !important;
+  /* margin-top: calc(100vh - 35px) !important; */
+      width: 100vw !important;
+      margin: 0 !important;
+      transform: none !important;
+
+      z-index: 9999 !important;
+      box-sizing: border-box !important;
+  }
+  /* TEST: allow opened project to become full-page scroll content */
+  .project-item.desktop-active {
+      position: absolute !important;
+      height: auto !important;
+      min-height: 100vh !important;
+      overflow: visible !important;
+  }
+  /* Hide the global social bar when a project is open */
+  body.project-open > .project-socials {
+      display: none !important;
+  }
+  body.inside-page > .project-socials {
+      display: none !important;
+  }
+  
+  /* REMOVE INTERNAL PROJECT SCROLL */
+  .project-item.desktop-active > .mobile-slider {
+      overflow-y: visible !important;
+      overflow-x: visible !important;
+  }
+  /* SIMILAR PROJECTS — FULL BROWSER WIDTH */
+  .project-item.desktop-active > .similar-projects {
+      width: 100vw !important;
+      margin-left: calc(50% - 50vw) !important;
+      margin-right: 0 !important;
+
+      box-sizing: border-box !important;
+  }
+  /* SIMILAR PROJECTS — FULL WIDTH NORMAL FLOW */
+  .project-item.desktop-active > .similar-projects {
+      position: static !important;
+
+      left: auto !important;
+      right: auto !important;
+      top: auto !important;
+      bottom: auto !important;
+
+      width: 100vw !important;
+      margin-left: calc(50% - 50vw) !important;
+      margin-right: 0 !important;
+
+      transform: none !important;
+      box-sizing: border-box !important;
+  }
+  /* SIMILAR PROJECTS — FULL BROWSER WIDTH */
+  .project-item.desktop-active > .similar-projects {
+      width: 100vw !important;
+      margin-left: calc(50% - 50vw) !important;
+      margin-right: 0 !important;
+      box-sizing: border-box !important;
+  }
+  /* Hide Similar Projects on the main projects page */
+  .projects > .project-item:not(.desktop-active) .similar-projects {
+      display: none !important;
+  }
+  /* SIMILAR PROJECTS — ABOVE FOOTER */
+  .project-item.desktop-active > .similar-projects {
+      position: absolute !important;
+      left: 0 !important;
+      right: 0 !important;
+      top: auto !important;
+      bottom: -40px !important;
+
+      width: 100vw !important;
+      margin: 0 !important;
+      box-sizing: border-box !important;
+  }
+  /* Hide grid lines only on the opened Farmhouse Panjarla project */
+  .project-item.line-up-3.desktop-active .grid-line {
+      display: none !important;
+  }
+  /* Hide inactive project grid lines when viewing a project */
+  body.project-open .projects > .project-item:not(.desktop-active) .grid-line {
+      display: none !important;
+  }
+  /* LET THE WHOLE PAGE HANDLE THE SCROLL */
+  body.project-open .projects {
+      overflow-y: visible !important;
+      overflow-x: hidden !important;
+  }
+  /* KEEP NAVBAR FIXED ON ALL PAGES */
+  .navbar {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      z-index: 10000 !important;
+  }
+  /* REMOVE SPACE BELOW PROJECT FOOTER */
+  body.project-open .project-item.desktop-active {
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
+  }
+  /* HIDE EXTRA STANDALONE SOCIAL BAR */
+  body > .project-socials {
+      display: none !important;
+  }
+
+  /* ===============================
+    PROJECT OPEN - FINAL POSITION
+    =============================== */
+
+  /* Similar Projects */
+  .project-item.desktop-active > .similar-projects {
+      position: absolute !important;
+
+      left: 0 !important;
+      right: 0 !important;
+      top: auto !important;
+
+      bottom: -2300px !important;
+
+      width: 100vw !important;
+      margin: 0 !important;
+
+      box-sizing: border-box !important;
+      transform: none !important;
+  }
+
+  /* Black Footer */
+  .project-item.desktop-active > .project-socials {
+      position: absolute !important;
+
+      left: 0 !important;
+      right: 0 !important;
+      top: auto !important;
+
+      bottom:-2500px !important;
+
+      width: 100vw !important;
+      margin: 0 !important;
+
+      box-sizing: border-box !important;
+      transform: none !important;
+      z-index: 100 !important;
+  }
+
+  /* =========================================================
+    VERTICAL SCROLLING IMAGE + TEXT GALLERY
+    (desktop project-detail view only)
+
+    Replaces the old "one image visible at a time, arrows swap it"
+    carousel behavior inside .mobile-slider with a normal, stacked
+    feed: image 1 -> caption 1 -> image 2 -> caption 2 -> ...
+    .mobile-slider itself is untouched in terms of its position,
+    width and height (still set above) - it already had its own
+    overflow-y:auto, so it stays the one and only right-side scroll
+    container; only how its children are laid out changes.
+    ========================================================= */
+  @media (min-width: 891px) {
+
+    /* Lay the gallery out as a vertical stack instead of the old
+      absolute-position overlay. Position/size of the box itself
+      (top/left/right/height) is left exactly as set earlier. */
+    .project-item.desktop-active .mobile-slider {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 48px !important;
+    }
+
+    /* Every image is shown, one after another, in normal document
+      flow - no more opacity/height:0 swapping between an
+      "active" image and the rest. */
+    .project-item.desktop-active .mobile-slider .slider-image {
+      display: block !important;
+      position: static !important;
+      width: 100% !important;
+      height: auto !important;
+      max-height: 82vh !important;
+      object-fit: contain !important;
+      object-position: center !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+      filter: none !important;
+      overflow: visible !important;
+      pointer-events: auto !important;
+    }
+
+    /* Caption sits directly under its image */
+    .project-item.desktop-active .mobile-slider .gallery-caption {
+      display: block !important;
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #333;
+      margin: 0;
+    }
+
+    /* The prev/next buttons no longer switch images here (there is
+      nothing left to switch to - everything is visible at once),
+      so they're hidden rather than left floating uselessly over
+      the scrolling feed. */
+    .project-item.desktop-active .slide-btn {
+      display: none !important;
+    }
+  }
+
+  /* The gallery-caption paragraphs are new elements added only for
+    the desktop vertical feed above - keep them out of the existing
+    mobile single-image carousel entirely. */
+  @media (max-width: 890px) {
+    .gallery-caption {
+      display: none !important;
+    }
+  }
+
+  @media (min-width: 891px) {
+
+  :root {
+    --nav-h: 106px;      /* navbar height (logo 66px + 20px padding top/bottom) */
+    --center-nudge: 60px; /* fine-tune: negative = move UP, positive = DOWN */
+  }
+
+  body:not(.project-open) .projects {
+    box-sizing: border-box;
+    height: 100vh;
+    min-height: 0;
+    padding-top: var(--nav-h);
+    padding-bottom: 0;
+    align-items: center;
+  }
+
+  /* title ki, hacked margins valla card box center kante visual center different untundi, adi compensate cheyyadaniki */
+  body:not(.project-open) .project-item:not(.desktop-active) {
+    top: var(--center-nudge);
+  }
 }
 
-/* =========================================================
-   PC BASELINE POSITION
-   ========================================================= */
+/* ===== FINAL FIX: scrollbar + crisp lines + same grid positions home/inside ===== */
+:root {
+  /* home page card centers (5 visible cards) */
+  --l1: 13.12vw;
+  --l2: 31.56vw;
+  --l3: 50vw;
+  --l4: 68.44vw;
+  --l5: 86.88vw;
+}
 
+/* big monitors: cards are fixed 340px + 40px gap, 120px padding */
 @media (min-width: 1601px) {
-  .project-item:not(.desktop-active) .img-box::after {
-    top: 174.5px;
+  :root {
+    --l1: 290px;
+    --l2: 670px;
+    --l3: 1050px;
+    --l4: 1430px;
+    --l5: 1810px;
   }
 }
 
-/* Narrow laptop viewport - 150% scaling */
-@media (min-width: 1101px) and (max-width: 1300px) {
-  .project-item:not(.desktop-active) .img-box::after {
-    top: 144.3px;
-  }
-}
-body.project-open .projects {
-  background-image: none !important;
-}
+@media (min-width: 891px) {
 
-  /* 3) Project-detail image area: exactly grid line 2 -> grid line 5 */
+  /* 1) HOME: remove scrollbar / extra space */
+  body:not(.project-open) .projects {
+    overflow-y: hidden !important;
+  }
+
+  /* 2) HOME: crisp lines, no half-pixel blur (color change fix) */
+  .grid-line {
+    transform: none !important;
+    left: calc(50% - 0.5px) !important;
+  }
+
+  /* 3) INSIDE: same 5 lines, same positions as home */
+  body.project-open::after {
+    content: "";
+    position: fixed;
+    inset: auto;
+    top: 106px;          /* below navbar */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    z-index: 999;
+
+    background-image:
+      repeating-linear-gradient(to bottom, #555 0, #555 6px, transparent 6px, transparent 12px),
+      repeating-linear-gradient(to bottom, #555 0, #555 6px, transparent 6px, transparent 12px),
+      repeating-linear-gradient(to bottom, #555 0, #555 6px, transparent 6px, transparent 12px),
+      repeating-linear-gradient(to bottom, #555 0, #555 6px, transparent 6px, transparent 12px),
+      repeating-linear-gradient(to bottom, #555 0, #555 6px, transparent 6px, transparent 12px);
+    background-repeat: no-repeat;
+    background-size: 1px 100%, 1px 100%, 1px 100%, 1px 100%, 1px 100%;
+    background-position:
+      calc(var(--l1) - 0.5px) 0,
+      calc(var(--l2) - 0.5px) 0,
+      calc(var(--l3) - 0.5px) 0,
+      calc(var(--l4) - 0.5px) 0,
+      calc(var(--l5) - 0.5px) 0;
+  }
+
+  /* 4) INSIDE: image frame stays between line 2 and line 5 */
   .project-item.desktop-active .mobile-slider {
-    left: 36.2vw !important;
-    right: 5.9vw !important;
-    padding-bottom: 0 !important;
+    left: var(--l2) !important;
+    right: calc(100vw - var(--l5)) !important;
+  }
+}
+
+/* ===== HOME: all 5 grid lines same dark + pixel-crisp ===== */
+@media (min-width: 891px) {
+  body:not(.project-open) .grid-line {
+    left: 50% !important;
+    width: calc(1px / var(--dpr, 1)) !important;   /* exactly 1 device pixel */
+    transform: translateX(var(--snap, 0px)) !important;
+    background: repeating-linear-gradient(
+      to bottom,
+      #555 0px,
+      #555 6px,
+      transparent 6px,
+      transparent 12px
+    ) !important;
+    opacity: 1 !important;
+  }
+}
+
+/* ===== PROJECT DETAIL: fixed layout, only image frame scrolls, footer fixed ===== */
+@media (min-width: 891px) {
+
+  /* no page scroll while a project is open */
+  html:has(body.project-open),
+  body.project-open {
+    overflow: hidden !important;
+    height: 100vh !important;
+  }
+
+  body.project-open .projects {
+    overflow: hidden !important;
+    height: 100vh !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* opened project = exactly one screen below navbar */
+  .project-item.desktop-active {
+    position: fixed !important;
+    top: 95px !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: calc(100vh - 95px) !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* image frame: own scroll, ends above fixed footer */
+  .project-item.desktop-active .mobile-slider,
+  .project-item.desktop-active > .mobile-slider {
+    top: 20px !important;
+    height: calc(100vh - 95px - 20px - 56px) !important;  /* navbar + top gap + footer */
+    max-height: none !important;
+    min-height: 0 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding-bottom: 30px !important;
+    overscroll-behavior: contain;
+
+    /* visible thin scrollbar */
+    scrollbar-width: thin !important;
+    scrollbar-color: #777 #f5f5f5 !important;
+    -ms-overflow-style: auto !important;
+  }
+  .project-item.desktop-active .mobile-slider::-webkit-scrollbar {
+    display: block !important;
+    width: 7px !important;
+    height: auto !important;
+  }
+  .project-item.desktop-active .mobile-slider::-webkit-scrollbar-track { background: #f5f5f5; }
+  .project-item.desktop-active .mobile-slider::-webkit-scrollbar-thumb { background: #777; border-radius: 0; }
+
+  /* footer fixed at bottom of screen, no space below */
+  .project-item.desktop-active > .project-socials,
+  .project-item.desktop-active .project-socials {
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 56px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: 100000 !important;
     box-sizing: border-box !important;
   }
 
-  /* 2 + 4) Remove bottom gap, keep scrolling but hide scrollbar */
-  .project-item.desktop-active .mobile-slider::-webkit-scrollbar {
+  /* similar projects: at the end of the scrolling image frame */
+  .project-item.desktop-active .similar-projects,
+  .project-item.desktop-active > .similar-projects {
+    position: static !important;
+    width: 100% !important;
+    margin: 40px 0 0 !important;
+    padding: 0 0 20px !important;
+    left: auto !important; right: auto !important;
+    top: auto !important; bottom: auto !important;
+  }
+  .project-item.desktop-active .similar-project-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+  }
+  .project-item.desktop-active .similar-project-card .similar-image {
+    height: 130px !important;
+  }
+}
+
+/* ===== PROJECT DETAIL v3: left fixed, right scrolls (hidden scrollbar), similar + footer at end ===== */
+@media (min-width: 891px) {
+
+  /* older cards behind the opened one must not show */
+  body.project-open .project-item:not(.desktop-active) {
+    visibility: hidden !important;
+  }
+
+  /* opened project = one screen below navbar, transparent so grid lines stay visible */
+  .projects .project-item.desktop-active {
+    position: fixed !important;
+    top: 95px !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: calc(100vh - 95px) !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    background: transparent !important;
+    z-index: 1000 !important;
+  }
+
+  /* scroll area = whole project screen; content kept between line 2 and line 5 using padding */
+  .projects .project-item.desktop-active > .mobile-slider {
+    display: flex !important;
+    flex-direction: column !important;
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    box-sizing: border-box !important;
+    padding-left: var(--l2) !important;
+    padding-right: calc(100vw - var(--l5)) !important;
+    padding-top: 20px !important;
+    padding-bottom: 0 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    overscroll-behavior: contain;
+    z-index: 1 !important;
+
+    /* hidden scrollbar, scroll still works */
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+  .projects .project-item.desktop-active > .mobile-slider::-webkit-scrollbar {
     width: 0 !important;
     height: 0 !important;
     display: none !important;
   }
 
-  .project-item.desktop-active .mobile-slider {
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
+  /* left content always above the scroll area, and fixed (it does not scroll) */
+  .project-item.desktop-active .img-box,
+  .project-item.desktop-active .project-title,
+  .project-item.desktop-active .mobile-project-details {
+    z-index: 1001 !important;
   }
 
-  /* Make the image frame end directly above the slim social bar */
-  .project-item.desktop-active .mobile-slider {
-    top: 20px !important;
-    height: calc(100vh - 155px) !important;
-    max-height: none !important;
-  }
-
-  /* 5) Similar projects below the project-detail content */
-  .similar-projects {
-    margin-top: 75px;
-    padding: 0 35px 0;
-    box-sizing: border-box;
-  }
-
-  .similar-projects h2 {
-    margin: 0 0 28px;
-    font-size: 22px;
-    font-weight: 400;
-  }
-
-  .similar-project-grid {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 22px;
-  }
-
-  .similar-project-card {
-    display: block;
-    text-decoration: none;
-    color: #000;
-  }
-
-  .similar-project-card .similar-image {
-    width: 100%;
-    height: 180px;
-    object-fit: contain;
+  /* similar projects: full width, at the end of the scroll */
+  .projects .project-item.desktop-active .mobile-slider .similar-projects {
+    position: static !important;
+    width: 100vw !important;
+    margin: 75px 0 0 calc(-1 * var(--l2)) !important;
+    padding: 0 35px 40px !important;
+    box-sizing: border-box !important;
     background: #fff;
-    display: block;
+    flex-shrink: 0;
+  }
+  .projects .project-item.desktop-active .mobile-slider .similar-project-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 22px !important;
+  }
+  .projects .project-item.desktop-active .mobile-slider .similar-project-card .similar-image {
+    height: 180px !important;
   }
 
-  .similar-project-card .similar-name {
-    margin-top: 12px;
-    font-size: 13px;
-    text-align: left;
-  }
-
-  .similar-project-card:hover .similar-name {
-    text-decoration: underline;
-  }
-}
-/* .similar-projects {
-    margin-top: 45px;
-    padding: 0 20px 10px;
-  }
-
-  .similar-project-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-  }
-
-  .similar-project-card .similar-image {
-    height: 130px;
-  } */
-
-/* FIX ONLY THE BROKEN CONNECTION BETWEEN PROJECT 1 AND PROJECT 2 */
-
-/* @media (min-width: 891px) { */
-
-  /* Connect ONLY the gap between Project 1 and Project 2 */
-  /* .project-item.line-up-1::before {
-    content: "";
-    position: absolute;
-    top: 41.5%;
-    left: 100%;
-    width: 40px;
-    height: 2px;
-    background: lightgray;
-    z-index: 50;
-  }
-
-} */
-/* FULL WIDTH PROJECT FOOTER */
-.project-socials {
+  /* footer: full width, last thing in the scroll */
+  .projects .project-item.desktop-active .mobile-slider .project-socials {
+    position: static !important;
     width: 100vw !important;
-    margin-left: calc(50% - 50vw) !important;
-    margin-right: 0 !important;
-    box-sizing: border-box !important;
-
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-
-    background: #000 !important;
-    padding: 20px 0 !important;
-}
-
-/* Hide project social bars on the main projects page */
-.projects > .project-item:not(.desktop-active) .project-socials {
-    display: none !important;
-}
-/* PUT PROJECT FOOTER AT BOTTOM */
-.project-item.desktop-active > .project-socials {
-    position: absolute !important;
-    left: 0 !important;
-    bottom: 0 !important;
-
-    width: 100vw !important;
-    margin: 0 !important;
-    transform: none !important;
-
-    z-index: 9999 !important;
-    box-sizing: border-box !important;
-}
-/* TEST: allow opened project to become full-page scroll content */
-.project-item.desktop-active {
-    position: absolute !important;
     height: auto !important;
-    min-height: 100vh !important;
-    overflow: visible !important;
-}
-/* Hide the global social bar when a project is open */
-body.project-open > .project-socials {
-    display: none !important;
-}
-body.inside-page > .project-socials {
-    display: none !important;
-}
-/* PROJECT FOOTER — NORMAL FLOW */
-.project-item.desktop-active > .project-socials {
-    position: static !important;
-    left: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-    top: auto !important;
-
-    width: 100vw !important;
-    margin-left: calc(50% - 50vw) !important;
-    margin-right: 0 !important;
-
-    transform: none !important;
+    margin: 0 0 0 calc(-1 * var(--l2)) !important;
+    padding: 20px 0 !important;
+    box-sizing: border-box !important;
+    flex-shrink: 0;
     z-index: auto !important;
-    box-sizing: border-box !important;
+  }
 }
-/* PROJECT FOOTER — PLACE AFTER MAIN PROJECT AREA */
-.project-item.desktop-active > .project-socials {
-    position: static !important;
-    left: auto !important;
-    right: auto !important;
-    top: auto !important;
-    bottom: auto !important;
-    transform: none !important;
 
-    width: 100vw !important;
-    margin-left: calc(50% - 50vw) !important;
-    margin-right: 0 !important;
+/* image start position (below the header line) on laptops, same as before */
+@media (min-width: 891px) and (max-width: 1600px) {
+  .projects .project-item.desktop-active > .mobile-slider {
+    padding-top: 190px !important;
+  }
+}
 
-    margin-top: calc(100vh - 95px) !important;
-
-    z-index: auto !important;
-    box-sizing: border-box !important;
-}
-/* REMOVE INTERNAL PROJECT SCROLL */
-.project-item.desktop-active > .mobile-slider {
-    overflow-y: visible !important;
-    overflow-x: visible !important;
-}
-/* SIMILAR PROJECTS — FULL BROWSER WIDTH */
-.project-item.desktop-active > .similar-projects {
-    width: 100vw !important;
-    margin-left: calc(50% - 50vw) !important;
-    margin-right: 0 !important;
-
-    box-sizing: border-box !important;
-}
-/* SIMILAR PROJECTS — FULL WIDTH NORMAL FLOW */
-.project-item.desktop-active > .similar-projects {
-    position: static !important;
-
-    left: auto !important;
-    right: auto !important;
-    top: auto !important;
-    bottom: auto !important;
-
-    width: 100vw !important;
-    margin-left: calc(50% - 50vw) !important;
-    margin-right: 0 !important;
-
-    transform: none !important;
-    box-sizing: border-box !important;
-}
-/* SIMILAR PROJECTS — FULL BROWSER WIDTH */
-.project-item.desktop-active > .similar-projects {
-    width: 100vw !important;
-    margin-left: calc(50% - 50vw) !important;
-    margin-right: 0 !important;
-    box-sizing: border-box !important;
-}
-/* Hide Similar Projects on the main projects page */
-.projects > .project-item:not(.desktop-active) .similar-projects {
-    display: none !important;
-}
-/* SIMILAR PROJECTS — ABOVE FOOTER */
-.project-item.desktop-active > .similar-projects {
-    position: absolute !important;
-    left: 0 !important;
-    right: 0 !important;
-    top: auto !important;
-    bottom: 95px !important;
-
-    width: 100vw !important;
-    margin: 0 !important;
-    box-sizing: border-box !important;
-}
-/* Hide grid lines only on the opened Farmhouse Panjarla project */
-.project-item.line-up-3.desktop-active .grid-line {
-    display: none !important;
-}
-/* Hide inactive project grid lines when viewing a project */
-body.project-open .projects > .project-item:not(.desktop-active) .grid-line {
-    display: none !important;
-}
-/* LET THE WHOLE PAGE HANDLE THE SCROLL */
-body.project-open .projects {
-    overflow-y: visible !important;
-    overflow-x: hidden !important;
-}
-/* KEEP NAVBAR FIXED ON ALL PAGES */
-.navbar {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    z-index: 10000 !important;
-}
-/* REMOVE SPACE BELOW PROJECT FOOTER */
-body.project-open .project-item.desktop-active {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-}
-/* HIDE EXTRA STANDALONE SOCIAL BAR */
-body > .project-socials {
-    display: none !important;
-}
-/* FINAL PROJECT POSITIONING */
+/* ===== INSIDE PROJECT: grid lines same as home (sharp, dark, on top) ===== */
 @media (min-width: 891px) {
 
-  .project-item:not(.desktop-active) .img-box {
-    transform: translateY(95px) !important;
+  /* blur remove: ide lines ni light/dotted chestundi */
+  .project-item.desktop-active {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
 
-  .project-item:not(.desktop-active) .project-title {
-    position: relative !important;
-    top: -25px !important;
-    bottom: auto !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-  }
-
-}
-/* REMOVE HOME PAGE HORIZONTAL SCROLL */
-@media (min-width: 891px) {
-  body:not(.project-open) {
-    overflow-x: hidden !important;
-    overflow-y: hidden !important;
-  }
-
-  body:not(.project-open) .projects {
-    overflow-x: hidden !important;
-    overflow-y: hidden !important;
-  }
-}
-/* iPad connector-line positioning */
-@media (min-width: 768px) and (max-width: 1100px) and (orientation: portrait) {
-  .project-item:not(.desktop-active) .img-box::after {
-    top: 132.5px !important;
+  /* lines project content meeda, navbar & arrows kinda */
+  body.project-open::after {
+    z-index: 5000 !important;
+    pointer-events: none !important;
+    background-image:
+      repeating-linear-gradient(to bottom, #555 0, #555 6px, transparent 6px, transparent 12px),
+      repeating-linear-gradient(to bottom, #555 0, #555 6px, transparent 6px, transparent 12px),
+      repeating-linear-gradient(to bottom, #555 0, #555 6px, transparent 6px, transparent 12px),
+      repeating-linear-gradient(to bottom, #555 0, #555 6px, transparent 6px, transparent 12px),
+      repeating-linear-gradient(to bottom, #555 0, #555 6px, transparent 6px, transparent 12px) !important;
+    background-size: 1px 100%, 1px 100%, 1px 100%, 1px 100%, 1px 100% !important;
+    background-repeat: no-repeat !important;
   }
 }
 
-@media (min-width: 1101px) and (max-width: 1400px) and (orientation: landscape) {
-  .project-item:not(.desktop-active) .img-box::after {
-    top: 148px !important;
-  }
-}
 
-</style>
-</head>
 
-<body class="inside-page">
+  </style>
+  </head>
 
-  <!-- ================= NAVBAR ================= -->
-  <header class="navbar">
+  <body class="inside-page">
 
-    <a href="index.html" class="logo">
-    <img src="./images/logo.png" alt="Sako Logo" class="logo-img">
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
 
-    <img src="./images/logo-text.png" alt="Sako Logo" class="logo-text-img">
-</a>
+      <a href="index.html" class="logo">
+      <img src="./images/logo.png" alt="Sako Logo" class="logo-img">
 
-    <!-- Desktop Menu -->
-  <nav class="menu">
-  <a href="index.html">Home</a>
-  <a href="architecture.html">Architecture</a>
-  <a href="interior.html">Interior</a>
-  <a href="research.html">Research</a>
-  <a href="about.html">About</a>
-  <a href="publication.html">Publication</a>
-  <a href="contact.html">Contact</a>
-</nav>
+      <img src="./images/logo-text.png" alt="Sako Logo" class="logo-text-img">
+  </a>
 
-    <div class="hamburger" id="hamburger">
-  ☰
-</div>
+      <!-- Desktop Menu -->
+    <nav class="menu">
+    <a href="index.html">Home</a>
+    <a href="architecture.html">Architecture</a>
+    <a href="interior.html">Interior</a>
+    <a href="research.html">Research</a>
+    <a href="about.html">About</a>
+    <a href="publication.html">Publication</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-<div class="menu-overlay" id="overlay"></div>
+      <div class="hamburger" id="hamburger">
+    ☰
+  </div>
 
-<nav class="side-menu" id="sideMenu">
-  <div class="close-btn" id="closeMenu">✕</div>
+  <div class="menu-overlay" id="overlay"></div>
 
-  <a href="index.html">Home</a>
-  <a href="architecture.html">Architecture</a>
-  <a href="interior.html">Interior</a>
-  <a href="research.html">Research</a>
-  <a href="about.html">About</a>
-  <a href="publication.html">Publication</a>
-  <a href="contact.html">Contact</a>
-</nav>
-  </header>
+  <nav class="side-menu" id="sideMenu">
+    <div class="close-btn" id="closeMenu">✕</div>
 
-  <button class="arrow left">&#10094;</button>
-  <button class="arrow right">&#10095;</button>
-  <!-- ================= MAIN SECTION ================= -->
-  <section class="projects">
+    <a href="index.html">Home</a>
+    <a href="architecture.html">Architecture</a>
+    <a href="interior.html">Interior</a>
+    <a href="research.html">Research</a>
+    <a href="about.html">About</a>
+    <a href="publication.html">Publication</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+    </header>
 
-  
-  <div class="project-item line-up-1">
+    <button class="arrow left">&#10094;</button>
+    <button class="arrow right">&#10095;</button>
+    <!-- ================= MAIN SECTION ================= -->
+    <section class="projects">
+
+    
+    <div class="project-item line-up-1">
+      <div class="img-box">
+        <img src="./images/sketch door.jpeg"class="sketch-img">
+        <img src="./images/color door.jpeg" class="color-img">
+        <div class="grid-line"></div>
+      </div>
+      <div class="project-title">Sako Office, Hyderabad</div>
+
+    <!-- MOBILE DETAILS -->
+
+    <div class="mobile-project-details">
+
+      <div class="project-info">
+
+        <p><b>Project Name –</b> SaKo studio</p>
+
+        <p><b>Studio Name –</b> Sako design narratives</p>
+
+        <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+        <p><b>Project Size –</b> 250 sq ft</p>
+
+        <p><b>Principal Architects –</b> Sangeetha Polisetti,
+        Kondal Siddhuri</p>
+
+        <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+    
+
+        <p>
+          Nestled within a dense urban neighborhood in
+          the heart of Hyderabad, sako Studio is a compact
+          250 sq ft workspace designed for efficiency
+          and style.
+        </p>
+
+      </div>
+  </div>
+
+      <!-- SLIDER -->
+
+      <div class="mobile-slider">
+
+        <button class="slide-btn prev-btn">&#10094;</button>
+
+        <img src="./images/o1.jpg"
+            class="slider-image active">
+
+        <p class="gallery-caption">Image 1 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./images/o2.jpeg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 2 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./images/o3.jpeg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 3 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./images/o4.jpeg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 4 — replace this placeholder with the caption/description for this photo.</p>
+
+
+        <button class="slide-btn next-btn">&#10095;</button>
+
+        <!-- ================= SIMILAR PROJECTS ================= -->
+        <section class="similar-projects">
+          <h2>Similar Projects</h2>
+          <div class="similar-project-grid">
+            <a href="#" class="similar-project-card">
+              <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
+              <div class="similar-name">Sako Office, Hyderabad</div>
+            </a>
+            <a href="#" class="similar-project-card">
+              <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
+              <div class="similar-name">Villa Maheshwaram, India</div>
+            </a>
+            <a href="#" class="similar-project-card">
+              <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
+              <div class="similar-name">Lakeview Farmhouse, India</div>
+            </a>
+          </div>
+        </section>
+
+        <!-- ================= SLIM SOCIAL BAR ================= -->
+        <div class="project-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fas fa-envelope"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fas fa-briefcase"></i></a>
+        </div>
+  </div>
+
+  </div>
+      <div class="project-item  line-down-1">
     <div class="img-box">
-      <img src="./images/sketch door.jpeg"class="sketch-img">
-      <img src="./images/color door.jpeg" class="color-img">
-      <div class="grid-line"></div>
-    </div>
-    <div class="project-title">Sako Office, Hyderabad</div>
+      <img src="./images/sketch house.jpeg" class="sketch-img">
+          <img src="./images/color house.jpeg" class="color-img">
+          <div class="grid-line"></div>
+        </div>   
 
-   <!-- MOBILE DETAILS -->
+  <div class="project-title">Farmhouse Panjarla, India</div>
 
-  <div class="mobile-project-details">
+  <!-- MOBILE DETAILS -->
 
-    <div class="project-info">
+    <div class="mobile-project-details">
 
-      <p><b>Project Name –</b> SaKo studio</p>
+      <div class="project-info">
 
-      <p><b>Studio Name –</b> Sako design narratives</p>
+        <p><b>Project Name –</b> SaKo studio</p>
 
-      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+        <p><b>Studio Name –</b> Sako design narratives</p>
 
-      <p><b>Project Size –</b> 250 sq ft</p>
+        <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
 
-      <p><b>Principal Architects –</b> Sangeetha Polisetti,
-      Kondal Siddhuri</p>
+        <p><b>Project Size –</b> 250 sq ft</p>
 
-      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+        <p><b>Principal Architects –</b> Sangeetha Polisetti,
+        Kondal Siddhuri</p>
 
-  
-
-      <p>
-        Nestled within a dense urban neighborhood in
-        the heart of Hyderabad, sako Studio is a compact
-        250 sq ft workspace designed for efficiency
-        and style.
-      </p>
-
-    </div>
-</div>
-
-    <!-- SLIDER -->
-
-    <div class="mobile-slider">
-
-      <button class="slide-btn prev-btn">&#10094;</button>
-
-      <img src="./images/o1.jpg"
-           class="slider-image active">
-
-      <img src="./images/o2.jpeg"
-           class="slider-image">
-
-      <img src="./images/o3.jpeg"
-           class="slider-image">
-
-      <img src="./images/o4.jpeg"
-           class="slider-image">
-
-
-      <button class="slide-btn next-btn">&#10095;</button>
-
-      <!-- ================= SIMILAR PROJECTS ================= -->
-      <section class="similar-projects">
-        <h2>Similar Projects</h2>
-        <div class="similar-project-grid">
-          <a href="#" class="similar-project-card">
-            <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
-            <div class="similar-name">Sako Office, Hyderabad</div>
-          </a>
-          <a href="#" class="similar-project-card">
-            <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
-            <div class="similar-name">Villa Maheshwaram, India</div>
-          </a>
-          <a href="#" class="similar-project-card">
-            <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
-            <div class="similar-name">Lakeview Farmhouse, India</div>
-          </a>
-        </div>
-      </section>
-
-      <!-- ================= SLIM SOCIAL BAR ================= -->
-      
-</div>
-
-</div>
-    <div class="project-item  line-down-1">
-  <div class="img-box">
-    <img src="./images/sketch house.jpeg" class="sketch-img">
-        <img src="./images/color house.jpeg" class="color-img">
-        <div class="grid-line"></div>
-      </div>   
-
-<div class="project-title">Farmhouse Panjarla, India</div>
-
- <!-- MOBILE DETAILS -->
-
-  <div class="mobile-project-details">
-
-    <div class="project-info">
-
-      <p><b>Project Name –</b> SaKo studio</p>
-
-      <p><b>Studio Name –</b> Sako design narratives</p>
-
-      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
-
-      <p><b>Project Size –</b> 250 sq ft</p>
-
-      <p><b>Principal Architects –</b> Sangeetha Polisetti,
-      Kondal Siddhuri</p>
-
-      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
-
-  
-
-      <p>
-        Nestled within a dense urban neighborhood in
-        the heart of Hyderabad, sako Studio is a compact
-        250 sq ft workspace designed for efficiency
-        and style.
-      </p>
-
-    </div>
-</div>
-
-    <!-- SLIDER -->
-
-    <div class="mobile-slider">
-
-      <button class="slide-btn prev-btn">&#10094;</button>
-
-      <img src="./images/o1.jpg"
-           class="slider-image active">
-
-      <img src="./images/o2.jpeg"
-           class="slider-image">
-
-      <img src="./images/o3.jpeg"
-           class="slider-image">
-
-      <img src="./images/o4.jpeg"
-           class="slider-image">
-
-
-      <button class="slide-btn next-btn">&#10095;</button>
-
-      <!-- ================= SIMILAR PROJECTS ================= -->
-      <section class="similar-projects">
-        <h2>Similar Projects</h2>
-        <div class="similar-project-grid">
-          <a href="#" class="similar-project-card">
-            <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
-            <div class="similar-name">Sako Office, Hyderabad</div>
-          </a>
-          <a href="#" class="similar-project-card">
-            <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
-            <div class="similar-name">Villa Maheshwaram, India</div>
-          </a>
-          <a href="#" class="similar-project-card">
-            <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
-            <div class="similar-name">Lakeview Farmhouse, India</div>
-          </a>
-        </div>
-      </section>
-
-      <!-- ================= SLIM SOCIAL BAR ================= -->
-      <div class="project-socials">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fas fa-envelope"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fas fa-briefcase"></i></a>
-      </div>
-</div>
-
-  </div>
-
-    <div class="project-item line-up-2">
-  <div class="img-box">
-    <img src="./images/3.1.png" class="sketch-img">
-        <img src="./images/3 (1).png" class="color-img">
-        <div class="grid-line"></div>
-      </div>
-
-<div class="project-title">Villa Maheshwaram, India</div>
-
- <!-- MOBILE DETAILS -->
-
-  <div class="mobile-project-details">
-
-    <div class="project-info">
-
-      <p><b>Project Name –</b> SaKo studio</p>
-
-      <p><b>Studio Name –</b> Sako design narratives</p>
-
-      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
-
-      <p><b>Project Size –</b> 250 sq ft</p>
-
-      <p><b>Principal Architects –</b> Sangeetha Polisetti,
-      Kondal Siddhuri</p>
-
-      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+        <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
 
     
 
-      <p>
-        Nestled within a dense urban neighborhood in
-        the heart of Hyderabad, sako Studio is a compact
-        250 sq ft workspace designed for efficiency
-        and style.
-      </p>
+        <p>
+          Nestled within a dense urban neighborhood in
+          the heart of Hyderabad, sako Studio is a compact
+          250 sq ft workspace designed for efficiency
+          and style.
+        </p>
 
-    </div>
-</div>
-
-    <!-- SLIDER -->
-
-    <div class="mobile-slider">
-
-      <button class="slide-btn prev-btn">&#10094;</button>
-
-      <img src="./images/o1.jpg"
-           class="slider-image active">
-
-      <img src="./images/o2.jpeg"
-           class="slider-image">
-
-      <img src="./images/o3.jpeg"
-           class="slider-image">
-
-      <img src="./images/o4.jpeg"
-           class="slider-image">
-
-
-      <button class="slide-btn next-btn">&#10095;</button>
-
-      <!-- ================= SIMILAR PROJECTS ================= -->
-      <section class="similar-projects">
-        <h2>Similar Projects</h2>
-        <div class="similar-project-grid">
-          <a href="#" class="similar-project-card">
-            <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
-            <div class="similar-name">Sako Office, Hyderabad</div>
-          </a>
-          <a href="#" class="similar-project-card">
-            <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
-            <div class="similar-name">Villa Maheshwaram, India</div>
-          </a>
-          <a href="#" class="similar-project-card">
-            <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
-            <div class="similar-name">Lakeview Farmhouse, India</div>
-          </a>
-        </div>
-      </section>
-
-      <!-- ================= SLIM SOCIAL BAR ================= -->
-      <div class="project-socials">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fas fa-envelope"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fas fa-briefcase"></i></a>
-      </div>
-</div>
-
-  </div>
-
-    <div class="project-item  line-down-2">
-  <div class="img-box">
-     <img src="./images/4.1.png" class="sketch-img">
-        <img src="./images/4 (1).png" class="color-img">
-        <div class="grid-line"></div>
-      </div>
-<div class="project-title">Lakeview Farmhouse, India</div>
-
- <!-- MOBILE DETAILS -->
-
-  <div class="mobile-project-details">
-
-    <div class="project-info">
-
-      <p><b>Project Name –</b> SaKo studio</p>
-
-      <p><b>Studio Name –</b> Sako design narratives</p>
-
-      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
-
-      <p><b>Project Size –</b> 250 sq ft</p>
-
-      <p><b>Principal Architects –</b> Sangeetha Polisetti,
-      Kondal Siddhuri</p>
-
-      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
-
-    
-
-      <p>
-        Nestled within a dense urban neighborhood in
-        the heart of Hyderabad, sako Studio is a compact
-        250 sq ft workspace designed for efficiency
-        and style.
-      </p>
-
-    </div>
-</div>
-
-    <!-- SLIDER -->
-
-    <div class="mobile-slider">
-
-      <button class="slide-btn prev-btn">&#10094;</button>
-
-      <img src="./images/o1.jpg"
-           class="slider-image active">
-
-      <img src="./images/o2.jpeg"
-           class="slider-image">
-
-      <img src="./images/o3.jpeg"
-           class="slider-image">
-
-      <img src="./images/o4.jpeg"
-           class="slider-image">
-
-
-      <button class="slide-btn next-btn">&#10095;</button>
-
-      <!-- ================= SIMILAR PROJECTS ================= -->
-      <section class="similar-projects">
-        <h2>Similar Projects</h2>
-        <div class="similar-project-grid">
-          <a href="#" class="similar-project-card">
-            <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
-            <div class="similar-name">Sako Office, Hyderabad</div>
-          </a>
-          <a href="#" class="similar-project-card">
-            <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
-            <div class="similar-name">Villa Maheshwaram, India</div>
-          </a>
-          <a href="#" class="similar-project-card">
-            <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
-            <div class="similar-name">Lakeview Farmhouse, India</div>
-          </a>
-        </div>
-      </section>
-
-      <!-- ================= SLIM SOCIAL BAR ================= -->
-      <div class="project-socials">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fas fa-envelope"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fas fa-briefcase"></i></a>
-      </div>
-</div>
-
-  </div>
-
-    <div class="project-item line-up-3">
-  <div class="img-box">
-    <img src="./images/5.1.png" class="sketch-img">
-        <img src="./images/5 (1).png" class="color-img">
-        <div class="grid-line"></div>
-      </div>
-<div class="project-title">Farmhouse Panjarla, India</div>
-
- <!-- MOBILE DETAILS -->
-
-  <div class="mobile-project-details">
-
-    <div class="project-info">
-
-      <p><b>Project Name –</b> SaKo studio</p>
-
-      <p><b>Studio Name –</b> Sako design narratives</p>
-
-      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
-
-      <p><b>Project Size –</b> 250 sq ft</p>
-
-      <p><b>Principal Architects –</b> Sangeetha Polisetti,
-      Kondal Siddhuri</p>
-
-      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
-
-    
-
-      <p>
-        Nestled within a dense urban neighborhood in
-        the heart of Hyderabad, sako Studio is a compact
-        250 sq ft workspace designed for efficiency
-        and style.
-      </p>
-
-    </div>
-</div>
-
-    <!-- SLIDER -->
-
-    <div class="mobile-slider">
-
-      <button class="slide-btn prev-btn">&#10094;</button>
-
-      <img src="./images/o1.jpg"
-           class="slider-image active">
-
-      <img src="./images/o2.jpeg"
-           class="slider-image">
-
-      <img src="./images/o3.jpeg"
-           class="slider-image">
-
-      <img src="./images/o4.jpeg"
-           class="slider-image">
-
-
-      <button class="slide-btn next-btn">&#10095;</button>
-
-</div>
-          <!-- ================= SIMILAR PROJECTS ================= -->
-      <section class="similar-projects">
-        <h2>Similar Projects</h2>
-        <div class="similar-project-grid">
-          <a href="#" class="similar-project-card">
-            <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
-            <div class="similar-name">Sako Office, Hyderabad</div>
-          </a>
-          <a href="#" class="similar-project-card">
-            <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
-            <div class="similar-name">Villa Maheshwaram, India</div>
-          </a>
-          <a href="#" class="similar-project-card">
-            <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
-            <div class="similar-name">Lakeview Farmhouse, India</div>
-          </a>
-        </div>
-      </section>
-      <!-- ================= SLIM SOCIAL BAR ================= -->
-      <div class="project-socials">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fas fa-envelope"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fas fa-briefcase"></i></a>
       </div>
   </div>
 
-<div  class="project-item line-up-4">
+      <!-- SLIDER -->
+
+      <div class="mobile-slider">
+
+        <button class="slide-btn prev-btn">&#10094;</button>
+
+        <img src="./Panjarla Farmhouse/1.jpeg"
+            class="slider-image active">
+
+        <p class="gallery-caption">Image 1 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./Panjarla Farmhouse/2.jpeg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 2 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./Panjarla Farmhouse/3.jpeg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 3 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./Panjarla Farmhouse/4.jpeg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 4 — replace this placeholder with the caption/description for this photo.</p>
+
+
+        <button class="slide-btn next-btn">&#10095;</button>
+
+        <!-- ================= SIMILAR PROJECTS ================= -->
+        <section class="similar-projects">
+          <h2>Similar Projects</h2>
+          <div class="similar-project-grid">
+            <a href="#" class="similar-project-card">
+              <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
+              <div class="similar-name">Sako Office, Hyderabad</div>
+            </a>
+            <a href="#" class="similar-project-card">
+              <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
+              <div class="similar-name">Villa Maheshwaram, India</div>
+            </a>
+            <a href="#" class="similar-project-card">
+              <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
+              <div class="similar-name">Lakeview Farmhouse, India</div>
+            </a>
+          </div>
+        </section>
+
+        <!-- ================= SLIM SOCIAL BAR ================= -->
+        <div class="project-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fas fa-envelope"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fas fa-briefcase"></i></a>
+        </div>
+  </div>
+
+    </div>
+
+      <div class="project-item line-up-2">
     <div class="img-box">
-      <img src="./images/sketch door - Copy.jpeg" class="sketch-img">
-      <img src="./images/color door - Copy.jpeg" class="color-img">
-      <div class="grid-line"></div>
-    </div>
-    <div class="project-title">Sako Office, Hyderabad</div>
-
- <!-- MOBILE DETAILS -->
-
-  <div class="mobile-project-details">
-
-    <div class="project-info">
-
-      <p><b>Project Name –</b> SaKo studio</p>
-
-      <p><b>Studio Name –</b> Sako design narratives</p>
-
-      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
-
-      <p><b>Project Size –</b> 250 sq ft</p>
-
-      <p><b>Principal Architects –</b> Sangeetha Polisetti,
-      Kondal Siddhuri</p>
-
-      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
-
-
-
-      <p>
-        Nestled within a dense urban neighborhood in
-        the heart of Hyderabad, sako Studio is a compact
-        250 sq ft workspace designed for efficiency
-        and style.
-      </p>
-
-    </div>
-</div>
-    <!-- SLIDER -->
-
-    <div class="mobile-slider">
-
-      <button class="slide-btn prev-btn">&#10094;</button>
-
-      <img src="./images/o1.jpg"
-           class="slider-image active">
-
-      <img src="./images/o2.jpeg"
-           class="slider-image">
-
-      <img src="./images/o3.jpeg"
-           class="slider-image">
-
-      <img src="./images/o4.jpeg"
-           class="slider-image">
-
-
-      <button class="slide-btn next-btn">&#10095;</button>
-
-      <!-- ================= SIMILAR PROJECTS ================= -->
-      <section class="similar-projects">
-        <h2>Similar Projects</h2>
-        <div class="similar-project-grid">
-          <a href="#" class="similar-project-card">
-            <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
-            <div class="similar-name">Sako Office, Hyderabad</div>
-          </a>
-          <a href="#" class="similar-project-card">
-            <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
-            <div class="similar-name">Villa Maheshwaram, India</div>
-          </a>
-          <a href="#" class="similar-project-card">
-            <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
-            <div class="similar-name">Lakeview Farmhouse, India</div>
-          </a>
+      <img src="./images/3.1.png" class="sketch-img">
+          <img src="./images/3 (1).png" class="color-img">
+          <div class="grid-line"></div>
         </div>
-      </section>
 
-      <!-- ================= SLIM SOCIAL BAR ================= -->
-      <div class="project-socials">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fas fa-envelope"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fas fa-briefcase"></i></a>
-      </div>
-</div>
+  <div class="project-title">Villa Maheshwaram, India</div>
 
-  </div>
+  <!-- MOBILE DETAILS -->
 
-    <div class="project-item line-down-1">
-  <div class="img-box">
-    <img src="./images/sketch house - Copy.jpeg" class="sketch-img">
-        <img src="./images/color house - Copy.jpeg" class="color-img">
-        <div class="grid-line"></div>
-      </div>   
+    <div class="mobile-project-details">
 
-<div class="project-title">Farmhouse Panjarla, India</div>
+      <div class="project-info">
 
- <!-- MOBILE DETAILS -->
+        <p><b>Project Name –</b> SaKo studio</p>
 
-  <div class="mobile-project-details">
+        <p><b>Studio Name –</b> Sako design narratives</p>
 
-    <div class="project-info">
+        <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
 
-      <p><b>Project Name –</b> SaKo studio</p>
+        <p><b>Project Size –</b> 250 sq ft</p>
 
-      <p><b>Studio Name –</b> Sako design narratives</p>
+        <p><b>Principal Architects –</b> Sangeetha Polisetti,
+        Kondal Siddhuri</p>
 
-      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
-
-      <p><b>Project Size –</b> 250 sq ft</p>
-
-      <p><b>Principal Architects –</b> Sangeetha Polisetti,
-      Kondal Siddhuri</p>
-
-      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
-
-
-
-      <p>
-        Nestled within a dense urban neighborhood in
-        the heart of Hyderabad, sako Studio is a compact
-        250 sq ft workspace designed for efficiency
-        and style.
-      </p>
-
-    </div>
-</div>
-
-    <!-- SLIDER -->
-
-    <div class="mobile-slider">
-
-      <button class="slide-btn prev-btn">&#10094;</button>
-
-      <img src="./images/o1.jpg"
-           class="slider-image active">
-
-      <img src="./images/o2.jpeg"
-           class="slider-image">
-
-      <img src="./images/o3.jpeg"
-           class="slider-image">
-
-      <img src="./images/o4.jpeg"
-           class="slider-image">
-
-
-      <button class="slide-btn next-btn">&#10095;</button>
-
-      <!-- ================= SIMILAR PROJECTS ================= -->
-      <section class="similar-projects">
-        <h2>Similar Projects</h2>
-        <div class="similar-project-grid">
-          <a href="#" class="similar-project-card">
-            <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
-            <div class="similar-name">Sako Office, Hyderabad</div>
-          </a>
-          <a href="#" class="similar-project-card">
-            <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
-            <div class="similar-name">Villa Maheshwaram, India</div>
-          </a>
-          <a href="#" class="similar-project-card">
-            <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
-            <div class="similar-name">Lakeview Farmhouse, India</div>
-          </a>
-        </div>
-      </section>
-
-      <!-- ================= SLIM SOCIAL BAR ================= -->
-      <div class="project-socials">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fas fa-envelope"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fas fa-briefcase"></i></a>
-      </div>
-</div>
-
-  </div>
-
-    <div  class="project-item line-up-2">
-  <div class="img-box">
-    <img src="./images/3.1.png" class="sketch-img">
-        <img src="./images/3 (1).png" class="color-img">
-        <div class="grid-line"></div>
-      </div>
-
-<div class="project-title">Villa Maheshwaram, India</div>
-
- <!-- MOBILE DETAILS -->
-
-  <div class="mobile-project-details">
-
-    <div class="project-info">
-
-      <p><b>Project Name –</b> SaKo studio</p>
-
-      <p><b>Studio Name –</b> Sako design narratives</p>
-
-      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
-
-      <p><b>Project Size –</b> 250 sq ft</p>
-
-      <p><b>Principal Architects –</b> Sangeetha Polisetti,
-      Kondal Siddhuri</p>
-
-      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
-
-
-      <p>
-        Nestled within a dense urban neighborhood in
-        the heart of Hyderabad, sako Studio is a compact
-        250 sq ft workspace designed for efficiency
-        and style.
-      </p>
-
-    </div>
-</div>
-
-    <!-- SLIDER -->
-
-    <div class="mobile-slider">
-
-      <button class="slide-btn prev-btn">&#10094;</button>
-
-      <img src="./images/o1.jpg"
-           class="slider-image active">
-
-      <img src="./images/o2.jpeg"
-           class="slider-image">
-
-      <img src="./images/o3.jpeg"
-           class="slider-image">
-
-      <img src="./images/o4.jpeg"
-           class="slider-image">
-
-
-      <button class="slide-btn next-btn">&#10095;</button>
-
-      <!-- ================= SIMILAR PROJECTS ================= -->
-      <section class="similar-projects">
-        <h2>Similar Projects</h2>
-        <div class="similar-project-grid">
-          <a href="#" class="similar-project-card">
-            <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
-            <div class="similar-name">Sako Office, Hyderabad</div>
-          </a>
-          <a href="#" class="similar-project-card">
-            <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
-            <div class="similar-name">Villa Maheshwaram, India</div>
-          </a>
-          <a href="#" class="similar-project-card">
-            <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
-            <div class="similar-name">Lakeview Farmhouse, India</div>
-          </a>
-        </div>
-      </section>
-
-      <!-- ================= SLIM SOCIAL BAR ================= -->
-      <div class="project-socials">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fas fa-envelope"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fas fa-briefcase"></i></a>
-      </div>
-</div>
-
-  </div>
-
-    <div  class="project-item line-down-2">
-  <div class="img-box">
-     <img src="./images/4.1.png" class="sketch-img">
-        <img src="./images/4 (1).png" class="color-img">
-        <div class="grid-line"></div>
-      </div>
-<div class="project-title">Lakeview Farmhouse, India</div>
-
- <!-- MOBILE DETAILS -->
-
-  <div class="mobile-project-details">
-
-    <div class="project-info">
-
-      <p><b>Project Name –</b> SaKo studio</p>
-
-      <p><b>Studio Name –</b> Sako design narratives</p>
-
-      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
-
-      <p><b>Project Size –</b> 250 sq ft</p>
-
-      <p><b>Principal Architects –</b> Sangeetha Polisetti,
-      Kondal Siddhuri</p>
-
-      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
-
-
-
-      <p>
-        Nestled within a dense urban neighborhood in
-        the heart of Hyderabad, sako Studio is a compact
-        250 sq ft workspace designed for efficiency
-        and style.
-      </p>
-
-    </div>
-</div>
-
-    <!-- SLIDER -->
-
-    <div class="mobile-slider">
-
-      <button class="slide-btn prev-btn">&#10094;</button>
-
-      <img src="./images/o1.jpg"
-           class="slider-image active">
-
-      <img src="./images/o2.jpeg"
-           class="slider-image">
-
-      <img src="./images/o3.jpeg"
-           class="slider-image">
-
-      <img src="./images/o4.jpeg"
-           class="slider-image">
-
-
-      <button class="slide-btn next-btn">&#10095;</button>
-
-      <!-- ================= SIMILAR PROJECTS ================= -->
-      <section class="similar-projects">
-        <h2>Similar Projects</h2>
-        <div class="similar-project-grid">
-          <a href="#" class="similar-project-card">
-            <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
-            <div class="similar-name">Sako Office, Hyderabad</div>
-          </a>
-          <a href="#" class="similar-project-card">
-            <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
-            <div class="similar-name">Villa Maheshwaram, India</div>
-          </a>
-          <a href="#" class="similar-project-card">
-            <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
-            <div class="similar-name">Lakeview Farmhouse, India</div>
-          </a>
-        </div>
-      </section>
-
-      <!-- ================= SLIM SOCIAL BAR ================= -->
-      <div class="project-socials">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fas fa-envelope"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fas fa-briefcase"></i></a>
-      </div>
-</div>
-
-  </div>
-
-    <div class="project-item line-up-3">
-  <div class="img-box">
-    <img src="./images/sketch house.jpeg" class="sketch-img">
-        <img src="./images/color house.jpeg" class="color-img">
-        <div class="grid-line"></div>
-      </div>
-<div class="project-title">Farmhouse Panjarla, India</div>
-
- <!-- MOBILE DETAILS -->
-
-  <div class="mobile-project-details">
-
-    <div class="project-info">
-
-      <p><b>Project Name –</b> SaKo studio</p>
-
-      <p><b>Studio Name –</b> Sako design narratives</p>
-
-      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
-
-      <p><b>Project Size –</b> 250 sq ft</p>
-
-       <p class="architects"><b>Principal Architects –</b> Sangeetha Polisetti, Kondal Siddhuri</p>
-
-      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+        <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
 
       
 
-      <p>
-        Nestled within a dense urban neighborhood in
-        the heart of Hyderabad, sako Studio is a compact
-        250 sq ft workspace designed for efficiency
-        and style.
-      </p>
+        <p>
+          Nestled within a dense urban neighborhood in
+          the heart of Hyderabad, sako Studio is a compact
+          250 sq ft workspace designed for efficiency
+          and style.
+        </p>
 
-    </div>
-</div>
-
-    <!-- SLIDER -->
-
-    <div class="mobile-slider">
-
-      <button class="slide-btn prev-btn">&#10094;</button>
-
-      <img src="./images/o1.jpg"
-           class="slider-image active">
-
-      <img src="./images/o2.jpeg"
-           class="slider-image">
-
-      <img src="./images/o3.jpeg"
-           class="slider-image">
-
-      <img src="./images/o4.jpeg"
-           class="slider-image">
-
-
-      <button class="slide-btn next-btn">&#10095;</button>
-
-     
-</div>
-
+      </div>
   </div>
 
+      <!-- SLIDER -->
 
-</section>
+      <div class="mobile-slider">
 
-<!-- ================= SLIM SOCIAL BAR ================= -->
-<div class="project-socials">
-  <a href="#"><i class="fab fa-facebook-f"></i></a>
-  <a href="#"><i class="fas fa-envelope"></i></a>
-  <a href="#"><i class="fab fa-instagram"></i></a>
-  <a href="#"><i class="fas fa-briefcase"></i></a>
-</div>
+        <button class="slide-btn prev-btn">&#10094;</button>
 
-<script>
-const hamburger = document.getElementById("hamburger");
-const sideMenu = document.getElementById("sideMenu");
-const overlay = document.getElementById("overlay");
-const closeMenu = document.getElementById("closeMenu");
+        <img src="./images/o1.jpg"
+            class="slider-image active">
 
-hamburger.addEventListener("click", () => {
-  sideMenu.classList.add("active");
-  overlay.classList.add("active");
-  hamburger.style.display = "none";
-});
+        <p class="gallery-caption">Image 1 — replace this placeholder with the caption/description for this photo.</p>
 
-closeMenu.addEventListener("click", () => {
-  sideMenu.classList.remove("active");
-  overlay.classList.remove("active");
-  hamburger.style.display = "block";
-});
+        <img src="./images/o2.jpeg"
+            class="slider-image">
 
-overlay.addEventListener("click", () => {
-  sideMenu.classList.remove("active");
-  overlay.classList.remove("active");
-  hamburger.style.display = "block";
-});
+        <p class="gallery-caption">Image 2 — replace this placeholder with the caption/description for this photo.</p>
 
-const projectItems = document.querySelectorAll(".project-item");
+        <img src="./images/o3.jpeg"
+            class="slider-image">
 
-const projects = document.querySelector(".projects");
+        <p class="gallery-caption">Image 3 — replace this placeholder with the caption/description for this photo.</p>
 
-window.addEventListener("load", () => {
- const isDesktop = window.innerWidth > 890;
-    const firstCard = projects.querySelector(".project-item");
-  }
-);
+        <img src="./images/o4.jpeg"
+            class="slider-image">
 
-const leftArrow = document.querySelector(".left");
-const rightArrow = document.querySelector(".right");
+        <p class="gallery-caption">Image 4 — replace this placeholder with the caption/description for this photo.</p>
 
-function getGap() {
-  return parseInt(window.getComputedStyle(projects).gap) || 0;
-}
 
-let auto;
-let moveRightTimeout = null;
+        <button class="slide-btn next-btn">&#10095;</button>
 
-function stopAutoSlide() {
-  clearInterval(auto);
-  auto = null;
+        <!-- ================= SIMILAR PROJECTS ================= -->
+        <section class="similar-projects">
+          <h2>Similar Projects</h2>
+          <div class="similar-project-grid">
+            <a href="#" class="similar-project-card">
+              <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
+              <div class="similar-name">Sako Office, Hyderabad</div>
+            </a>
+            <a href="#" class="similar-project-card">
+              <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
+              <div class="similar-name">Villa Maheshwaram, India</div>
+            </a>
+            <a href="#" class="similar-project-card">
+              <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
+              <div class="similar-name">Lakeview Farmhouse, India</div>
+            </a>
+          </div>
+        </section>
 
-  if (moveRightTimeout) {
-    clearTimeout(moveRightTimeout);
-    moveRightTimeout = null;
-  }
+        <!-- ================= SLIM SOCIAL BAR ================= -->
+        <div class="project-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fas fa-envelope"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fas fa-briefcase"></i></a>
+        </div>
+  </div>
 
-  const currentScroll = projects.scrollLeft;
-  projects.style.scrollBehavior = "auto";
-  projects.scrollLeft = currentScroll;
-  projects.style.scrollBehavior = "";
-}
+    </div>
 
-function moveRight() {
-  if (document.body.classList.contains("project-open")) {
-    return;
-  }
+      <div class="project-item  line-down-2">
+    <div class="img-box">
+      <img src="./images/4.1.png" class="sketch-img">
+          <img src="./images/4 (1).png" class="color-img">
+          <div class="grid-line"></div>
+        </div>
+  <div class="project-title">Lakeview Farmhouse, India</div>
 
-  const firstCard = projects.querySelector(".project-item");
-  if (!firstCard) return;
+  <!-- MOBILE DETAILS -->
 
-  const cardWidth = firstCard.offsetWidth + getGap();
+    <div class="mobile-project-details">
 
-  projects.scrollBy({
-    left: cardWidth,
-    behavior: "smooth"
+      <div class="project-info">
+
+        <p><b>Project Name –</b> SaKo studio</p>
+
+        <p><b>Studio Name –</b> Sako design narratives</p>
+
+        <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+        <p><b>Project Size –</b> 250 sq ft</p>
+
+        <p><b>Principal Architects –</b> Sangeetha Polisetti,
+        Kondal Siddhuri</p>
+
+        <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+      
+
+        <p>
+          Nestled within a dense urban neighborhood in
+          the heart of Hyderabad, sako Studio is a compact
+          250 sq ft workspace designed for efficiency
+          and style.
+        </p>
+
+      </div>
+  </div>
+
+      <!-- SLIDER -->
+
+      <div class="mobile-slider">
+
+        <button class="slide-btn prev-btn">&#10094;</button>
+
+        <img src="./images/o1.jpg"
+            class="slider-image active">
+
+        <p class="gallery-caption">Image 1 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./images/o2.jpeg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 2 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./images/o3.jpeg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 3 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./images/o4.jpeg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 4 — replace this placeholder with the caption/description for this photo.</p>
+
+
+        <button class="slide-btn next-btn">&#10095;</button>
+
+        <!-- ================= SIMILAR PROJECTS ================= -->
+        <section class="similar-projects">
+          <h2>Similar Projects</h2>
+          <div class="similar-project-grid">
+            <a href="#" class="similar-project-card">
+              <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
+              <div class="similar-name">Sako Office, Hyderabad</div>
+            </a>
+            <a href="#" class="similar-project-card">
+              <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
+              <div class="similar-name">Villa Maheshwaram, India</div>
+            </a>
+            <a href="#" class="similar-project-card">
+              <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
+              <div class="similar-name">Lakeview Farmhouse, India</div>
+            </a>
+          </div>
+        </section>
+
+        <!-- ================= SLIM SOCIAL BAR ================= -->
+        <div class="project-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fas fa-envelope"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fas fa-briefcase"></i></a>
+        </div>
+  </div>
+
+    </div>
+
+      <div class="project-item line-up-3">
+    <div class="img-box">
+      <img src="./images/5.1.png" class="sketch-img">
+          <img src="./images/5 (1).png" class="color-img">
+          <div class="grid-line"></div>
+        </div>
+  <div class="project-title">Farmhouse Panjarla, India</div>
+
+  <!-- MOBILE DETAILS -->
+
+    <div class="mobile-project-details">
+
+      <div class="project-info">
+
+        <p><b>Project Name –</b> SaKo studio</p>
+
+        <p><b>Studio Name –</b> Sako design narratives</p>
+
+        <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+        <p><b>Project Size –</b> 250 sq ft</p>
+
+        <p><b>Principal Architects –</b> Sangeetha Polisetti,
+        Kondal Siddhuri</p>
+
+        <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+      
+
+        <p>
+          Nestled within a dense urban neighborhood in
+          the heart of Hyderabad, sako Studio is a compact
+          250 sq ft workspace designed for efficiency
+          and style.
+        </p>
+
+      </div>
+  </div>
+
+      <!-- SLIDER -->
+
+      <div class="mobile-slider">
+
+        <button class="slide-btn prev-btn">&#10094;</button>
+
+        <img src="./ncc yard/AAA09578-HDR-1.jpg"
+            class="slider-image active">
+
+        <p class="gallery-caption">Image 1 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./ncc yard/AAA09648-HDR-20.jpg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 2 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./ncc yard/AAA09651-HDR-21.jpg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 3 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./ncc yard/AAA09717-HDR-35-5.jpg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 4 — replace this placeholder with the caption/description for this photo.</p>
+
+
+        <button class="slide-btn next-btn">&#10095;</button>
+  </div>
+        <!-- ================= SIMILAR PROJECTS ================= -->
+        <section class="similar-projects">
+          <h2>Similar Projects</h2>
+          <div class="similar-project-grid">
+            <a href="#" class="similar-project-card">
+              <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
+              <div class="similar-name">Sako Office, Hyderabad</div>
+            </a>
+            <a href="#" class="similar-project-card">
+              <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
+              <div class="similar-name">Villa Maheshwaram, India</div>
+            </a>
+            <a href="#" class="similar-project-card">
+              <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
+              <div class="similar-name">Lakeview Farmhouse, India</div>
+            </a>
+          </div>
+        </section>
+
+        <!-- ================= SLIM SOCIAL BAR ================= -->
+        <div class="project-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fas fa-envelope"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fas fa-briefcase"></i></a>
+        </div>
+
+    </div>
+
+  <div  class="project-item line-up-4">
+      <div class="img-box">
+
+        <img src="./images/sketch door - Copy.jpeg" class="sketch-img">
+        <img src="./images/color door - Copy.jpeg" class="color-img">
+        <img src="./images/sketch door copy.jpeg" class="sketch-img">
+        <img src="./images/color door copy.jpeg" class="color-img">
+        <div class="grid-line"></div>
+      </div>
+      <div class="project-title">Sanjay Residency, Hyderabad</div>
+
+  <!-- MOBILE DETAILS -->
+
+    <div class="mobile-project-details">
+
+      <div class="project-info">
+
+        <p><b>Project Name –</b> SaKo studio</p>
+
+        <p><b>Studio Name –</b> Sako design narratives</p>
+
+        <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+        <p><b>Project Size –</b> 250 sq ft</p>
+
+        <p><b>Principal Architects –</b> Sangeetha Polisetti,
+        Kondal Siddhuri</p>
+
+        <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+
+
+        <p>
+          Nestled within a dense urban neighborhood in
+          the heart of Hyderabad, sako Studio is a compact
+          250 sq ft workspace designed for efficiency
+          and style.
+        </p>
+
+      </div>
+  </div>
+      <!-- SLIDER -->
+
+      <div class="mobile-slider">
+
+        <button class="slide-btn prev-btn">&#10094;</button>
+
+        <img src="./images/o1.jpg"
+            class="slider-image active">
+
+        <p class="gallery-caption">Image 1 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./images/o2.jpeg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 2 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./images/o3.jpeg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 3 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./images/o4.jpeg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 4 — replace this placeholder with the caption/description for this photo.</p>
+
+
+        <button class="slide-btn next-btn">&#10095;</button>
+
+        <!-- ================= SIMILAR PROJECTS ================= -->
+        <section class="similar-projects">
+          <h2>Similar Projects</h2>
+          <div class="similar-project-grid">
+            <a href="#" class="similar-project-card">
+              <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
+              <div class="similar-name">Sako Office, Hyderabad</div>
+            </a>
+            <a href="#" class="similar-project-card">
+              <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
+              <div class="similar-name">Villa Maheshwaram, India</div>
+            </a>
+            <a href="#" class="similar-project-card">
+              <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
+              <div class="similar-name">Lakeview Farmhouse, India</div>
+            </a>
+          </div>
+        </section>
+
+        <!-- ================= SLIM SOCIAL BAR ================= -->
+        <div class="project-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fas fa-envelope"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fas fa-briefcase"></i></a>
+        </div>
+  </div>
+
+    </div>
+
+      <div class="project-item line-down-1">
+    <div class="img-box">
+      <img src="./images/Sketch house - Copy.jpeg" class="sketch-img">
+          <img src="./images/color house- copy.jpeg" class="color-img">
+
+      <img src="./images/sketch house copy.jpeg" class="sketch-img">
+          <img src="./images/color house copy.jpeg" class="color-img">
+          <div class="grid-line"></div>
+        </div>   
+
+  <div class="project-title">Farmhouse Panjarla, India</div>
+
+  <!-- MOBILE DETAILS -->
+
+    <div class="mobile-project-details">
+
+      <div class="project-info">
+
+        <p><b>Project Name –</b> SaKo studio</p>
+
+        <p><b>Studio Name –</b> Sako design narratives</p>
+
+        <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+        <p><b>Project Size –</b> 250 sq ft</p>
+
+        <p><b>Principal Architects –</b> Sangeetha Polisetti,
+        Kondal Siddhuri</p>
+
+        <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+
+
+        <p>
+          Nestled within a dense urban neighborhood in
+          the heart of Hyderabad, sako Studio is a compact
+          250 sq ft workspace designed for efficiency
+          and style.
+        </p>
+
+      </div>
+  </div>
+
+      <!-- SLIDER -->
+
+      <div class="mobile-slider">
+
+        <button class="slide-btn prev-btn">&#10094;</button>
+
+        <img src="./images/o1.jpg"
+            class="slider-image active">
+
+        <p class="gallery-caption">Image 1 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./images/o2.jpeg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 2 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./images/o3.jpeg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 3 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./images/o4.jpeg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 4 — replace this placeholder with the caption/description for this photo.</p>
+
+
+        <button class="slide-btn next-btn">&#10095;</button>
+
+        <!-- ================= SIMILAR PROJECTS ================= -->
+        <section class="similar-projects">
+          <h2>Similar Projects</h2>
+          <div class="similar-project-grid">
+            <a href="#" class="similar-project-card">
+              <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
+              <div class="similar-name">Sako Office, Hyderabad</div>
+            </a>
+            <a href="#" class="similar-project-card">
+              <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
+              <div class="similar-name">Villa Maheshwaram, India</div>
+            </a>
+            <a href="#" class="similar-project-card">
+              <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
+              <div class="similar-name">Lakeview Farmhouse, India</div>
+            </a>
+          </div>
+        </section>
+
+        <!-- ================= SLIM SOCIAL BAR ================= -->
+        <div class="project-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fas fa-envelope"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fas fa-briefcase"></i></a>
+        </div>
+  </div>
+
+    </div>
+
+      <div  class="project-item line-up-2">
+    <div class="img-box">
+      <img src="./images/3.1.png" class="sketch-img">
+          <img src="./images/3 (1).png" class="color-img">
+          <div class="grid-line"></div>
+        </div>
+
+  <div class="project-title">Villa Maheshwaram, India</div>
+
+  <!-- MOBILE DETAILS -->
+
+    <div class="mobile-project-details">
+
+      <div class="project-info">
+
+        <p><b>Project Name –</b> SaKo studio</p>
+
+        <p><b>Studio Name –</b> Sako design narratives</p>
+
+        <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+        <p><b>Project Size –</b> 250 sq ft</p>
+
+        <p><b>Principal Architects –</b> Sangeetha Polisetti,
+        Kondal Siddhuri</p>
+
+        <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+
+        <p>
+          Nestled within a dense urban neighborhood in
+          the heart of Hyderabad, sako Studio is a compact
+          250 sq ft workspace designed for efficiency
+          and style.
+        </p>
+
+      </div>
+  </div>
+
+      <!-- SLIDER -->
+
+      <div class="mobile-slider">
+
+        <button class="slide-btn prev-btn">&#10094;</button>
+
+        <img src="./images/o1.jpg"
+            class="slider-image active">
+
+        <p class="gallery-caption">Image 1 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./images/o2.jpeg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 2 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./images/o3.jpeg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 3 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./images/o4.jpeg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 4 — replace this placeholder with the caption/description for this photo.</p>
+
+
+        <button class="slide-btn next-btn">&#10095;</button>
+
+        <!-- ================= SIMILAR PROJECTS ================= -->
+        <section class="similar-projects">
+          <h2>Similar Projects</h2>
+          <div class="similar-project-grid">
+            <a href="#" class="similar-project-card">
+              <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
+              <div class="similar-name">Sako Office, Hyderabad</div>
+            </a>
+            <a href="#" class="similar-project-card">
+              <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
+              <div class="similar-name">Villa Maheshwaram, India</div>
+            </a>
+            <a href="#" class="similar-project-card">
+              <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
+              <div class="similar-name">Lakeview Farmhouse, India</div>
+            </a>
+          </div>
+        </section>
+
+        <!-- ================= SLIM SOCIAL BAR ================= -->
+        <div class="project-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fas fa-envelope"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fas fa-briefcase"></i></a>
+        </div>
+  </div>
+
+    </div>
+
+      <div  class="project-item line-down-2">
+    <div class="img-box">
+      <img src="./images/4.1.png" class="sketch-img">
+          <img src="./images/4 (1).png" class="color-img">
+          <div class="grid-line"></div>
+        </div>
+  <div class="project-title">Lakeview Farmhouse, India</div>
+
+  <!-- MOBILE DETAILS -->
+
+    <div class="mobile-project-details">
+
+      <div class="project-info">
+
+        <p><b>Project Name –</b> SaKo studio</p>
+
+        <p><b>Studio Name –</b> Sako design narratives</p>
+
+        <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+        <p><b>Project Size –</b> 250 sq ft</p>
+
+        <p><b>Principal Architects –</b> Sangeetha Polisetti,
+        Kondal Siddhuri</p>
+
+        <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+
+
+        <p>
+          Nestled within a dense urban neighborhood in
+          the heart of Hyderabad, sako Studio is a compact
+          250 sq ft workspace designed for efficiency
+          and style.
+        </p>
+
+      </div>
+  </div>
+
+      <!-- SLIDER -->
+
+      <div class="mobile-slider">
+
+        <button class="slide-btn prev-btn">&#10094;</button>
+
+        <img src="./images/o1.jpg"
+            class="slider-image active">
+
+        <p class="gallery-caption">Image 1 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./images/o2.jpeg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 2 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./images/o3.jpeg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 3 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./images/o4.jpeg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 4 — replace this placeholder with the caption/description for this photo.</p>
+
+
+        <button class="slide-btn next-btn">&#10095;</button>
+
+        <!-- ================= SIMILAR PROJECTS ================= -->
+        <section class="similar-projects">
+          <h2>Similar Projects</h2>
+          <div class="similar-project-grid">
+            <a href="#" class="similar-project-card">
+              <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
+              <div class="similar-name">Sako Office, Hyderabad</div>
+            </a>
+            <a href="#" class="similar-project-card">
+              <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
+              <div class="similar-name">Villa Maheshwaram, India</div>
+            </a>
+            <a href="#" class="similar-project-card">
+              <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
+              <div class="similar-name">Lakeview Farmhouse, India</div>
+            </a>
+          </div>
+        </section>
+
+        <!-- ================= SLIM SOCIAL BAR ================= -->
+        <div class="project-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fas fa-envelope"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fas fa-briefcase"></i></a>
+        </div>
+  </div>
+
+    </div>
+
+      <div class="project-item line-up-3">
+    <div class="img-box">
+      <img src="./images/sketch house.jpeg" class="sketch-img">
+          <img src="./images/color house.jpeg" class="color-img">
+          <div class="grid-line"></div>
+        </div>
+  <div class="project-title">Farmhouse Panjarla, India</div>
+
+  <!-- MOBILE DETAILS -->
+
+    <div class="mobile-project-details">
+
+      <div class="project-info">
+
+        <p><b>Project Name –</b> SaKo studio</p>
+
+        <p><b>Studio Name –</b> Sako design narratives</p>
+
+        <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
+
+        <p><b>Project Size –</b> 250 sq ft</p>
+
+        <p class="architects"><b>Principal Architects –</b> Sangeetha Polisetti, Kondal Siddhuri</p>
+
+        <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
+
+        
+
+        <p>
+          Nestled within a dense urban neighborhood in
+          the heart of Hyderabad, sako Studio is a compact
+          250 sq ft workspace designed for efficiency
+          and style.
+        </p>
+
+      </div>
+  </div>
+
+      <!-- SLIDER -->
+
+      <div class="mobile-slider">
+
+        <button class="slide-btn prev-btn">&#10094;</button>
+
+        <img src="./images/o1.jpg"
+            class="slider-image active">
+
+        <p class="gallery-caption">Image 1 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./images/o2.jpeg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 2 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./images/o3.jpeg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 3 — replace this placeholder with the caption/description for this photo.</p>
+
+        <img src="./images/o4.jpeg"
+            class="slider-image">
+
+        <p class="gallery-caption">Image 4 — replace this placeholder with the caption/description for this photo.</p>
+
+
+        <button class="slide-btn next-btn">&#10095;</button>
+
+        <!-- ================= SIMILAR PROJECTS ================= -->
+        <section class="similar-projects">
+          <h2>Similar Projects</h2>
+          <div class="similar-project-grid">
+            <a href="#" class="similar-project-card">
+              <img src="./images/1.png" alt="Sako Office, Hyderabad" class="similar-image">
+              <div class="similar-name">Sako Office, Hyderabad</div>
+            </a>
+            <a href="#" class="similar-project-card">
+              <img src="./images/3.1.png" alt="Villa Maheshwaram, India" class="similar-image">
+              <div class="similar-name">Villa Maheshwaram, India</div>
+            </a>
+            <a href="#" class="similar-project-card">
+              <img src="./images/4.1.png" alt="Lakeview Farmhouse, India" class="similar-image">
+              <div class="similar-name">Lakeview Farmhouse, India</div>
+            </a>
+          </div>
+        </section>
+
+        <!-- ================= SLIM SOCIAL BAR ================= -->
+        <div class="project-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fas fa-envelope"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fas fa-briefcase"></i></a>
+        </div>
+  </div>
+
+    </div>
+
+  </section>
+
+  <script>
+  const hamburger = document.getElementById("hamburger");
+  const sideMenu = document.getElementById("sideMenu");
+  const overlay = document.getElementById("overlay");
+  const closeMenu = document.getElementById("closeMenu");
+
+  hamburger.addEventListener("click", () => {
+    sideMenu.classList.add("active");
+    overlay.classList.add("active");
+    hamburger.style.display = "none";
   });
 
-  moveRightTimeout = setTimeout(() => {
+  closeMenu.addEventListener("click", () => {
+    sideMenu.classList.remove("active");
+    overlay.classList.remove("active");
+    hamburger.style.display = "block";
+  });
 
-    if (document.body.classList.contains("project-open")) {
+  overlay.addEventListener("click", () => {
+    sideMenu.classList.remove("active");
+    overlay.classList.remove("active");
+    hamburger.style.display = "block";
+  });
+
+  const projectItems = document.querySelectorAll(".project-item");
+
+  const projects = document.querySelector(".projects");
+
+  window.addEventListener("load", () => {
+  const isDesktop = window.innerWidth > 890;
+      const firstCard = projects.querySelector(".project-item");
+    }
+  );
+
+  const leftArrow = document.querySelector(".left");
+  const rightArrow = document.querySelector(".right");
+
+  function getGap() {
+    return parseInt(window.getComputedStyle(projects).gap) || 0;
+  }
+
+  let auto;
+  let moveRightTimeout = null;
+
+  function stopAutoSlide() {
+    clearInterval(auto);
+    auto = null;
+
+    if (moveRightTimeout) {
+      clearTimeout(moveRightTimeout);
       moveRightTimeout = null;
+    }
+
+    const currentScroll = projects.scrollLeft;
+    projects.style.scrollBehavior = "auto";
+    projects.scrollLeft = currentScroll;
+    projects.style.scrollBehavior = "";
+  }
+
+  function moveRight() {
+    if (document.body.classList.contains("project-open")) {
       return;
     }
 
-    projects.appendChild(firstCard);
-    projects.style.scrollBehavior = "auto";
-    projects.scrollLeft -= cardWidth;
-    projects.style.scrollBehavior = "";
+    const firstCard = projects.querySelector(".project-item");
+    if (!firstCard) return;
 
-    moveRightTimeout = null;
+    const cardWidth = firstCard.offsetWidth + getGap();
 
-  }, 500);
-}
-
-
-function startAutoSlide() {
-  clearInterval(auto);
-
-  if (document.body.classList.contains("project-open")) {
-    return;
-  }
-
-  auto = setInterval(() => {
-    moveRight();
-  }, 2500);
-}
-
-startAutoSlide();
-
-
-window.addEventListener("resize", () => {
-
-  if (!document.body.classList.contains("project-open")) {
-    startAutoSlide();
-  }
-
-});
-
-document.querySelectorAll(".img-box").forEach(box => {
-
-  box.addEventListener("mouseenter", () => {
-    stopAutoSlide();
-  });
-
-  box.addEventListener("mouseleave", () => {
-    startAutoSlide();
-  });
-
-});
-
-/* ================= NEXT/PREV INSIDE PROJECT DETAIL ================= */
-
-function goToProject(direction) {
-
-  const items = Array.from(document.querySelectorAll(".project-item"));
-
-  const currentIndex = items.findIndex(it => it.classList.contains("desktop-active"));
-
-  if (currentIndex === -1) return;
-
-  const nextIndex = (currentIndex + direction + items.length) % items.length;
-
-  const current = items[currentIndex];
-  const next = items[nextIndex];
-
-  current.classList.remove("desktop-active", "opened", "show-details");
-
-  next.classList.add("desktop-active");
-  next.classList.remove("show-details");
-
-  const nextSlider = next.querySelector(".mobile-slider");
-  if (nextSlider) {
-    nextSlider.scrollTop = 0;
-  }
-
-  setTimeout(() => {
-    next.classList.add("show-details");
-  }, 300);
-}
-
-rightArrow.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  if (document.body.classList.contains("project-open")) {
-    goToProject(1);
-    return;
-  }
-
-  moveRight();
-});
-
-let leftMoveTimeout = null;
-
-leftArrow.addEventListener("click", (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-
-  if (document.body.classList.contains("project-open")) {
-    goToProject(-1);
-    return;
-  }
-
-  clearInterval(auto);
-
-  const cards = projects.querySelectorAll(".project-item");
-  if (!cards.length) return;
-
-  const cardWidth = cards[0].offsetWidth + getGap();
-
-  if (projects.scrollLeft <= 5) {
-
-    const lastCard = projects.lastElementChild;
-
-    projects.insertBefore(lastCard, projects.firstElementChild);
-
-    // instant correction, not animated, so it doesn't visibly glide
-    projects.style.scrollBehavior = "auto";
-    projects.scrollLeft += cardWidth;
-    projects.style.scrollBehavior = "";
-
-  }
-
-  projects.scrollBy({
-    left: -cardWidth,
-    behavior: "smooth"
-  });
-
-  clearTimeout(leftMoveTimeout);
-
-  leftMoveTimeout = setTimeout(() => {
-    startAutoSlide();
-  }, 800);
-});
-
-const allProjects = document.querySelectorAll(".project-item");
-
-allProjects.forEach(project => {
-
-  project.addEventListener("click", (e) => {
-
-    if (
-      e.target.closest(".mobile-slider") ||
-      e.target.closest(".slide-btn")
-    ) {
-      return;
-    }
-
-    e.preventDefault();
-
-    const isActive =
-      project.classList.contains("active") ||
-      project.classList.contains("desktop-active");
-
-    allProjects.forEach(item => {
-      item.classList.remove("active");
-      item.classList.remove("desktop-active");
-      item.classList.remove("show-details");
+    projects.scrollBy({
+      left: cardWidth,
+      behavior: "smooth"
     });
 
-    if (!isActive) {
+    moveRightTimeout = setTimeout(() => {
 
-      clearInterval(auto);
-
-      if (window.innerWidth > 890) {
-
-    if(project.classList.contains("opened")) return;
-
-    project.classList.add("desktop-active");
-project.classList.add("opened");
-
-setTimeout(() => {
-    project.classList.add("show-details");
-}, 300);
-
-document.body.classList.add("project-open");
-
-      } else {
-
-        project.classList.add("active");
-
+      if (document.body.classList.contains("project-open")) {
+        moveRightTimeout = null;
+        return;
       }
 
-    } else {
+      projects.appendChild(firstCard);
+      projects.style.scrollBehavior = "auto";
+      projects.scrollLeft -= cardWidth;
+      projects.style.scrollBehavior = "";
 
-      startAutoSlide();
+      moveRightTimeout = null;
 
-      document.body.classList.remove("project-open");
-
-    }
-
-  });
-
-});
- 
-
-/* ================= MOBILE IMAGE SLIDER ================= */
-
-const sliders = document.querySelectorAll(".mobile-slider");
-
-sliders.forEach(slider => {
-
-  const images = slider.querySelectorAll(".slider-image");
-
-  const nextBtn = slider.querySelector(".next-btn");
-
-  const prevBtn = slider.querySelector(".prev-btn");
-
-  let current = 0;
-
-  let autoSlide;
-
-  function showImage(index){
-
-    images.forEach(img => {
-      img.classList.remove("active");
-    });
-
-    images[index].classList.add("active");
+    }, 500);
   }
 
-  function nextSlide(){
 
-    current++;
+  function startAutoSlide() {
+    clearInterval(auto);
 
-    if(current >= images.length){
-      current = 0;
+    if (document.body.classList.contains("project-open")) {
+      return;
     }
 
-    showImage(current);
-  }
-
-  function prevSlide(){
-
-    current--;
-
-    if(current < 0){
-      current = images.length - 1;
-    }
-
-    showImage(current);
-  }
-
-  function startAutoSlide(){
-
-    clearInterval(autoSlide);
-
-    autoSlide = setInterval(() => {
-      nextSlide();
-    }, 3000);
-
+    auto = setInterval(() => {
+      moveRight();
+    }, 2500);
   }
 
   startAutoSlide();
 
-  nextBtn.addEventListener("click", (e) => {
 
+  window.addEventListener("resize", () => {
+
+    if (!document.body.classList.contains("project-open")) {
+      startAutoSlide();
+    }
+
+  });
+
+  document.querySelectorAll(".img-box").forEach(box => {
+
+    box.addEventListener("mouseenter", () => {
+      stopAutoSlide();
+    });
+
+    box.addEventListener("mouseleave", () => {
+      startAutoSlide();
+    });
+
+  });
+
+  /* ================= NEXT/PREV INSIDE PROJECT DETAIL ================= */
+
+  function goToProject(direction) {
+
+    const items = Array.from(document.querySelectorAll(".project-item"));
+
+    const currentIndex = items.findIndex(it => it.classList.contains("desktop-active"));
+
+    if (currentIndex === -1) return;
+
+    const nextIndex = (currentIndex + direction + items.length) % items.length;
+
+    const current = items[currentIndex];
+    const next = items[nextIndex];
+
+    current.classList.remove("desktop-active", "opened", "show-details");
+
+    next.classList.add("desktop-active");
+    next.classList.remove("show-details");
+
+    const nextSlider = next.querySelector(".mobile-slider");
+    if (nextSlider) {
+      nextSlider.scrollTop = 0;
+    }
+
+    setTimeout(() => {
+      next.classList.add("show-details");
+    }, 300);
+  }
+
+  rightArrow.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (document.body.classList.contains("project-open")) {
+      goToProject(1);
+      return;
+    }
+
+    moveRight();
+  });
+
+  let leftMoveTimeout = null;
+
+  leftArrow.addEventListener("click", (e) => {
+    e.preventDefault();
     e.stopPropagation();
 
-    nextSlide();
+    if (document.body.classList.contains("project-open")) {
+      goToProject(-1);
+      return;
+    }
+
+    clearInterval(auto);
+
+    const cards = projects.querySelectorAll(".project-item");
+    if (!cards.length) return;
+
+    const cardWidth = cards[0].offsetWidth + getGap();
+
+    if (projects.scrollLeft <= 5) {
+
+      const lastCard = projects.lastElementChild;
+
+      projects.insertBefore(lastCard, projects.firstElementChild);
+
+      // instant correction, not animated, so it doesn't visibly glide
+      projects.style.scrollBehavior = "auto";
+      projects.scrollLeft += cardWidth;
+      projects.style.scrollBehavior = "";
+
+    }
+
+    projects.scrollBy({
+      left: -cardWidth,
+      behavior: "smooth"
+    });
+
+    clearTimeout(leftMoveTimeout);
+
+    leftMoveTimeout = setTimeout(() => {
+      startAutoSlide();
+    }, 800);
+  });
+
+  const allProjects = document.querySelectorAll(".project-item");
+
+  allProjects.forEach(project => {
+
+    project.addEventListener("click", (e) => {
+
+      if (
+        e.target.closest(".mobile-slider") ||
+        e.target.closest(".slide-btn")
+      ) {
+        return;
+      }
+
+      e.preventDefault();
+
+      const isActive =
+        project.classList.contains("active") ||
+        project.classList.contains("desktop-active");
+
+      allProjects.forEach(item => {
+        item.classList.remove("active");
+        item.classList.remove("desktop-active");
+        item.classList.remove("show-details");
+      });
+
+      if (!isActive) {
+
+        clearInterval(auto);
+
+        if (window.innerWidth > 890) {
+
+      if(project.classList.contains("opened")) return;
+
+      project.classList.add("desktop-active");
+  project.classList.add("opened");
+
+  setTimeout(() => {
+      project.classList.add("show-details");
+  }, 300);
+
+  document.body.classList.add("project-open");
+
+        } else {
+
+          project.classList.add("active");
+
+        }
+
+      } else {
+
+        startAutoSlide();
+
+        document.body.classList.remove("project-open");
+
+      }
+
+    });
+
+  });
+  
+
+  /* ================= MOBILE IMAGE SLIDER ================= */
+
+  const sliders = document.querySelectorAll(".mobile-slider");
+
+  sliders.forEach(slider => {
+
+    const images = slider.querySelectorAll(".slider-image");
+
+    const nextBtn = slider.querySelector(".next-btn");
+
+    const prevBtn = slider.querySelector(".prev-btn");
+
+    let current = 0;
+
+    let autoSlide;
+
+    function showImage(index){
+
+      images.forEach(img => {
+        img.classList.remove("active");
+      });
+
+      images[index].classList.add("active");
+    }
+
+    function nextSlide(){
+
+      // On the desktop project-detail view every image is shown at
+      // once in a vertical scroll (see the "VERTICAL SCROLLING IMAGE
+      // + TEXT GALLERY" CSS), so there is nothing left to switch -
+      // the prev/next buttons and the old auto-advance no longer do
+      // anything there. Mobile keeps the original single-image
+      // carousel untouched.
+      if (document.body.classList.contains("project-open")) return;
+
+      current++;
+
+      if(current >= images.length){
+        current = 0;
+      }
+
+      showImage(current);
+    }
+
+    function prevSlide(){
+
+      if (document.body.classList.contains("project-open")) return;
+
+      current--;
+
+      if(current < 0){
+        current = images.length - 1;
+      }
+
+      showImage(current);
+    }
+
+    function startAutoSlide(){
+
+      clearInterval(autoSlide);
+
+      if (document.body.classList.contains("project-open")) return;
+
+      autoSlide = setInterval(() => {
+        nextSlide();
+      }, 3000);
+
+    }
 
     startAutoSlide();
 
+    nextBtn.addEventListener("click", (e) => {
+
+      e.stopPropagation();
+
+      nextSlide();
+
+      startAutoSlide();
+
+    });
+
+    prevBtn.addEventListener("click", (e) => {
+
+      e.stopPropagation();
+
+      prevSlide();
+
+      startAutoSlide();
+
+    });
+
+  });
+  document.querySelectorAll(".full-details-btn").forEach(btn => {
+
+    btn.addEventListener("click", (e) => {
+
+      e.stopPropagation();
+
+      window.location.href = btn.getAttribute("href");
+
+    });
+
   });
 
-  prevBtn.addEventListener("click", (e) => {
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
 
-    e.stopPropagation();
-
-    prevSlide();
-
-    startAutoSlide();
-
+  <script>
+  const lenis = new Lenis({
+    duration: 1.2,
+    smoothWheel: true,
+    smoothTouch: false,
+    easing: (t) => 1 - Math.pow(1 - t, 3)
   });
 
-});
-document.querySelectorAll(".full-details-btn").forEach(btn => {
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
 
-  btn.addEventListener("click", (e) => {
-
-    e.stopPropagation();
-
-    window.location.href = btn.getAttribute("href");
-
-  });
-
-});
-
-</script>
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
-
-<script>
-const lenis = new Lenis({
-  duration: 1.2,
-  smoothWheel: true,
-  smoothTouch: false,
-  easing: (t) => 1 - Math.pow(1 - t, 3)
-});
-
-function raf(time) {
-  lenis.raf(time);
   requestAnimationFrame(raf);
-}
+  </script>
 
-requestAnimationFrame(raf);
-</script>
 
+  <script>
+  document.querySelectorAll(".project-item").forEach(item => {
+      const imgBox = item.querySelector(".img-box");
+      if (!imgBox) return;
+
+      imgBox.addEventListener("mouseenter", () => {
+          item.classList.add("hover-active");
+      });
+
+      imgBox.addEventListener("mouseleave", () => {
+          item.classList.remove("hover-active");
+      });
+  });
+  </script>
 
 <script>
-document.querySelectorAll(".project-item").forEach(item => {
-    const imgBox = item.querySelector(".img-box");
-    if (!imgBox) return;
+(function () {
+  const lines = Array.from(document.querySelectorAll(".projects .grid-line"));
 
-    imgBox.addEventListener("mouseenter", () => {
-        item.classList.add("hover-active");
+  function snapLines() {
+    if (document.body.classList.contains("project-open")) return;
+
+    const d = window.devicePixelRatio || 1;
+    document.documentElement.style.setProperty("--dpr", d);
+
+    // read first (no layout thrash)
+    const data = lines.map(l => {
+      const cur = parseFloat(l.dataset.snap || 0);
+      const x = l.getBoundingClientRect().left - cur;
+      return { l, cur, x };
     });
 
-    imgBox.addEventListener("mouseleave", () => {
-        item.classList.remove("hover-active");
+    // then write
+    data.forEach(({ l, cur, x }) => {
+      const s = Math.round(x * d) / d - x;
+      if (Math.abs(s - cur) > 0.001) {
+        l.dataset.snap = s;
+        l.style.setProperty("--snap", s + "px");
+      }
     });
+  }
+
+  function loop() {
+    snapLines();
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+  window.addEventListener("resize", snapLines);
+})();
+</script>
+
+<script>
+document.querySelectorAll(".mobile-slider").forEach(s => {
+  s.setAttribute("data-lenis-prevent", "");
 });
 </script>
 
-</body>
-</html>
+<script>
+(function () {
+  // 1) similar projects + footer ni prathi project lo slider (scroll area) loki teeskuvasthundi
+  if (window.innerWidth > 890) {
+    document.querySelectorAll(".project-item").forEach(item => {
+      const slider = item.querySelector(".mobile-slider");
+      if (!slider) return;
+      const similar = item.querySelector(".similar-projects");
+      const footer  = item.querySelector(".project-socials");
+      if (similar) slider.appendChild(similar);
+      if (footer)  slider.appendChild(footer);
+    });
+  }
+
+  // 2) left side meeda mouse wheel tiste kuda right scroll avvali
+  document.querySelectorAll(".project-item").forEach(item => {
+    item.addEventListener("wheel", e => {
+      if (!document.body.classList.contains("project-open")) return;
+      if (!item.classList.contains("desktop-active")) return;
+      const slider = item.querySelector(".mobile-slider");
+      if (!slider || slider.contains(e.target)) return;
+      slider.scrollTop += e.deltaY;
+    }, { passive: true });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  const GAP = 20; // left content ki, similar projects ki madhya gap (px)
+
+  function leftEls(item) {
+    return [
+      item.querySelector(".img-box"),
+      item.querySelector(".project-title"),
+      item.querySelector(".mobile-project-details")
+    ].filter(Boolean);
+  }
+
+  function update() {
+    const item = document.querySelector(".project-item.desktop-active");
+    if (!item || innerWidth <= 890) return;
+
+    const similar = item.querySelector(".similar-projects");
+    const els = leftEls(item);
+    if (!similar || !els.length) return;
+
+    // current push (px) ni teesesi, original bottom calculate chestam
+    const curPush = parseFloat(item.dataset.push || 0);
+    const leftBottom = Math.max(...els.map(el => el.getBoundingClientRect().bottom)) + curPush;
+    const similarTop = similar.getBoundingClientRect().top;
+
+    const push = Math.max(0, leftBottom - (similarTop - GAP));
+
+    if (Math.abs(push - curPush) > 0.5) {
+      item.dataset.push = push;
+      els.forEach(el => el.style.setProperty("translate", "0 " + (-push) + "px"));
+    }
+  }
+
+  function reset() {
+    document.querySelectorAll(".project-item").forEach(item => {
+      item.dataset.push = 0;
+      leftEls(item).forEach(el => el.style.removeProperty("translate"));
+    });
+  }
+
+  // slider scroll ayyetappudu update
+  document.querySelectorAll(".mobile-slider").forEach(s => {
+    s.addEventListener("scroll", () => requestAnimationFrame(update), { passive: true });
+  });
+
+  // project marinappudu / close ayinappudu reset
+  document.querySelectorAll(".project-item").forEach(item => {
+    new MutationObserver(() => {
+      reset();
+      requestAnimationFrame(update);
+    }).observe(item, { attributes: true, attributeFilter: ["class"] });
+  });
+
+  window.addEventListener("resize", () => { reset(); requestAnimationFrame(update); });
+})();
+</script>
+
+<script>
+(function () {
+  const st = document.createElement("style");
+  st.textContent = `
+    .project-item.desktop-active::before,
+    .project-item.desktop-active::after {
+      transition: opacity .25s ease;
+    }
+    .project-item.line-hidden::before,
+    .project-item.line-hidden::after {
+      opacity: 0 !important;
+    }
+  `;
+  document.head.appendChild(st);
+
+  function update(item) {
+    const slider = item.querySelector(".mobile-slider");
+    if (!slider) return;
+    item.classList.toggle("line-hidden", slider.scrollTop > 2);
+  }
+
+  document.querySelectorAll(".project-item").forEach(item => {
+    const slider = item.querySelector(".mobile-slider");
+    if (slider) {
+      slider.addEventListener("scroll", () => update(item), { passive: true });
+    }
+    // project open / next / prev ayinappudu malli check
+    new MutationObserver(() => requestAnimationFrame(() => update(item)))
+      .observe(item, { attributes: true, attributeFilter: ["class"] });
+  });
+})();
+</script>
+
+<!-- <script>
+(function () {
+  const st = document.createElement("style");
+  st.textContent = `
+    @media (min-width: 891px) {
+      .project-item.desktop-active::before,
+      .project-item.desktop-active::after { display: none !important; }
+    }
+    .hline-fixed {
+      position: fixed; left: 0; right: 0; height: 1px;
+      background: rgb(120,120,120);
+      pointer-events: none; z-index: 4000; display: none;
+    }
+    body.project-open .hline-fixed { display: block; }
+  `;
+  document.head.appendChild(st);
+
+  const line = document.createElement("div");
+  line.className = "hline-fixed";
+  document.body.appendChild(line);
+
+  // slider padding-top boundary = images start. scrollTop 0 appudu first image top ni measure chesi, adi save chestam
+  let fixedY = null;
+
+  function measure() {
+    const item = document.querySelector(".project-item.desktop-active");
+    if (!item || innerWidth <= 890) return;
+    const slider = item.querySelector(".mobile-slider");
+    const img = slider && slider.querySelector(".slider-image");
+    if (!img) return;
+    if (slider.scrollTop > 0) return;       // scroll 0 lo unnappude measure
+    fixedY = Math.round(img.getBoundingClientRect().top);
+    line.style.top = fixedY + "px";
+  }
+
+  function remeasure() {
+    fixedY = null;
+    // animation (smoothOpen 0.8s) aipoyaka measure
+    [100, 500, 1000, 1400].forEach(t => setTimeout(measure, t));
+  }
+
+  document.querySelectorAll(".project-item").forEach(it => {
+    new MutationObserver(remeasure)
+      .observe(it, { attributes: true, attributeFilter: ["class"] });
+  });
+  window.addEventListener("resize", remeasure);
+})();
+</script> -->
+
+
+
+  </body>
+  </html>
