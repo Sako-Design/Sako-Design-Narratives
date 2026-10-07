@@ -9,9 +9,27 @@
   <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+<!-- Outfit font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome icons -->
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <title>Contact | Sako Design Narratives</title>
 
   <style>
+
+    /* hide the scrollbar (page still scrolls) so the navbar
+       sits in the same position as on the home page */
+    html{
+      scrollbar-width:none;
+    }
+    html::-webkit-scrollbar{
+      display:none;
+    }
 
     body{
       margin:0;
@@ -56,16 +74,24 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     }
 
     .menu a{
+      position: relative;
       text-decoration:none;
       color:#111;
       font-size:14px;
-      transition:0.3s ease;
+      /* transition:0.3s ease; */
+      padding-bottom:4px;
     }
 
-    .menu a:hover{
+    /* .menu a:hover{
       opacity:0.6;
-    }
+    } */
 
+    /* same hover as home page: plain underline, appears instantly */
+    .menu a:hover{
+      text-decoration:underline;
+      text-underline-offset:3px;
+      text-decoration-thickness:1px;
+    }
     /* ================= CONTACT PAGE ================= */
 
     .contact-page{
@@ -89,8 +115,16 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       top:0;
       bottom:0;
       width:1px;
-      background:dashed;
-      border-left:1px dashed rgba(0,0,0,0.2);
+      /* background:dashed;
+      border-left:1px dashed rgba(0,0,0,0.2); */
+       /* dashed line like home page: 8px dash, 6px gap */
+  background:repeating-linear-gradient(
+    to bottom,
+    #333 0,
+    #333 8px,
+    transparent 8px,
+    transparent 14px
+  );
     }
 
     .grid-lines span:nth-child(1){ left:10%; }
