@@ -1,2252 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="UTF-8">
-  <title>Sako Design Narratives</title>
-  <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-
-  <style>
-
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
-
-
-body {
-  margin: 0;
-    font-family: 'Outfit', sans-serif;
-  background: #ffffff;
-
-  overflow-x: hidden;
-  overflow-y: hidden;
-
-  height: 100vh;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Architecture | Sako Design Narratives</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap">
+<style>
+/* ===== 5 cards always tile the screen; l1..l5 = centre of each card = the 5 grid lines ===== */
+:root{
+  --nav-h:106px;
+  --pad:clamp(40px,5vw,120px);
+  --gap:clamp(20px,2.2vw,40px);
+  --w:calc((100vw - 2*var(--pad) - 4*var(--gap)) / 5);
+  --l1:calc(var(--pad) + var(--w)/2);
+  --l2:calc(var(--l1) + var(--w) + var(--gap));
+  --l3:calc(var(--l2) + var(--w) + var(--gap));
+  --l4:calc(var(--l3) + var(--w) + var(--gap));
+  --l5:calc(var(--l4) + var(--w) + var(--gap));
+  --img:clamp(260px,26vw,500px);      /* home image size   */
+  --c:clamp(260px,23vw,340px);        /* opened circle size */
+  --dash:repeating-linear-gradient(to bottom,#555 0,#555 6px,transparent 6px,transparent 12px);
 }
-
-.project-info .architects {
-  white-space: nowrap;
-}
-
-body.inside-page::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  z-index:0;
-
-  background-image:
-    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px),
-    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px),
-    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px),
-    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px),
-    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px),
-    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px),
-    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px),
-    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px),
-    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px),
-    repeating-linear-gradient(to bottom,#999 0 6px,transparent 6px 12px);
-
-  background-repeat:no-repeat;
-
-  background-size:
-    1px 100%,
-    1px 100%,
-    1px 100%,
-    1px 100%,
-    1px 100%,
-     1px 100%,
-    1px 100%,
-    1px 100%,
-    1px 100%,
-    1px 100%;
-    
-
-  background-position:
-    /* 15% 0,
-    35% 0, */
-    54% 0,
-    74% 0,
-    94% 0,
-    114% 0,
-    134% 0,
-    154% 0,
-    174% 0,
-    194% 0; 
-    
-}
-
-    /* ================= NAVBAR ================= */
-
-    .navbar {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  box-sizing: border-box;
-   position:relative;
-  z-index:2000;
-  background: #ffffff;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  flex-shrink: 0;
-  color: inherit;
-}
-.logo-text-img{
-  height:66px;
-  width:auto;
-  display:block;
-}
-.menu {
-  display: flex;
-  align-items: center;
-  gap: 35px;
-}
-
-.menu a {
-  text-decoration: none;
-  color: #000;
-  font-size: 14px;
-  white-space: nowrap;
-}
-
-    .logo-img {
-  width: 60px;
-  height: auto;
-  margin-right: 12px;
-  mix-blend-mode: multiply;
-}
-
-.logo-text h2 {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.logo-text p {
-  margin-top: 2px;
-  font-size: 11px;
-  color: #666;
-}
-
-    .menu a:hover {
-      color: black;
-    }
-.menu a:hover {
-  text-decoration: underline;
-}
-    /* on hover */
-.menu a:hover::after {
-  width: 100%;
-}
-/* PROJECTS */
-.projects{
-  position: relative;
-  padding: 20px 120px 20px;
-  gap:40px;
-  display: flex;
-  justify-content:flex-start;
-  align-items: center;
-  min-height: calc(100vh - 120px);
-  overflow-x: visible;
-  overflow-y: visible;
-  background:transparent;
-   min-width:3400px;
-}
-
-
-.projects::-webkit-scrollbar{
-  display:none;
-}
-
-
-.project-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width:340px;
-  flex-shrink: 0;
-  text-decoration: none;
-  color: inherit;
-  overflow:visible;
-  position: relative;
-  z-index: 2;
-}
-
-/* horizontal connection */
-.project-item::after{
-  content: "";
-  position: absolute;
-  z-index: 10;
-  box-sizing: border-box;
-}
-
-.project-footer{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 40px;
-
-    background: #000;
-
-    display: none;
-
-    justify-content: center;
-    align-items: center;
-    gap: 18px;
-
-    z-index: 9999;
-}
-
-.project-footer a{
-    width: 32px;
-    height: 32px;
-
-    border: 1px solid #d17a38;
-    border-radius: 50%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    color: #d17a38;
-    text-decoration: none;
-
-    transition: .3s;
-}
-
-.project-footer a:hover{
-    background: #d17a38;
-    color: #fff;
-}
-
-
-.line-up-1::after{
-  top:43%;        /* move closer to center */
-  width:34px;     /* shorter horizontal line */
-  height:14px;    /* reduced vertical drop */
-  left:-44px;
-  border-bottom:1.5px solid #999;
-  border-left:1.5px solid #999;
-}
-.line-up-2::after{
-  top:42.5%;        /* move closer to center */
-  width:41px;     /* shorter horizontal line */
-  height:8px;    /* reduced vertical drop */
-  left:-44px;
-  border-bottom:1.5px solid #999;
-  border-left:1.5px solid #999;
-}
-
-.line-up-3::after{
-  top:36.5%;        /* move closer to center */
-  width:70px;     /* shorter horizontal line */
-  height:20px;    /* reduced vertical drop */
-  left:-64px;
-  border-bottom:1.5px solid #999;
-  border-left:1.5px solid #999;
-}
-
-.line-up-4::after{
-  top:43%;        /* move closer to center */
-  width:35px;     /* shorter horizontal line */
-  height:14px;    /* reduced vertical drop */
-  left:-45px;
-  border-bottom:1.5px solid #999;
-  border-left:1.5px solid #999;
-}
-
-/* Down connection - shorter */
-.line-down-1::after{
-  top:41.7%;
-  left:-30px;
-  /* bottom:20px; */
-  width:38px;
-  height:20px;    /* reduced vertical rise */
-  border-top:1.5px solid #999;
-  border-left:1.5px solid #999;
-}
-
-.line-down-2::after{
-  top:36%;
-  left:-47px;
-  /* bottom:20px; */
-  width:70px;
-  height:32px;    /* reduced vertical rise */
-  border-top:1.5px solid #999;
-  border-left:1.5px solid #999;
-}
-
-/* remove line after last item */
-.project-item:last-child::after{
-  display: none;
-}
-
-/* Image styling (important) */
-.project-item > .img-box img {
-  /* width: 100%;
-  max-width: 220px;
-  max-height: 180px; */
-  object-fit: contain;
-}
-
-/* Title */
-/* .project-title {
-   font-family: 'Outfit', sans-serif;
-  font-size:16px;
-  font-weight:600;
-
-  position: relative;
-  bottom:165px;
-  left:50%;
-
-  transform:translateX(-50%);
-
-  width:100%;
-  text-align:center;
-
-  z-index:3;
-  margin-top:120px;
-} */
-
-.project-title {
- font-family: 'Outfit', sans-serif;
-  font-size:16px;
-  font-weight:300;
-
-  position: relative;
-  bottom:165px;
-  left:50%;
-
-  transform:translateX(-50%);
-
-  width:100%;
-  text-align:center;
-  z-index:3;
-  margin-top:120px;
-}
-
-.project-item .project-title{
-   font-weight:400;
-}
-
-
-/* WRAPPER */
-.project-item .img-box {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 170px;
-}
-
-.img-box{
-  width: 100%;
-  height: 400px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: visible;
-  z-index: auto;
-}
-
-.img-box img{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width:360px;
-  max-width: none;
-  height: auto;
-  max-height: none;
-  object-fit: contain;
-   transition:
-  transform 2.8s cubic-bezier(0.16,1,0.3,1),
-  opacity 2s ease,
-  filter 2.5s cubic-bezier(0.16,1,0.3,1);
-  will-change: transform, filter, opacity;
-  backface-visibility:hidden;
-perspective:1000px;
-transform-style:preserve-3d;
-}
-
-.img-box::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: -600px;
-  bottom:-600px;
-  width: 1px;
-  background: repeating-linear-gradient(
-    to bottom,
-    #555 0px,
-    #555 6px,
-    transparent 6px,
-    transparent 12px
-  );
-  z-index: 999;
-   /* display:block!important; */
-}
-
-/* Sketch always visible by default */
-.sketch-img {
-  opacity: 1;
-  z-index: 0;
-  display:block;
-  filter:
-    blur(0px)
-    brightness(1)
-    grayscale(0%);
-}
-
-/* Color render hidden by default */
-.color-img {
-  opacity: 0;
-  z-index: 2;
-   transform:translate(-50%, -50%) scale(1.12);
-   transform-origin:center center;
-translate:0 0;
-}
-
-/* On hover — sketch disappears, color render appears */
-.project-item:hover .sketch-img {
-  opacity: 0;
-   transform:translate(-50%, -50%) scale(0.94);
-
-  filter:
-    blur(10px)
-    brightness(1.3);
-}
-
-.project-item:hover .color-img {
-  opacity: 1;
-   transform:translate(-50%, -50%) scale(1);
-
-  filter:
-    blur(0px)
-    brightness(1)
-    grayscale(0%);
-}
-
-.project-title {
-  font-size: 14px;
-  margin-top: 185px;
-  position: relative;
-  z-index: 3;
-  font-weight: 600;
-}
-
-.arrow{
-  position:fixed;
-  top:50%;
-  transform:translateY(-50%);
-  z-index:100;
-  background:white;
-  border:none;
-  font-size:30px;
-  cursor:pointer;
-  transition:all 0.3s ease;
-}
-
-.arrow:hover{
-  transform: translateY(-50%) scale(1.15);
-  background: grey;
-  box-shadow : 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.left:hover{
-  transform: translateY(-50%) translateX(-4px);
-  scale:(1.15);
-}
-
-.hamburger {
-  display: none;
-  font-size: 30px;
-  cursor: pointer;
-  color: black;
-}
-
-/* Overlay background */
-.menu-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.45);
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.3s;
-  z-index: 999;
-}
-
-/* Side drawer */
-.side-menu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 80%;
-  height: 100%;
-  background: white;
-  padding: 80px 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 45px;
-  transition: 0.4s ease;
-  z-index: 1000;
-  overflow: hidden;
-}
-
-.side-menu a {
-  text-decoration: none;
-  color: black;
-  font-size: 22px;
-}
-
-.close-btn {
-  position: absolute;
-  top: 25px;
-  right: 25px;
-  font-size: 30px;
-  cursor: pointer;
-}
-
-/* Active states */
-.side-menu.active {
-  right: 0;
-}
-
-.menu-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-
-/* ================= DESKTOP ACTIVE LAYOUT ================= */
-
-.project-item.desktop-active{
-
-  position: fixed;
-
-  top: 95px;
-  left: 0;
-
-  width: 100vw;
-  height: calc(100vh - 95px);
-
-  background: #ffffff;
-
-  z-index: 999;
-
-  /* overflow-y: auto;
-  overflow-x: hidden; */
-  overflow: hidden;
-
-  display: block;
-  animation: smoothOpen 3s cubic-bezier(0.16,1,0.3,1);
-    backdrop-filter: blur(2px);
-
-  /* padding-bottom: 120px; */
-}
-
-@keyframes smoothOpen {
-
-  0%{
-    opacity:1;
-    transform:translateY(40px) scale(0.985);
-    filter:blur(8px);
+*{box-sizing:border-box}
+body{margin:0;font-family:'Outfit',sans-serif;background:#fff;color:#000;overflow:hidden;height:100vh}
+
+/* ===== NAVBAR ===== */
+.navbar{position:fixed;top:0;left:0;width:100%;height:var(--nav-h);padding:20px 40px;display:flex;justify-content:space-between;align-items:center;background:#fff;z-index:10000}
+.logo{display:flex;align-items:center;text-decoration:none;color:inherit;flex-shrink:0}
+.logo-img{width:60px;height:auto;margin-right:12px;mix-blend-mode:multiply}
+.logo-text-img{height:66px;width:auto;display:block}
+.menu{display:flex;align-items:center;gap:35px}
+.menu a{color:#000;text-decoration:none;font-size:14px;white-space:nowrap}
+.menu a:hover{text-decoration:underline}
+.menu a.current{font-weight:600}
+.hamburger{display:none;font-size:28px;cursor:pointer;margin-left:auto}
+.menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;visibility:hidden;transition:.3s;z-index:10001}
+.side-menu{position:fixed;top:0;right:-100%;width:80%;height:100%;background:#fff;padding:80px 40px;display:flex;flex-direction:column;gap:45px;transition:.4s ease;z-index:10002}
+.side-menu a{text-decoration:none;color:#000;font-size:22px}
+.close-btn{position:absolute;top:25px;right:25px;font-size:30px;cursor:pointer}
+.side-menu.active{right:0}
+.menu-overlay.active{opacity:1;visibility:visible}
+
+/* ===== ARROWS / CLOSE ===== */
+.arrow{position:fixed;top:50%;transform:translateY(-50%);width:42px;height:42px;border:0;border-radius:50%;background:rgba(255,255,255,.9);font-size:26px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:1000000}
+.arrow.show{display:flex}
+.arrow:hover{background:grey;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.left{left:7px}.right{right:7px}
+.close-project{position:fixed;top:calc(var(--nav-h) + 14px);right:16px;width:38px;height:38px;border:1px solid #999;border-radius:50%;background:#fff;font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:6000}
+
+/* ===== SHARED CARD PARTS ===== */
+.project-item{position:relative;cursor:pointer}
+.img-box{position:relative}
+.img-box img{position:absolute;top:50%;left:50%;max-width:none;object-fit:contain;transform:translate(-50%,-50%);transition:opacity .4s ease}
+.sketch-img{opacity:1;z-index:2}
+.color-img{opacity:0;z-index:3;pointer-events:none}
+.grid-line{position:absolute;left:calc(50% - .5px);top:-600px;bottom:-600px;width:1px;background:var(--dash);z-index:10;pointer-events:none}
+.project-title{font-size:14px;font-weight:400}
+.mobile-project-details{display:none}
+.project-info{font-size:14px;line-height:1.6;color:#222}
+.project-info p{margin:0 0 8px}
+.project-info .about{margin-top:14px}
+.mobile-slider{display:none}
+.gallery-caption{margin:0;font-size:14px;line-height:1.7;color:#333}
+.similar-projects h2{margin:0 0 28px;font-size:22px;font-weight:400}
+.similar-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:22px}
+.similar-card{cursor:pointer}
+.similar-card img{width:100%;height:180px;object-fit:contain;display:block}
+.similar-card span{display:block;margin-top:12px;font-size:13px}
+.similar-card:hover span{text-decoration:underline}
+.project-socials,.site-footer{background:#000;display:flex;justify-content:center;gap:25px;padding:20px 0}
+.project-socials a,.site-footer a{width:30px;height:30px;border:1px solid #a56243;border-radius:50%;color:#a56243;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:16px;transition:.3s}
+.project-socials a:hover,.site-footer a:hover{background:#a56243;color:#fff;transform:translateY(-4px)}
+.site-footer{display:none}
+
+/* ===================== DESKTOP ===================== */
+@media (min-width:891px){
+  .projects{display:flex;gap:var(--gap);height:100vh;padding:var(--nav-h) var(--pad) 0;align-items:center;overflow:hidden}
+  .project-item{flex:0 0 var(--w);width:var(--w);height:372px;top:60px;z-index:2}
+  .img-box{width:100%;height:170px}
+  .img-box img{width:var(--img);height:var(--img)}
+  /* baseline that joins the 5 houses */
+  .project-item:not(.desktop-active) .img-box::after{content:"";position:absolute;top:calc(85px + .179*var(--img));left:calc(var(--gap)/-2);width:calc(100% + var(--gap));height:1px;background:rgba(120,120,120,.55)}
+  .project-title{position:absolute;left:0;width:100%;text-align:center;top:calc(85px + .179*var(--img) + 70px);z-index:3}
+  @media (hover:hover){
+    .project-item:not(.desktop-active) .img-box:hover .sketch-img{opacity:0}
+    .project-item:not(.desktop-active) .img-box:hover .color-img{opacity:1}
   }
 
-  100%{
-    opacity:1;
-    transform:translateY(0) scale(1);
-    filter:blur(0);
-  }
-}
-
-/* HIDE OTHER PROJECTS */
-
-.project-item.desktop-active ~ .project-item{
-  display:none;
-}
-
-/* LEFT IMAGE */
-
-.project-item.desktop-active .img-box{
-
-  position:relative;
-
-  top:20px;
-  left:25px;
-
-  width:300px;
-  height:300px;
-
-   z-index:5;
-   overflow: visible;
-   animation: imageFloat 3s ease forwards;
-}
-
-@keyframes imageFloat{
-
-  0%{
-    opacity:0;
-    transform:translateX(-120px) scale(0.92);
-  }
-
-  100%{
-    opacity:1;
-    transform:translateX(0) scale(1);
-  }
-}
-
-/* HORIZONTAL CONNECTING LINE */
-
-.project-item.desktop-active::before{
-  content: "";
-  position: absolute;
-
-  top: 220px;      /* adjust vertical position */
-  left: 130px;     /* starts near circle image */
-
-  width: 700px;    /* line length */
-
-  border-top: 1px solid #999;
-
-  z-index: 1;
-}
-
-.project-item.desktop-active .img-box{
-  overflow: visible;
-}
-
-.project-item.desktop-active .img-box::before{
-
-  top:-1000px !important;
-
-  bottom:-1500px !important;
-
-  z-index:20;
-  
-}
-
-/* SHOW COLOR IMAGE */
-
-.project-item.desktop-active .sketch-img{
-  opacity:0;
-}
-
-.project-item.desktop-active .color-img{
-  opacity:1;
-  z-index: 3;
-  animation:imageReveal 1.4s cubic-bezier(0.16,1,0.3,1);
-}
-
-@keyframes imageReveal{
-
-  0%{
-    opacity:0;
-
-    transform:
-      translate(-50%, -50%)
-     scale(1.04);
-
-    filter:
-      blur(8px)
-      brightness(1.15);
-  }
-
-  100%{
-    opacity:1;
-
-    transform:
-      translate(-50%, -50%)
-      scale(1);
-
-    filter:
-      blur(0)
-      brightness(1);
-  }
-}
-
-/* TITLE */
-
-.project-item.desktop-active .project-title{
-
-  position:absolute;
-
-  top: 187px;      /* move title upward */
-  left: 460px; 
-
-  width:260px;
-
-  margin:0;
-
-font-size:16px;
-
-  font-weight:300;
-
-  line-height:1.4;
-
-  text-align:left;
-
-  z-index:99999;
-  white-space: normal;
-  /* overflow: visible; */
-
-  color:#000;
-   animation-delay:10s;
-animation-fill-mode:both;
-}
-
-.project-item.desktop-active .mobile-project-details{
-
-  /* display:block !important;
-
-  position:absolute;
-
-  top:350px;
-
-  left: 160px;
-
-  width:360px;
-
-  z-index:9999;
-
-  overflow:hidden; */
-
-display:block !important;
-
-  position:absolute;
-
-  top:350px;
-    /* left:auto; */
-    right:1525px;
-    width:360px;
-
-  z-index:9999;
-
-  overflow:visible;
-  opacity:1;
-  transform:translateY(0);
-  animation: fadeContent 1.4s ease forwards;
-   animation-delay:3s;
-animation-fill-mode:both;
-transition:
-  transform 5s cubic-bezier(0.16,1,0.3,1),
-  opacity 2s ease,
-  filter 2.5s cubic-bezier(0.16,1,0.3,1);
-}
-
-@keyframes fadeContent{
-
-  0%{
-    opacity:0;
-    transform:translateY(18px);
-filter:blur(2px);
-  }
-
-  100%{
-    opacity:1;
-    transform:translateY(0);
-    filter:blur(0);
-  }
-}
-/* INFO */
-
-.project-item.desktop-active .project-info{
-
-  width:540px;
-
-  margin:0;
-
-  font-size:15px;
-
-  line-height:1.9;
-
-  text-align:right;
-
-  color:#222;
-}
-
-.project-info p{
-  margin-bottom:16px;
-}
-
-/* BUTTON */
-
-.project-item.desktop-active .full-details-btn{
-
-  margin-top:30px;
-
-  padding:14px 24px;
-
-  font-size:15px;
-}
-
-
-.project-item.desktop-active .mobile-slider{
-
-  display:block;
-
-  position:absolute;
-
-  top:190px;
-
-  right:20px;
-
-  width:69%;
-
-  height:68vh;
-
-  z-index:500;
-
-  overflow:hidden;
-  will-change: transform, opacity;
-
-  animation: slideReveal 5.5s cubic-bezier(0.16,1,0.3,1);
-  animation-delay:4.9s;
-  animation-fill-mode:both;
-}
-
-@keyframes slideReveal{
-
-  0%{
-    opacity:0;
-
-    transform:
-      translateX(180px)
-      scale(1.08);
-
-    filter:
-      blur(24px)
-      brightness(1.2);
-  }
-
-  100%{
-    opacity:1;
-
-    transform:
-      translateX(0)
-      scale(1);
-
-    filter:
-      blur(0)
-      brightness(1);
-  }
-}
-
-.project-item.desktop-active .mobile-slider{
-  isolation:isolate;
-}
-
-.slider-image{
-  will-change:transform, opacity, filter;
-}
-
-/* SLIDER IMAGE */
-
-/* .project-item.desktop-active .slider-image{
-
-  width:100%;
-
-  height:68vh;
-
-  object-fit:cover;
-
-  object-position:center;
-
-  display:none;
-
-  border-radius:0;
-}
-
-.project-item.desktop-active .slider-image.active{
-  display:block;
-} */
-
-.project-item.desktop-active .slide-btn{
-
-  position:absolute;
-
-  top:50%;
-
-  transform:translateY(-50%);
-
-  z-index:500;
-}
-
-.project-item.desktop-active .prev-btn{
-  left:40px;
-}
-
-.project-item.desktop-active .next-btn{
-  right:40px;
-}
-
-/* INSIDE PAGE EXTRA DASH LINES */
-
-body.project-open::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:999;
-
-    background-image:
-      repeating-linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.18) 0px,
-        #999 8px,
-        transparent 8px,
-        transparent 16px
-      ),
-      repeating-linear-gradient(
-        to bottom,
-        #999 0px,
-        #999 8px,
-        transparent 8px,
-        transparent 16px
-      ),
-      repeating-linear-gradient(
-        to bottom,
-        #999 0px,
-        #999 8px,
-        transparent 8px,
-        transparent 16px
-      ),
-      repeating-linear-gradient(
-        to bottom,
-        #999 0px,
-        #999 8px,
-        transparent 8px,
-        transparent 16px
-      ),
-      repeating-linear-gradient(
-        to bottom,
-        #999 0px,
-        #999 8px,
-        transparent 8px,
-        transparent 16px
-      );
-
-    background-repeat:no-repeat;
-
-    background-size:
-      1px 100%,
-      1px 100%,
-      1px 100%,
-      1px 100%;
-
-    background-position:
-      10% 0,
-      30% 0,
-      50% 0,
-      70% 0,
-      90% 0;
-    
-}
-
-/* HORIZONTAL LINE */
-.project-item.desktop-active::after{
-
-  content:"";
-
-  position:absolute;
-
-    top:220px;
-
-  left:120px;
-
-  width:calc(100% - 120px);
-
-  height:1px;
-
-  background:#999;
-
-  z-index:1;
-}
-
-/* Desktop only hover */
-@media (hover: hover) and (pointer: fine) {
-  .project-item:hover .sketch-img {
-    opacity: 0;
-  }
-
-  .project-item:hover .color-img {
-    opacity: 1;
-    /* visibility: visible;
-    display: block; */
-  }
-}
-
-/* Touch devices only */
-@media (hover: none) and (pointer: coarse) {
-  /* Mobile tap effect */
-.project-item.active .sketch-img {
-  opacity: 0;
-}
-
-.project-item.active .color-img {
-  opacity: 1;
-  visibility: visible;
-}
-}
-
-.arrow{
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index:500;
-  background: rgba(255,255,255,0.9);
-  border: none;
-  font-size: 26px;
-  cursor: pointer;
-  width:42px;
-  height:42px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.left{
-  left: 7px;
-}
-
-.right{
-  right: 7px;
-}
-
-.menu-overlay{
-  z-index: 999;
-}
-
-.side-menu{
-  z-index: 1000;
-}
-
-.side-menu.active ~ .arrow{
-  display:none;
-}
-
-/* ================= MOBILE PROJECT DETAILS ================= */
-
-.mobile-project-details{
-  display:none;
-  width:100%;
-  margin-top:20px;
-  animation:fadeUp 0.4s ease;
-  padding-bottom:40px;
-
-  max-height:75vh;
-  overflow-y:auto;
-  overflow-x:hidden;
-
-  -webkit-overflow-scrolling:touch;
-}
-
-.project-item.active .mobile-project-details{
-  display:block;
-}
-
-.project-item.active .sketch-img{
-  opacity:0;
-}
-
-.project-item.active .color-img{
-  opacity:1;
-}
-
-.project-info{
-  width:88%;
-  margin:auto;
-    font-family: 'Outfit', sans-serif;
-  font-size:15px;
-  line-height:1.8;
-  font-weight:400;
-  color:#222;
-}
-
-.project-info p{
-  margin:0 0 8px;
-}
-
-.full-details-btn{
-  display:block;
-  width:max-content;
-  text-align:center;
-  margin:20px auto;
-  font-size:14px;
-  color:black;
-  text-decoration:none;
-  font-weight:600;
-  padding:10px 18px;
-  border:1px solid #000;
-  border-radius:30px;
-  background:white;
-  position:relative;
-  z-index:20; /* clickable */
-}
-
-.full-details-btn:hover{
-  background:black;
-  color:white;
-}
-
-/* ================= MOBILE SLIDER ================= */
-
-/* ================= MOBILE SLIDER ================= */
-
-.mobile-slider{
-
-  display:none;
-
-  position:relative;
-
-  width:100%;
-
-  margin:30px auto 0;
-
-  padding:0;
-
-  overflow:hidden;
-}
-
-/* CINEMATIC SLIDER IMAGES */
-
-.slider-image{
-
-  position:absolute;
-  inset:0;
-
-  width:100%;
-  height:100%;
-
-  object-fit:cover;
-  object-position:center;
-
-  opacity:0;
-
-  transform:scale(1.03);
-
-  transition:
-    opacity 1.4s ease,
-    transform 2s cubic-bezier(0.16,1,0.3,1);
-
-  pointer-events:none;
-
-  will-change:transform, opacity;
-
-  backface-visibility:hidden;
-
-  border-radius:0;
-}
-
-.slider-image.active{
-
-  opacity:1;
-
-  transform:scale(1);
-
-  pointer-events:auto;
-
-  z-index:2;
-}
-
-/* .mobile-slider{
-
-  display:none;
-
-  position:relative;
-
-  width:100%;
-
-  margin:30px auto 0;
-
-  padding:0;
-
-  overflow:hidden;
-} */
-
-/* .slider-image{
-  width:100%;
-  height:380px;
-  display:none;
-  border-radius:20px;
-  object-fit:cover;
-
-  object-position: center;
- 
-}
-
-.slider-image.active{
-  display:block;
-} */
-
-/* ARROWS */
-
-.slide-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:38px;
-  height:38px;
-  border:none;
-  border-radius:50%;
-  background:white;
-  color:#000;
-  font-size:24px;
-  cursor:pointer;
-  z-index:30;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  box-shadow:0 4px 10px rgba(0,0,0,0.15);
-}
-
-/* LEFT ARROW */
-
-.prev-btn{
-  left:25px;
-}
-
-/* RIGHT ARROW */
-
-.next-btn{
-  right:25px;
-  z-index: 9999;
-}
-
-.slide-btn:active{
-  transform:translateY(-50%) scale(0.95);
-}
-
-.project-item.desktop-active .img-box::before{
-  display:none;
-}
-
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(20px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-@media (max-width: 890px) {
-
-.projects{
-  gap:0;
-}
-
-  .navbar {
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position:relative;
-  }
-
-  .hamburger {
-    display: block;
-    font-size: 28px;
-    cursor: pointer;
-    color: black;
-    z-index: 1100;
-    margin-left: auto;
-  }
-
-  .logo {
-    max-width: 80%;
-    display:flex;
-    align-items:center;
-    gap:12px;
-    max-width:70%;
-  }
-
-  /* Hide dashed lines in mobile */
-  .img-box::before,
-  .project-item::after {
-    display: none;
-  }
-
-  .menu {
-    display: none;
-    position: absolute;
-    top: 80px;
-    right: 20px;
-    background: white;
-    padding: 20px;
-    border: 1px solid #ddd;
-    flex-direction: column;
-    gap: 15px;
-    z-index:1000;
-  }
-
-  .menu.active {
-    display: flex;
-  }
-
-  .menu a {
-    margin: 0;
-    display: block;
-  }
-
-  body {
-    overflow-x:hidden;
-    overflow-y: auto;
-    height:auto;
-  }
-
-  html{
-overflow-x:hidden;
-overflow-y: auto;
-  }
-
-  .logo-img {
-    width: 50px;
-    height: 50px;
-  }
-
-  .logo-text h2 {
-    font-size: 14px;
-    line-height: 1.2;
-    margin:0;
-  }
-
-  .logo-text p {
-    font-size: 9px;
-  }
-
-  .menu {
-    display: none; /* hide desktop menu */
-  }
-
- .projects{
-  width:100vw;
-  overflow-x:auto;
-  overflow-y:visible;
-  /* height:auto; */
-  /* min-height:auto;
-  padding-bottom:80px; */
-  padding:0;
-  align-items:flex-start;
-}
-
- .project-item{
-
-   flex:0 0 100vw;
-  width:100vw;
-  min-width:100vw;
-  padding-bottom:120px;
-  box-sizing:border-box;
-  height: auto;
- }
-
-.mobile-project-details{
-    display:none;
-    width:100%;
-    margin-top:20px;
-    padding-bottom:120px;
-
-    max-height:none;      /* REMOVE LIMIT */
-    overflow:visible;     /* IMPORTANT */
-  }
-
-  /* FIX TITLE POSITION */
-  .project-title{
-    position: static;   /* removes absolute/relative shifting */
-    transform: none;
-    left: auto;
-    bottom: auto;
-    margin-top: 20px;
-    font-size: 14px;
-    font-weight: 600;
-    text-align: center;
-    z-index:3;
-  }
-
-  /* Hide horizontal connection line on mobile */
-  .projects::before {
-    display: none;
-  }
-
-  /* Shorter vertical dash lines for mobile */
-  .img-box::before {
-    top: -120px;
-    height: 420px;
-  }
-
-  .project-item.desktop-active .img-box::before{
-      display:none !important;
-  }
-
-   body.inside-page::before,
-  body.project-open::after,
-  .img-box::before,
-  .project-item::after{
-      display:none !important;
-  }
-
-/* Default */
-.sketch-img {
-  opacity: 1;
-  z-index: 1;
-}
-
-.color-img{
-  opacity:0;
-  position:absolute;
-}
-
-  .img-box{
-  /* width:100%; */
-  min-height:420px;
-  /* position:relative;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin-top:20px; */
-  overflow: visible;
-}
-
-.img-box img{
-  /* width:100%;
-  max-width:360px;
-  height:auto; */
-  max-height: 430px;
-  object-fit:contain;
-  /* position: absolute;
-  top:50%;
-  left:50%;
-  transition:translate(-50%, -50%); */
-}
-
-  /* Title directly under image */
-  .project-title{
-    position: static;
-    margin-top: 20px;
-    text-align: center;
-    transform:none;
-  }
-
- /* ================= MOBILE SLIDER ================= */
- /* ================= MOBILE SLIDER ================= */
-
-.mobile-slider{
-  display:none;
-  position:relative;
-
-  width:100vw;
-  height:340px;
-
-  left:50%;
-  transform:translateX(-50%);
-
-  margin-top:30px;
-  margin-bottom:60px;
-
-  overflow:hidden;
-
-  isolation:isolate;
-}
-
-/* SLIDER IMAGES */
-
-.slider-image{
-
-  position:absolute;
-  top:0;
-  left:0;
-
-  width:100%;
-  height:100%;
-
-  object-fit:cover;
-  object-position:center;
-
-  opacity:0;
-
-  transform:scale(1.08);
-
-  transition:
-    opacity 1.6s ease,
-    transform 2.2s cubic-bezier(0.16,1,0.3,1),
-    filter 1.8s ease;
-
-  filter:
-    blur(12px)
-    brightness(1.12);
-
-  pointer-events:none;
-
-  will-change:transform, opacity, filter;
-
-  backface-visibility:hidden;
-
-  z-index:1;
-}
-
-/* ACTIVE IMAGE */
-
-.slider-image.active{
-
-  opacity:1;
-
-  transform:scale(1);
-
-  filter:
-    blur(0)
-    brightness(1);
-
-  pointer-events:auto;
-
-  z-index:2;
-}
-
- /* .mobile-slider{
-    width:100vw;
-  position:relative;
-
-  left:50%;
-  transform:translateX(-50%);
-
-  margin-top:30px;
-  margin-bottom:60px;
-
-  overflow:hidden;
-  height:340px;
-  }
-
-.slider-image{
-    width:100vw;
-  height:340px;
-
-  display:none;
-
-  object-fit:cover;
-  object-position:center;
-
-  border-radius:0;
-}
-
-.slider-image.active{
-  display:block;
-} */
-
-/* ARROWS */
-
-.slide-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:46px;
-  height:46px;
-  border:none;
-  border-radius:50%;
-  background:rgba(255,255,255,0.95);
-  z-index:9999;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  /* box-shadow:0 4px 12px rgba(0,0,0,0.18); */
-}
-
-/* LEFT */
-.prev-btn{
-  left:16px;
-}
-
-/* RIGHT */
-.next-btn{
-  right:16px;
-}
-
-.slide-btn:active{
-  transform:translateY(-50%) scale(0.95);
-}
-
-.project-item.active{
-  height:auto;
-  animation: mobileOpen 0.7s ease;
-}
-
-@keyframes mobileOpen{
-
-  0%{
-    opacity:0;
-    transform:translateY(40px);
-  }
-
-  100%{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-.project-item.active .mobile-project-details{
-    display:block;
-  }
-
-  /* .project-item.active .mobile-slider{
-  display:block;
-} */
-.project-item.active .mobile-slider{
-
-  display:block;
-
-  animation: mobileSliderReveal 1.8s cubic-bezier(0.16,1,0.3,1);
-}
-
-@keyframes mobileSliderReveal{
-
-  0%{
-    opacity:0;
-
-    transform:
-      translateX(-50%)
-      translateY(80px)
-      scale(1.04);
-
-    filter:
-      blur(18px);
-  }
-
-  100%{
-    opacity:1;
-
-    transform:
-      translateX(-50%)
-      translateY(0)
-      scale(1);
-
-    filter:
-      blur(0);
-  }
-}
-
-/* ================= COLOR IMAGE REVEAL ================= */
-
-.project-item.active .color-img{
-
-  animation: colorImageReveal 1.8s cubic-bezier(0.16,1,0.3,1);
-
-  animation-fill-mode:both;
-}
-
-@keyframes colorImageReveal{
-
-  0%{
-    opacity:0;
-
-    transform:
-      translate(-50%, -50%)
-      scale(1.12);
-
-    filter:
-      blur(14px)
-      brightness(1.2);
-  }
-
-  100%{
-    opacity:1;
-
-    transform:
-      translate(-50%, -50%)
-      scale(1);
-
-    filter:
-      blur(0)
-      brightness(1);
-  }
-}
-
-
-/* ================= PROJECT DETAILS REVEAL ================= */
-
-.project-item.active .mobile-project-details{
-
-  animation:
-    detailsReveal 1.5s cubic-bezier(0.16,1,0.3,1);
-
-  animation-delay:0.25s;
-
-  animation-fill-mode:both;
-}
-
-@keyframes detailsReveal{
-
-  0%{
-    opacity:0;
-
-    transform:
-      translateY(45px);
-
-    filter:
-      blur(10px);
-  }
-
-  100%{
-    opacity:1;
-
-    transform:
-      translateY(0);
-
-    filter:
-      blur(0);
-  }
-}
-
-/* PASTE HERE */
-body.project-open{
-  overflow: hidden !important;
-  height: 100vh;
-}
-
-.project-item.desktop-active{
-  overflow: hidden !important;
-  height: calc(100vh - 95px);
-}
-
-.project-item.desktop-active .mobile-slider{
-  height: calc(100vh - 160px);
-  overflow: hidden !important;
-}
-
-.project-item.desktop-active .slider-image{
-  max-height: calc(100vh - 180px);
-}
-
-.project-footer{
-    display:none;
-    height:80px;
-    gap:22px;
-}
-
-.project-footer a{
-    width:54px;
-    height:54px;
-    font-size:22px;
-}
-
-}
-
-  </style>
+  /* ---- opened project ---- */
+  body.project-open .project-item:not(.desktop-active){visibility:hidden}
+  body.project-open::after{content:"";position:fixed;top:var(--nav-h);bottom:0;left:0;right:0;pointer-events:none;z-index:5000;
+    background-image:var(--dash),var(--dash),var(--dash),var(--dash),var(--dash);background-repeat:no-repeat;background-size:1px 100%;
+    background-position:calc(var(--l1) - .5px) 0,calc(var(--l2) - .5px) 0,calc(var(--l3) - .5px) 0,calc(var(--l4) - .5px) 0,calc(var(--l5) - .5px) 0}
+  body.project-open .close-project{display:flex}
+  .project-item.desktop-active{position:fixed;top:var(--nav-h);left:0;width:100vw;height:calc(100vh - var(--nav-h));z-index:1000;cursor:default;overflow:hidden;animation:open .8s ease}
+  @keyframes open{from{transform:translateY(30px);filter:blur(6px)}}
+  @keyframes fade{from{opacity:0;transform:translateY(14px)}}
+  .desktop-active .img-box{position:absolute;left:calc((var(--l2) - var(--c))/2);top:0;width:var(--c);height:var(--c);z-index:1001;cursor:pointer;animation:fade 1s ease both}
+  .desktop-active .img-box img{width:var(--c);height:var(--c)}
+  .desktop-active .sketch-img{opacity:0}
+  .desktop-active .color-img{opacity:1}
+  .desktop-active .grid-line{display:none}
+  .project-item.desktop-active::after{content:"";position:absolute;top:calc(.679*var(--c));left:calc(var(--l2)/2 - 40px);right:0;height:1px;background:#999;z-index:1;transition:opacity .25s}
+  .project-item.desktop-active.scrolled::after{opacity:0}
+  .desktop-active .project-title{left:28px;width:calc(var(--l2) - 56px);text-align:left;top:calc(.679*var(--c) + 22px);font-size:16px;z-index:1001;animation:fade 1s ease .3s both}
+  .desktop-active .mobile-project-details{display:block;position:absolute;left:28px;width:calc(var(--l2) - 56px);top:calc(.679*var(--c) + 58px);z-index:1001;animation:fade 1s ease .6s both}
+  @media (max-height:800px){.project-info{font-size:13px;line-height:1.45}.project-info p{margin-bottom:5px}}
+  /* right side: vertical gallery, scrolls between line 2 and line 5 */
+  .desktop-active .mobile-slider{display:flex;flex-direction:column;gap:48px;position:absolute;inset:0;z-index:1;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;
+    padding:calc(.679*var(--c) + 22px) calc(100vw - var(--l5)) 0 var(--l2)}
+  .mobile-slider::-webkit-scrollbar{display:none}
+  .mobile-slider .slider-image{display:block;width:100%;height:auto;max-height:82vh;object-fit:contain}
+  .slide-btn{display:none!important}
+  .desktop-active .similar-projects{flex-shrink:0;width:100vw;margin:30px 0 0 calc(-1*var(--l2));padding:0 35px 40px;background:#fff}
+  .desktop-active .project-socials{flex-shrink:0;width:100vw;margin-left:calc(-1*var(--l2))}
+}
+
+/* ===================== MOBILE ===================== */
+@media (max-width:890px){
+  body{overflow-x:hidden;overflow-y:auto;height:auto}
+  .navbar{padding:15px 20px;height:80px}
+  .logo{max-width:70%}.logo-img{width:50px;height:50px}.logo-text-img{height:50px}
+  .menu{display:none}.hamburger{display:block}
+  .projects{display:flex;width:100vw;padding-top:80px;overflow-x:auto;align-items:flex-start;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .projects::-webkit-scrollbar{display:none}
+  .project-item{flex:0 0 100vw;width:100vw;padding-bottom:60px;scroll-snap-align:start}
+  .img-box{height:320px}
+  .img-box img{width:220px;height:auto;max-height:330px}
+  .grid-line{display:none}
+  .project-title{margin-top:20px;padding-left:6%;font-weight:600}
+  .project-item.active .sketch-img{opacity:0}
+  .project-item.active .color-img{opacity:1}
+  .project-item.active .mobile-project-details{display:block;width:88%;margin:20px auto 0;animation:up .8s ease both}
+  @keyframes up{from{opacity:0;transform:translateY(30px)}}
+  .project-item.active .mobile-slider{display:block;position:relative;width:100vw;height:340px;margin-top:30px;overflow:hidden}
+  .slider-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
+  .slider-image.on{opacity:1;z-index:2}
+  .gallery-caption,.similar-projects,.project-socials{display:none}
+  .slide-btn{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border:0;border-radius:50%;background:rgba(255,255,255,.95);z-index:9999;display:flex;align-items:center;justify-content:center;font-size:20px}
+  .prev-btn{left:16px}.next-btn{right:16px}
+  .site-footer{display:flex}
+}
+</style>
 </head>
+<body>
 
-<body class="inside-page">
-
-  <!-- ================= NAVBAR ================= -->
-  <header class="navbar">
-
-    <a href="index.html" class="logo">
+<header class="navbar">
+  <a href="index.html" class="logo">
     <img src="./images/logo.png" alt="Sako Logo" class="logo-img">
-
-    <img src="./images/logo-text.png" alt="Sako Logo" class="logo-text-img">
-</a>
-
-    <!-- Desktop Menu -->
+    <img src="./images/logo-text.png" alt="Sako Design Narratives" class="logo-text-img">
+  </a>
   <nav class="menu">
-  <a href="index.html">Home</a>
-  <a href="architecture.html">Architecture</a>
-  <a href="interior.html">Interior</a>
-  <a href="research.html">Research</a>
-  <a href="about.html">About</a>
-   <a href="publication.html">Publication</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
-    <div class="hamburger" id="hamburger">
-  ☰
-</div>
-
+    <a href="index.html">Home</a>
+    <a href="architecture.html" class="current">Architecture</a>
+    <a href="interior.html">Interior</a>
+    <a href="research.html">Research</a>
+    <a href="about.html">About</a>
+    <a href="publication.html">Publication</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="hamburger" id="hamburger">☰</div>
+</header>
 <div class="menu-overlay" id="overlay"></div>
-
 <nav class="side-menu" id="sideMenu">
   <div class="close-btn" id="closeMenu">✕</div>
-
-  <a href="index.html">Home</a>
-  <a href="architecture.html">Architecture</a>
-  <a href="interior.html">Interior</a>
-  <a href="research.html">Research</a>
-  <a href="about.html">About</a>
-   <a href="publication.html">Publication</a>
-  <a href="contact.html">Contact</a>
+  <a href="index.html">Home</a><a href="architecture.html">Architecture</a><a href="interior.html">Interior</a>
+  <a href="research.html">Research</a><a href="about.html">About</a><a href="publication.html">Publication</a><a href="contact.html">Contact</a>
 </nav>
-  </header>
 
-  <button class="arrow left">&#10094;</button>
-  <button class="arrow right">&#10095</button>
+<button type="button" class="arrow left" aria-label="Previous">&#10094;</button>
+<button type="button" class="arrow right" aria-label="Next">&#10095;</button>
+<button type="button" class="close-project" aria-label="Close project">✕</button>
 
-  <!-- ================= MAIN SECTION ================= -->
-  <section class="projects">
+<!-- cards are generated from the PROJECTS list below -->
+<section class="projects" id="projects"></section>
 
-  
-  <div class="project-item line-up-1">
-    <div class="img-box">
-      <img src="./images/image1.jpeg" class="sketch-img">
-      <img src="./images/image 1.1.jpeg" class="color-img">
-    </div>
-    <div class="project-title">Sako Office, Hyderabad</div>
-
-   <!-- MOBILE DETAILS -->
-
-  <div class="mobile-project-details">
-
-    <div class="project-info">
-
-      <p><b>Project Name –</b> SaKo studio</p>
-
-      <p><b>Studio Name –</b> Sako design narratives</p>
-
-      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
-
-      <p><b>Project Size –</b> 250 sq ft</p>
-
-      <p class="architects"><b>Principal Architects –</b> Sangeetha Polisetti, Kondal Siddhuri</p>
-
-      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
-
-      <br>
-
-      <p>
-        Nestled within a dense urban neighborhood in
-        the heart of Hyderabad, sako Studio is a compact
-        250 sq ft workspace designed for efficiency
-        and style.
-      </p>
-
-    </div>
-    
-
-    <!-- <a href="sako-office.html" class="full-details-btn">
-      Click Here For Full Details
-    </a> -->
-
-    </div>
-
-    <!-- SLIDER -->
-
-    <div class="mobile-slider">
-
-      <button class="slide-btn prev-btn">&#10094;</button>
-
-      <img src="./images/o1.jpg"
-           class="slider-image active">
-
-      <img src="./images/o2.jpeg"
-           class="slider-image">
-
-      <img src="./images/o3.jpeg"
-           class="slider-image">
-
-      <img src="./images/o4.jpeg"
-           class="slider-image">
-
-
-      <button class="slide-btn next-btn">&#10095;</button>
-
-    </div>
-
-</div>
-    <div class="project-item  line-down-1">
-  <div class="img-box">
-    <img src="./images/image 2.jpeg" class="sketch-img">
-        <img src="./images/image 2.1.jpeg" class="color-img">
-      </div>   
-
-<div class="project-title">Farmhouse Panjarla, India</div>
-
- <!-- MOBILE DETAILS -->
-
-  <div class="mobile-project-details">
-
-    <div class="project-info">
-
-      <p><b>Project Name –</b> SaKo studio</p>
-
-      <p><b>Studio Name –</b> Sako design narratives</p>
-
-      <p><b>Location –</b> Hyderabad Completed in – Feb, 2023</p>
-
-      <p><b>Project Size –</b> 250 sq ft</p>
-
-      <p><b>Principal Architects –</b> Sangeetha Polisetti,
-      Kondal Siddhuri</p>
-
-      <p><b>Photograph Courtesy –</b> Akshay Adimula</p>
-
-      <br>
-
-      <p>
-        Nestled within a dense urban neighborhood in
-        the heart of Hyderabad, sako Studio is a compact
-        250 sq ft workspace designed for efficiency
-        and style.
-      </p>
-
-    </div>
-
-    <!-- <a href="sako-office.html" class="full-details-btn">
-      Click Here For Full Details -->
-    <!-- </a> -->
-     </div>
-
-    <!-- SLIDER -->
-
-    <div class="mobile-slider">
-
-      <button class="slide-btn prev-btn">&#10094;</button>
-
-      <img src="./images/o1.jpg"
-           class="slider-image active">
-
-      <img src="./images/o2.jpeg"
-           class="slider-image">
-
-      <img src="./images/o3.jpeg"
-           class="slider-image">
-
-      <img src="./images/o4.jpeg"
-           class="slider-image">
-
-
-      <button class="slide-btn next-btn">&#10095;</button>
-
-    </div>
-
-  </div>
-
-    
-
-
-    
-
-
-</section>
-
-<script>
-const hamburger = document.getElementById("hamburger");
-const sideMenu = document.getElementById("sideMenu");
-const overlay = document.getElementById("overlay");
-const closeMenu = document.getElementById("closeMenu");
-
-hamburger.addEventListener("click", () => {
-  sideMenu.classList.add("active");
-  overlay.classList.add("active");
-  hamburger.style.display = "none";
-});
-
-closeMenu.addEventListener("click", () => {
-  sideMenu.classList.remove("active");
-  overlay.classList.remove("active");
-  hamburger.style.display = "block";
-});
-
-overlay.addEventListener("click", () => {
-  sideMenu.classList.remove("active");
-  overlay.classList.remove("active");
-  hamburger.style.display = "block";
-});
-
-// Mobile tap image switch
-const projectItems = document.querySelectorAll(".project-item");
-
-/* ================= SLIDER ================= */
-
-const projects = document.querySelector(".projects");
-
-window.addEventListener("load", () => {
- const isDesktop = window.innerWidth > 890;
-    const firstCard = projects.querySelector(".project-item");
-  }
-);
-
-const leftArrow = document.querySelector(".left");
-const rightArrow = document.querySelector(".right");
-
-// const gap = 40;
-function getGap() {
-  return parseInt(window.getComputedStyle(projects).gap) || 0;
-}
-
-let auto;
-
-/* RIGHT MOVE */
-
-function moveRight() {
-  const firstCard = projects.querySelector(".project-item");
-  const cardWidth = firstCard.offsetWidth + getGap();
-
-  projects.scrollBy({
-    left: cardWidth,
-    behavior: "smooth"
-  });
-
-  setTimeout(() => {
-    projects.appendChild(firstCard);
-
-    /* reset position without visual jump */
-    projects.scrollLeft -= cardWidth;
-  }, 500);
-}
-
-function moveLeft() {
-  const cards = projects.querySelectorAll(".project-item");
-  const lastCard = cards[cards.length - 1];
-
-  const cardWidth = lastCard.offsetWidth + getGap();
-
-  /* put last card in front */
-  projects.insertBefore(lastCard, cards[0]);
-
-  /* immediately shift container */
-  projects.scrollLeft += cardWidth;
-
-  /* animate back to start */
-  projects.scrollBy({
-    left: -cardWidth,
-    behavior: "smooth"
-  });
-}
-
-// /* AUTO PLAY */
-
-// function startAutoSlide() {
-
-//   auto = setInterval(() => {
-//     moveRight();
-//   }, 2500);
-
-// }
-
-// startAutoSlide();
-
-// /* RIGHT ARROW */
-
-rightArrow.addEventListener("click", () => {
-
-//   clearInterval(auto);
-
-  moveRight();
-
-//   startAutoSlide();
-
-});
-
-/* LEFT ARROW */
-
-leftArrow.addEventListener("click", () => {
-
-//   clearInterval(auto);
-
-  moveLeft();
-
-//   startAutoSlide();
-
-});
-
-
-/* ================= MOBILE CLICK ================= */
-
-const allProjects = document.querySelectorAll(".project-item");
-
-allProjects.forEach(project => {
-
-  project.addEventListener("click", (e) => {
-
-    e.preventDefault();
-
-    const isActive =
-      project.classList.contains("active") ||
-      project.classList.contains("desktop-active");
-
-    /* CLOSE ALL */
-    allProjects.forEach(item => {
-
-      item.classList.remove("active");
-      item.classList.remove("desktop-active");
-
-    });
-
-    if(!isActive){
-
-      clearInterval(auto);
-
-      if(window.innerWidth > 890){
-
-  /* DESKTOP */
-  project.classList.add("desktop-active");
-
-  document.body.classList.add("project-open");
-  document.querySelector(".project-footer").style.display = "flex";
-  leftArrow.style.display = "none";
-  rightArrow.style.display = "none";
-
-} else {
-
-    /* MOBILE */
-    project.classList.add("active");
-
-    const footer = document.querySelector(".project-footer");
-    if (footer) footer.style.display = "flex";
-
-    leftArrow.style.display = "none";
-    rightArrow.style.display = "none";
-}
-
-   } else {
-
-  
-project.classList.remove("desktop-active");
-project.classList.remove("active");
-
-document.body.classList.remove("project-open");
-
-const footer = document.querySelector(".project-footer");
-if (footer) footer.style.display = "none";
-
-leftArrow.style.display = "flex";
-rightArrow.style.display = "flex";
-}
-
-  });
-
-});
- 
-
-/* ================= MOBILE IMAGE SLIDER ================= */
-
-// if(window.innerWidth <= 920){
-
-const sliders = document.querySelectorAll(".mobile-slider");
-
-sliders.forEach(slider => {
-
-  const images = slider.querySelectorAll(".slider-image");
-
-  const nextBtn = slider.querySelector(".next-btn");
-
-  const prevBtn = slider.querySelector(".prev-btn");
-
-  let current = 0;
-
-  let sliderAuto;
-
-  function showImage(index){
-
-    images.forEach(img => {
-      img.classList.remove("active");
-    });
-
-    images[index].classList.add("active");
-  }
-
-  function nextSlide(){
-
-    current++;
-
-    if(current >= images.length){
-      current = 0;
-    }
-
-    showImage(current);
-  }
-
-  function prevSlide(){
-
-    current--;
-
-    if(current < 0){
-      current = images.length - 1;
-    }
-
-    showImage(current);
-  }
-
-  function startSliderAuto(){
-
-    clearInterval(sliderAuto);
-
-    sliderAuto = setInterval(() => {
-      nextSlide();
-    }, 2500);
-
-  }
-
-  startSliderAuto();
-
-  nextBtn.addEventListener("click", (e) => {
-
-    e.stopPropagation();
-
-    nextSlide();
-
-    startSliderAuto();
-
-  });
-
-  prevBtn.addEventListener("click", (e) => {
-
-    e.stopPropagation();
-
-    prevSlide();
-
-    startSliderAuto();
-
-  });
-
-});
-document.querySelectorAll(".full-details-btn").forEach(btn => {
-
-  btn.addEventListener("click", (e) => {
-
-    e.stopPropagation();
-
-    /* allow page open */
-    window.location.href = btn.getAttribute("href");
-
-  });
-
-});
-
-
-</script>
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
-
-<script>
-const lenis = new Lenis({
-  duration: 1.2,
-  smoothWheel: true,
-  smoothTouch: false,
-  easing: (t) => 1 - Math.pow(1 - t, 3)
-});
-
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
-
-requestAnimationFrame(raf);
-</script>
-
-<footer class="project-footer">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="far fa-envelope"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fas fa-briefcase"></i></a>
+<footer class="site-footer">
+  <a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fas fa-envelope"></i></a>
+  <a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fas fa-briefcase"></i></a>
 </footer>
 
+<script>
+/* ================= YOUR 5 ARCHITECTURE PROJECTS =================
+   To change a project edit the lines below. Optional per project:
+   info:[["Label","value"],...]   about:"text"   gallery items can be "img.jpg" or ["img.jpg","caption"] */
+const DEFAULT_INFO = [
+  ["Project Name","SaKo studio"],
+  ["Studio Name","Sako design narratives"],
+  ["Location","Hyderabad Completed in – Feb, 2023"],
+  ["Project Size","250 sq ft"],
+  ["Principal Architects","Sangeetha Polisetti, Kondal Siddhuri"],
+  ["Photograph Courtesy","Akshay Adimula"]
+];
+const DEFAULT_ABOUT = "Nestled within a dense urban neighborhood in the heart of Hyderabad, sako Studio is a compact 250 sq ft workspace designed for efficiency and style.";
+const O = ["./images/o1.jpg","./images/o2.jpeg","./images/o3.jpeg","./images/o4.jpeg"];
 
+const PROJECTS = [
+  { name:"Sako Office, Hyderabad",   sketch:"./images/sketch door.jpeg",  color:"./images/color door.jpeg",  gallery:O },
+  { name:"Farmhouse Panjarla, India", sketch:"./images/sketch house.jpeg", color:"./images/color house.jpeg", gallery:["./Panjarla Farmhouse/1.jpeg","./Panjarla Farmhouse/2.jpeg","./Panjarla Farmhouse/3.jpeg","./Panjarla Farmhouse/4.jpeg"] },
+  { name:"Villa Maheshwaram, India",  sketch:"./images/3.1.png",           color:"./images/3 (1).png",        gallery:O },
+  { name:"Lakeview Farmhouse, India", sketch:"./images/4.1.png",           color:"./images/4 (1).png",        gallery:O },
+  { name:"NCC Yard, India",           sketch:"./images/5.1.png",           color:"./images/5 (1).png",        gallery:["./ncc yard/AAA09578-HDR-1.jpg","./ncc yard/AAA09648-HDR-20.jpg","./ncc yard/AAA09651-HDR-21.jpg","./ncc yard/AAA09717-HDR-35-5.jpg"] }
+];
+
+/* ================= BUILD CARDS ================= */
+const SOCIAL = '<a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fas fa-envelope"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fas fa-briefcase"></i></a>';
+const projectsEl = document.getElementById("projects");
+
+projectsEl.innerHTML = PROJECTS.map((p, i) => {
+  const info = (p.info || DEFAULT_INFO).map(([k, v]) => `<p><b>${k} –</b> ${v}</p>`).join("");
+  const gallery = p.gallery.map((g, j) => {
+    const [src, cap] = Array.isArray(g) ? g : [g, ""];
+    return `<img src="${src}" class="slider-image${j ? "" : " on"}" alt="${p.name}">` + (cap ? `<p class="gallery-caption">${cap}</p>` : "");
+  }).join("");
+  const similar = PROJECTS.map((q, j) => j === i ? "" :
+    `<div class="similar-card" data-go="${j}"><img src="${q.sketch}" alt="${q.name}"><span>${q.name}</span></div>`).join("");
+  return `
+  <div class="project-item" data-i="${i}">
+    <div class="img-box">
+      <img src="${p.sketch}" class="sketch-img" alt="${p.name}">
+      <img src="${p.color}" class="color-img" alt="">
+      <div class="grid-line"></div>
+    </div>
+    <div class="project-title">${p.name}</div>
+    <div class="mobile-project-details"><div class="project-info">${info}<p class="about">${p.about || DEFAULT_ABOUT}</p></div></div>
+    <div class="mobile-slider">
+      <button class="slide-btn prev-btn">&#10094;</button>
+      ${gallery}
+      <button class="slide-btn next-btn">&#10095;</button>
+      <section class="similar-projects"><h2>Similar Projects</h2><div class="similar-grid">${similar}</div></section>
+      <div class="project-socials">${SOCIAL}</div>
+    </div>
+  </div>`;
+}).join("");
+
+/* ================= OPEN / CLOSE (no looping) ================= */
+const cards = [...document.querySelectorAll(".project-item")];
+const L = document.querySelector(".arrow.left"), R = document.querySelector(".arrow.right");
+const isDesk = () => innerWidth > 890;
+let cur = -1;
+
+function updateArrows() {
+  const open = cur > -1 && isDesk();
+  L.classList.toggle("show", isDesk() ? open && cur > 0 : true);
+  R.classList.toggle("show", isDesk() ? open && cur < cards.length - 1 : true);
+}
+
+function setOpen(i) {
+  cards.forEach(c => c.classList.remove("desktop-active", "active", "scrolled"));
+  cur = i;
+  document.body.classList.toggle("project-open", i > -1 && isDesk());
+  if (i > -1) {
+    cards[i].classList.add(isDesk() ? "desktop-active" : "active");
+    cards[i].querySelector(".mobile-slider").scrollTop = 0;
+  }
+  updateArrows();
+}
+
+function scrollRow(d) {
+  projectsEl.scrollBy({ left: d * cards[0].offsetWidth, behavior: "smooth" });
+}
+
+R.addEventListener("click", () => {
+  if (document.body.classList.contains("project-open")) { if (cur < cards.length - 1) setOpen(cur + 1); }
+  else scrollRow(1);
+});
+L.addEventListener("click", () => {
+  if (document.body.classList.contains("project-open")) { if (cur > 0) setOpen(cur - 1); }
+  else scrollRow(-1);
+});
+document.querySelector(".close-project").addEventListener("click", () => setOpen(-1));
+document.addEventListener("keydown", e => { if (e.key === "Escape") setOpen(-1); });
+
+projectsEl.addEventListener("click", e => {
+  const go = e.target.closest(".similar-card");
+  if (go) { setOpen(+go.dataset.go); return; }
+  if (e.target.closest(".slide-btn")) return;
+  const card = e.target.closest(".project-item");
+  if (!card) return;
+  if (card.classList.contains("desktop-active")) { if (e.target.closest(".img-box")) setOpen(-1); return; }
+  if (card.classList.contains("active")) { if (!e.target.closest(".mobile-slider")) setOpen(-1); return; }
+  setOpen(+card.dataset.i);
+});
+
+/* wheel over the left column also scrolls the gallery */
+addEventListener("wheel", e => {
+  if (cur < 0 || !isDesk()) return;
+  const s = cards[cur].querySelector(".mobile-slider");
+  if (!s.contains(e.target)) s.scrollTop += e.deltaY;
+}, { passive: true });
+
+/* header line fades once the gallery scrolls */
+document.querySelectorAll(".mobile-slider").forEach(s =>
+  s.addEventListener("scroll", () => s.parentElement.classList.toggle("scrolled", s.scrollTop > 2), { passive: true }));
+
+/* mobile: one image at a time with arrows */
+document.querySelectorAll(".mobile-slider").forEach(s => {
+  const im = [...s.querySelectorAll(".slider-image")];
+  let k = 0, t;
+  const show = n => { k = (n + im.length) % im.length; im.forEach((x, j) => x.classList.toggle("on", j === k)); };
+  const auto = () => { clearInterval(t); t = setInterval(() => { if (!isDesk()) show(k + 1); }, 3000); };
+  s.querySelector(".next-btn").addEventListener("click", e => { e.stopPropagation(); show(k + 1); auto(); });
+  s.querySelector(".prev-btn").addEventListener("click", e => { e.stopPropagation(); show(k - 1); auto(); });
+  auto();
+});
+
+let wasDesk = isDesk();
+addEventListener("resize", () => { if (isDesk() !== wasDesk) { wasDesk = isDesk(); setOpen(-1); } });
+updateArrows();
+
+/* ================= HAMBURGER MENU ================= */
+const hamburger = document.getElementById("hamburger"), sideMenu = document.getElementById("sideMenu"), overlay = document.getElementById("overlay");
+const toggleMenu = on => { sideMenu.classList.toggle("active", on); overlay.classList.toggle("active", on); hamburger.style.display = on ? "none" : ""; };
+hamburger.addEventListener("click", () => toggleMenu(true));
+document.getElementById("closeMenu").addEventListener("click", () => toggleMenu(false));
+overlay.addEventListener("click", () => toggleMenu(false));
+</script>
 </body>
 </html>

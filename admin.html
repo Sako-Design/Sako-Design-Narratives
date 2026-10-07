@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin – Sako Design Narratives</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap');
+
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #fff;
+      color: #111;
+      max-width: 680px;
+      margin: 50px auto;
+      padding: 0 20px 80px;
+    }
+    h2 { font-weight: 400; margin: 0 0 24px; }
+    h3 { font-weight: 500; margin: 32px 0 8px; }
+    label { display: block; font-size: 14px; margin-top: 14px; color: #444; }
+    input, textarea, button {
+      width: 100%;
+      padding: 12px;
+      margin: 6px 0;
+      font: inherit;
+      border: 1px solid #bbb;
+      border-radius: 0;
+      background: #fff;
+    }
+    input:focus, textarea:focus, button:focus-visible { outline: 2px solid #111; outline-offset: 1px; }
+    button { background: #000; color: #fff; border: 1px solid #000; cursor: pointer; }
+    button:hover { background: #333; }
+    button.secondary { background: #fff; color: #000; }
+    button.secondary:hover { background: #eee; }
+    button.danger { background: #fff; color: #b3261e; border-color: #b3261e; }
+    button.danger:hover { background: #fdecea; }
+    button:disabled { opacity: .5; cursor: wait; }
+    .hidden { display: none; }
+    .top { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 20px; }
+    .top button, .top a.btn { width: auto; padding: 8px 16px; margin: 0; }
+    a.btn { border: 1px solid #000; color: #000; text-decoration: none; font-size: 15px; }
+    #msg, #loginMsg, #listMsg { margin-top: 14px; font-size: 14px; min-height: 20px; }
+    .ok { color: #1a7f37; }
+    .err { color: #b3261e; }
+
+    /* project list */
+    .proj { display: flex; align-items: center; gap: 12px; border: 1px solid #ddd; padding: 10px; margin: 10px 0; }
+    .proj img { width: 64px; height: 64px; object-fit: contain; background: #f6f6f6; flex-shrink: 0; }
+    .proj .pname { flex: 1; font-size: 15px; }
+    .proj button { width: auto; padding: 8px 14px; margin: 0; font-size: 14px; }
+
+    /* gallery rows */
+    .gal-row { border: 1px solid #ddd; padding: 10px; margin: 10px 0; }
+    .gal-row .gal-head { display: flex; gap: 10px; align-items: center; }
+    .gal-row img { width: 90px; height: 70px; object-fit: cover; flex-shrink: 0; }
+    .gal-row .btns { display: flex; gap: 6px; margin-left: auto; }
+    .gal-row .btns button { width: auto; padding: 6px 10px; margin: 0; font-size: 13px; }
+    .current { font-size: 13px; color: #666; margin: 4px 0; }
+    .current img { height: 60px; vertical-align: middle; background: #f6f6f6; margin-right: 8px; }
+    .hint { font-size: 13px; color: #666; margin: 4px 0 0; }
+  </style>
+</head>
+<body>
+
+<!-- ============ LOGIN ============ -->
+<div id="loginBox" class="hidden">
+  <h2>Admin login</h2>
+  <input id="email" type="email" placeholder="Email" autocomplete="username">
+  <input id="password" type="password" placeholder="Password" autocomplete="current-password">
+  <button id="loginBtn">Log in</button>
+  <p id="loginMsg"></p>
+</div>
+
+<!-- ============ ADMIN AREA ============ -->
+<div id="adminBox" class="hidden">
+  <div class="top">
+    <h2 style="margin:0">Admin</h2>
+    <div style="display:flex; gap:8px;">
+      <a class="btn" href="index.html" target="_blank">View site</a>
+      <button id="logoutBtn" class="secondary">Log out</button>
+    </div>
+  </div>
+
+  <h3 style="margin-top:10px">Your projects</h3>
+  <div id="projectList"></div>
+  <p id="listMsg"></p>
+
+  <h3 id="formTitle">Add new project</h3>
+
+  <label for="name">Project name (shown on the home page)</label>
+  <input id="name" placeholder="e.g. Villa Maheshwaram, India">
+
+  <label for="sketch">Sketch image (shown by default)</label>
+  <div id="curSketch" class="current hidden"></div>
+  <input id="sketch" type="file" accept="image/*">
+
+  <label for="color">Color image (shown on hover and inside the project)</label>
+  <div id="curColor" class="current hidden"></div>
+  <input id="color" type="file" accept="image/*">
+  <p id="keepHint" class="hint hidden">Leave the image boxes empty to keep the current images.</p>
+
+  <h3>Project details</h3>
+  <input id="studio" placeholder="Studio name">
+  <input id="location" placeholder="Location and completed in (e.g. Hyderabad, Feb 2023)">
+  <input id="size" placeholder="Project size (e.g. 250 sq ft)">
+  <input id="architects" placeholder="Principal architects">
+  <input id="photo" placeholder="Photograph courtesy">
+  <textarea id="desc" rows="5" placeholder="Description"></textarea>
+
+  <h3>Gallery images (scroll on the right side)</h3>
+  <div id="existingRows"></div>
+  <div id="galleryRows"></div>
+  <button id="addRow" type="button" class="secondary">+ Add another image</button>
+
+  <button id="saveBtn" style="margin-top:28px">Save project</button>
+  <button id="cancelBtn" class="secondary hidden" type="button">Cancel editing</button>
+  <p id="msg"></p>
+</div>
+
+<script>
+  // ====== PASTE YOUR PUBLISHABLE KEY BELOW (the only time you edit code) ======
+  const SUPABASE_URL = 'https://ahdhsielpuccqiiysvck.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_zRq_yeIgJ-yeQqB37jBX2w_NRpJRi1r';
+  // ============================================================================
+
+  const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  const $ = id => document.getElementById(id);
+
+  let editingId = null;   // null = adding a new project
+  let current = null;     // the project being edited
+  let existing = [];      // gallery items already saved: { url, caption }
+  let projectsCache = [];
+
+  function say(el, text, kind) { el.textContent = text; el.className = kind || ''; }
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+  }
+
+  // ---------- login state ----------
+  async function refresh() {
+    const { data: { session } } = await sb.auth.getSession();
+    $('loginBox').classList.toggle('hidden', !!session);
+    $('adminBox').classList.toggle('hidden', !session);
+    if (session) loadList();
+  }
+
+  $('loginBtn').onclick = async () => {
+    say($('loginMsg'), 'Logging in...');
+    const { error } = await sb.auth.signInWithPassword({
+      email: $('email').value.trim(),
+      password: $('password').value
+    });
+    if (error) { say($('loginMsg'), error.message, 'err'); return; }
+    say($('loginMsg'), '');
+    refresh();
+  };
+  $('password').addEventListener('keydown', e => { if (e.key === 'Enter') $('loginBtn').click(); });
+  $('logoutBtn').onclick = async () => { await sb.auth.signOut(); resetForm(); refresh(); };
+
+  // ---------- list of projects ----------
+  async function loadList() {
+    say($('listMsg'), 'Loading projects...');
+    const { data, error } = await sb.from('projects').select('*');
+    if (error) { say($('listMsg'), 'Error: ' + error.message, 'err'); return; }
+    projectsCache = (data || []).slice().sort((a, b) => {
+      const x = a.created_at || '', y = b.created_at || '';
+      return x < y ? -1 : x > y ? 1 : 0;
+    });
+    say($('listMsg'), projectsCache.length ? '' : 'No projects yet. Add your first one below.');
+    $('projectList').innerHTML = projectsCache.map(p =>
+      '<div class="proj">' +
+        '<img src="' + esc(p.sketch_url) + '" alt="">' +
+        '<div class="pname">' + esc(p.name) + '</div>' +
+        '<button class="secondary" data-edit="' + esc(p.id) + '">Edit</button>' +
+        '<button class="danger" data-del="' + esc(p.id) + '">Delete</button>' +
+      '</div>'
+    ).join('');
+  }
+
+  $('projectList').addEventListener('click', e => {
+    const edit = e.target.closest('[data-edit]');
+    const del = e.target.closest('[data-del]');
+    if (edit) {
+      const p = projectsCache.find(x => String(x.id) === edit.dataset.edit);
+      if (p) startEdit(p);
+    } else if (del) {
+      const p = projectsCache.find(x => String(x.id) === del.dataset.del);
+      if (p) deleteProject(p);
+    }
+  });
+
+  async function deleteProject(p) {
+    if (!confirm('Delete "' + p.name + '" permanently? This cannot be undone.')) return;
+    say($('listMsg'), 'Deleting...');
+    const { data, error } = await sb.from('projects').delete().eq('id', p.id).select();
+    if (error) { say($('listMsg'), 'Error: ' + error.message, 'err'); return; }
+    if (!data || !data.length) {
+      say($('listMsg'), 'Could not delete. The delete permission is missing in Supabase (see the SQL in the chat).', 'err');
+      return;
+    }
+    // best effort: also remove the uploaded image files
+    try {
+      const urls = [p.sketch_url, p.color_url].concat((p.gallery || []).map(g => g.url));
+      const paths = urls.map(u => (String(u).split('/object/public/projects/')[1] || '')).filter(Boolean).map(decodeURIComponent);
+      if (paths.length) await sb.storage.from('projects').remove(paths);
+    } catch (_) {}
+    if (editingId === p.id) resetForm();
+    say($('listMsg'), 'Project deleted.', 'ok');
+    loadList();
+  }
+
+  // ---------- form: add / edit ----------
+  function showCurrent(elId, url) {
+    const el = $(elId);
+    if (url) { el.innerHTML = '<img src="' + esc(url) + '" alt="">Current image'; el.classList.remove('hidden'); }
+    else { el.innerHTML = ''; el.classList.add('hidden'); }
+  }
+
+  function resetForm() {
+    editingId = null; current = null; existing = [];
+    ['name','studio','location','size','architects','photo','desc'].forEach(id => $(id).value = '');
+    $('sketch').value = ''; $('color').value = '';
+    showCurrent('curSketch', null); showCurrent('curColor', null);
+    $('keepHint').classList.add('hidden');
+    $('cancelBtn').classList.add('hidden');
+    $('formTitle').textContent = 'Add new project';
+    $('saveBtn').textContent = 'Save project';
+    renderExisting();
+    $('galleryRows').innerHTML = ''; addGalleryRow();
+  }
+
+  function startEdit(p) {
+    resetForm();
+    editingId = p.id; current = p;
+    const info = p.info || {};
+    $('name').value = p.name || '';
+    $('studio').value = info.studio || '';
+    $('location').value = info.location || '';
+    $('size').value = info.size || '';
+    $('architects').value = info.architects || '';
+    $('photo').value = info.photo || '';
+    $('desc').value = info.description || '';
+    showCurrent('curSketch', p.sketch_url);
+    showCurrent('curColor', p.color_url);
+    $('keepHint').classList.remove('hidden');
+    existing = (p.gallery || []).map(g => ({ url: g.url, caption: g.caption || '' }));
+    renderExisting();
+    $('formTitle').textContent = 'Editing: ' + p.name;
+    $('saveBtn').textContent = 'Save changes';
+    $('cancelBtn').classList.remove('hidden');
+    say($('msg'), '');
+    $('formTitle').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  $('cancelBtn').onclick = () => { resetForm(); say($('msg'), ''); };
+
+  // existing gallery images (when editing): change caption, move, remove
+  function renderExisting() {
+    const box = $('existingRows');
+    box.innerHTML = '';
+    existing.forEach((g, i) => {
+      const row = document.createElement('div');
+      row.className = 'gal-row';
+      row.innerHTML =
+        '<div class="gal-head">' +
+          '<img src="' + esc(g.url) + '" alt="">' +
+          '<div class="btns">' +
+            '<button type="button" class="secondary" data-act="up">↑</button>' +
+            '<button type="button" class="secondary" data-act="down">↓</button>' +
+            '<button type="button" class="danger" data-act="rm">Remove</button>' +
+          '</div>' +
+        '</div>' +
+        '<textarea rows="2" placeholder="Caption for this image"></textarea>';
+      const ta = row.querySelector('textarea');
+      ta.value = g.caption;
+      ta.addEventListener('input', () => { g.caption = ta.value; });
+      row.querySelector('.btns').addEventListener('click', e => {
+        const act = e.target.dataset.act;
+        if (act === 'up' && i > 0) [existing[i - 1], existing[i]] = [existing[i], existing[i - 1]];
+        else if (act === 'down' && i < existing.length - 1) [existing[i + 1], existing[i]] = [existing[i], existing[i + 1]];
+        else if (act === 'rm') existing.splice(i, 1);
+        else return;
+        renderExisting();
+      });
+      box.appendChild(row);
+    });
+  }
+
+  // new gallery images
+  function addGalleryRow() {
+    const div = document.createElement('div');
+    div.className = 'gal-row';
+    div.innerHTML =
+      '<input type="file" accept="image/*" class="g-file">' +
+      '<textarea class="g-cap" rows="2" placeholder="Caption for this image"></textarea>';
+    $('galleryRows').appendChild(div);
+  }
+  $('addRow').onclick = addGalleryRow;
+
+  // ---------- resize big gallery photos (keeps the site fast) ----------
+  function resizeToJpeg(file, maxSide = 1800, quality = 0.85) {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      const url = URL.createObjectURL(file);
+      img.onload = () => {
+        const scale = Math.min(1, maxSide / Math.max(img.width, img.height));
+        const c = document.createElement('canvas');
+        c.width = Math.round(img.width * scale);
+        c.height = Math.round(img.height * scale);
+        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        URL.revokeObjectURL(url);
+        c.toBlob(b => b ? resolve(b) : reject(new Error('Could not process ' + file.name)), 'image/jpeg', quality);
+      };
+      img.onerror = () => reject(new Error('Could not read ' + file.name));
+      img.src = url;
+    });
+  }
+
+  async function upload(fileOrBlob, originalName) {
+    const clean = originalName.replace(/[^a-zA-Z0-9._-]/g, '_');
+    const path = Date.now() + '-' + Math.random().toString(36).slice(2, 8) + '-' + clean;
+    const { error } = await sb.storage.from('projects').upload(path, fileOrBlob, {
+      contentType: fileOrBlob.type || undefined
+    });
+    if (error) throw error;
+    return sb.storage.from('projects').getPublicUrl(path).data.publicUrl;
+  }
+
+  // ---------- save (insert or update) ----------
+  $('saveBtn').onclick = async () => {
+    const btn = $('saveBtn');
+    const name = $('name').value.trim();
+    const sketchFile = $('sketch').files[0];
+    const colorFile = $('color').files[0];
+    const isEdit = editingId !== null;
+
+    if (!name) return say($('msg'), 'Enter the project name.', 'err');
+    if (!isEdit && !sketchFile) return say($('msg'), 'Choose the sketch image.', 'err');
+    if (!isEdit && !colorFile) return say($('msg'), 'Choose the color image.', 'err');
+
+    btn.disabled = true;
+    try {
+      let sketch_url = isEdit ? current.sketch_url : null;
+      let color_url = isEdit ? current.color_url : null;
+
+      if (sketchFile) { say($('msg'), 'Uploading sketch image...'); sketch_url = await upload(sketchFile, sketchFile.name); }
+      if (colorFile) { say($('msg'), 'Uploading color image...'); color_url = await upload(colorFile, colorFile.name); }
+
+      const gallery = existing.map(g => ({ url: g.url, caption: (g.caption || '').trim() }));
+      const rows = [...document.querySelectorAll('#galleryRows .gal-row')];
+      let n = 0;
+      for (const row of rows) {
+        const f = row.querySelector('.g-file').files[0];
+        if (!f) continue;
+        n++;
+        say($('msg'), 'Uploading gallery image ' + n + '...');
+        const small = await resizeToJpeg(f);
+        const url = await upload(small, f.name.replace(/\.[^.]+$/, '') + '.jpg');
+        gallery.push({ url, caption: row.querySelector('.g-cap').value.trim() });
+      }
+
+      const payload = {
+        name,
+        sketch_url,
+        color_url,
+        info: {
+          studio: $('studio').value.trim(),
+          location: $('location').value.trim(),
+          size: $('size').value.trim(),
+          architects: $('architects').value.trim(),
+          photo: $('photo').value.trim(),
+          description: $('desc').value.trim()
+        },
+        gallery
+      };
+
+      say($('msg'), 'Saving project...');
+      if (isEdit) {
+        const { data, error } = await sb.from('projects').update(payload).eq('id', editingId).select();
+        if (error) throw error;
+        if (!data || !data.length) throw new Error('Could not update. The update permission is missing in Supabase (see the SQL in the chat).');
+      } else {
+        const { error } = await sb.from('projects').insert(payload);
+        if (error) throw error;
+      }
+
+      resetForm();
+      say($('msg'), isEdit ? 'Changes saved.' : 'Project saved.', 'ok');
+      loadList();
+    } catch (e) {
+      say($('msg'), 'Error: ' + (e.message || e), 'err');
+    } finally {
+      btn.disabled = false;
+    }
+  };
+
+  resetForm();
+  refresh();
+</script>
+</body>
+</html>
