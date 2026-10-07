@@ -34,7 +34,7 @@ body{margin:0;font-family:'Outfit',sans-serif;background:#fff;color:#000;overflo
 .menu{display:flex;align-items:center;gap:35px}
 .menu a{color:#000;text-decoration:none;font-size:14px;white-space:nowrap}
 .menu a:hover{text-decoration:underline}
-.menu a.current{font-weight:600}
+.menu a.current{font-weight:400}
 .hamburger{display:none;font-size:28px;cursor:pointer;margin-left:auto}
 .menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;visibility:hidden;transition:.3s;z-index:10001}
 .side-menu{position:fixed;top:0;right:-100%;width:80%;height:100%;background:#fff;padding:80px 40px;display:flex;flex-direction:column;gap:45px;transition:.4s ease;z-index:10002}
@@ -77,6 +77,10 @@ body{margin:0;font-family:'Outfit',sans-serif;background:#fff;color:#000;overflo
 
 /* ===================== DESKTOP ===================== */
 @media (min-width:891px){
+    .grid-line{display:none}
+      body:not(.project-open)::before{content:"";position:fixed;top:var(--nav-h);bottom:0;left:0;right:0;pointer-events:none;z-index:5000;
+    background-image:var(--dash),var(--dash),var(--dash),var(--dash),var(--dash);background-repeat:no-repeat;background-size:1px 100%;
+    background-position:calc(var(--l1) - .5px) 0,calc(var(--l2) - .5px) 0,calc(var(--l3) - .5px) 0,calc(var(--l4) - .5px) 0,calc(var(--l5) - .5px) 0}
   .projects{display:flex;gap:var(--gap);height:100vh;padding:var(--nav-h) var(--pad) 0;align-items:center;overflow:hidden}
   .project-item{flex:0 0 var(--w);width:var(--w);height:372px;top:60px;z-index:2}
   .img-box{width:100%;height:170px}
@@ -109,13 +113,16 @@ body{margin:0;font-family:'Outfit',sans-serif;background:#fff;color:#000;overflo
   .desktop-active .mobile-project-details{display:block;position:absolute;left:28px;width:calc(var(--l2) - 56px);top:calc(.679*var(--c) + 58px);z-index:1001;animation:fade 1s ease .6s both}
   @media (max-height:800px){.project-info{font-size:13px;line-height:1.45}.project-info p{margin-bottom:5px}}
   /* right side: vertical gallery, scrolls between line 2 and line 5 */
-  .desktop-active .mobile-slider{display:flex;flex-direction:column;gap:48px;position:absolute;inset:0;z-index:1;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;
+    .desktop-active .mobile-slider{display:flex;flex-direction:column;gap:48px;position:absolute;inset:0;z-index:1002;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;
     padding:calc(.679*var(--c) + 22px) calc(100vw - var(--l5)) 0 var(--l2)}
+  .desktop-active .mobile-slider{pointer-events:none}
+  .desktop-active .slider-image,.desktop-active .similar-projects,.desktop-active .project-socials{pointer-events:auto}
   .mobile-slider::-webkit-scrollbar{display:none}
   .mobile-slider .slider-image{display:block;width:100%;height:auto;max-height:82vh;object-fit:contain}
   .slide-btn{display:none!important}
   .desktop-active .similar-projects{flex-shrink:0;width:100vw;margin:30px 0 0 calc(-1*var(--l2));padding:0 35px 40px;background:#fff}
   .desktop-active .project-socials{flex-shrink:0;width:100vw;margin-left:calc(-1*var(--l2))}
+    .desktop-active .similar-projects{position:relative;z-index:2;background:#fff;padding-top:30px}
 }
 
 /* ===================== MOBILE ===================== */
